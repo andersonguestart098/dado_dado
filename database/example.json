@@ -1,0 +1,62 @@
+{
+  "id1": {
+    "usuarios": {
+      "0": {
+        "user": "adm",
+        "pass": 123
+      },
+      "1": {
+        "user": "adm",
+        "pass": 123
+      }
+    }
+    },
+  "financeiro": {
+  "0": {
+    "id": 0,
+    "dataHora": "2022-09-12 13:18:00.000000",
+    "vendedor": "Marcia",
+    "nropedido": 615854,
+    "cliente": "SICRED",
+    "tipodefaturamento": "NORMAL",
+    "valordopedido": "R$26.654,09",
+    "formapgto": "BOLETO",
+    "retiraentrega": "ENTREGA",
+    "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
+    "localdecobranca": "EMPRESA",
+    "obs": "Entregar pela parte da manhã!",
+    "fretedestacado": "DESTACADO",
+    "valorfrete": "R$150,00",
+    "dataentrega": "2022-09-12",
+    "operadornf": "ROSI",
+    "statusnf": "EMITIDA",
+    "obsfinanceiro": "Julia liberou !",
+    "numeronf": 261898,
+    "exped": "LOG",
+    "quemrecebeu": "DIEIMES"
+  },
+  "1": {
+    "id": 1,
+    "dataHora": "2022-09-12 13:18:00.000000",
+    "vendedor": "Marcia",
+    "nropedido": 615854,
+    "cliente": "SICRED",
+    "tipodefaturamento": "NORMAL",
+    "valordopedido": "R$26.654,09",
+    "formapgto": "BOLETO",
+    "retiraentrega": "ENTREGA",
+    "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
+    "localdecobranca": "EMPRESA",
+    "obs": "Entregar pela parte da manhã!",
+    "fretedestacado": "DESTACADO",
+    "valorfrete": "R$150,00",
+    "dataentrega": "2022-09-12",
+    "operadornf": "ROSI",
+    "statusnf": "EMITIDA",
+    "obsfinanceiro": "Julia liberou !",
+    "numeronf": 261898,
+    "exped": "LOG",
+    "quemrecebeu": "DIEIMES"
+  }
+}
+}

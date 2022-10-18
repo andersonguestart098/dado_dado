@@ -1,23 +1,195 @@
-<tr style="width:200px" class='$cordaLinha'>
-<td colspan='0.5' id='valor_id$id'>$id</td>
-<td id='valor_datahora$id'><input type='hidden' id='datahora_text$id' value='$datahora'>$datahora</td>
-<td id='valor_vendedor$id'>$vendedor</td>
-<td id='valor_nropedido$id'>$nropedido</td>
-<td id='valor_cliente$id'>$cliente</td>
-<td id='valor_tipodefaturamento$id'>$tipodefaturamento</td>
-<td id='valor_valordopedido$id'>$valordopedido</td>
-<td id='valor_formapgto$id'>$formapgto</td>
-<td id='valor_retiraentrega$id'>$retiraentrega</td>
-<td id='valor_localdaentrega$id'>$localdaentrega</td>
-<td id='valor_localdecobranca$id'>$localdecobranca</td>
-<td id='valor_obs1$id'>$obs1</td>
-<td id='valor_fretedestacado$id'>$fretedestacado</td>
-<td id='valor_valorfrete$id'>$valorfrete</td>
-<td id='valor_dataentrega$id'>$dataentrega</td>
-<td id='valor_operadornf$id'><select name='operador' id='operador$id'><option value='ROSI'>ROSI</option><option value='APRENDIZ'>APRENDIZ</option></select><p onclick='make(this,operador$id,$id)' id='Pvalor_operador$id'>$operadornf</p></td>
-<td id='valor_statusnf$id'><select name='coisa' id='coisa$id'><option value='PENDENTE'>PENDENTE</option><option value='EMITIDA'>EMITIDA</option><option value='RETORNOU AO VENDEDOR'>RETORNOU AO VENDEDOR</option><option value='CANCELADA'>CANCELADA</option></select><p onclick='make(this,coisa$id,$id)' id='Pvalor_coisa$id'>$statusnf</p></td>
-<td id='valor_obs2$id'><input type='text' id='obs2_text$id' value='$obs2'><p onclick='make(this,obs2_text$id,$id)' id='Pvalor_obs2$id'>$obs2</p></td>
-<td id='valor_numeronf$id'><input type='text' id='numeronf_text$id' value='$numeronf'><p onclick='make(this,numeronf_text$id,$id)' id='Pvalor_numeronf$id'>$numeronf</p></td>
-<td id='valor_exped$id'><select name='exped' id='exped$id'><option value='EXPED.1'>EXPED.1</option><option value='EXPED.2'>EXPED.2</option><option value='LOGÍSTICA'>LOGÍSTICA</option> </select><p onclick='make(this,exped$id,$id)' id='Pvalor_exped$id'>$exped</p></td>
-<td id='valor_quemrecebeu$id'><select name='quem' id='quem$id'><option value='MAX'>MAX</option><option value='DUDU'>DUDU</option><option value='TINGA'>TINGA</option> <option value='CRISTIANO DUARTE'>CRISTIANO DUARTE</option> <option value='MANOEL'>MANOEL</option> <option value='DIEIMES'>DIEIMES</option> </select><p onclick='make(this,quem$id,$id)' id='Pvalor_quemrecebeu$id'>$quemrecebeu</p></td>
-</tr>
+<% for( i= Object.keys(dados[pegar]).length-1; i > -1; i--) { %>
+        <%- include('data'); %>
+<% } %>
+<style>
+  select, input {
+   display: none;
+  }
+</style>
+<script>
+  function make(a,b){
+    a.style.display='none'
+    b.style.display='flex'
+}
+</script>
+<script> 
+function autoreflash(a,b) {
+fetch('https://projeto.andersonhenri15.repl.co/database')
+.then(data => {
+return data.json();
+})
+.then(post => {
+    let obj = post
+    let valor = a.value
+    let pegar = "<%= pegar %>"
+    let swi = a.id.split("X")
+    let index = swi[1]
+    let target = swi[0]
+    switch(target) {
+      case "quem":
+        obj[pegar][index].quemrecebeu = valor
+        break
+        
+      case "exped":
+        obj[pegar][index].exped = valor
+        break
+        
+      case "numeronf_text":
+        obj[pegar][index].numeronf= valor
+        break
+                
+      case "obs2_text":
+        obj[pegar][index].obsfinanceiro= valor
+        break
+        
+      case "coisa":
+        obj[pegar][index].statusnf= valor
+        break
+
+      case "statusDep":
+        obj[pegar][index].statusdep= valor
+        break
+        
+      case "operador":
+        obj[pegar][index].operadornf= valor
+        break 
+    }
+  console.log(obj[pegar][index].numeronf)
+  fetch('https://projeto.andersonhenri15.repl.co/registrarBancoDados', {
+    method: "POST",
+    body: JSON.stringify(obj, null, 2),
+    headers: {"Content-type": "text/plain; charset=UTF-8"}
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){ 
+    a.style.display='none'
+    console.log(a.id)
+    b.style.display='flex'
+    console.log(b.id)
+    alert( data.msg ) 
+  })
+})
+  }
+</script>
+  <script>
+    let pegar = "<%= pegar %>"
+    colorir(pegar)
+    function colorir(c) {
+    let count = document.querySelectorAll(".orientador").length
+    console.log(count)
+    let query
+    for(let i=count-1; i > -1; i--) {
+    switch(c) {
+      case "expedicao2":
+        query = "#PstatusDepX"+i
+        break
+      case "financeiro":
+        query = "#stNfX"+i
+        break
+      case "expedicao":
+        query = "#PstatusDepX"+i
+        break
+    }
+    let selects = document.querySelector(query)
+    
+    let corte
+    switch(selects.innerText) {
+      case "CLIENTE RETIROU":
+      case "EMITIDA":
+         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
+        corte.style.background ="rgb(102, 178, 102)"
+        corte.style.color ="rgb(255, 255, 255)"
+        break
+      case "PENDENTE":
+         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
+        corte.style.background ="rgb(255, 76, 76)"
+        corte.style.color ="rgb(255, 255, 255)"
+        break
+
+      case "RETORNOU AO VENDEDOR":
+      case "CANCELADA":
+         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
+        corte.style.background ="rgb(255, 165, 0)"
+        corte.style.color ="rgb(255, 255, 255)"
+        break
+    }
+      //document.querySelectorAll("td p")[0].style.color="red"
+    }
+  }
+
+function setData(post, pegar, i) {
+        
+    document.querySelector("#valor_datahoraX"+i).innerText = post[pegar][i].dataHora
+      
+    document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
+
+    document.querySelector("#Pvalor_numeronfX"+i).innerText = post[pegar][i].numeronf
+  
+    document.querySelector("#Pvalor_exped"+i).innerText = post[pegar][i].exped
+  
+   document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu 
+
+            //-------------------
+            //    FINANCEIRO
+            //-------------------
+    if(pegar == "expedicao2" || pegar == "expedicao") {
+  document.querySelector("#PstatusDepX"+i).innerText = post[pegar][i].statusdep
+    colorir(pegar)
+    }
+  
+    if(pegar == "financeiro") {    
+    document.querySelector("#stNfX"+i).innerText = post[pegar][i].statusnf
+    colorir(pegar)
+
+    document.querySelector("#valor_vendedorX"+i).innerText = post[pegar][i].vendedor
+      
+    document.querySelector("#valor_nropedidoX"+i).innerText = post[pegar][i].nropedido
+      
+    document.querySelector("#valor_clienteX"+i).innerText = post[pegar][i].cliente
+    document.querySelector("#valor_tipodefaturamentoX"+i).innerText = post[pegar][i].tipodefaturamento
+
+document.querySelector("#valor_valordopedidoX"+i).innerText = post[pegar][i].valordopedido
+
+    document.querySelector("#valor_formapgtoX"+i).innerText = post[pegar][i].formapgto
+   document.querySelector("#valor_retiraentregaX"+i).innerText = post[pegar][i].retiraentrega
+    document.querySelector("#valor_localdaentregaX"+i).innerText = post[pegar][i].localdaentrega
+    document.querySelector("#valor_localdecobrancaX"+i).innerText = post[pegar][i].localdecobranca
+      
+    document.querySelector("#valor_obs1X"+i).innerText = post[pegar][i].obs
+     document.querySelector("#valor_fretedestacadoX"+i).innerText = post[pegar][i].fretedestacado
+   
+    document.querySelector("#valor_valorfreteX"+i).innerText = post[pegar][i].valorfrete
+   
+    document.querySelector("#valor_dataentregaX"+i).innerText = post[pegar][i].dataentrega
+   
+    document.querySelector("#Pvalor_operadorX"+i).innerText = post[pegar][i].operadornf
+    
+    document.querySelector("#Pvalor_obs2X"+i).innerText = post[pegar][i].obsfinanceiro
+  
+  }
+}
+  
+let global_Up
+setInterval(() => {
+  fetch('https://projeto.andersonhenri15.repl.co/database')
+.then(data => {
+return data.json();
+})
+.then(post => {
+  let pegar = "<%= pegar %>"
+    if(global_Up == null) {
+      global_Up = post
+    }
+    let aux1 = [Object.keys(global_Up[pegar])[Object.keys(global_Up[pegar]).length - 1]]
+    let aux2 = [Object.keys(post[pegar])[Object.keys(post[pegar]).length - 1]]
+
+    for(let i= Object.keys(post[pegar]).length-1; i > -1; i--) {
+      if(aux2 > aux1 || aux2 < aux1){
+        window.location.reload();
+      }
+        setData(post, pegar, i)
+      }
+    })
+    console.log("PING")
+}, 5000)
+</script>

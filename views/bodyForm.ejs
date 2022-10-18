@@ -1,7 +1,3 @@
-<?php
-include_once "conexao.php";
-
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,7 +7,7 @@ include_once "conexao.php";
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>CEMEAR ENVIAR PEDIDOS></title>
 </head>
-<a href="home.php">VOLTAR AO HOME</a>
+<a href="home">VOLTAR AO HOME</a>
 <style>
           table{
             background-color:#fff5ea;
@@ -57,12 +53,12 @@ include_once "conexao.php";
   color: #1c5d8e;
         }
     </style>
-<body>
+<body onload="load()">
     <div class="container">
         <div class="row mt-4">
             <div class="col-lg-12">
-                <div>
-                    <h4>FORMULÁRIO EXPEDIÇÃO 1</h4>
+                <div> 
+                    <h4>FORMULÁRIO <%= titulo %></h4>
                 </div>
             </div>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cadUsuarioModal"> <!-- o nome cadModal é para não confundir com a aula do professor, mas no meu caso seria 'pedidoModal' pois trata-se de lançamento de pedidos e não de usuarios. -->
@@ -87,41 +83,300 @@ include_once "conexao.php";
        </div>
         <div class="modal-body">
           <form id="cad-usuario-form"> <!-- este seletor será usado no java script (o javascript que vai receber estes dados)-->
-        <div class="mb-3"> 
-            <label for="datahora" class="col-form-label">REGISTRO</label>
-            <input type="datetime-local" name="datahora" class="form-control" id="datahora" autocomplete="on">
-        </div>
-        <div class="mb-3">
-        <div class="mb-3">
-        <label for="numeronf" class="col-form-label">NÚMERO NF:</label> 
-            <input type="text"  name="numeronf" class="form-control" id="numeronf" value="..." placeholder="Preencha o número da nota...">
-          </div>
-          <br>
-          <div class="mb-3">
-          <select name="exped" id="exped" value="EXPED.1">
-            <option value="EXPED.2">EXPED.1</option>
+
+        <% if(pegar == "financeiro") { %>
+        
+          <label for="datahora" class="col-form-label">Registro:                 </label>
+            <br>
+            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
+
+                    <label for="vendedor" class="col-form-label">Vendedor:                 </label> 
+            <br>
+          <select name="vendedor" id="vendedor">
+            <option value=" "> </option>
+            <option value="FERNANDO">FERNANDO</option>
           </select>
-          <BR></BR>
-          <div class="mb-3">
-          <label for="quemrecebeu" class="col-form-label">SELECIONE O RESPONSÁVEL PELA NOTA FISCAL:</label>
-          <BR>
-          <select name="quemrecebeu" id="quemrecebeu" value="quemrecebeu">
-            <option value="MAX">MAX</option>
-            <option value="DUDU">DUDU</option>
-            <option value="TINGA">TINGA</option>
+            
+<br
+    <label for="nropedido" class="col-formlabel">nropedido:</label> 
+            <br>
+          <input type="text"  name="nropedido" class="form-control" id="nropedido" placeholder="Preencha o número do pedido">
+            <br>
+
+
+    <label for="cliente" class="col-formlabel">Cliente:</label> 
+            <br>
+          <input type="text"  name="cliente" class="form-control" id="cliente">
+            <br>
+
+          <label for="tipodefaturamento" class="col-form-label">tipodefaturamento:</label>
+            <br>
+          <select name="tipodefaturamento" id="tipodefaturamento">
+            <option value=" "> </option>
+            <option value="NORMAL">NORMAL</option>
+            <option value="REMESSA FUTURA">REMESSA FUTURA</option>
+            <option value="REMESSA TRANSPORTE">REMESSA TRANSPORTE</option>
           </select>
-          <BR></BR>
-          <label for="statusdep" class="col-form-label">SELECIONE O STATUS DA NOTA FISCAL:</label>
-          <BR>
-          <div class="mb-3">
+
+    <label for="valordopedido" class="col-formlabel">Valor do pedido:</label> 
+            <br>
+          <input type="text"  name="valordopedido" class="form-control" id="valorPedido">
+            <br>
+
+                      <br>
+      <label for="formapgto" class="col-form-label">Forma de Pagamento:</label>
+          <select name="formapgto" id="formapgto">
+            <option value=" "> </option>
+            <option value="DINHEIRO">DINHEIRO</option>
+            <option value="CARTÃO DEBITO">CARTÃO DEBITO</option>
+            <option value="CARTÃO CRÉDITO">CARTÃO CRÉDITO</option>
+          </select>
+
+                      <br>
+      <label for="retiraentrega" class="col-form-label">Forma de Pagamento:</label>
+          <select name="retiraentrega" id="retiraentrega">
+            <option value=" "> </option>
+            <option value="RETIRA">DINHEIRO</option>
+            <option value="ENTREGA">CARTÃO DEBITO</option>
+            <option value="TRANSPORTADORA">CARTÃO CRÉDITO</option>
+          </select>
+          
+            <label for="localdaentrega" class="col-formlabel">Local da Entrega:</label> 
+            <br>
+          <input type="text"  name="localdaentrega" class="form-control" id="localdaentrega">
+            <br>
+        
+      <label for="localdecobranca" class="col-form-label">Local de Cobrança:</label>
+          <select name="localdecobranca" id="localdecobranca">
+            <option value=" "> </option>
+            <option value="EMPRESA">EMPRESA</option>
+            <option value="SALA DE VENDAS">SALA DE VENDAS</option>
+            <option value="COBRAR NA ENTREGA">COBRAR NA ENTREGA</option>
+          </select>
+          
+                    <label for="obs" class="col-formlabel">Observações</label> 
+            <br>
+          <input type="text"  name="obs" class="form-control" id="obs">
+            <br>
+                
+      <label for="fretedestacado" class="col-form-label">Local de Cobrança:</label>
+          <select name="fretedestacado" id="fretedestacado">
+            <option value=" "> </option>
+            <option value="DESTACADO">EMPRESA</option>
+            <option value="DILUIDO">DILUIDO</option>
+          </select>
+
+      <label for="valorfrete" class="col-formlabel">Valor Frete:            </label> 
+            <br>
+          <input type="text"  name="valorfrete" class="form-control" id="valorfrete">
+            <br>
+
+      <label for="dataentrega" class="col-formlabel">Data da Entrega:</label> 
+          <input type="datetime-local"  name="obs" class="form-control" id="dataEntrega">
+
+          
+             <br>
+          <input type="hidden"  name="operadornf" class="form-control" id="operadornf" value="ROSI">
+            <br>
+
+            <br>
+          <input type="hidden"  name="statusnf" class="form-control" id="statusnf" value="PENDENTE">
+
+          <input type="hidden"  name="obsfinanceiro" class="form-control" id="obsfinanceiro" value="...">
+            <br>
+
+            <br>
+          <input type="hidden"  name="numeronf" class="form-control" id="numeronf" value="...">
+            <br>
+
+
+           <br>
+          <input type="exped"  name="exped" class="form-control" id="exped" value="...">
+            <br>
+
+            <br>
+          <input type="quemrecebeu"  name="quemrecebeu" class="form-control" id="quemrecebeu" value="...">
+            <br>
+          
+        <% } %>
+
+        <% if(pegar == "expedicao" || pegar == "expedicao2") { %>
           <select name="statusdep" id="statusdep" value="AGUARDANDO CLIENTE">
+            <option value=" "> </option>
             <option value="AGUARDANDO CLIENTE">AGUARDANDO CLIENTE</option>
             <option value="AGUARDANDO TRANSPORTADORA">AGUARDANDO TRANSPORTADORA</option>
             <option value="CLIENTE RETIROU">CLIENTE RETIROU</option>
           </select>
+          <% } %>
+            
+          <% if(pegar == "logistica") { %>
+          <label for="datahora" class="col-form-label">Registro:                 </label>
+            <br>
+            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
+
+          <label for="quemrecebeu" class="col-form-label">Responsável           NF:</label>
+            <br>
+          <select name="quemrecebeu" id="quemrecebeu" value="quemrecebeu">
+            <option value=" "> </option>
+            <option value="MAX">MAX</option>
+            <option value="DUDU">DUDU</option>
+            <option value="TINGA">TINGA</option>
+          </select>
+
+          <label for="codentrega" class="col-form-label">Cód. Entrega</label>
+          <br>
+          <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
+            <br>
+
+          <div class="mb-3">
+            <br>
+          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+            <br>
+          </div>
+          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+            <br>
+
+          <label for="exped" class="col-form-label">Setor:                 </label> 
+            <br>
+          <select name="exped" id="exped">
+            <option value=" "> </option>
+            <option value="LOG">LOG</option>
+          </select>
+            <br>
+            
+          <label for="motorista" class="col-form-label">Motorista:                 </label>
+              <br>
+          <select name="motorista" id="motorista">
+            <option value=" "> </option>
+            <option value="JULIANO">MAX</option>
+            <option value="DOUGLAS">DUDU</option>
+            <option value="MATHEUS">TINGA</option>
+          </select>
+              <br>
+
+          <label for="placa" class="col-form-label">Placa:                 </label>
+              <br>
+          <select name="placa" id="placa">
+            <option value=" "> </option>
+            <option value="BEE-4R22">BEE-4R22</option>
+          </select>
+              <br>
+
+          <label for="statuslog" class="col-form-label">Status Log:                 </label>
+              <br>
+              
+          <select name="statuslog" id="statuslog" value="AGUARDANDO ROTA">
+            <option value=" "> </option>
+            <option value="AGUARDANDO VENDEDOR">AGUARDANDO CLIENTE</option>
+            <option value="EM TRANSITO">AGUARDANDO TRANSPORTADORA</option>
+            <option value="ENTREGUE">CLIENTE RETIROU</option>
+          </select>
+                  
+          </label>
+            <br>
+            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
+          <% } %>
+
+            <% if(pegar == "saida") { %>
+
+          <label for="codentrega" class="col-form-label">Cód. Entrega</label>
+          <br>
+          <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
+            <br>
+
+          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+            <br>
+          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+            <br>
+
+          <label for="placa" class="col-form-label">Placa:                 </label>
+              <br>
+          <select name="placa" id="placa">
+            <option value=" "> </option>
+            <option value="BEE-4R22">BEE-4R22</option>
+          </select>
+              <br>
+
+     <label for="motorista" class="col-form-label">Motorista:                 </label>
+              <br>
+          <select name="motorista" id="motorista">
+            <option value=" "> </option>
+            <option value="JULIANO">JULIANO</option>
+            <option value="DOUGLAS">DOUGLAS</option>
+            <option value="MATHEUS">MATHEUS</option>
+          </select>
+              <br>
+
+          <label for="hodometro" class="col-form-label">Hodometro:                 </label> 
+            <br>
+          <input type="text"  name="hodometro" class="form-control" id="hodometro">
+            <br>
+
+            <% } %>
+
+            <% if(pegar == "retorno") { %>
+           </label>
+            <br>
+            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
+  
+            <label for="codentrega" class="col-form-label">Cód. Entrega:  </label>
+          <br>
+          <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
+            <br>
+ 
+          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+            <br>
+          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+            <br>
+
+          <label for="exped" class="col-form-label">Setor:                 </label> 
+            <br>
+          <select name="exped" id="exped">
+            <option value=" "> </option>
+            <option value="LOG">LOG</option>
+          </select>
+            <br>
+
+          <label for="hodometro" class="col-form-label">Hodometro:                 </label> 
+            <br>
+          <input type="text"  name="hodometro" class="form-control" id="hodometro">
+            <br>
+            <% } %>
+
+            <% if(pegar == "canhoto") { %>
+          <label for="quemrecebeu" class="col-form-label">Responsável           NF:</label>
+            <br>
+ 
+          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+            <br>
+          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+            <br>
+              
+
+
+          <label for="motorista" class="col-form-label">Motorista:                 </label>
+              <br>
+          <select name="motorista" id="motorista">
+            <option value=" "> </option>
+            <option value="JULIANO">JULIANO</option>
+            <option value="DOUGLAS">DOUGLAS</option>
+            <option value="MATHEUS">MATHEUS</option>
+          </select>
+              <br>
+
+          <label for="statuscanhoto" class="col-form-label">Status NF:</label>
+              <br>
+    
+            <select name="statuscanhoto" id="statuscanhoto" value="AGUARDANDO CLIENTE">
+            <option value=" "> </option>
+            <option value="CONCLUIDO">AGUARDANDO CLIENTE</option>
+          </select>
+ 
+              <% } %>
+              
           <BR></BR>
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button> <!-- isso era um type button virou um input -->     <!-- cuidar muito bem o posicionamento das DIV'S no FORM pois dá erro no javascript! foi motivo de alguma raiva passada hoje 31/08 kkkkk -->
-        <input type="submit" class="btn btn-outline-success"
+        <input onclick="clickEnviar(this)" class="btn btn-outline-success"
          id="cad-usuario-btn" value="Enviar" /> 
           </div>
         </form>
@@ -140,5 +395,123 @@ include_once "conexao.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="custom/custom.js"></script>
 </body>
+          
+<script>
+  let obj 
+  fetch('https://projeto.andersonhenri15.repl.co/database')
+.then(data => {
+return data.json();
+})
+.then(post => {
+    console.log(post)
+    /*fetch('https://projeto.andersonhenri15.repl.co/registrarBancoDados', {
+  method: "POST",
+  body: JSON.stringify(obj, null, 2),
+  headers: {"Content-type": "text/plain; charset=UTF-8"}
+})*/
+})
+  fetch('https://projeto.andersonhenri15.repl.co/database')
+  .then(data => {
+  return data.json();
+  })
+  .then(post => {
+      obj = post
+  })
+function clickEnviar(a) {
+  a.display = "none"
+  let pegar = "<%= pegar %>"
+  
+      let id = Object.keys(obj[pegar]).length
+      const d = new Date();
+      switch(pegar){
+        case "expedicao":
+          obj[pegar][id] = {
+          id: id,
+          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
+          numeronf: document.querySelector("#numeronf").value,
+          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value,
+          statusdep : document.querySelector("#statusdep").value
+          }
+          break
+        case "expedicao2":
+          obj[pegar][id] = {
+          id: id,
+          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
+          numeronf: document.querySelector("#numeronf").value,
+          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value,
+          statusdep : document.querySelector("#statusdep").value
+          }
+          break
+        case "financeiro":
+          obj[pegar][id] = {
+          id: id,
+          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
+          numeronf: document.querySelector("#numeronf").value,
+          exped : document.querySelector("#exped").value,              
+          quemrecebeu: document.querySelector("#quemrecebeu").value,
+          vendedor:  document.querySelector("#vendedor").value,
+          nropedido:  document.querySelector("#nropedido").value,
+          cliente:  document.querySelector("#cliente").value,
+          tipodefaturamento:  document.querySelector("#tipodefaturamento").value,
+          valordopedido:  document.querySelector("#valorPedido").value,
+          formapgto:  document.querySelector("#formapgto").value,
+          retiraentrega: document.querySelector("#retiraentrega").value,
+          localdaentrega: document.querySelector("#localdaentrega").value,
+          localdecobranca: document.querySelector("#localdecobranca").value,
+          obs: document.querySelector("#obs").value,
+          fretedestacado: document.querySelector("#fretedestacado").value,
+          valorfrete: document.querySelector("#valorfrete").value,
+          dataentrega: document.querySelector("#dataEntrega").value,
+          operadornf: document.querySelector("#operadornf").value,
+          statusnf: document.querySelector("#statusnf").value,
+          obsfinanceiro: document.querySelector("#obsfinanceiro").value
+          }
+          break
+        case "logistica":
+          obj[pegar][id] = {
+          id: id,
+          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
+          numeronf: document.querySelector("#numeronf").value,
+          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
+          }
+          break
+        case "saida":
+          obj[pegar][id] = {
+          id: id,
+          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
+          numeronf: document.querySelector("#numeronf").value,
+          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
+          }
+          break
+        case "retorno":
+          obj[pegar][id] = {
+          id: id,
+          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
+          numeronf: document.querySelector("#numeronf").value,
+          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
+          }
+          break
+        case "canhoto":
+          obj[pegar][id] = {
+          id: id,
+          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
+          numeronf: document.querySelector("#numeronf").value,
+          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
+          }
+          break
+
+      }
+    fetch('https://projeto.andersonhenri15.repl.co/registrarBancoDados', {
+    method: "POST",
+    body: JSON.stringify(obj, null, 2),
+    headers: {"Content-type": "text/plain; charset=UTF-8",}
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){ 
+    a.display = "flex"
+    alert( data.msg ) 
+  })
+  }
+</script>
 
 </html>

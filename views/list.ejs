@@ -2,6 +2,7 @@
 <thead style="font-size: 10px;">
         <th>ID</th>
         <th>Registro</th>
+  <% if(pegar == "financeiro") { %>
         <th>Vendedor</th>
         <th>Orçamento</th>
         <th>Cliente</th>
@@ -18,10 +19,49 @@
         <th>Operador|NF</th>
         <th>Status|NF</th>
         <th>OBS|Financeiro</th>
+    <% } %>
         <th>Número|NF</th>
         <th>Exped/Log</th>
+      <% if(pegar != "saida") { %>
         <th>Responsável|NF</th>
+      <% } %>
+      <% if(pegar == "expedicao2" || pegar == "expedicao") { %>
+        <th>StatusDep</th>
+      <% } %>
+
+      <% if(pegar == "logistica") { %>
+      <th>Motorista</th>
+      <% } %>
+
+      <% if(pegar == "logistica") { %>
+      <th>Placa</th>
+      <% } %>
+
+      <% if(pegar == "logistica") { %>
+      <th>Status LOG</th>
+      <% } %>
+
+      <% if(pegar == "saida") { %>
+        <th>Cod. Entrega</th>
+      <% } %>
+
+      <% if(pegar == "saida") { %>
+        <th>Placa</th>
+      <% } %>
+
+      <% if(pegar == "saida") { %>
+        <th>Motorista</th>
+      <% } %>
+
+      <% if(pegar == "saida") { %>
+        <th>Hodometro</th>
+
+      <% } %>
+        
+
+ 
+      
+        
     </tr>
   <%- include('listDados'); %>
 </thead>
-</table>

@@ -84,36 +84,7 @@ function criar(){
 
 let limitador = [true,true,true,true,true,true]
 
-function make(a,b,c){
-    window.ids=c
-  
-      a.style.display='none'
 
-    b.style.display='flex'
-
-    switch(a.id){
-        case 'Pvalor_operador'+c:
-            limitador[0] = false
-            break
-        case 'Pvalor_coisa'+c:
-            limitador[1] = false
-            break
-            case 'Pvalor_obs2'+c:
-                limitador[2] = false
-                break
-            case 'Pvalor_numeronf'+c:
-                limitador[3] = false
-                break
-                case 'Pvalor_exped'+c:
-                    limitador[4] = false
-                    break
-                case 'Pvalor_quemrecebeu'+c:
-                    limitador[5] = false
-                    break
-    }
-    identificareditar = true
-
-}
 
 async function edit(){
     if(identificareditar){
