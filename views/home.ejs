@@ -233,31 +233,23 @@ h3 {
 	text-decoration: none;
 	}
 	
-#mainnav {background: whitesmoke;
-	color: lightblue;
-	padding: 15px 0;
-	margin-bottom: 25px;
- }
- 
- #mainnav ul {
-	margin: 0 0 0 20px;
-	padding: 0;
-	list-style-type: none;
-	border-left: 1px solid #C4C769;
-	}
+/*
+* display: table;
+* text-decoration: none;
+* display: grid
+*/
 
-#mainnav li {
-	display: inline;
-	padding: 0 10px;
-	border-right: 1px black;
-	}
 
-#mainnav li a {
+#menuzinho li a {
 	text-decoration: none;
 	color: whitesmoke;
+  display: table;
+  align-items: center;
+  
+  
 	}
 
-#mainnav li a:hover {
+#menuzinho li a:hover {
 	text-decoration: none;
 	color: blue;
 	background-color: gray;
@@ -328,7 +320,7 @@ h3 {
 <a href="https://projeto.andersonhenri15.repl.co/logout">Sair</a> 
 <body>
 <h1>Bem-vindo(a) <u><%= nome %> !</u></h1>
-<div id="container">
+<main id="container">
 	<div id="header">
 	    <img src="https://lh4.googleusercontent.com/WOPltOha91A-nNRd_bALyuTn3TyhNavlsOt-fRuSKNAPB82KMewZFotBnQ4O1SoZqsfbnHlPO03FMo3iyGBBNbY" alt="180" width="180" height="40px">
 		<div id="skipmenu">
@@ -336,19 +328,19 @@ h3 {
 		</div>  		
 		<h1>SISTEMA</h1>
 	</div>
-	<div id="mainnav">
-		<ul>  			
+	<nav id="menuzinho">
+		<ul>	
             <li><a href="https://projeto.andersonhenri15.repl.co/financeiro">TABELA FINANCEIRO</a></li>
             <li><a href="https://projeto.andersonhenri15.repl.co/expedicao">TABELA EXPEDIÇÃO 1 </a></li>
             <li><a href="https://projeto.andersonhenri15.repl.co/expedicao2">TABELA EXPEDIÇÃO 2</a></li>
        <li><a href="https://projeto.andersonhenri15.repl.co/logistica">TABELA LOGISTICA</a></li>
              <li><a href="https://projeto.andersonhenri15.repl.co/saida">TABELA SAÍDA</a></li>
-                   <li><a href="https://projeto.andersonhenri15.repl.co/retorno">TABELA RETORNO</a></li>
+            <li><a href="https://projeto.andersonhenri15.repl.co/retorno">TABELA RETORNO</a></li>
             <li><a href="https://projeto.andersonhenri15.repl.co/logistica">TABELA LOGÍSTICA</a></li>
 			<li><a href="https://projeto.andersonhenri15.repl.co/saida">TABELA SAÍDA CAMINHÃO</a></li>
 			<li><a href="https://projeto.andersonhenri15.repl.co/retorno">TABELA RETORNO</a></li>	
 		</ul>  
-	</div>
+	</nav>
 	<div id="menu">
 		<h3>FORMULÁRIOS</h3>  		
 		<ul>  			
@@ -376,7 +368,7 @@ h3 {
 	<div id="footer">
 		Copyright © CEMEAR 2022
 	</div>
-</div>
+</main>
 <script>
   function login() {
     

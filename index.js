@@ -5,7 +5,6 @@ const cors = require('cors');
 const cookieParser = require("cookie-parser")
 let bcrypt = require('bcryptjs');
 let mysql = require('mysql');
-let fetch = require('node-fetch');
 
 let app = express()
 
@@ -21,13 +20,13 @@ let objConvertidoCristao = {
   }
 }
 
-let con = mysql.createPool({
+/*let con = mysql.createPool({
   host: "remotemysql.com",
   user: "x34865z4yQ",
   password: "cP182dZwxP",
   database: "x34865z4yQ",
   connectionLimit: 1000
-});
+});*/
 
 fs.readFile("./database/example.json", "utf8", function(err, data) {
   if (err) {
@@ -40,7 +39,6 @@ fs.readFile("./database/example.json", "utf8", function(err, data) {
 })
 
 
-      //
 //*/
 //DATABASE INIT
 
@@ -250,211 +248,133 @@ app.get("/canhotoformulario", (req, res) => {
  *-------------------------------
  */
 
-app.get("/financeiro", (req, res) => {
+app.get("/financeiro", (req, res, next) => {
   for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if(req.cookies.login == null){
-      res.render("pageError.ejs")
-    }else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-    pegarDados = JSON.parse(data)
-    res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pegarDados, i: 0})
-      })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-    pegarDados = JSON.parse(data)
-    res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pegarDados, i: 0})
-      })
-  }
-  }
+  let password = pass.id1.usuarios[i].pass
+  if(req.cookies.login != null || req.cookies.superUser != null){
     
+    if (req.cookies.login == password) {
+      res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pass, i: 0})
+      
+    }else if (req.cookies.superUser == password) {
+      res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pass, i: 0})
+      
+      }
+    }else {
+      res.render("pageError.ejs")
+    }
+  }
 })
 
 app.get("/expedicao2", (req, res) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if(req.cookies.login == null){
-      res.render("pageError.ejs")
-    }else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDICAO 2", dados: pegarDados, superUser: "yes" })
-    })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDICAO 2", dados: pegarDados, superUser: "yes" })
-    })
-  }
-  }
-    //pageError
+for(let i = 0; i <= Object.keys(pass).length-1; i++) {
+  let password = pass.id1.usuarios[i].pass
+  if(req.cookies.login != null || req.cookies.superUser != null){
     
+    if (req.cookies.login == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDICAO 2", dados: pass, superUser: "yes" })
+    }else if (req.cookies.superUser == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDICAO 2", dados: pass, superUser: "yes" })
+      }
+    }else {
+      res.render("pageError.ejs")
+      }
+  }
 })
 
 app.get("/expedicao", (req, res) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if(req.cookies.login == null){
+
+    for(let i = 0; i <= Object.keys(pass).length-1; i++) {
+  let password = pass.id1.usuarios[i].pass
+  if(req.cookies.login != null || req.cookies.superUser != null){
+    
+    if (req.cookies.login == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: pass, i: 0, superUser: "yes" })
+    }else if (req.cookies.superUser == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: pass, i: 0, superUser: "yes" })
+      }
+    }else {
       res.render("pageError.ejs")
-    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: pegarDados, i: 0, superUser: "yes" })
-    })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: pegarDados, i: 0, superUser: "yes" })
-    })
+    }
   }
-  }
-    //pageError
-  
 })
 
 app.get("/logistica", (req, res) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if(req.cookies.login == null){
-      res.render("pageError.ejs")
-    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: pegarDados, i: 0, superUser: "yes" })
-    })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: pegarDados, i: 0, superUser: "yes" })
-    })
-  }
-  }
-    //pageError
   
+for(let i = 0; i <= Object.keys(pass).length-1; i++) {
+  let password = pass.id1.usuarios[i].pass
+  if(req.cookies.login != null || req.cookies.superUser != null){
+    
+    if (req.cookies.login == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: pass, i: 0, superUser: "yes" })
+    }else if (req.cookies.superUser == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: pass, i: 0, superUser: "yes" })
+      }
+    }else {
+      res.render("pageError.ejs")
+    }
+  }
 })
 
 app.get("/saida", (req, res) => {
   for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if(req.cookies.login == null){
+  let password = pass.id1.usuarios[i].pass
+  if(req.cookies.login != null || req.cookies.superUser != null){
+    
+    if (req.cookies.login == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "saida", titulo: "SAIDA", dados: pass, i: 0, superUser: "yes" })
+    }else if (req.cookies.superUser == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "saida", titulo: "SAIDA", dados: pass, i: 0, superUser: "yes" })
+      }
+    }else {
       res.render("pageError.ejs")
-    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "saida", titulo: "SAIDA", dados: pegarDados, i: 0, superUser: "yes" })
-    })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "saida", titulo: "SAIDA", dados: pegarDados, i: 0, superUser: "yes" })
-    })
+    }
   }
-  }
-    //pageError
-  
-
 })
 
 app.get("/retorno", (req, res) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if(req.cookies.login == null){
+for(let i = 0; i <= Object.keys(pass).length-1; i++) {
+  let password = pass.id1.usuarios[i].pass
+  if(req.cookies.login != null || req.cookies.superUser != null){
+    
+    if (req.cookies.login == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "retorno", titulo: "RETORNO", dados: pass, i: 0, superUser: "yes" })
+    }else if (req.cookies.superUser == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "retorno", titulo: "RETORNO", dados: pass, i: 0, superUser: "yes" })
+      }
+    }else {
       res.render("pageError.ejs")
-    }else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "retorno", titulo: "RETORNO", dados: pegarDados, i: 0, superUser: "yes" })
-    })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "retorno", titulo: "RETORNO", dados: pegarDados, i: 0, superUser: "yes" })
-    })
+    }
   }
-  }
-  //pageError
-   
 })
 
 app.get("/canhoto", (req, res) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if(req.cookies.login == null){
+
+    for(let i = 0; i <= Object.keys(pass).length-1; i++) {
+  let password = pass.id1.usuarios[i].pass
+  if(req.cookies.login != null || req.cookies.superUser != null){
+    
+    if (req.cookies.login == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: pass, i: 0, superUser: "yes" })
+    }else if (req.cookies.superUser == password) {
+        //render
+        res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: pass, i: 0, superUser: "yes" })
+      }
+    }else {
       res.render("pageError.ejs")
-    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: pegarDados, i: 0, superUser: "yes" })
-    })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    //render
-    fs.readFile("./database/example.json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-
-      pegarDados = JSON.parse(data)
-      res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: pegarDados, i: 0, superUser: "yes" })
-    })
+    }
   }
-  }
-    //pageError
 })
 
 
@@ -498,7 +418,6 @@ app.post('/registrarBancoDados', (req, res) => {
 });
 
 app.get("/database", (req, res) => {
-  if (req.cookies.login == pass["0"].pass) {
   fs.readFile("./database/example.json", "utf8", function(err, data) {
     if (err) {
       return console.log("Erro ao ler arquivo")
@@ -506,11 +425,7 @@ app.get("/database", (req, res) => {
     pegarDados = JSON.parse(data)
     res.json(pegarDados)
   })
-}else {
-    res.render("pageError.ejs")
-    
-}})
-
+})
 /*
  *-------------------------------
  *
