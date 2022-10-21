@@ -102,14 +102,18 @@ return data.json();
         break
       case "PENDENTE":
          corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
-        corte.style.background ="rgb(255, 76, 76)"
+        corte.style.background ="rgb(255, 165, 0)"
         corte.style.color ="rgb(255, 255, 255)"
         break
 
       case "RETORNOU AO VENDEDOR":
+        corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
+        corte.style.background ="rgb(76, 76, 255)"
+        corte.style.color ="rgb(255, 255, 255)"
+        break
       case "CANCELADA":
          corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
-        corte.style.background ="rgb(255, 165, 0)"
+        corte.style.background ="rgb(255, 76, 76)"
         corte.style.color ="rgb(255, 255, 255)"
         break
     }
@@ -128,7 +132,7 @@ function setData(post, pegar, i) {
     document.querySelector("#Pvalor_exped"+i).innerText = post[pegar][i].exped
   
    document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu 
-
+  
             //-------------------
             //    FINANCEIRO
             //-------------------

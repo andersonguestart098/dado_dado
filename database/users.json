@@ -1,72 +1,185 @@
 {
   "id1": {
-    "usuarios": 
-      ["adm", "pass"]
+    "usuarios": {
+      "0": {
+        "nome": "Matheus",
+        "user": "adm",
+        "pass": "123"
+      },
+      "1": {
+        "user": "adm",
+        "pass": "123"
+      }
+    }
+  },
+  "comumDados": {
+    
+  },
+  "financeiro": {
+    "0": {
+      "id": 0,
+      "dataHora": "2022-09-12 13:18:00.000000",
+      "vendedor": "Marcia",
+      "nropedido": 615854,
+      "cliente": "SICRED",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$26.654,09",
+      "formapgto": "BOLETO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
+      "localdecobranca": "EMPRESA",
+      "obs": "Entregar pela parte da manhã!",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "R$150,00",
+      "dataentrega": "2022-09-12",
+      "operadornf": "ROSI",
+      "statusnf": "PENDENTE",
+      "obsfinanceiro": "Julia liberou !",
+      "numeronf": 261898,
+      "exped": "LOGÍSTICA",
+      "quemrecebeu": "TINGA"
     },
-  "finaceiro": {
-  "id2": {
-    "dataHora": "2022-09-12 13:18:00.000000",
-    "vendedor": "Marcia",
-    "nropedido": 615854,
-    "cliente": "SICRED",
-    "tipodefaturamento": "NORMAL",
-    "valordopedido": "R$26.654,09",
-    "formapgto": "BOLETO",
-    "retiraentrega": "ENTREGA",
-    "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
-    "localdecobranca": "EMPRESA",
-    "obs": "Entregar pela parte da manhã!",
-    "fretedestacado": "DESTACADO",
-    "valorfrete": "R$150,00",
-    "dataentrega": "2022-09-12",
-    "operadornf": "ROSI",
-    "statusnf": "EMITIDA",
-    "obsfinanceiro": "Julia liberou !",
-    "numeronf": 261898,
-    "exped": "LOG",
-    "quemrecebeu": "DIEIMES"
-  }
+    "1": {
+      "id": 1,
+      "dataHora": "2022-09-12 13:18:00.000000",
+      "vendedor": "Marcia",
+      "nropedido": 615854,
+      "cliente": "SICRED",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$26.654,09",
+      "formapgto": "BOLETO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
+      "localdecobranca": "EMPRESA",
+      "obs": "Entregar pela parte da manhã!",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "R$150,00",
+      "dataentrega": "2022-09-12",
+      "operadornf": "ROSI",
+      "statusnf": "RETORNOU AO VENDEDOR",
+      "obsfinanceiro": "Julia liberou !",
+      "numeronf": 261898,
+      "exped": "EXPED.2",
+      "quemrecebeu": "DIEIMES"
+    },
+    "2": {
+      "id": 2,
+      "dataHora": "2022-09-12 13:18:00.000000",
+      "vendedor": "Marcia",
+      "nropedido": 615854,
+      "cliente": "SICRED",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$26.654,09",
+      "formapgto": "BOLETO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
+      "localdecobranca": "EMPRESA",
+      "obs": "Entregar pela parte da manhã!",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "R$150,00",
+      "dataentrega": "2022-09-12",
+      "operadornf": "ROSI",
+      "statusnf": "PENDENTE",
+      "obsfinanceiro": "Julia liberou !",
+      "numeronf": 261898,
+      "exped": "LOGÍSTICA",
+      "quemrecebeu": "TINGA"
+    },
+    "3": {
+      "id": 3,
+      "dataHora": "2022-09-12 13:18:00.000000",
+      "vendedor": "Marcia",
+      "nropedido": 615854,
+      "cliente": "SICRED",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$26.654,09",
+      "formapgto": "BOLETO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
+      "localdecobranca": "EMPRESA",
+      "obs": "Entregar pela parte da manhã!",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "R$150,00",
+      "dataentrega": "2022-09-12",
+      "operadornf": "ROSI",
+      "statusnf": "CANCELADA",
+      "obsfinanceiro": "Julia liberou !",
+      "numeronf": 261898,
+      "exped": "EXPED.2",
+      "quemrecebeu": "DUDU"
+    }
   },
   "expedicao": {
-    "id3": {
-    "dataHora": "2022-09-12 13:18:00.000000",
-    "numeronf": 261898,
-    "exped": "EXPED.1",
-    "quemrecebeu": "MAX",
-    "statusdep": "CLIENTE RETIROU"
-      
+    "0": {
+      "id": 0,
+      "dataHora": "2022-09-12 13:18:00.000000",
+      "numeronf": 261898,
+      "exped": "EXPED.1",
+      "quemrecebeu": "MAX",
+      "statusdep": "CLIENTE RETIROU"
+    },
+    "1": {
+      "id": 1,
+      "dataHora": "16/9/2022 21:12",
+      "numeronf": "34324324234",
+      "exped": "EXPED.2",
+      "quemrecebeu": "MAX",
+      "statusdep": "AGUARDANDO TRANSPORTADORA"
+    }
   },
-    "id4": {
-    "dataHora": "2022-09-21 23:05:14.000000",
-    "numeronf": 261899,
-    "exped": "EXPED.2",
-    "quemrecebeu": "MANOEL",
-    "statusdep": "AGUARDANDO CLIENTE"  
-  }},
-  "logistica":  {"id5": {
-    "dataHora": "2022-09-21 23:25:28.000000",
-    "codentrega": 255448,
-    "numeronf": 261900,
-    "exped": "LOG",
-    "motorista": "VANDERLEI",
-    "placa": "BEE-4R22",
-    "statuslog": "ENTREGUE"
-  }},
-    "id6": {
-    "dataHora": "2022-09-25 18:14:58.000000",
-    "codentrega": 255448,
-    "numeronf": 261900,
-    "placa": "BEE-4R2",
-    "motorista": "VANDERLEI",
-    "hodometro": "651281233"
-      
+  "expedicao2": {
+    "0": {
+      "id": 0,
+      "dataHora": "2022-09-12 13:18:00.000000",
+      "numeronf": 261898,
+      "exped": "EXPED.1",
+      "quemrecebeu": "TINGA",
+      "statusdep": "CLIENTE RETIROU"
+    }
   },
-    "id7": {
-    "dataHora": "2022-09-25 18:14:58.000000",
-    "numeronf": 261900,
-    "codentrega": 255448,
-    "motorista": "VANDERLEI",  
-    "hodometro": "651281233"  
-      
+  "logistica": {
+    "0": {
+      "id": 2,
+      "dataHora": "2022-09-21 23:25:28.000000",
+      "quemrecebeu": "DIEIMES",
+      "codentrega": 255448,
+      "numeronf": 261900,
+      "exped": "LOG",
+      "motorista": "VANDERLEI",
+      "placa": "BEE-4R22",
+      "statuslog": "ENTREGUE"
+    }
+  },
+  "canhoto": {
+    "0": {
+      "id": 1,
+      "dataHora": "2022-09-21 23:25:28.000000",
+      "quemrecebeu": "Marcia",
+      "numeronf": 261900,
+      "exped": "LOG",
+      "motorista": "VANDERLEI",
+      "statuscanhoto": "ENTREGUE"
+    }
+  },
+  "saida": {
+    "0": {
+      "id": 1,
+      "dataHora": "2022-09-21 23:25:28.000000",
+      "codentrega": 255448,
+      "numeronf": 261900,
+      "placa": "BEE-4R22",
+      "motorista": "VANDERLEI",
+      "hodometro": "651281233"
+    },
+  "retorno": {
+    "0": {
+      "id": 1,
+      "dataHora": "2022-09-21 23:25:28.000000",
+      "codentrega": 255448,
+      "numeronf": 261900,
+      "exped": "LOG",
+      "hodometro": "652281233"
+    }
+  }
   }
 }

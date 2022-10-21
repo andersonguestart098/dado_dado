@@ -85,16 +85,28 @@
           <form id="cad-usuario-form"> <!-- este seletor será usado no java script (o javascript que vai receber estes dados)-->
 
         <% if(pegar == "financeiro") { %>
-        
-          <label for="datahora" class="col-form-label">Registro:                 </label>
-            <br>
-            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
 
                     <label for="vendedor" class="col-form-label">Vendedor:                 </label> 
             <br>
           <select name="vendedor" id="vendedor">
             <option value=" "> </option>
+            <option value="ALINE">ALINE</option>
+            <option value="MARCIA">MARCIA</option>
+            <option value="WAGNER">WAGNER</option>
+            <option value="GELSON">GELSON</option>
+            <option value="LUIS">LUIS</option>
             <option value="FERNANDO">FERNANDO</option>
+            <option value="EDUARDO">FERNANDO</option>
+            <option value="FAGUNDES">FERNANDO</option>
+            <option value="FAVRETTO">FERNANDO</option>
+            <option value="FERNANDA">FERNANDA</option>
+            <option value="GASPAR">GASPAR</option>
+            <option value="GILIARD">GILIARD</option>
+            <option value="GILMAR">GILMAR</option>
+            <option value="JONATHAS">JONATHAS</option>
+            <option value="KOZAK">KOZAK</option>
+            <option value="LEONARDO">LEONARDO</option>
+            <option value="SABINO">SABINO</option>
           </select>
             
 <br
@@ -118,55 +130,60 @@
             <option value="REMESSA TRANSPORTE">REMESSA TRANSPORTE</option>
           </select>
 
+            <br>
     <label for="valordopedido" class="col-formlabel">Valor do pedido:</label> 
             <br>
           <input type="text"  name="valordopedido" class="form-control" id="valorPedido">
             <br>
-
-                      <br>
       <label for="formapgto" class="col-form-label">Forma de Pagamento:</label>
+          <br>
           <select name="formapgto" id="formapgto">
             <option value=" "> </option>
+            <option value="BOLETO">BOLETO</option>
             <option value="DINHEIRO">DINHEIRO</option>
             <option value="CARTÃO DEBITO">CARTÃO DEBITO</option>
             <option value="CARTÃO CRÉDITO">CARTÃO CRÉDITO</option>
           </select>
-
                       <br>
-      <label for="retiraentrega" class="col-form-label">Forma de Pagamento:</label>
+      <label for="retiraentrega" class="col-form-label">Retira, entrega ou transp. ?</label>
+          <br>
           <select name="retiraentrega" id="retiraentrega">
             <option value=" "> </option>
-            <option value="RETIRA">DINHEIRO</option>
-            <option value="ENTREGA">CARTÃO DEBITO</option>
-            <option value="TRANSPORTADORA">CARTÃO CRÉDITO</option>
+            <option value="RETIRA">RETIRA</option>
+            <option value="ENTREGA">ENTREGA</option>
+            <option value="TRANSPORTADORA">TRANSPORTADORA</option>
           </select>
+          <br>
           
             <label for="localdaentrega" class="col-formlabel">Local da Entrega:</label> 
             <br>
           <input type="text"  name="localdaentrega" class="form-control" id="localdaentrega">
             <br>
-        
+
       <label for="localdecobranca" class="col-form-label">Local de Cobrança:</label>
+          <br>
           <select name="localdecobranca" id="localdecobranca">
             <option value=" "> </option>
             <option value="EMPRESA">EMPRESA</option>
             <option value="SALA DE VENDAS">SALA DE VENDAS</option>
             <option value="COBRAR NA ENTREGA">COBRAR NA ENTREGA</option>
           </select>
-          
-                    <label for="obs" class="col-formlabel">Observações</label> 
+          <br>
+      <label for="obs" class="col-formlabel">Observações:</label> 
             <br>
           <input type="text"  name="obs" class="form-control" id="obs">
             <br>
                 
-      <label for="fretedestacado" class="col-form-label">Local de Cobrança:</label>
+      <label for="fretedestacado" class="col-form-label">Tpo de Frete:</label>
+            <br>
           <select name="fretedestacado" id="fretedestacado">
             <option value=" "> </option>
-            <option value="DESTACADO">EMPRESA</option>
+            <option value="DESTACADO">DESTACADO</option>
             <option value="DILUIDO">DILUIDO</option>
           </select>
+          <br>
 
-      <label for="valorfrete" class="col-formlabel">Valor Frete:            </label> 
+      <label for="valorfrete" class="col-formlabel">Valor Frete:</label> 
             <br>
           <input type="text"  name="valorfrete" class="form-control" id="valorfrete">
             <br>
@@ -175,32 +192,27 @@
           <input type="datetime-local"  name="obs" class="form-control" id="dataEntrega">
 
           
-             <br>
+           
           <input type="hidden"  name="operadornf" class="form-control" id="operadornf" value="ROSI">
-            <br>
+           
 
-            <br>
+           
           <input type="hidden"  name="statusnf" class="form-control" id="statusnf" value="PENDENTE">
 
           <input type="hidden"  name="obsfinanceiro" class="form-control" id="obsfinanceiro" value="...">
-            <br>
-
-            <br>
+         
           <input type="hidden"  name="numeronf" class="form-control" id="numeronf" value="...">
-            <br>
+            
 
+          <input type="hidden"  name="exped" class="form-control" id="exped" value="...">
+          
 
-           <br>
-          <input type="exped"  name="exped" class="form-control" id="exped" value="...">
-            <br>
+          <input type="hidden"  name="quemrecebeu" class="form-control" id="quemrecebeu" value="...">
 
-            <br>
-          <input type="quemrecebeu"  name="quemrecebeu" class="form-control" id="quemrecebeu" value="...">
-            <br>
           
         <% } %>
 
-        <% if(pegar == "expedicao" || pegar == "expedicao2") { %>
+        <% if(pegar == "expedicao2") { %>
           <select name="statusdep" id="statusdep" value="AGUARDANDO CLIENTE">
             <option value=" "> </option>
             <option value="AGUARDANDO CLIENTE">AGUARDANDO CLIENTE</option>
@@ -210,33 +222,27 @@
           <% } %>
             
           <% if(pegar == "logistica") { %>
-          <label for="datahora" class="col-form-label">Registro:                 </label>
-            <br>
-            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
-
-          <label for="quemrecebeu" class="col-form-label">Responsável           NF:</label>
-            <br>
           <select name="quemrecebeu" id="quemrecebeu" value="quemrecebeu">
             <option value=" "> </option>
-            <option value="MAX">MAX</option>
-            <option value="DUDU">DUDU</option>
-            <option value="TINGA">TINGA</option>
+            <option value="DIEIMES">DIEIMES</option>
+            <option value="CRISTIANO">CRISTIANO</option>
           </select>
+            <br>
 
-          <label for="codentrega" class="col-form-label">Cód. Entrega</label>
+          <label for="codentrega" class="col-form-label">Cód. Entrega:</label>
           <br>
           <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
             <br>
 
           <div class="mb-3">
             <br>
-          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+          <label for="numeronf" class="col-form-label">NÚMERO NF: </label> 
             <br>
           </div>
           <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
             <br>
 
-          <label for="exped" class="col-form-label">Setor:                 </label> 
+          <label for="exped" class="col-form-label">Setor:</label> 
             <br>
           <select name="exped" id="exped">
             <option value=" "> </option>
@@ -248,9 +254,20 @@
               <br>
           <select name="motorista" id="motorista">
             <option value=" "> </option>
-            <option value="JULIANO">MAX</option>
-            <option value="DOUGLAS">DUDU</option>
-            <option value="MATHEUS">TINGA</option>
+            <option value="ALEXANDRE">ALEXANDRE</option>
+            <option value="DIONATHA">DIONATHA</option>
+            <option value="DOUGLAS">DOUGLAS</option>
+            <option value="IGON">IGON</option>
+            <option value="JULIANO">JULIANO</option>
+            <option value="MATHEUS">MATHEUS</option>
+            <option value="PAULO">PAULO</option>
+            <option value="VANDERLEI">VANDERLEI</option>
+            <option value="VILNEI">VILNEI</option>
+            <option value="MAX">MAX</option>
+            <option value="PAULO VITOR">PAULO VITOR</option>
+            <option value="CRISTIANO">CRISTIANO</option>
+            <option value="WILLIAM">WILLIAM</option>
+            <option value="PAULO ALEXANDRE">PAULO ALEXANDRE</option>
           </select>
               <br>
 
@@ -258,7 +275,17 @@
               <br>
           <select name="placa" id="placa">
             <option value=" "> </option>
-            <option value="BEE-4R22">BEE-4R22</option>
+            <option value="IWC5261">IWC5261</option>
+            <option value="IZT1E84">IZT1E84</option>
+            <option value="IWW7921">IWW7921</option>
+            <option value="IVO1603">IVO1603</option>
+            <option value="AZI2E30">AZI2E30</option>
+            <option value="ITA7784">ITA7784</option>
+            <option value="IUT9476">IUT9476</option>
+            <option value="IST6840">IST6840</option>
+            <option value="IVP0G05">IVP0G05</option>
+            <option value="JBD9H36">JBD9H36</option>
+            <option value="IXH8706">IXH8706</option>
           </select>
               <br>
 
@@ -271,6 +298,7 @@
             <option value="EM TRANSITO">AGUARDANDO TRANSPORTADORA</option>
             <option value="ENTREGUE">CLIENTE RETIROU</option>
           </select>
+            <br>
                   
           </label>
             <br>
@@ -284,7 +312,7 @@
           <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
             <br>
 
-          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+          <label for="numeronf" class="col-form-label">NÚMERO NF:</label> 
             <br>
           <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
             <br>
@@ -293,7 +321,17 @@
               <br>
           <select name="placa" id="placa">
             <option value=" "> </option>
-            <option value="BEE-4R22">BEE-4R22</option>
+            <option value="IWC5261">IWC5261</option>
+            <option value="IZT1E84">IZT1E84</option>
+            <option value="IWW7921">IWW7921</option>
+            <option value="IVO1603">IVO1603</option>
+            <option value="AZI2E30">AZI2E30</option>
+            <option value="ITA7784">ITA7784</option>
+            <option value="IUT9476">IUT9476</option>
+            <option value="IST6840">IST6840</option>
+            <option value="IVP0G05">IVP0G05</option>
+            <option value="JBD9H36">JBD9H36</option>
+            <option value="IXH8706">IXH8706</option>
           </select>
               <br>
 
@@ -301,9 +339,20 @@
               <br>
           <select name="motorista" id="motorista">
             <option value=" "> </option>
-            <option value="JULIANO">JULIANO</option>
+            <option value="ALEXANDRE">ALEXANDRE</option>
+            <option value="DIONATHA">DIONATHA</option>
             <option value="DOUGLAS">DOUGLAS</option>
+            <option value="IGON">IGON</option>
+            <option value="JULIANO">JULIANO</option>
             <option value="MATHEUS">MATHEUS</option>
+            <option value="PAULO">PAULO</option>
+            <option value="VANDERLEI">VANDERLEI</option>
+            <option value="VILNEI">VILNEI</option>
+            <option value="MAX">MAX</option>
+            <option value="PAULO VITOR">PAULO VITOR</option>
+            <option value="CRISTIANO">CRISTIANO</option>
+            <option value="WILLIAM">WILLIAM</option>
+            <option value="PAULO ALEXANDRE">PAULO ALEXANDRE</option>
           </select>
               <br>
 
@@ -317,7 +366,6 @@
             <% if(pegar == "retorno") { %>
            </label>
             <br>
-            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
   
             <label for="codentrega" class="col-form-label">Cód. Entrega:  </label>
           <br>
@@ -344,8 +392,6 @@
             <% } %>
 
             <% if(pegar == "canhoto") { %>
-          <label for="quemrecebeu" class="col-form-label">Responsável           NF:</label>
-            <br>
  
           <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
             <br>
@@ -358,9 +404,20 @@
               <br>
           <select name="motorista" id="motorista">
             <option value=" "> </option>
-            <option value="JULIANO">JULIANO</option>
+            <option value="ALEXANDRE">ALEXANDRE</option>
+            <option value="DIONATHA">DIONATHA</option>
             <option value="DOUGLAS">DOUGLAS</option>
+            <option value="IGON">IGON</option>
+            <option value="JULIANO">JULIANO</option>
             <option value="MATHEUS">MATHEUS</option>
+            <option value="PAULO">PAULO</option>
+            <option value="VANDERLEI">VANDERLEI</option>
+            <option value="VILNEI">VILNEI</option>
+            <option value="MAX">MAX</option>
+            <option value="PAULO VITOR">PAULO VITOR</option>
+            <option value="CRISTIANO">CRISTIANO</option>
+            <option value="WILLIAM">WILLIAM</option>
+            <option value="PAULO ALEXANDRE">PAULO ALEXANDRE</option>
           </select>
               <br>
 
@@ -369,11 +426,95 @@
     
             <select name="statuscanhoto" id="statuscanhoto" value="AGUARDANDO CLIENTE">
             <option value=" "> </option>
-            <option value="CONCLUIDO">AGUARDANDO CLIENTE</option>
+            <option value="CONCLUIDO">CONCLUIDO</option>
           </select>
  
               <% } %>
-              
+
+          <% if(pegar == "expedicao2") { %>
+          </label>
+            <br>
+            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
+          <% } %>
+
+          <% if(pegar == "expedicao2") { %>
+           <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+            <br>
+          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+            <br>
+          <% } %>
+
+          <% if(pegar == "expedicao2") { %>
+          <label for="exped" class="col-form-label">Setor:</label> 
+            <br>
+          <select name="exped" id="exped">
+            <option value=" "> </option>
+            <option value="EXPED.2">EXPED.2</option>
+          </select>
+            <br>
+          <% } %>
+
+          <% if(pegar == "expedicao2") { %>
+          <label for="numeronf" class="col-form-label">NÚMERO NF:</label> 
+            <br>
+          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+            <br>
+          <% } %> 
+
+          <% if(pegar == "expedicao2") { %>
+
+          <label for="quemrecebeu" class="col-form-label">Responsável NF:</label>
+            <br>
+          <select name="quemrecebeu" id="quemrecebeu" value="quemrecebeu">
+            <option value=" "> </option>
+            <option value="MANOEL">MANOEL</option>
+            <option value="CRISTIANO DUARTE">CRISTIANO DUARTE</option>
+          </select>
+            <br>
+            
+          <% } %>
+
+          <% if(pegar == "expedicao2" || pegar == "expedicao") { %>
+            
+<input type="hidden"  name="statusdep" class="form-control" id="statusdep" value="PENDENTE">
+            
+          <% } %>
+
+          <% if(pegar == "expedicao") { %>
+          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+            <br>
+          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+            <br>
+          <% } %>
+            
+          <% if(pegar == "expedicao") { %>
+                    <label for="exped" class="col-form-label">Setor:</label> 
+            <br>
+          <select name="exped" id="exped">
+            <option value=" "> </option>
+            <option value="EXPED.1">EXPED.1</option>
+          </select>
+            <br>
+            <% } %>
+
+          <% if(pegar == "expedicao") { %>
+
+                      <label for="quemrecebeu" class="col-form-label">Responsável NF:</label>
+            <br>
+          <select name="quemrecebeu" id="quemrecebeu" value="quemrecebeu">
+            <option value=" "> </option>
+            <option value="MAX">MAX</option>
+            <option value="DUDU">DUDU</option>
+            <option value="TINGA">TINGA</option>
+          </select>
+            <br>
+
+          <% } %>
+
+          <% if(pegar == "expedicao") { %>
+            <input type="hidden"  name="statusdep" class="form-control" id="statusdep" value="PENDENTE">
+          <% } %>
+            
           <BR></BR>
         <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button> <!-- isso era um type button virou um input -->     <!-- cuidar muito bem o posicionamento das DIV'S no FORM pois dá erro no javascript! foi motivo de alguma raiva passada hoje 31/08 kkkkk -->
         <input onclick="clickEnviar(this)" class="btn btn-outline-success"
@@ -410,16 +551,16 @@ return data.json();
   headers: {"Content-type": "text/plain; charset=UTF-8"}
 })*/
 })
-  fetch('https://projeto.andersonhenri15.repl.co/database')
-  .then(data => {
-  return data.json();
-  })
-  .then(post => {
-      obj = post
-  })
 function clickEnviar(a) {
-  a.display = "none"
-  let pegar = "<%= pegar %>"
+      fetch('https://projeto.andersonhenri15.repl.co/database')
+      .then(data => {
+      return data.json();
+      })
+      .then(post => {
+          obj = post
+      })
+      a.display = "none"
+      let pegar = "<%= pegar %>"
   
       let id = Object.keys(obj[pegar]).length
       const d = new Date();
@@ -510,6 +651,7 @@ function clickEnviar(a) {
   .then(function(data){ 
     a.display = "flex"
     alert( data.msg ) 
+    window.location.reload();
   })
   }
 </script>
