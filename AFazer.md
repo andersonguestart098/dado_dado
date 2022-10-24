@@ -2,16 +2,18 @@
 
 ### A Fazer
 
-- [ ] Criar exportação excel
 - [ ] Fazer Cruzamento de dados
 
 
 ### Fazendo
 
-- [ ] Corrigir provaveis bugs em tabelas
+- [ ] Criar exportação excel 
 - [ ] Corrigir bug de registro simuntaneo
+
+### Ultimo
 - [ ] Design do Home
 
 ### Concluido
 
+- [x] Corrigir provaveis bugs em tabelas
 - [X] Corrigir bug de ontem(20/10)

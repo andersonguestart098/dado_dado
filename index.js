@@ -16,7 +16,7 @@ let pegarDados
 let pass
 let objConvertidoCristao = {
   financeiro: {
-    
+
   }
 }
 
@@ -119,14 +119,14 @@ app.get("/", (req, res) => {
 })
 
 app.get("/home", (req, res) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    res.render("home.ejs", {nome: pass.id1.usuarios[i].nome})
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    res.render("home.ejs", {nome: pass.id1.usuarios[i].nome})
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    if (req.cookies.login == pass.id1.usuarios[i].pass) {
+      res.render("home.ejs", { nome: pass.id1.usuarios[i].nome })
+    } else if (req.cookies.superUser == pass.id1.usuarios[i].pass) {
+      res.render("home.ejs", { nome: pass.id1.usuarios[i].nome })
+    }
   }
-}
-    res.render("pageError.ejs")
+  res.render("pageError.ejs")
 })
 
 app.get("/teste", (req, res) => {
@@ -149,95 +149,95 @@ app.get("/financeiroformulario", (req, res) => {
       return console.log("Erro ao ler arquivo")
     }
     data = JSON.parse(data)
-  
-    for(let i = 0; i <= Object.keys(data).length-1; i++) {
-  if(req.cookies.login == null){
-      res.render("pageError.ejs")
-    } else if (req.cookies.login == data.id1.usuarios[i].pass) {
-    res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", superUser: "yes" })
-  }else if(req.cookies.superUser == data.id1.usuarios[i].pass){
-    res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", superUser: "yes" })
+
+    for (let i = 0; i <= Object.keys(data).length - 1; i++) {
+      if (req.cookies.login == null) {
+        res.render("pageError.ejs")
+      } else if (req.cookies.login == data.id1.usuarios[i].pass) {
+        res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", superUser: "yes" })
+      } else if (req.cookies.superUser == data.id1.usuarios[i].pass) {
+        res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", superUser: "yes" })
+      }
     }
-  }
   })
 })
 
 app.get("/exped2formulario", (req, res) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  if(req.cookies.login == null){
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    if (req.cookies.login == null) {
       res.render("pageError.ejs")
     } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    res.render("bodyForm.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2"})
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    res.render("bodyForm.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2"})
+      res.render("bodyForm.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2" })
+    } else if (req.cookies.superUser == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2" })
     }
   }
 })
 
 app.get("/expedformulario", (req, res) => {
-for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-   if(req.cookies.login == null){
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    if (req.cookies.login == null) {
       res.render("pageError.ejs")
     } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    res.render("bodyForm.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO 1", superUser: "yes" })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    res.render("bodyForm.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO 1", superUser: "yes" })
-  }
+      res.render("bodyForm.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO 1", superUser: "yes" })
+    } else if (req.cookies.superUser == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO 1", superUser: "yes" })
+    }
   }
 
 })
 
 app.get("/logisticaformulario", (req, res) => {
 
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-    if(req.cookies.login == null){
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    if (req.cookies.login == null) {
       res.render("pageError.ejs")
-    }else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    res.render("bodyForm.ejs", { pegar: "logistica", titulo: "LOGISTICA", superUser: "yes" })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    res.render("bodyForm.ejs", { pegar: "logistica", titulo: "LOGISTICA", superUser: "yes" })
+    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "logistica", titulo: "LOGISTICA", superUser: "yes" })
+    } else if (req.cookies.superUser == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "logistica", titulo: "LOGISTICA", superUser: "yes" })
+    }
   }
-  }
-    
+
 })
 
 app.get("/saidaformulario", (req, res) => {
- for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-    if(req.cookies.login == null){
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    if (req.cookies.login == null) {
       res.render("pageError.ejs")
-    }else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    res.render("bodyForm.ejs", { pegar: "saida", titulo: "SAIDA", superUser: "yes" })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    res.render("bodyForm.ejs", { pegar: "saida", titulo: "SAIDA", superUser: "yes" })
+    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "saida", titulo: "SAIDA", superUser: "yes" })
+    } else if (req.cookies.superUser == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "saida", titulo: "SAIDA", superUser: "yes" })
+    }
   }
-  }
-   
+
 })
 
 app.get("/retornoformulario", (req, res) => {
- for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-    if(req.cookies.login == null){
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    if (req.cookies.login == null) {
       res.render("pageError.ejs")
-    }else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    res.render("bodyForm.ejs", { pegar: "retorno", titulo: "RETORNO", superUser: "yes" })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    res.render("bodyForm.ejs", { pegar: "retorno", titulo: "RETORNO", superUser: "yes" })
+    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "retorno", titulo: "RETORNO", superUser: "yes" })
+    } else if (req.cookies.superUser == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "retorno", titulo: "RETORNO", superUser: "yes" })
+    }
   }
-  }
-    
+
 })
 
 app.get("/canhotoformulario", (req, res) => {
- for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-    if(req.cookies.login == null){
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    if (req.cookies.login == null) {
       res.render("pageError.ejs")
-    }else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-    res.render("bodyForm.ejs", { pegar: "canhoto", titulo: "CANHOTO", superUser: "yes" })
-  }else if(req.cookies.superUser == pass.id1.usuarios[i].pass){
-    res.render("bodyForm.ejs", { pegar: "canhoto", titulo: "CANHOTO", superUser: "yes" })
+    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "canhoto", titulo: "CANHOTO", superUser: "yes" })
+    } else if (req.cookies.superUser == pass.id1.usuarios[i].pass) {
+      res.render("bodyForm.ejs", { pegar: "canhoto", titulo: "CANHOTO", superUser: "yes" })
+    }
   }
-  }
-   
+
 })
 
 /*
@@ -249,110 +249,110 @@ app.get("/canhotoformulario", (req, res) => {
  */
 
 app.get("/financeiro", (req, res, next) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  let password = pass.id1.usuarios[i].pass
-  if(req.cookies.login != null || req.cookies.superUser != null){
-    
-    if (req.cookies.login == password) {
-      res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pass, i: 0})
-      
-    }else if (req.cookies.superUser == password) {
-      res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pass, i: 0})
-      
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    let password = pass.id1.usuarios[i].pass
+    if (req.cookies.login != null || req.cookies.superUser != null) {
+
+      if (req.cookies.login == password) {
+        res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pass, i: 0 })
+
+      } else if (req.cookies.superUser == password) {
+        res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pass, i: 0 })
+
       }
-    }else {
+    } else {
       res.render("pageError.ejs")
     }
   }
 })
 
 app.get("/expedicao2", (req, res) => {
-for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  let password = pass.id1.usuarios[i].pass
-  if(req.cookies.login != null || req.cookies.superUser != null){
-    
-    if (req.cookies.login == password) {
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    let password = pass.id1.usuarios[i].pass
+    if (req.cookies.login != null || req.cookies.superUser != null) {
+
+      if (req.cookies.login == password) {
         //render
         res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDICAO 2", dados: pass, superUser: "yes" })
-    }else if (req.cookies.superUser == password) {
+      } else if (req.cookies.superUser == password) {
         //render
         res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDICAO 2", dados: pass, superUser: "yes" })
       }
-    }else {
+    } else {
       res.render("pageError.ejs")
-      }
+    }
   }
 })
 
 app.get("/expedicao", (req, res) => {
 
-    for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  let password = pass.id1.usuarios[i].pass
-  if(req.cookies.login != null || req.cookies.superUser != null){
-    
-    if (req.cookies.login == password) {
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    let password = pass.id1.usuarios[i].pass
+    if (req.cookies.login != null || req.cookies.superUser != null) {
+
+      if (req.cookies.login == password) {
         //render
         res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: pass, i: 0, superUser: "yes" })
-    }else if (req.cookies.superUser == password) {
+      } else if (req.cookies.superUser == password) {
         //render
         res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: pass, i: 0, superUser: "yes" })
       }
-    }else {
+    } else {
       res.render("pageError.ejs")
     }
   }
 })
 
 app.get("/logistica", (req, res) => {
-  
-for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  let password = pass.id1.usuarios[i].pass
-  if(req.cookies.login != null || req.cookies.superUser != null){
-    
-    if (req.cookies.login == password) {
+
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    let password = pass.id1.usuarios[i].pass
+    if (req.cookies.login != null || req.cookies.superUser != null) {
+
+      if (req.cookies.login == password) {
         //render
         res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: pass, i: 0, superUser: "yes" })
-    }else if (req.cookies.superUser == password) {
+      } else if (req.cookies.superUser == password) {
         //render
         res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: pass, i: 0, superUser: "yes" })
       }
-    }else {
+    } else {
       res.render("pageError.ejs")
     }
   }
 })
 
 app.get("/saida", (req, res) => {
-  for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  let password = pass.id1.usuarios[i].pass
-  if(req.cookies.login != null || req.cookies.superUser != null){
-    
-    if (req.cookies.login == password) {
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    let password = pass.id1.usuarios[i].pass
+    if (req.cookies.login != null || req.cookies.superUser != null) {
+
+      if (req.cookies.login == password) {
         //render
         res.render("bodyList.ejs", { pegar: "saida", titulo: "SAIDA", dados: pass, i: 0, superUser: "yes" })
-    }else if (req.cookies.superUser == password) {
+      } else if (req.cookies.superUser == password) {
         //render
         res.render("bodyList.ejs", { pegar: "saida", titulo: "SAIDA", dados: pass, i: 0, superUser: "yes" })
       }
-    }else {
+    } else {
       res.render("pageError.ejs")
     }
   }
 })
 
 app.get("/retorno", (req, res) => {
-for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  let password = pass.id1.usuarios[i].pass
-  if(req.cookies.login != null || req.cookies.superUser != null){
-    
-    if (req.cookies.login == password) {
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    let password = pass.id1.usuarios[i].pass
+    if (req.cookies.login != null || req.cookies.superUser != null) {
+
+      if (req.cookies.login == password) {
         //render
         res.render("bodyList.ejs", { pegar: "retorno", titulo: "RETORNO", dados: pass, i: 0, superUser: "yes" })
-    }else if (req.cookies.superUser == password) {
+      } else if (req.cookies.superUser == password) {
         //render
         res.render("bodyList.ejs", { pegar: "retorno", titulo: "RETORNO", dados: pass, i: 0, superUser: "yes" })
       }
-    }else {
+    } else {
       res.render("pageError.ejs")
     }
   }
@@ -360,18 +360,18 @@ for(let i = 0; i <= Object.keys(pass).length-1; i++) {
 
 app.get("/canhoto", (req, res) => {
 
-    for(let i = 0; i <= Object.keys(pass).length-1; i++) {
-  let password = pass.id1.usuarios[i].pass
-  if(req.cookies.login != null || req.cookies.superUser != null){
-    
-    if (req.cookies.login == password) {
+  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
+    let password = pass.id1.usuarios[i].pass
+    if (req.cookies.login != null || req.cookies.superUser != null) {
+
+      if (req.cookies.login == password) {
         //render
         res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: pass, i: 0, superUser: "yes" })
-    }else if (req.cookies.superUser == password) {
+      } else if (req.cookies.superUser == password) {
         //render
         res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: pass, i: 0, superUser: "yes" })
       }
-    }else {
+    } else {
       res.render("pageError.ejs")
     }
   }
@@ -397,14 +397,14 @@ app.post('/verificarLogin', (req, res) => {
   let password = req.body.password;
   //https://api.ipify.org/?format=json Login
   console.log(user_name + " " + password)
-  
-  for (let i = 0; i <= Object.keys(pegarDados.id1.usuarios).length- 1; i++) {
+
+  for (let i = 0; i <= Object.keys(pegarDados.id1.usuarios).length - 1; i++) {
     if (pegarDados.id1.usuarios[i].user == user_name || pegarDados.id1.usuarios[i].pass == password) {
 
-      if(pegarDados.id1.usuarios[i].superUser){
+      if (pegarDados.id1.usuarios[i].superUser) {
         res.cookie("superUser", req.body.password, { expires: new Date(Date.now() + 15000000), httpOnly: true })
-      }else {
-      res.cookie("login", req.body.password, { expires: new Date(Date.now() + 15000000), httpOnly: true })
+      } else {
+        res.cookie("login", req.body.password, { expires: new Date(Date.now() + 15000000), httpOnly: true })
       }
       res.end("yes");
     }
@@ -416,6 +416,7 @@ app.post('/registrarBancoDados', (req, res) => {
   fs.writeFileSync('./database/example.json', req.body)
   res.json({ msg: "Registrado com Sucesso" })
 });
+
 
 app.get("/database", (req, res) => {
   fs.readFile("./database/example.json", "utf8", function(err, data) {

@@ -70,7 +70,6 @@
         <hr>
         <div class="row">
             <div id="table" class="col-lg-12">
-
             </div>
         </div>
     </div>
@@ -141,6 +140,7 @@
             <option value=" "> </option>
             <option value="BOLETO">BOLETO</option>
             <option value="DINHEIRO">DINHEIRO</option>
+            <option value="DEPOSITO BANCARIO">DEPOSITO BANCARIO</option>
             <option value="CARTÃO DEBITO">CARTÃO DEBITO</option>
             <option value="CARTÃO CRÉDITO">CARTÃO CRÉDITO</option>
           </select>
@@ -538,27 +538,8 @@
 </body>
           
 <script>
-  let obj 
-  fetch('https://projeto.andersonhenri15.repl.co/database')
-.then(data => {
-return data.json();
-})
-.then(post => {
-    console.log(post)
-    /*fetch('https://projeto.andersonhenri15.repl.co/registrarBancoDados', {
-  method: "POST",
-  body: JSON.stringify(obj, null, 2),
-  headers: {"Content-type": "text/plain; charset=UTF-8"}
-})*/
-})
+let obj = {}
 function clickEnviar(a) {
-      fetch('https://projeto.andersonhenri15.repl.co/database')
-      .then(data => {
-      return data.json();
-      })
-      .then(post => {
-          obj = post
-      })
       a.display = "none"
       let pegar = "<%= pegar %>"
   
@@ -566,7 +547,7 @@ function clickEnviar(a) {
       const d = new Date();
       switch(pegar){
         case "expedicao":
-          obj[pegar][id] = {
+          obj = {
           id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
@@ -575,7 +556,7 @@ function clickEnviar(a) {
           }
           break
         case "expedicao2":
-          obj[pegar][id] = {
+          obj = {
           id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
@@ -584,7 +565,7 @@ function clickEnviar(a) {
           }
           break
         case "financeiro":
-          obj[pegar][id] = {
+          obj = {
           id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
@@ -609,7 +590,7 @@ function clickEnviar(a) {
           }
           break
         case "logistica":
-          obj[pegar][id] = {
+          obj = {
           id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
@@ -617,7 +598,7 @@ function clickEnviar(a) {
           }
           break
         case "saida":
-          obj[pegar][id] = {
+          obj = {
           id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
@@ -625,7 +606,7 @@ function clickEnviar(a) {
           }
           break
         case "retorno":
-          obj[pegar][id] = {
+          obj = {
           id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
@@ -633,7 +614,7 @@ function clickEnviar(a) {
           }
           break
         case "canhoto":
-          obj[pegar][id] = {
+          obj = {
           id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
