@@ -4,7 +4,7 @@ const fs = require("fs");
 const cors = require('cors');
 const cookieParser = require("cookie-parser")
 let bcrypt = require('bcryptjs');
-let mysql = require('mysql');
+const Excel = require('exceljs');
 
 let app = express()
 
@@ -14,21 +14,9 @@ let app = express()
 //VARIAVEIS GLOBAIS
 let pegarDados
 let pass
-let objConvertidoCristao = {
-  financeiro: {
+let corrente = "teste"
 
-  }
-}
-
-/*let con = mysql.createPool({
-  host: "remotemysql.com",
-  user: "x34865z4yQ",
-  password: "cP182dZwxP",
-  database: "x34865z4yQ",
-  connectionLimit: 1000
-});*/
-
-fs.readFile("./database/example.json", "utf8", function(err, data) {
+fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
   if (err) {
     return console.log("Erro ao ler arquivo")
   }
@@ -38,71 +26,20 @@ fs.readFile("./database/example.json", "utf8", function(err, data) {
 
 })
 
-
-//*/
-//DATABASE INIT
-
-/*con.query("SELECT * FROM financeiro",
-  function(err, result, fields) {
-    if (err) throw err;
-    for (prop in result) {
-      objConvertidoCristao.financeiro[prop] = {
-        id: result[prop].id,
-        dataHora: result[prop].datahora,
-        vendedor: result[prop].vendedor,
-        nropedido: result[prop].nropedido,
-        cliente: result[prop].cliente,
-        tipodefaturamento: result[prop].tipodefaturamento,
-        valordopedido: result[prop].valordopedido,
-        formapgto: result[prop].formapgto,
-        retiraentrega: result[prop].retiraentrega,
-        localdaentrega: result[prop].localdaentrega,
-        localdecobranca: result[prop].localdecobranca,
-        obs: result[prop].obs1,
-        fretedestacado: result[prop].fretedestacado,
-        valorfrete: result[prop].valorfrete,
-        dataentrega: result[prop].dataentrega,
-        operadornf: result[prop].operadornf,
-        statusnf: result[prop].statusnf,
-        obsfinanceiro: result[prop].obs2,
-        numeronf: result[prop].numeronf,
-        exped: result[prop].exped,
-        quemrecebeu: result[prop].quemrecebeu
-      }
-    }
-    fs.writeFileSync('./database/users.json', JSON.stringify(objConvertidoCristao, null, 2))
-   })*/
-
 setInterval(() => {
   getDataDatabase(false)
 }, 5000)
 //-------------
 
-app.set('view engine', 'ejs');
-app.set('views', './views');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.set('view engine', 'ejs')
+app.set('views', './views')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 app.use(express.text())
 app.use(cookieParser())
 app.use(cors({
   origin: 'https://projeto.andersonhenri15.repl.co'
 }));
-
-let pessoas = [
-  {
-    'nome': 'Paulo',
-    'idade': 12
-  },
-  {
-    'nome': 'Jõao',
-    'idade': 15,
-  },
-  {
-    'nome': 'Marina',
-    'idade': 25,
-  },
-]
-
 
 /*
  *-------------------------------
@@ -126,10 +63,6 @@ app.get("/home", (req, res) => {
       res.render("home.ejs", { nome: pass.id1.usuarios[i].nome })
     }
   }
-  res.render("pageError.ejs")
-})
-
-app.get("/teste", (req, res) => {
   res.render("pageError.ejs")
 })
 
@@ -249,61 +182,53 @@ app.get("/canhotoformulario", (req, res) => {
  */
 
 app.get("/financeiro", (req, res, next) => {
-  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
-    let password = pass.id1.usuarios[i].pass
-    if (req.cookies.login != null || req.cookies.superUser != null) {
-
-      if (req.cookies.login == password) {
-        res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pass, i: 0 })
-
-      } else if (req.cookies.superUser == password) {
-        res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: pass, i: 0 })
-
-      }
-    } else {
-      res.render("pageError.ejs")
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
     }
-  }
+
+    let d = JSON.parse(data)
+
+    res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: d, i: 0 })
+  })
 })
 
 app.get("/expedicao2", (req, res) => {
-  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
-    let password = pass.id1.usuarios[i].pass
-    if (req.cookies.login != null || req.cookies.superUser != null) {
-
-      if (req.cookies.login == password) {
-        //render
-        res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDICAO 2", dados: pass, superUser: "yes" })
-      } else if (req.cookies.superUser == password) {
-        //render
-        res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDICAO 2", dados: pass, superUser: "yes" })
-      }
-    } else {
-      res.render("pageError.ejs")
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
     }
-  }
+
+    let d = JSON.parse(data)
+
+    res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "2", dados: d, i: 0, superUser: "yes" })
+  })
 })
 
 app.get("/expedicao", (req, res) => {
-
-  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
-    let password = pass.id1.usuarios[i].pass
-    if (req.cookies.login != null || req.cookies.superUser != null) {
-
-      if (req.cookies.login == password) {
-        //render
-        res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: pass, i: 0, superUser: "yes" })
-      } else if (req.cookies.superUser == password) {
-        //render
-        res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: pass, i: 0, superUser: "yes" })
-      }
-    } else {
-      res.render("pageError.ejs")
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
     }
-  }
+
+    let d = JSON.parse(data)
+
+    res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: d, i: 0, superUser: "yes" })
+  })
 })
 
 app.get("/logistica", (req, res) => {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
+    }
+
+    let d = JSON.parse(data)
+    pass = d
+
+  })
+
+
 
   for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
     let password = pass.id1.usuarios[i].pass
@@ -323,6 +248,17 @@ app.get("/logistica", (req, res) => {
 })
 
 app.get("/saida", (req, res) => {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
+    }
+
+    let d = JSON.parse(data)
+    pass = d
+
+  })
+
+
   for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
     let password = pass.id1.usuarios[i].pass
     if (req.cookies.login != null || req.cookies.superUser != null) {
@@ -341,6 +277,17 @@ app.get("/saida", (req, res) => {
 })
 
 app.get("/retorno", (req, res) => {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
+    }
+
+    let d = JSON.parse(data)
+    pass = d
+
+  })
+
+
   for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
     let password = pass.id1.usuarios[i].pass
     if (req.cookies.login != null || req.cookies.superUser != null) {
@@ -359,6 +306,17 @@ app.get("/retorno", (req, res) => {
 })
 
 app.get("/canhoto", (req, res) => {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
+    }
+
+    let d = JSON.parse(data)
+    pass = d
+
+  })
+
+
 
   for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
     let password = pass.id1.usuarios[i].pass
@@ -386,6 +344,7 @@ app.get("/canhoto", (req, res) => {
  *
  *-------------------------------
  */
+
 app.get("/logout", (req, res) => {
   res.clearCookie("login");
   res.clearCookie("superUser");
@@ -411,15 +370,74 @@ app.post('/verificarLogin', (req, res) => {
   }
 });
 
+app.post("/mudancaBancoDados", (req,res) => {
+  fs.writeFileSync('./database/'+corrente+'.json', req.body)
+  res.json({ msg: "Registrado com Sucesso" })
+})
+
 app.post('/registrarBancoDados', (req, res) => {
-  //https://api.ipify.org/?format=json
-  fs.writeFileSync('./database/example.json', req.body)
+  let numeroDaSeção = 0
+  numeroDaSeção++
+  console.log(req.body)
+  let dataReq = JSON.parse(req.body)
+  console.log(dataReq)
+  let pegar = req.headers.sector
+  //fs.writeFileSync('./database/example.json', )
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    let dados = JSON.parse(data)
+    let objAtual = Object.keys(dados[pegar]).length + numeroDaSeção - 1
+    const d = new Date()
+
+    let dateFormated = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`
+
+    if (isEmpty(dados[objAtual])) {
+      dados["passagem"][objAtual] = {
+        id: objAtual,
+        dataHora: dateFormated,
+        numeronf: dataReq.numeronf,
+        exped: dataReq.exped
+      }
+    }
+
+    switch (pegar) {
+      case "expedicao":
+        dados[pegar][objAtual] = {
+          quemrecebeu: dataReq.quemrecebeu,
+          statusdep: dataReq.statusdep
+        }
+        break
+      case "financeiro":
+        dados[pegar][objAtual] = {
+          nropedido: dataReq.nropedido,
+          statusnf: dataReq.statusnf,
+          vendedor: dataReq.vendedor,
+          cliente: dataReq.cliente,
+          tipodefaturamento: dataReq.tipodefaturamento,
+          valordopedido: dataReq.valordopedido,
+          formapgto: dataReq.formapgto,
+          retiraentrega: dataReq.retiraentrega,
+          localdaentrega: dataReq.localdaentrega,
+          localdecobranca: dataReq.localdecobranca,
+          obs: dataReq.obs,
+          fretedestacado: dataReq.fretedestacado,
+          valorfrete: dataReq.valorfrete,
+          dataentrega: dataReq.dataentrega,
+          operadornf: dataReq.operadornf,
+          obsfinanceiro: dataReq.obsfinanceiro,
+          quemrecebeu: dataReq.quemrecebeu
+        }
+
+        break
+
+    }
+    fs.writeFileSync("./database/" + corrente + ".json", JSON.stringify(dados, null, 2))
+  })
   res.json({ msg: "Registrado com Sucesso" })
 });
 
 
 app.get("/database", (req, res) => {
-  fs.readFile("./database/example.json", "utf8", function(err, data) {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
     if (err) {
       return console.log("Erro ao ler arquivo")
     }
@@ -427,6 +445,39 @@ app.get("/database", (req, res) => {
     res.json(pegarDados)
   })
 })
+
+/*
+ * -------------------------------
+ *
+ *          EXPORTAÇÃO
+ *
+ *-------------------------------
+ */
+
+app.get("/excel", (req, res) => {
+  
+const workbook = new Excel.Workbook();
+
+const worksheet2 = workbook.addWorksheet('Expedição', {properties:{tabColor:{argb:'ff23344'}}});
+
+
+    worksheet2.columns = [
+        { header: 'Id', key: 'ID', width: 10 },
+        { header: 'Nome', key: 'NOME', width: 10 },
+        { header: 'Data', key: 'DATA', width: 11 },
+        { header: 'Credito', key: 'CREDITO', width: 10 }
+    ]
+
+  worksheet2.autoFilter = 'A1:D1';
+  
+  worksheet2.addRow([3, 'Sam', new Date(), Math.floor(Math.random() * 10000)]);
+
+  workbook.xlsx.writeFile('./excel/Tabaela.xlsx').then(() => {
+    res.download(__dirname+"/excel/Tabaela.xlsx");
+  })
+})
+
+
 /*
  *-------------------------------
  *
@@ -436,7 +487,7 @@ app.get("/database", (req, res) => {
  */
 
 function getDataDatabase(escrever) {
-  fs.readFile("./database/example.json", "utf8", function(err, data) {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
     if (err) {
       return console.log("Erro ao ler arquivo")
     }
@@ -444,5 +495,15 @@ function getDataDatabase(escrever) {
   })
 }
 
+function isEmpty(obj) {
+  for (var prop in obj) {
+    if (obj.hasOwnProperty(prop))
+      return false;
+  }
+
+  return true;
+}
+
+function criarExcel() {}
 
 app.listen()

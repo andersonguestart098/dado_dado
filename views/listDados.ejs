@@ -31,11 +31,11 @@ return data.json();
         break
         
       case "exped":
-        obj[pegar][index].exped = valor
+        obj["passagem"][index].exped = valor
         break
         
       case "numeronf_text":
-        obj[pegar][index].numeronf= valor
+        obj["passagem"][index].numeronf= valor
         break
                 
       case "obs2_text":
@@ -55,7 +55,7 @@ return data.json();
         break 
     }
   console.log(obj[pegar][index].numeronf)
-  fetch('https://projeto.andersonhenri15.repl.co/registrarBancoDados', {
+  fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
     method: "POST",
     body: JSON.stringify(obj, null, 2),
     headers: {"Content-type": "text/plain; charset=UTF-8"}
@@ -122,16 +122,16 @@ return data.json();
   }
 
 function setData(post, pegar, i) {
-        
-    document.querySelector("#valor_datahoraX"+i).innerText = post[pegar][i].dataHora
-      
-    document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
+    document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][i].dataHora
 
-    document.querySelector("#Pvalor_numeronfX"+i).innerText = post[pegar][i].numeronf
   
-    document.querySelector("#Pvalor_exped"+i).innerText = post[pegar][i].exped
+    document.querySelector("#valor_idX"+i).innerText = post["passagem"][i].id
   
-   document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu 
+    document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][i].numeronf
+  
+    document.querySelector("#Pvalor_exped"+i).innerText = post["passagem"][i].exped
+  
+   document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
   
             //-------------------
             //    FINANCEIRO
@@ -186,9 +186,11 @@ return data.json();
     }
     let aux1 = [Object.keys(global_Up[pegar])[Object.keys(global_Up[pegar]).length - 1]]
     let aux2 = [Object.keys(post[pegar])[Object.keys(post[pegar]).length - 1]]
+  console.log(aux1+"\t"+aux2)
 
     for(let i= Object.keys(post[pegar]).length-1; i > -1; i--) {
       if(aux2 > aux1 || aux2 < aux1){
+        console.log("CRIADO")
         window.location.reload();
       }
         setData(post, pegar, i)

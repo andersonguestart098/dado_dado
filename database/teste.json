@@ -1,0 +1,192 @@
+{
+  "id1": {
+    "usuarios": {
+      "0": {
+        "nome": "Matheus",
+        "user": "superAdm",
+        "pass": 800,
+        "superUser": true
+      },
+      "1": {
+        "nome": "Carlos",
+        "user": "adm",
+        "pass": 123,
+        "superUser": false
+      }
+    }
+  },
+  "passagem": {
+    "0": {
+      "id": 0,
+      "dataHora": "2022-09-12 13:18:00.000000",
+      "vendedor": "Marcia",
+      "numeronf": "C",
+      "cliente": "SICRED",
+      "exped": "LOGÍSTICA"
+    },
+    "1": {
+      "id": 1,
+      "dataHora": "25/9/2022 13:20",
+      "numeronf": "B",
+      "exped": "EXPED.2"
+    },
+    "2": {
+      "id": 2,
+      "dataHora": "25/9/2022 13:25",
+      "numeronf": "A",
+      "exped": "EXPED.1"
+    },
+    "3": {
+      "id": 3,
+      "dataHora": "25/9/2022 15:3",
+      "numeronf": "...",
+      "exped": "..."
+    },
+    "4": {
+      "id": 4,
+      "dataHora": "25/9/2022 16:33",
+      "numeronf": "248999",
+      "exped": "EXPED.1"
+    },
+    "5": {
+      "id": 5,
+      "dataHora": "25/9/2022 16:40",
+      "numeronf": "...",
+      "exped": "..."
+    }
+  },
+  "financeiro": {
+    "0": {
+      "nropedido": 615854,
+      "statusnf": "PENDENTE",
+      "vendedor": "DOODUO",
+      "cliente": "CHAVES",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$26.654,09",
+      "formapgto": "BOLETO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
+      "localdecobranca": "EMPRESA",
+      "obs": "Entregar pela parte da manhã!",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "R$150,00",
+      "dataentrega": "2022-09-12",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "Julia liberou !",
+      "quemrecebeu": "MANOEL"
+    },
+    "1": {
+      "nropedido": "2434324234",
+      "statusnf": "CANCELADA",
+      "vendedor": "WAGNER",
+      "cliente": "WALTER",
+      "tipodefaturamento": "REMESSA FUTURA",
+      "valordopedido": "9999999999999,99",
+      "formapgto": "CARTÃO CRÉDITO",
+      "retiraentrega": "TRANSPORTADORA",
+      "localdaentrega": "3434343",
+      "localdecobranca": "EMPRESA",
+      "obs": "tgrgrgr",
+      "fretedestacado": "DILUIDO",
+      "valorfrete": "43434343434",
+      "dataentrega": "34/34/34",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "Ola mundo",
+      "quemrecebeu": "44543535",
+      "exped": "EXPED.2"
+    },
+    "2": {
+      "nropedido": "2434324234",
+      "statusnf": "EMITIDA",
+      "vendedor": "WAGNER",
+      "cliente": "WALTER",
+      "tipodefaturamento": "REMESSA FUTURA",
+      "valordopedido": "9999999999999,99",
+      "formapgto": "CARTÃO CRÉDITO",
+      "retiraentrega": "TRANSPORTADORA",
+      "localdaentrega": "3434343",
+      "localdecobranca": "EMPRESA",
+      "obs": "tgrgrgr",
+      "fretedestacado": "DILUIDO",
+      "valorfrete": "43434343434",
+      "dataentrega": "34/34/34",
+      "operadornf": "APRENDIZ",
+      "obsfinanceiro": "DEEDED",
+      "quemrecebeu": "DIEIMES",
+      "numeronf": "21112312",
+      "exped": "EXPED.2"
+    },
+    "3": {
+      "nropedido": "616888",
+      "statusnf": "PENDENTE",
+      "vendedor": "GELSON",
+      "cliente": "ANDERSON ANASTACIO",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "BOLETO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "R. riachuelo 203, POA",
+      "localdecobranca": "EMPRESA",
+      "obs": "EMBALAR BEM OS MATERIAIS",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "800",
+      "dataentrega": "2022-10-26T12:03",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "4": {
+      "nropedido": "616888",
+      "statusnf": "EMITIDA",
+      "vendedor": "ALINE",
+      "cliente": "ANDERSON ANASTACIO",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "BOLETO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "R. riachuelo 203, POA",
+      "localdecobranca": "EMPRESA",
+      "obs": "EMBALAR BEM OS MATERIAIS",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "700",
+      "dataentrega": "2022-10-26T12:03",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "julia liberou",
+      "quemrecebeu": "MAX"
+    },
+    "5": {
+      "nropedido": "616888",
+      "statusnf": "EMITIDA",
+      "vendedor": "LUIS",
+      "cliente": "ANDERSON ANASTACIO",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "BOLETO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "R. riachuelo 203, POA",
+      "localdecobranca": "EMPRESA",
+      "obs": "EMBALAR BEM OS MATERIAIS",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "700",
+      "dataentrega": "2022-10-26T12:03",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    }
+  },
+  "expedicao": {
+    "0": {
+      "quemrecebeu": "MAX",
+      "statusdep": "PENDENTE"
+    },
+    "1": {
+      "quemrecebeu": "MAX",
+      "statusdep": "PENDENTE"
+    }
+  },
+  "expedicao2": {},
+  "logistica": {},
+  "saida": {},
+  "retorno": {},
+  "canhoto": {}
+}

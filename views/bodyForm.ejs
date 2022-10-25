@@ -538,18 +538,13 @@
 </body>
           
 <script>
-let obj = {}
+      let obj = {}
 function clickEnviar(a) {
-      a.display = "none"
       let pegar = "<%= pegar %>"
   
-      let id = Object.keys(obj[pegar]).length
-      const d = new Date();
       switch(pegar){
         case "expedicao":
           obj = {
-          id: id,
-          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
           exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value,
           statusdep : document.querySelector("#statusdep").value
@@ -557,22 +552,19 @@ function clickEnviar(a) {
           break
         case "expedicao2":
           obj = {
-          id: id,
-          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
           exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value,
           statusdep : document.querySelector("#statusdep").value
           }
           break
-        case "financeiro":
+        case "financeiro": 
           obj = {
-          id: id,
-          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,              
+          exped : document.querySelector("#exped").value,       
           quemrecebeu: document.querySelector("#quemrecebeu").value,
           vendedor:  document.querySelector("#vendedor").value,
-          nropedido:  document.querySelector("#nropedido").value,
+          nropedido:
+document.querySelector("#nropedido").value,
           cliente:  document.querySelector("#cliente").value,
           tipodefaturamento:  document.querySelector("#tipodefaturamento").value,
           valordopedido:  document.querySelector("#valorPedido").value,
@@ -591,7 +583,6 @@ function clickEnviar(a) {
           break
         case "logistica":
           obj = {
-          id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
           exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
@@ -599,7 +590,6 @@ function clickEnviar(a) {
           break
         case "saida":
           obj = {
-          id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
           exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
@@ -607,7 +597,6 @@ function clickEnviar(a) {
           break
         case "retorno":
           obj = {
-          id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
           exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
@@ -615,7 +604,6 @@ function clickEnviar(a) {
           break
         case "canhoto":
           obj = {
-          id: id,
           dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
           exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
@@ -626,13 +614,13 @@ function clickEnviar(a) {
     fetch('https://projeto.andersonhenri15.repl.co/registrarBancoDados', {
     method: "POST",
     body: JSON.stringify(obj, null, 2),
-    headers: {"Content-type": "text/plain; charset=UTF-8",}
+    headers: {"Content-type": "text/plain; charset=UTF-8",
+             "Sector": pegar}
   })
   .then(function(res){ return res.json(); })
   .then(function(data){ 
-    a.display = "flex"
     alert( data.msg ) 
-    window.location.reload();
+
   })
   }
 </script>

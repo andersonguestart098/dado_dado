@@ -16,7 +16,12 @@
     }
   },
   "passagem": {
-    "dado": "ola mun"
+    "0": {
+      "id": 0,
+      "dataHora": "ola",
+      "numeronf": 261898,
+      "exped": "LOGÍSTICA"
+    }
   },
   "financeiro": {
     "0": {
@@ -41,29 +46,6 @@
       "numeronf": 261898,
       "exped": "LOGÍSTICA",
       "quemrecebeu": "MANOEL"
-    },
-    "1": {
-      "id": 1,
-      "dataHora": "21/9/2022 19:8",
-      "numeronf": "...",
-      "exped": "...",
-      "quemrecebeu": "...",
-      "vendedor": "MARCIA",
-      "nropedido": "efefef",
-      "cliente": "fefdf",
-      "tipodefaturamento": "REMESSA TRANSPORTE",
-      "valordopedido": "dfsdf",
-      "formapgto": "BOLETO",
-      "retiraentrega": "ENTREGA",
-      "localdaentrega": "fdf",
-      "localdecobranca": "EMPRESA",
-      "obs": "fdfd",
-      "fretedestacado": "DILUIDO",
-      "valorfrete": "fdfd",
-      "dataentrega": "dff",
-      "operadornf": "ROSI",
-      "statusnf": "PENDENTE",
-      "obsfinanceiro": "..."
     }
   },
   "expedicao": {

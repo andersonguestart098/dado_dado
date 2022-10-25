@@ -7,7 +7,7 @@
 
 ### Fazendo
 
-- [ ] Criar exportação excel 
+- [X] Criar exportação excel 
 - [ ] Corrigir bug de registro simuntaneo
 
 ### Ultimo
