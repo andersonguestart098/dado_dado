@@ -222,6 +222,8 @@
           <% } %>
             
           <% if(pegar == "logistica") { %>
+            <label for="quemrecebeu" class="col-form-label">Quem Recebeu:</label>
+            <br>
           <select name="quemrecebeu" id="quemrecebeu" value="quemrecebeu">
             <option value=" "> </option>
             <option value="DIEIMES">DIEIMES</option>
@@ -298,15 +300,21 @@
             <option value="EM TRANSITO">AGUARDANDO TRANSPORTADORA</option>
             <option value="ENTREGUE">CLIENTE RETIROU</option>
           </select>
-            <br>
-                  
+            <br>        
           </label>
-            <br>
-            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
           <% } %>
 
             <% if(pegar == "saida") { %>
+            
+    <label for="exped" class="col-form-label">Setor:                 </label> 
+            <br>
+          <select name="exped" id="exped">
+            <option value=" "> </option>
+            <option value="LOG">LOG</option>
+          </select>
+            <br>
 
+             
           <label for="codentrega" class="col-form-label">Cód. Entrega</label>
           <br>
           <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
@@ -374,9 +382,26 @@
  
           <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
             <br>
+              
           <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
             <br>
-
+          <label for="placa" class="col-form-label">Placa:                 </label>
+              <br>
+          <select name="placa" id="placa">
+            <option value=" "> </option>
+            <option value="IWC5261">IWC5261</option>
+            <option value="IZT1E84">IZT1E84</option>
+            <option value="IWW7921">IWW7921</option>
+            <option value="IVO1603">IVO1603</option>
+            <option value="AZI2E30">AZI2E30</option>
+            <option value="ITA7784">ITA7784</option>
+            <option value="IUT9476">IUT9476</option>
+            <option value="IST6840">IST6840</option>
+            <option value="IVP0G05">IVP0G05</option>
+            <option value="JBD9H36">JBD9H36</option>
+            <option value="IXH8706">IXH8706</option>
+          </select>
+              <br>
           <label for="exped" class="col-form-label">Setor:                 </label> 
             <br>
           <select name="exped" id="exped">
@@ -427,6 +452,11 @@
             <select name="statuscanhoto" id="statuscanhoto" value="AGUARDANDO CLIENTE">
             <option value=" "> </option>
             <option value="CONCLUIDO">CONCLUIDO</option>
+          </select>
+              <br>
+            <select name="exped" id="exped">
+            <option value=" "> </option>
+            <option value="LOG">LOGS</option>
           </select>
  
               <% } %>
@@ -553,7 +583,8 @@ function clickEnviar(a) {
         case "expedicao2":
           obj = {
           numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value,
+          exped : document.querySelector("#exped").value,  
+          quemrecebeu: document.querySelector("#quemrecebeu").value,
           statusdep : document.querySelector("#statusdep").value
           }
           break
@@ -583,30 +614,38 @@ document.querySelector("#nropedido").value,
           break
         case "logistica":
           obj = {
-          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
+          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value,
+          motorista: document.querySelector("#motorista").value,
+          placa: document.querySelector("#placa").value,
+          statuslog: document.querySelector("#placa").value
           }
           break
         case "saida":
           obj = {
-          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
+          exped: document.querySelector("#exped").value,
+          codentrega: document.querySelector("#codentrega").value,
+          placa: document.querySelector("#placa").value,
+          motorista: document.querySelector("#motorista").value,
+          hodometro: document.querySelector("#hodometro").value
           }
           break
         case "retorno":
           obj = {
-          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
+          exped: document.querySelector("#exped").value,
+          codentrega: document.querySelector("#codentrega").value,
+          placa: document.querySelector("#placa").value,
+          hodometro: document.querySelector("#hodometro").value
+           
           }
           break
         case "canhoto":
           obj = {
-          dataHora: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`,
           numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value
+          motorista: document.querySelector("#motorista").value,
+          statuscanhoto: document.querySelector("#statuscanhoto").value
           }
           break
 

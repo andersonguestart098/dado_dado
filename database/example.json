@@ -66,9 +66,40 @@
       "statusdep": "PENDENTE"
     }
   },
-  "expedicao2": {},
-  "logistica": {},
-  "saida": {},
-  "retorno": {},
-  "canhoto": {}
+  "expedicao2": {
+    "0": {
+      "quemrecebeu": "MANOEL",
+      "statusdep": "AGUARDANDO TRANSPORTADORA"
+    }
+  },
+  
+  "logistica": {
+    "motorista": "VENDERLEI",
+    "placa": "ITA-0000",
+    "statuslog": "AGUARDANDO ROTA",
+    "codentrega": 555658,
+    "numeronf": 241877,
+    "quemrecebeu": 241877
+    
+  },
+  "saida": {
+  "numeronf": 261898,
+  "codentrega": 555658,
+  "placa": "ITA-0000",
+  "motorista": "VANDERLEI",
+  "hodometro": 6578870,
+  
+  },
+  "retorno": {
+  "numeronf": 261898,
+  "codentrega": 555658,
+  "placa": "ITA-0000",
+  "hodometro": 6585870,
+  
+  },
+  "canhoto": {
+  "numeronf": 261898,
+  "motorista": "VANDERLEI",
+  "statuscanhoto": "CONCLUIDO"
+  }
 }

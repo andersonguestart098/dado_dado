@@ -22,7 +22,7 @@
     <% } %>
         <th>Número|NF</th>
         <th>Exped/Log</th>
-      <% if(pegar != "saida") { %>
+      <% if(pegar == "expedicao2" || pegar == "expedicao" || pegar == "financeiro" || pegar == "logistica") { %>
         <th>Responsável|NF</th>
       <% } %>
       <% if(pegar == "expedicao2" || pegar == "expedicao") { %>
@@ -31,36 +31,32 @@
 
       <% if(pegar == "logistica") { %>
       <th>Motorista</th>
-      <% } %>
-
-      <% if(pegar == "logistica") { %>
       <th>Placa</th>
-      <% } %>
-
-      <% if(pegar == "logistica") { %>
       <th>Status LOG</th>
+        
       <% } %>
 
       <% if(pegar == "saida") { %>
         <th>Cod. Entrega</th>
-      <% } %>
-
-      <% if(pegar == "saida") { %>
+        <th>Cod. Entrega</th>
         <th>Placa</th>
-      <% } %>
-
-      <% if(pegar == "saida") { %>
         <th>Motorista</th>
-      <% } %>
-
-      <% if(pegar == "saida") { %>
         <th>Hodometro</th>
 
       <% } %>
-        
 
+      <% if(pegar == "canhoto") { %>
+        <th>motorista</th>
+        <th>status canhoto</th>
+        
  
-      
+      <% } %>
+        
+      <% if(pegar == "retorno") { %>
+        <th>codentrega</th>
+        <th>placa</th>
+        <th>hodometro</th>
+      <% } %>
         
     </tr>
   <%- include('listDados'); %>

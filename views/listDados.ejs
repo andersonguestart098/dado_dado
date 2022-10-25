@@ -53,6 +53,18 @@ return data.json();
       case "operador":
         obj[pegar][index].operadornf= valor
         break 
+
+      case "motorista":
+        obj[pegar][index].motorista= valor
+        break
+        
+      case "placa":
+        obj[pegar][index].placa= valor
+        break
+
+      case "statuslog":
+        obj[pegar][index].statuslog= valor
+        break
     }
   console.log(obj[pegar][index].numeronf)
   fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
@@ -89,23 +101,30 @@ return data.json();
       case "expedicao":
         query = "#PstatusDepX"+i
         break
+      case "logistica":
+        query = "#PvalorstatuslogX"+i
+        break
     }
     let selects = document.querySelector(query)
+    console.log(selects.innerText)
     
     let corte
     switch(selects.innerText) {
+      case "ENTREGUE":
       case "CLIENTE RETIROU":
       case "EMITIDA":
          corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(102, 178, 102)"
         corte.style.color ="rgb(255, 255, 255)"
         break
+      case "EM TRANSITO":
       case "PENDENTE":
          corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(255, 165, 0)"
         corte.style.color ="rgb(255, 255, 255)"
         break
-
+      case "AGUARDANDO ROTA":
+      case "AGUARDANDO CLIENTE":
       case "RETORNOU AO VENDEDOR":
         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(76, 76, 255)"
@@ -171,6 +190,17 @@ document.querySelector("#valor_valordopedidoX"+i).innerText = post[pegar][i].val
     document.querySelector("#Pvalor_obs2X"+i).innerText = post[pegar][i].obsfinanceiro
   
   }
+
+    if(pegar == "logistica") {
+      document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
+      document.querySelector("#PmotoristaX"+i).innerText = post[pegar][i].motorista
+      document.querySelector("#Pvalor_placaX"+i).innerText = post[pegar][i].placa
+      document.querySelector("#PvalorstatuslogX"+i).innerText = post[pegar][i].statuslog
+      colorir(pegar)
+    }
+
+  
+  
 }
   
 let global_Up

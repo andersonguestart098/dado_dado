@@ -201,7 +201,7 @@ app.get("/expedicao2", (req, res) => {
 
     let d = JSON.parse(data)
 
-    res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "2", dados: d, i: 0, superUser: "yes" })
+    res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2", dados: d, i: 0, superUser: "yes" })
   })
 })
 
@@ -213,7 +213,7 @@ app.get("/expedicao", (req, res) => {
 
     let d = JSON.parse(data)
 
-    res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDICAO", dados: d, i: 0, superUser: "yes" })
+    res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO", dados: d, i: 0, superUser: "yes" })
   })
 })
 
@@ -370,8 +370,8 @@ app.post('/verificarLogin', (req, res) => {
   }
 });
 
-app.post("/mudancaBancoDados", (req,res) => {
-  fs.writeFileSync('./database/'+corrente+'.json', req.body)
+app.post("/mudancaBancoDados", (req, res) => {
+  fs.writeFileSync('./database/' + corrente + '.json', req.body)
   res.json({ msg: "Registrado com Sucesso" })
 })
 
@@ -400,6 +400,12 @@ app.post('/registrarBancoDados', (req, res) => {
     }
 
     switch (pegar) {
+      case "expedicao2":
+        dados[pegar][objAtual] = {
+          quemrecebeu: dataReq.quemrecebeu,
+          statusdep: dataReq.statusdep
+        }
+        break
       case "expedicao":
         dados[pegar][objAtual] = {
           quemrecebeu: dataReq.quemrecebeu,
@@ -426,9 +432,45 @@ app.post('/registrarBancoDados', (req, res) => {
           obsfinanceiro: dataReq.obsfinanceiro,
           quemrecebeu: dataReq.quemrecebeu
         }
-
         break
+      case "logistica":
+        dados[pegar][objAtual] = {
+          motorista: dataReq.motorista,
+          placa: dataReq.placa,
+          statuslog: dataReq.statuslog,
+          codentrega: dataReq.codentrega,
+          numeronf: dataReq.numeronf,
+          quemrecebeu: dataReq.quemrecebeu
+        
+        }
+        break
+      case "saida":
+        dados[pegar][objAtual] = {
+          numeronf: dataReq.numeronf,
+          exped: dataReq.exped, 
+          codentrega: dataReq.codentrega,
+          placa: dataReq.placa,
+          motorista: dataReq.motorista,
+          hodometro: dataReq.hodometro
 
+        }
+        break
+      case "retorno":
+        dados[pegar][objAtual] = {
+          numeronf: dataReq.numeronf,
+          exped: dataReq.exped, 
+          codentrega: dataReq.codentrega,
+          placa: dataReq.placa,
+          hodometro: dataReq.hodometro
+        }
+        break
+      case "canhoto":
+        dados[pegar][objAtual] = {
+          numeronf: dataReq.numeronf,
+          motorista: dataReq.motorista,
+          statuscanhoto: dataReq.statuscanhoto
+        }
+        break
     }
     fs.writeFileSync("./database/" + corrente + ".json", JSON.stringify(dados, null, 2))
   })
@@ -447,43 +489,46 @@ app.get("/database", (req, res) => {
 })
 
 /*
- * -------------------------------
- *
- *          EXPORTAÇÃO
- *
- *-------------------------------
- */
+* -------------------------------
+*
+*          EXPORTAÇÃO
+*
+*-------------------------------
+*/
 
 app.get("/excel", (req, res) => {
-  
-const workbook = new Excel.Workbook();
 
-const worksheet2 = workbook.addWorksheet('Expedição', {properties:{tabColor:{argb:'ff23344'}}});
+  const workbook = new Excel.Workbook();
+
+  const worksheet2 = workbook.addWorksheet('Expedição', { properties: { tabColor: { argb: 'ff23344' } } });
 
 
-    worksheet2.columns = [
-        { header: 'Id', key: 'ID', width: 10 },
-        { header: 'Nome', key: 'NOME', width: 10 },
-        { header: 'Data', key: 'DATA', width: 11 },
-        { header: 'Credito', key: 'CREDITO', width: 10 }
-    ]
+  worksheet2.columns = [
+    { header: 'Id', key: 'id', width: 10 },
+    { header: 'Nome', key: 'name', width: 10 },
+    { header: 'Data', key: 'data', width: 11 },
+    { header: 'Credito', key: 'CREDITO', width: 10 }
+  ]
+
+
+  worksheet2.addRow([3, 'Sam', new Date()]);
 
   worksheet2.autoFilter = 'A1:D1';
-  
-  worksheet2.addRow([3, 'Sam', new Date(), Math.floor(Math.random() * 10000)]);
 
   workbook.xlsx.writeFile('./excel/Tabaela.xlsx').then(() => {
-    res.download(__dirname+"/excel/Tabaela.xlsx");
+    res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    res.setHeader("Content-Disposition", "attachment; filename=" + __dirname + "/excel/Tabaela.xlsx");
+    //res.download(__dirname+"/excel/Tabaela.xlsx");
   })
 })
 
 
 /*
- *-------------------------------
+ * -------------------------------
  *
- *          FUNCÕES
+ * FUNCÕES
  *
- *-------------------------------
+ * -------------------------------
  */
 
 function getDataDatabase(escrever) {
@@ -504,6 +549,5 @@ function isEmpty(obj) {
   return true;
 }
 
-function criarExcel() {}
 
 app.listen()

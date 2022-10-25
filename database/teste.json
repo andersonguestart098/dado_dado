@@ -18,10 +18,8 @@
   "passagem": {
     "0": {
       "id": 0,
-      "dataHora": "2022-09-12 13:18:00.000000",
-      "vendedor": "Marcia",
-      "numeronf": "C",
-      "cliente": "SICRED",
+      "dataHora": "25/9/2022 18:29",
+      "numeronf": "aaa",
       "exped": "LOGÍSTICA"
     },
     "1": {
@@ -32,8 +30,8 @@
     },
     "2": {
       "id": 2,
-      "dataHora": "25/9/2022 13:25",
-      "numeronf": "A",
+      "dataHora": "25/9/2022 16:45",
+      "numeronf": "248999",
       "exped": "EXPED.1"
     },
     "3": {
@@ -181,12 +179,59 @@
     },
     "1": {
       "quemrecebeu": "MAX",
+      "statusdep": "AGUARDANDO CLIENTE"
+    },
+    "2": {
+      "quemrecebeu": "MAX",
+      "statusdep": "AGUARDANDO CLIENTE"
+    }
+  },
+  "expedicao2": {
+    "0": {
+      "quemrecebeu": "MANOEL",
       "statusdep": "PENDENTE"
     }
   },
-  "expedicao2": {},
-  "logistica": {},
-  "saida": {},
-  "retorno": {},
-  "canhoto": {}
+  "logistica": {
+    "0": {
+      "motorista": "DOUGLAS",
+      "placa": "fff",
+      "statuslog": "EM TRANSITO",
+      "numeronf": "aaa",
+      "quemrecebeu": "DIEIMES"
+    },
+    "1": {
+      "motorista": "JULIANO",
+      "placa": "fff",
+      "statuslog": "ENTREGUE",
+      "numeronf": "aaa",
+      "quemrecebeu": "DIEIMES"
+    }
+  },
+  "saida": {
+    "0": {
+      "numeronf": "435354353454",
+      "exped": "LOG",
+      "codentrega": "4565464553",
+      "placa": "IZT1E84",
+      "motorista": "VILNEI",
+      "hodometro": "45353554ed"
+    }
+  },
+  "retorno": {
+    "0": {
+      "numeronf": "54545454454",
+      "exped": "LOG",
+      "codentrega": "34324234",
+      "placa": "IST6840",
+      "hodometro": "edfsf3243242"
+    }
+  },
+  "canhoto": {
+    "0": {
+      "numeronf": "32432434",
+      "motorista": "ALEXANDRE",
+      "statuscanhoto": "CONCLUIDO"
+    }
+  }
 }
