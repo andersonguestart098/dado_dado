@@ -49,10 +49,21 @@ app.use(cors({
  *-------------------------------
  */
 
-
 app.get("/", (req, res) => {
   console.log(req.cookies.login)
   res.render("login.ejs")
+})
+
+app.get("/cruzamento", (req, res) => {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
+    }
+
+    let d = JSON.parse(data)
+
+    res.render("bodyList.ejs", { pegar: "passagem", titulo: "CRUZAMENTO", dados: d, i: 0 })
+  })
 })
 
 app.get("/home", (req, res) => {
@@ -67,6 +78,7 @@ app.get("/home", (req, res) => {
 })
 
 
+
 /*
  *-------------------------------
  *
@@ -77,34 +89,24 @@ app.get("/home", (req, res) => {
 
 
 app.get("/financeiroformulario", (req, res) => {
-  fs.readFile("./database/example.json", "utf8", function(err, data) {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
     if (err) {
       return console.log("Erro ao ler arquivo")
     }
     data = JSON.parse(data)
-
-    for (let i = 0; i <= Object.keys(data).length - 1; i++) {
-      if (req.cookies.login == null) {
-        res.render("pageError.ejs")
-      } else if (req.cookies.login == data.id1.usuarios[i].pass) {
-        res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", superUser: "yes" })
-      } else if (req.cookies.superUser == data.id1.usuarios[i].pass) {
-        res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", superUser: "yes" })
-      }
-    }
+    res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: data, superUser: "yes" })
   })
 })
 
 app.get("/exped2formulario", (req, res) => {
-  for (let i = 0; i <= Object.keys(pass).length - 1; i++) {
-    if (req.cookies.login == null) {
-      res.render("pageError.ejs")
-    } else if (req.cookies.login == pass.id1.usuarios[i].pass) {
-      res.render("bodyForm.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2" })
-    } else if (req.cookies.superUser == pass.id1.usuarios[i].pass) {
-      res.render("bodyForm.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2" })
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
     }
-  }
+    let d = JSON.parse(data)
+
+    res.render("bodyForm.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2", dados: d })
+  })
 })
 
 app.get("/expedformulario", (req, res) => {
@@ -192,6 +194,7 @@ app.get("/financeiro", (req, res, next) => {
     res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: d, i: 0 })
   })
 })
+
 
 app.get("/expedicao2", (req, res) => {
   fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
@@ -441,13 +444,13 @@ app.post('/registrarBancoDados', (req, res) => {
           codentrega: dataReq.codentrega,
           numeronf: dataReq.numeronf,
           quemrecebeu: dataReq.quemrecebeu
-        
+
         }
         break
       case "saida":
         dados[pegar][objAtual] = {
           numeronf: dataReq.numeronf,
-          exped: dataReq.exped, 
+          exped: dataReq.exped,
           codentrega: dataReq.codentrega,
           placa: dataReq.placa,
           motorista: dataReq.motorista,
@@ -458,7 +461,7 @@ app.post('/registrarBancoDados', (req, res) => {
       case "retorno":
         dados[pegar][objAtual] = {
           numeronf: dataReq.numeronf,
-          exped: dataReq.exped, 
+          exped: dataReq.exped,
           codentrega: dataReq.codentrega,
           placa: dataReq.placa,
           hodometro: dataReq.hodometro

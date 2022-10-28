@@ -9,7 +9,34 @@
 </head>
 <a href="home">VOLTAR AO HOME</a>
 <style>
-          table{
+
+.tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+
+  
+  table{
             background-color:#fff5ea;
             padding:15px;
             border-radius:15px;
@@ -52,6 +79,9 @@
   font-family: Arial, Helvetica, sans-serif;
   color: #1c5d8e;
         }
+  #entrega {
+    display: none;
+  }
     </style>
 <body onload="load()">
     <div class="container">
@@ -88,7 +118,7 @@
                     <label for="vendedor" class="col-form-label">Vendedor:                 </label> 
             <br>
           <select name="vendedor" id="vendedor">
-            <option value=" "> </option>
+            <option value=" " selected="selected"> </option>
             <option value="ALINE">ALINE</option>
             <option value="MARCIA">MARCIA</option>
             <option value="WAGNER">WAGNER</option>
@@ -123,7 +153,7 @@
           <label for="tipodefaturamento" class="col-form-label">tipodefaturamento:</label>
             <br>
           <select name="tipodefaturamento" id="tipodefaturamento">
-            <option value=" "> </option>
+            <option value="" selected disabled hidden> </option>
             <option value="NORMAL">NORMAL</option>
             <option value="REMESSA FUTURA">REMESSA FUTURA</option>
             <option value="REMESSA TRANSPORTE">REMESSA TRANSPORTE</option>
@@ -137,7 +167,7 @@
       <label for="formapgto" class="col-form-label">Forma de Pagamento:</label>
           <br>
           <select name="formapgto" id="formapgto">
-            <option value=" "> </option>
+            <option value=" " selected disabled hidden> </option>
             <option value="BOLETO">BOLETO</option>
             <option value="DINHEIRO">DINHEIRO</option>
             <option value="DEPOSITO BANCARIO">DEPOSITO BANCARIO</option>
@@ -147,21 +177,22 @@
                       <br>
       <label for="retiraentrega" class="col-form-label">Retira, entrega ou transp. ?</label>
           <br>
-          <select name="retiraentrega" id="retiraentrega">
-            <option value=" "> </option>
+          <select onchange="aparecer(this, entrega)" name="retiraentrega" id="retiraentrega">
+            <option value=" " selected="selected"> </option>
             <option value="RETIRA">RETIRA</option>
             <option value="ENTREGA">ENTREGA</option>
             <option value="TRANSPORTADORA">TRANSPORTADORA</option>
           </select>
           <br>
-          
-            <label for="localdaentrega" class="col-formlabel">Local da Entrega:</label> 
+
+          <div id="entrega">
+          <label for="localdaentrega" class="col-formlabel">Local da Entrega:</label> 
             <br>
           <input type="text"  name="localdaentrega" class="form-control" id="localdaentrega">
             <br>
 
       <label for="localdecobranca" class="col-form-label">Local de Cobrança:</label>
-          <br>
+            <br>
           <select name="localdecobranca" id="localdecobranca">
             <option value=" "> </option>
             <option value="EMPRESA">EMPRESA</option>
@@ -169,12 +200,7 @@
             <option value="COBRAR NA ENTREGA">COBRAR NA ENTREGA</option>
           </select>
           <br>
-      <label for="obs" class="col-formlabel">Observações:</label> 
-            <br>
-          <input type="text"  name="obs" class="form-control" id="obs">
-            <br>
-                
-      <label for="fretedestacado" class="col-form-label">Tpo de Frete:</label>
+          <label for="fretedestacado" class="col-form-label">Tpo de Frete:</label>
             <br>
           <select name="fretedestacado" id="fretedestacado">
             <option value=" "> </option>
@@ -182,17 +208,18 @@
             <option value="DILUIDO">DILUIDO</option>
           </select>
           <br>
-
       <label for="valorfrete" class="col-formlabel">Valor Frete:</label> 
             <br>
           <input type="text"  name="valorfrete" class="form-control" id="valorfrete">
             <br>
-
-      <label for="dataentrega" class="col-formlabel">Data da Entrega:</label> 
+            <label for="dataentrega" class="col-formlabel">Data da Entrega:</label> 
           <input type="datetime-local"  name="obs" class="form-control" id="dataEntrega">
-
-          
-           
+            
+          </div>
+      <label for="obs" class="col-formlabel">Observações:</label> 
+            <br>
+          <input type="text"  name="obs" class="form-control" id="obs">
+            <br>
           <input type="hidden"  name="operadornf" class="form-control" id="operadornf" value="ROSI">
            
 
@@ -213,12 +240,7 @@
         <% } %>
 
         <% if(pegar == "expedicao2") { %>
-          <select name="statusdep" id="statusdep" value="AGUARDANDO CLIENTE">
-            <option value=" "> </option>
-            <option value="AGUARDANDO CLIENTE">AGUARDANDO CLIENTE</option>
-            <option value="AGUARDANDO TRANSPORTADORA">AGUARDANDO TRANSPORTADORA</option>
-            <option value="CLIENTE RETIROU">CLIENTE RETIROU</option>
-          </select>
+          <input type="hidden"  name="statusdep" class="form-control" id="statusnf" value="PENDENTE">
           <% } %>
             
           <% if(pegar == "logistica") { %>
@@ -296,9 +318,9 @@
               
           <select name="statuslog" id="statuslog" value="AGUARDANDO ROTA">
             <option value=" "> </option>
-            <option value="AGUARDANDO VENDEDOR">AGUARDANDO CLIENTE</option>
-            <option value="EM TRANSITO">AGUARDANDO TRANSPORTADORA</option>
-            <option value="ENTREGUE">CLIENTE RETIROU</option>
+            <option value="AGUARDANDO VENDEDOR">AGUARDANDO VENDEDOR</option>
+            <option value="EM TRANSITO">EM TRANSITO</option>
+            <option value="ENTREGUE">ENTREGUE</option>
           </select>
             <br>        
           </label>
@@ -462,19 +484,14 @@
               <% } %>
 
           <% if(pegar == "expedicao2") { %>
-          </label>
-            <br>
-            <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
-          <% } %>
-
-          <% if(pegar == "expedicao2") { %>
            <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
             <br>
-          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+          <div>
+          <input type="text" autocomplete="off" name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+          <span class="tooltiptext">Tooltip text</span>
+          </div>
             <br>
-          <% } %>
 
-          <% if(pegar == "expedicao2") { %>
           <label for="exped" class="col-form-label">Setor:</label> 
             <br>
           <select name="exped" id="exped">
@@ -482,16 +499,6 @@
             <option value="EXPED.2">EXPED.2</option>
           </select>
             <br>
-          <% } %>
-
-          <% if(pegar == "expedicao2") { %>
-          <label for="numeronf" class="col-form-label">NÚMERO NF:</label> 
-            <br>
-          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
-            <br>
-          <% } %> 
-
-          <% if(pegar == "expedicao2") { %>
 
           <label for="quemrecebeu" class="col-form-label">Responsável NF:</label>
             <br>
@@ -564,12 +571,67 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="custom/custom.js"></script>
+    <script>
+    function aparecer(a, b){
+      let valor = a.value
+      
+      if (valor == "ENTREGA") {   
+         b.style.display = "block" //display visivel
+      }else{
+         b.style.display = "none"
+      }
+  }
+
+setInterval(()=> {
+  let numeroNF = document.querySelector("#numeronf")
+  let tooltip = document.querySelector(".tooltiptext")
+    if(numeroNF.value != ""){
+      let dadosPassagem = <%-JSON.stringify(dados.passagem)%> 
+      let pegar = "<%= pegar %>"
+      for (let prop = 0; prop <= Object.keys(dadosPassagem).length-1; prop++) {
+    if(numeroNF.value == dadosPassagem[prop].numeronf) {
+      if(dadosPassagem[prop].exped != pegar) {
+        numeroNF.style.color = "red"
+        tooltip.style.visibility = "visible"
+        tooltip.style.opacity = 1
+        tooltip.style.background = "#f59b5f"
+        tooltip.style.color = "#6d6e69"
+        tooltip.innerText = "codigo nota Fiscal não pertence a este setor!"
+      }else if(dadosPassagem[prop].usada != "nao"){
+        numeroNF.style.color = "green"
+        tooltip.style.opacity = 0
+      }else if(dadosPassagem[prop].usada == "nao") {
+        numeroNF.style.color = "red"
+        tooltip.style.visibility = "visible"
+        tooltip.style.opacity = 1
+        tooltip.style.background = "#f76157"
+        tooltip.style.color = "#fff"
+        tooltip.innerText = "codigo nota Fiscal sendo usada!"
+        
+      }
+        return
+      }
+        numeroNF.style.color = "red"
+        tooltip.style.visibility = "visible"
+        tooltip.style.opacity = 1
+        tooltip.style.background = "#f76157"
+        tooltip.style.color = "#fff"
+        tooltip.innerText = "codigo nota Fiscal não existente!"
+      }
+      }else {
+        tooltip.style.opacity = 0
+      }
+})
+    </script>
 </body>
-          
+            
 <script>
       let obj = {}
 function clickEnviar(a) {
+      if(document.querySelector("#numeronf").style.color == "red") {
+        alert("Confira o numero da nota fiscal") 
+        return
+      }
       let pegar = "<%= pegar %>"
   
       switch(pegar){
