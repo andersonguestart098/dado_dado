@@ -92,6 +92,7 @@ return data.json();
     let query
     for(let i=count-1; i > -1; i--) {
     switch(c) {
+      case "passagem":
       case "expedicao2":
         query = "#PstatusDepX"+i
         break
@@ -149,14 +150,16 @@ function setData(post, pegar, i) {
     document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][i].numeronf
   
     document.querySelector("#Pvalor_exped"+i).innerText = post["passagem"][i].exped
-  
-   document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
+
+if(pegar != "passagem") {
+     document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
+}
   
             //-------------------
             //    FINANCEIRO
             //-------------------
-    if(pegar == "expedicao2" || pegar == "expedicao") {
-  document.querySelector("#PstatusDepX"+i).innerText = post[pegar][i].statusdep
+    if(pegar == "expedicao2" || pegar == "expedicao" || pegar == "passagem") {
+  document.querySelector("#PstatusDepX"+i).innerText = post["expedicao2"][i].statusdep
     colorir(pegar)
     }
   

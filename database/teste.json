@@ -18,10 +18,9 @@
   "passagem": {
     "0": {
       "id": 0,
-      "dataHora": "28/9/2022 18:58",
-      "numeronf": "777",
-      "exped": "expedicao",
-      "usada": "sim"
+      "dataHora": "29/9/2022 14:47",
+      "numeronf": "248778",
+      "exped": "expedicao2"
     },
     "1": {
       "id": 1,
@@ -69,29 +68,14 @@
       "operadornf": "ROSI",
       "obsfinanceiro": "...",
       "quemrecebeu": "CRISTIANO DUARTE"
-    },
-    "2": {
-      "nropedido": "666777",
-      "statusnf": "EMITIDA",
-      "vendedor": "LEONARDO",
-      "cliente": "MELNICK EVEN",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "R$16.900,00",
-      "formapgto": "DINHEIRO",
-      "retiraentrega": "ENTREGA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "Tratar com Júlia 3366-3325",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "...",
-      "quemrecebeu": "..."
     }
   },
   "expedicao": {},
   "expedicao2": {
+    "0": {
+      "quemrecebeu": "CRISTIANO DUARTE",
+      "statusdep": "PENDENTE"
+    }
   },
   "logistica": {},
   "saida": {},

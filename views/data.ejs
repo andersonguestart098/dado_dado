@@ -76,7 +76,7 @@
     </select>
       <p onclick='make(this,expedX<%= dados["passagem"][i].id %>)' id='Pvalor_exped<%= dados["passagem"][i].id %>'><%= dados["passagem"][i].exped %></p>
     </td>
-     <% if(pegar != "saida" && pegar != "retorno" && pegar != "canhoto" ) { %> 
+     <% if(pegar != "saida" && pegar != "retorno" && pegar != "canhoto" && pegar != "passagem" ) { %> 
          
   
     <td id='valor_quemrecebeuX<%= dados["passagem"][i].id %>'>
@@ -95,7 +95,7 @@
     
       <% } %>
            
-      <% if(pegar == "expedicao2" || pegar == "expedicao") { %>
+      <% if(pegar == "expedicao2" || pegar == "expedicao" || pegar == "passagem") { %>
         
     <td id='StatusdepX<%= dados["passagem"][i].id %>'>
     <select onchange="autoreflash(this,PstatusDepX<%= dados['passagem'][i].id %>)" name='quem' id='statusDepX<%= dados["passagem"][i].id %>'><option value='PENDENTE'>PENDENTE</option> 

@@ -2,16 +2,16 @@
 
 ### A Fazer
 
-- [ ] Tabela de passagem de dados
-- [ ] dashboard emprensarial de dados com base em graficos
 - [ ] jogo que nao tire atenção em trabalho mas distraia em tempo livre (nao oficial)
-
 
 ### Fazendo
 
+- [ ] Tabela de passagem de dados
+- [ ] dashboard emprensarial de dados com base em graficos
 - [ ] Criar exportação excel
 
 ### Ultimo
+
 - [ ] Design do Home
 
 ### Concluido
