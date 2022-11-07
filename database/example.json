@@ -16,6 +16,166 @@
         "setor": "expedicao",
         "foto": "https://i.imgur.com/bt56eux.jpeg",
         "pass": 123
+      },
+      "2": {
+        "nome": "Aline",
+        "user": "Aline",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+        "pass": 123
+      },
+      "3": {
+        "nome": "Marcia",
+        "user": "Marcia",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRVuzXFWFGxEyktkbbTRtCtd5S4mbVVkdb8fxMOzrcXqHXRPIcvhBgBRFuLgD-5_-eELyWSFUABiNKMqWX6827PPSyU=w1366-h617",
+        "pass": 1234
+      },
+      "4": {
+        "nome": "Luis",
+        "user": "Luis",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmQv4IFCBrlwzVAz05LiVfYJq-ccIQfL5WbV6jJ-PS8TTeucupXoQOoP3S_-w-BMGE3eoXA5FH-KIdJcrAZsU3eAMsDcQw=w1366-h617",
+        "pass": 12345
+      },
+      "5": {
+        "nome": "Gelson",
+        "user": "Gelson",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTJLWbz4Vk5axc1ugoTHADmkdP3QPcQo3pQDWY33lFknAmkHxoWn_U8W7v96YfKsv68-pi9rMuRDKATz98s69aXbCIo=w1366-h617",
+        "pass": 123456
+      },
+      "6": {
+        "nome": "Wagner",
+        "user": "Wagner",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmSQmwxjwdG6PmAzZpYYegJHm2KPUdongtQkkJwTVAEGG3ym2n5WLnQv64n1wZCAbOGWiOtLOtvLXrICPeNjzjLEG3-fVw=w1366-h617",
+        "pass": 123457
+      },
+      "7": {
+        "nome": "Fernando",
+        "user": "Fernando",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://drive.google.com/file/d/1Q7aoubDuxs9C1FLwOysrpFsXPzQwAkfc/view",
+        "pass": 1234578
+      },
+      "8": {
+        "nome": "Julia",
+        "user": "Julia",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "",
+        "pass": 1234579
+      },
+      "9": {
+        "nome": "Rosi",
+        "user": "Rosi",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "",
+        "pass": 12345780
+      },
+      "10": {
+        "nome": "Oscar",
+        "user": "Oscar",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "",
+        "pass": 123457801
+      },
+      "11": {
+        "nome": "Gaspar",
+        "user": "Gaspar",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT2DYIYozUss_Nu6fm0RLULYWK0p86wN_JR5lmRqGZW5EC9Oqs7Lb0R-8vcZQWwA0H_r2HR-UqgpjePesRx7NtvZ7eaRg=w1366-h617",
+        "pass": 123457802
+      },
+      "12": {
+        "nome": "Paulo",
+        "user": "Paulo",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmSn5Ni6KHK2UCaazTtP6CV2Hq6h94Nq4X82ik8UAlZ_iyl8SxyY_NY_P4_QaOWOCVq1gWCqWhNIGgiCo0WMuCicUU5mrQ=w1366-h617",
+        "pass": 123457803
+      },
+      "13": {
+        "nome": "Dani",
+        "user": "Dani",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "",
+        "pass": 123457804
+      },
+      "14": {
+        "nome": "Dieimes",
+        "user": "Dieimes",
+        "previlegios": 1,
+        "setor": "logistica",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmQ8LfabIxs37Lh8uX4xq-OQsu6c8kdssTMs8XL8ZKhIgTO-usf7J4CUiGz225Y3NogOZhxwGwJxc667VprP_hh9O423Xw=w1366-h617",
+        "pass": 123457805
+      },
+      "15": {
+        "nome": "Felipe",
+        "user": "Felipe",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmQ8LfabIxs37Lh8uX4xq-OQsu6c8kdssTMs8XL8ZKhIgTO-usf7J4CUiGz225Y3NogOZhxwGwJxc667VprP_hh9O423Xw=w1366-h617",
+        "pass": 123457806
+      },
+      "16": {
+        "nome": "Manoel",
+        "user": "Manoel",
+        "previlegios": 1,
+        "setor": "expedicao2",
+        "foto": "https://drive.google.com/file/d/1xa4-9d4qT5-r2Qo6mrs9dFuZBKMh6XPi/view?usp=share_link",
+        "pass": 123457807
+      },
+      "17": {
+        "nome": "Cristiano",
+        "user": "Cristiano",
+        "previlegios": 1,
+        "setor": "expedicao2",
+        "foto": "",
+        "pass": 123457808
+      },
+      "18": {
+        "nome": "Everton",
+        "user": "Everton",
+        "previlegios": 1,
+        "setor": "expedicao",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmQDtAzYIvRFKpzBqQH7bV_xM5DptDCYfP4WFAP-4faton0A5MmDXwGy9KteC-CAfXLRFuDcwc5MWlxTTpDlFIYHWQKyZQ=w1366-h617",
+        "pass": 1234578001
+      },
+      "19": {
+        "nome": "Max",
+        "user": "Max",
+        "previlegios": 1,
+        "setor": "expedicao",
+        "foto": "",
+        "pass": 1234578002
+      },
+      "20": {
+        "nome": "Dudu",
+        "user": "Dudu",
+        "previlegios": 1,
+        "setor": "expedicao",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT4bKrCGmNnobL-HkusktKSVM_psJQCHQ1XTTMzQ1bpSwJZLo8CKx1656q9MGXaCqNteIbS8H9VjJNjuqrHbiw9Mxafyg=w1366-h617",
+        "pass": 1234578003
+      },
+      "21": {
+        "nome": "Marcia.s",
+        "user": "Marcia.s",
+        "previlegios": 1,
+        "setor": "canhoto",
+        "foto": "https://drive.google.com/file/d/1HVrFhrCamIRerKFmipKWgSIqxZpgfONt/view",
+        "pass": 1234578004
       }
     }
   },
@@ -57,7 +217,7 @@
       "nropedido": "888",
       "statusnf": "EMITIDA",
       "vendedor": "GASPAR",
-      "cliente": "CU",
+      "cliente": "SICRED",
       "tipodefaturamento": "NORMAL",
       "valordopedido": "3.233",
       "formapgto": "BOLETO",
@@ -77,7 +237,7 @@
       "nropedido": "",
       "statusnf": "CANCELADA",
       "vendedor": "ALINE",
-      "cliente": "dwdwd",
+      "cliente": "HERMANN",
       "tipodefaturamento": "NORMAL",
       "valordopedido": "400.00",
       "formapgto": "BOLETO",
@@ -97,7 +257,7 @@
       "nropedido": "42232",
       "statusnf": "RETORNOU AO VENDEDOR",
       "vendedor": "ALINE",
-      "cliente": "sssss",
+      "cliente": "JOÃO",
       "tipodefaturamento": "REMESSA FUTURA",
       "valordopedido": "3232",
       "formapgto": "DINHEIRO",
@@ -117,14 +277,14 @@
       "nropedido": "615888",
       "statusnf": "EMITIDA",
       "vendedor": "MARCIA",
-      "cliente": "CU",
+      "cliente": "SULPLY",
       "tipodefaturamento": "NORMAL",
       "valordopedido": "1.000.000,00",
       "formapgto": "BOLETO",
       "retiraentrega": "RETIRA",
       "localdaentrega": "",
       "localdecobranca": " ",
-      "obs": "81295cu.deb",
+      "obs": "cliente esperando",
       "fretedestacado": " ",
       "valorfrete": "",
       "dataentrega": "",

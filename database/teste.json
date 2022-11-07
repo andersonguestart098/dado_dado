@@ -14,7 +14,7 @@
         "user": "adm",
         "previlegios": 1,
         "setor": "expedicao",
-        "foto": "https://drive.google.com/file/d/1l8G0cXC2NKW0ZjhxbVvII5F0I9gIg2Zd/view?usp=share_link",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTPNAhEtoWk0P5NWMq-mGq3ToNhScUMVzbb9_cvDN9Uf8rfLbv7K_dnVnxWUYQdEN_3PSnjBIkTiJ10mBPEkMvYzL_y3g=w1366-h621",
         "pass": 123
       }
     }
@@ -48,7 +48,8 @@
       "dataHora": "5/10/2022 0:57",
       "numeronf": "248999",
       "exped": "expedicao",
-      "usada": "sim"
+      "usada": "sim",
+      "statusnf": "CANCELADA"
     }
   },
   "financeiro": {

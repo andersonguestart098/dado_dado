@@ -92,7 +92,6 @@ return data.json();
     let query
     for(let i=count-1; i > -1; i--) {
     switch(c) {
-      case "passagem":
       case "expedicao2":
         query = "#PstatusDepX"+i
         break
@@ -115,7 +114,7 @@ return data.json();
       case "ENTREGUE":
       case "CLIENTE RETIROU":
       case "EMITIDA":
-         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
+        corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(102, 178, 102)"
         corte.style.color ="rgb(255, 255, 255)"
         break
@@ -143,17 +142,13 @@ return data.json();
   }
 
 function setData(post, pegar, i) {
-    document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][i].dataHora
-
   
-    document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
-  
-    document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][i].numeronf
-  
-
-if(pegar != "passagem") {
-     
-}
+    if(pegar != "passagem") {
+             document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][i].dataHora
+        document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
+      
+        document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][i].numeronf
+    }
   
             //-------------------
             //    FINANCEIRO
@@ -164,10 +159,6 @@ if(pegar != "passagem") {
     }
 
     if(pegar == "passagem") {
-      document.querySelector("#Pvalor_exped"+i).innerText = post["passagem"][i].exped
-      document.querySelector("#stNfX"+i).innerText = post["financeiro"][i].statusnf
-      document.querySelector("#valor_vendedorX"+i).innerText = post["financeiro"][i].vendedor
-      document.querySelector("#valor_clienteX"+i).innerText = post["financeiro"][i].cliente
       colorir(pegar)
     }
   

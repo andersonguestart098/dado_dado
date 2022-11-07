@@ -1,8 +1,8 @@
-<tr style="width:200px" class='cordaLinha<%= dados[pegar][i].id %>'>
-
   <% if(pegar == "passagem") { %>
+    <tr style="width:200px" class='cordaLinha<%= dados["financeiro"][i].id %>'>
   <td colspan='0.5' id='valor_idX<%= dados["financeiro"][i].id %>'><%= dados["financeiro"][i].id %></td>
   <% } else { %>
+    <tr style="width:200px" class='cordaLinha<%= dados[pegar][i].id %>'>
   <td colspan='0.5' id='valor_idX<%= dados[pegar][i].id %>'><%= dados[pegar][i].id %></td>
   <% } %>
   <td id='valor_datahoraX<%= dados[pegar][i].id %>'>
@@ -218,7 +218,7 @@
       <% } %>
 
          <% if(pegar == "passagem") { %>
-            <td id='valor_statusnfX<%= dados["financeiro"][i].id %>'>
+            <td class="orientador" id='valor_statusnfX<%= dados["financeiro"][i].id %>'>
           <select onchange="autoreflash(this,stNfX<%= dados["financeiro"][i].id %>)" name='coisa' id='coisaX<%= dados["financeiro"][i].id %>'>
           <option value=''></option>
           <option value='PENDENTE'>PENDENTE</option>
