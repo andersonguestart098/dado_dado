@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home <%= pegar.setor %></title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #fff;
+        }
+        @keyframes mymove {
+        from {opacity: 1;}
+        to {opacity: 0;}
+        }
+        #navegator {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background-color: #3d3d3d;
+            width: 70px;
+            box-shadow: 10px 0 0 #058FED;
+            border-left: 10px solid #3d3d3d;
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+        #navegator:hover {
+            width: 300px;
+        }
+
+        #navegator ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding-left: 5px;
+            padding-top: 15 0px;
+        }
+        #navegator ul li {
+            position: relative;
+            list-style: none;
+            width: 100%;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+        #navegator ul li a {
+            position: relative;
+            display: flex;
+            width: 100%;
+            text-decoration: none;
+            color: #fff;
+        }
+        #navegator ul li a #icon {
+            position: relative;
+            display: block;
+            min-width: 60px;
+            height: 60px;
+            text-align: center;
+            line-height: 70px;
+        }
+        #navegator ul li a #icon ion-icon {
+            position: relative;
+            font-size: 1.5rem;
+            z-index: 1;
+        }
+      #Camada_1 {
+        width: 50px;
+      }
+        #navegator ul li a #title {
+            position: relative;
+            display: block;
+            padding-left: 10px;
+            height: 60px;
+            line-height: 60px;
+            white-space: nowrap;
+        }
+        #navegator ul li.active {
+            background-color: #058FED;
+        }
+        #navegator ul li.active a::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(68, 34, 68, 0);
+            border-radius: 50%;
+            box-shadow: 15px 15px 0 #058FED;
+        }
+        #navegator ul li.active a::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(68, 34, 68, 0);
+            border-radius: 50%;
+            box-shadow: 15px -15px 0 #058FED;
+        }
+        #main {
+            margin-top: 90px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .grid-container {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid: 150px / auto auto auto;
+            grid-gap: 10px;
+            padding: 10px;
+        }
+
+        .grid-container > div {
+            border-radius: 5px;
+            background-color: #3d3d3d;
+            text-align: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            padding: 20px 0;
+            font-size: 30px;
+        }
+        .item1 {
+            grid-column: 1 / span 3;
+            width: 900px; 
+            height: 440px;
+        }
+        .item2 {
+            margin-top: 300px;
+            height: 300px;
+            width: auto;
+        }
+        .nonMargin {
+            margin-top: 10px; 
+        }
+        .fist {
+            margin-left: 20%;
+        }
+        .last {
+            margin-right: 5%;
+        }
+        #optionsGraph {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            float: right; 
+            margin-right: 10px; 
+            border-radius: 5px; 
+            background: #058FED; 
+            color: #fff;
+            font-size: large;
+            border-color: #1e1e2f00;
+        }
+        #listTasks {
+            list-style: none;
+            overflow:hidden; 
+            overflow-y:scroll;
+            height: 200px;
+            background: #ffffff00;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        #listTasks li {
+            background: #058FED;
+            color: #fff;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        #listTasksTitle {
+            background: #b8b8b8;
+            color: #fff;
+            text-align: left;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 5px; 
+        }
+      .circle {
+        background-color: #11164A;
+        border-radius: 50%;
+        border-style: solid;
+        border-color: #058FED;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        position: relative;
+      }
+      .circle img {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+</head>
+<body>
+  <div class="circle" style="right: 10px; top: 10px; position: absolute; float: right;">
+  <img src="<%= pegar.foto %>" width="50px" height="40px">
+</div>
+    <div id="navegator">
+        <ul>
+            <li class="list">
+                <img src="">
+            </li>
+            <li class="list active">
+                <a href="#">
+                    <span id="icon">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 305.47 164.49">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffffff;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M138.7,27.3c-1.15,1.15-15.44,21.99-15.44,21.99,0,0-5.11,9.13-11.37,3.53l-.13-.09c-8.29-8.4-19.72-12.61-31.52-12.61-24.21,0-44.13,19.92-44.13,44.13s19.92,44.13,44.13,44.13c14.23,0,27.62-6.88,35.89-18.46l40.33-69.8h0C170.83,14.98,196.86,0,225.81,0c37.43,0,70.02,23.15,78.52,59.6l.54,2.55c.4,1.99,.61,4.02,.61,6.05,0,16.52-13.48,30.17-25.15,30.43l-96.66-1.15-3.29-.03s-1.68,.17-1.33-.5c8.51-15.85,9.5-19.01,13.89-26.71,2.48-4.91,10.22-4.77,16.13-4.9h.11s40.12,0,49.86-.58,12.04-4.01,8.6-9.74h0c-8.31-12.99-22.98-20.63-38.4-20.63s-30.01,7.99-38.29,21.12l-2.4,4.1-34.39,61.9c-13.96,26.49-43.41,42.98-73.36,42.98C36.48,164.49,0,128.01,0,83.68S36.48,2.87,80.81,2.87c21.79,0,42.69,8.82,57.89,24.43Z"/>
+  <path class="cls-1" d="M305.39,124.37c-8.9-5.7-18.89-8.21-29.69-7.25-6.66,.59-13.1,2.71-18.95,5.96l-.07,.04c-7.94,4.21-16.9,6.51-26.16,6.51-16.24,0-31.17-7.54-42.3-19.36-7.08-7.51-11.16-.87-11.16-.87l-13.33,24.22c16.92,19.59,41.56,30.87,67.45,30.87,30.06,0,57.78-14.95,74.22-40.12h0Z"/>
+</svg></span>
+                    <span id="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="<%= pegar.setor %>formulario">
+                    <span id="icon"><ion-icon name="reader-outline"></ion-icon></span>
+                    <span id="title">Formulario</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="<%= pegar.setor %>">
+                    <span id="icon"><ion-icon name="easel"></ion-icon></span>
+                    <span id="title">Tabela</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span id="icon"><ion-icon name="people-circle-outline"></ion-icon></span>
+                    <span id="title">Users</span>
+                </a>
+            </li>
+          <li class="list">
+                  <a href="excel">
+                      <span id="icon"><ion-icon name="print"></ion-icon></span>
+                      <span id="title">Exportar Excel</span>
+                  </a>
+              </li>
+            <li class="list">
+                <a href="#">
+                    <span id="icon"><ion-icon name="cog-outline"></ion-icon></span>
+                    <span id="title">Configure</span>
+                </a>
+            </li>
+            
+            <li class="list">
+                <a href="#">
+                    <span id="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <span id="title">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="logout">
+                    <span id="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span id="title">Sair</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="main">
+        <div class="grid-container">
+            <div class="item1 fist">
+                <select name="optionsGraph" onchange="switchTypeGraph(this)" id="optionsGraph">
+                    <option value="line">LINHA</option>
+                    <option value="bubble">BOLHAS</option>
+                    <option value="doughnut">DONUTS</option>
+                    <option value="pie">PIZZA</option>
+              </select>
+              <canvas id="myChart" style="margin: 5px; width:100%;max-width:fit-content;max-height: 300px;"></canvas></div>
+            <div class="item2 fist" style="margin-left: 150px; width: 301px;"><canvas id="can1" style="margin: 5px; width:100%;max-width:300px;max-height: 300px;"></canvas></div>  
+            <div class="item2" style="width: 301px;"><canvas id="can2" style="margin: 5px; width:100%;max-width:300px;max-height: 260px;"></canvas></div>  
+            <div class="item2 last" style="width: 301px;"><canvas id="can3" style="margin: 5px; width:100%;max-width:300px;max-height: 300px;"></canvas></div>
+            <div class="item2 fist nonMargin">
+                <h3 id="listTasksTitle">MESSAGENS</h3>
+                    <ul id="listTasks">
+                        <li onclick="myMove(this)">Coffee</li>
+                        <li onclick="myMove(this)">Tea</li>
+                        <li onclick="myMove(this)">Milk</li>
+                        <li onclick="myMove(this)">Coffee</li>
+                        <li onclick="myMove(this)">Tea</li>
+                        <li onclick="myMove(this)">Milk</li>
+                        <li onclick="myMove(this)">Coffee</li>
+                        <li onclick="myMove(this)">Tea</li>
+                        <li onclick="myMove(this)">Milk</li>
+                    </ul>
+            </div>
+            <div class="item2 nonMargin">6</div>
+            <div class="item2 last nonMargin" style="margin-bottom: 20px;">1</div>  
+        </div>
+    </div>
+
+
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+</script>
+    <script>
+        const list = document.querySelectorAll(".list")
+        function activeLink() {
+            list.forEach((item)=> 
+                item.classList.remove("active"))
+                this.classList.add("active")
+        }
+        list.forEach((item) => 
+        item.addEventListener("click", activeLink))
+    </script>
+<script>
+
+criarTable("#can1", "bar", 
+['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], [12, 19, 3, 5, 2, 3], '# of Votes')
+criarTable("#can3", "bar", 
+['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], [12, 19, 3, 5, 2, 3], '# of Votes')
+
+function myMove(elem) {  
+    console.log("ola ")
+      elem.style.animation = "mymove 1s";
+      setTimeout(() => {
+        elem.style.display = "none"
+        console.log("OK")
+      }, 1000);
+}
+
+let dadosServer = <%-JSON.stringify(dados)%>
+let graphDados = []
+for (let prop in dadosServer["<%= pegar.setor %>"]) {
+  graphDados[prop] = dadosServer["<%= pegar.setor %>"][prop].valordopedido
+}
+
+const ctx = document.querySelector("#myChart").getContext('2d');
+let myChart = new Chart(ctx, {
+    type: "line",
+    data: {
+        labels:  ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"],
+        datasets: [{
+            label: 'Pedidos feitos',
+            data: graphDados,
+            backgroundColor:'#058FEDBF',
+            borderColor:'#fff',
+            fill: true,
+            pointRadius: 5,
+            pointHoverRadius: 10,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                ticks: { color: '#fff', beginAtZero: true }
+            },
+            x: {
+                ticks: { color: '#fff', beginAtZero: true }  
+            },
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'VISAO GERAL <%- pegar.setor.toUpperCase() %>',
+                align: 'start',
+                color: "#fff",
+                padding: {
+                top: 10,
+                bottom: 30
+            },
+            font: {
+                size: 30, //font-family: 'Poppins', sans-serif;
+                style: 'italic',
+                family: 'Poppins, sans-serif'
+            }
+            },
+            legend: {
+                display: false,
+            }
+        }
+    }
+});
+myChart.options.elements.line.tension = 0.4
+myChart.update();
+
+
+function switchTypeGraph(a) {
+    if(a.value == "pie" || a.value == "doughnut") {
+        myChart.config._config.options.plugins.legend.display = true
+        myChart.config._config.options.scales.x.display = false
+        myChart.config._config.options.scales.y.display = false
+        let colorsArray = []
+        for (let index = 0; index <= myChart.data.labels.length-1; index++) {
+            let randomColor = Math.floor(Math.random()*16777215).toString(16);
+            colorsArray[index] = "#"+randomColor
+        }
+        myChart.data.datasets["0"].backgroundColor = colorsArray
+        myChart.data.datasets["0"].borderColor = colorsArray
+    }else {
+        myChart.config._config.options.plugins.legend.display = false
+        myChart.config._config.options.scales.x.display = true
+        myChart.config._config.options.scales.y.display = true
+        myChart.data.datasets["0"].backgroundColor = "#058FEDBF"
+        myChart.data.datasets["0"].borderColor = "#fff"
+    }
+    myChart.config.type = a.value
+    myChart.update();
+}
+
+function criarTable(elemen, typeGraph, lab, dadosGraph, labHover) {
+Chart.defaults.color = "white";
+const ctx = document.querySelector(elemen).getContext('2d');
+
+const graphCanva = new Chart(ctx, {
+    type: typeGraph,
+    data: {
+        labels: lab,
+        datasets: [{
+            label: labHover,
+            data: dadosGraph,
+            backgroundColor: '#058FED',
+            borderColor: '#058FED',
+            pointBackgroundColor: '#058FED',
+            pointBorderColor: '#fff',
+            pointHoverBackgroundColor: '#fff',
+            pointHoverBorderColor: '#058FED',
+            fill: true,
+            borderWidth: 1
+        }]
+  },
+  options: {
+    scales: {
+        y: {
+            ticks: { color: '#fff', beginAtZero: true }
+        },
+        x: {
+            ticks: { color: '#fff', beginAtZero: true }  
+        }
+    }
+  }
+});
+
+}
+
+</script>
+<script>
+var marksCanvas = document.getElementById("can2").getContext('2d');
+
+Chart.defaults.font.family = "Lato";
+Chart.defaults.font.size = 10;
+Chart.defaults.color = "white";
+
+var marksData = {
+  labels: ["English", "Maths", "Physics", "Chemistry", "Biology", "History"],
+  datasets: [
+    {
+      label: "Martha",
+      backgroundColor: "#FFF17644",
+      borderColor: "#FFF17644",
+      borderWidth: 1,
+      data: [65, 75, 70, 80, 60, 80]
+    },
+    {
+      label: "Steven",
+      backgroundColor: "#8E24AA44",
+      borderColor: "#8E24AA44",
+      borderWidth: 1,
+      data: [54, 65, 60, 70, 90, 75]
+  }
+  ]
+};
+
+var chartOptions = {
+  plugins: {
+    title: {
+      color: "white",
+      display: true,
+      align: "start",
+      text: "Comparing Student Performance"
+    },
+    legend: {
+      align: "start"
+    }
+  },
+  scales: {
+    r: {
+      max: 100,
+      min: 30,
+      ticks: {
+        stepSize: 15,
+        backdropColor: "#00000000",
+        color: "white"
+      },
+      grid: {
+        color: "white"
+      },
+      angleLines: {
+          color: "gray"
+      },
+      pointLabels: {
+        color: "white",
+        font: {
+          size: 10,
+        }
+      }
+    }
+  }
+};
+
+var radarChart = new Chart(marksCanvas, {
+  type: "radar",
+  data: marksData,
+  options: chartOptions
+});
+
+</script>
+</body>
+</html>

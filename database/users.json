@@ -12,9 +12,6 @@
       }
     }
   },
-  "comumDados": {
-    
-  },
   "financeiro": {
     "0": {
       "id": 0,
@@ -170,9 +167,18 @@
       "placa": "BEE-4R22",
       "motorista": "VANDERLEI",
       "hodometro": "651281233"
-    },
+    }
+  },
   "retorno": {
     "0": {
+      "id": 0,
+      "dataHora": "2022-09-21 23:25:28.000000",
+      "codentrega": 255448,
+      "numeronf": 261900,
+      "exped": "LOG",
+      "hodometro": "652281233"
+    },
+    "1": {
       "id": 1,
       "dataHora": "2022-09-21 23:25:28.000000",
       "codentrega": 255448,
@@ -180,6 +186,5 @@
       "exped": "LOG",
       "hodometro": "652281233"
     }
-  }
   }
 }

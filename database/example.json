@@ -4,101 +4,185 @@
       "0": {
         "nome": "Matheus",
         "user": "superAdm",
-        "pass": 800,
-        "superUser": true
+        "previlegios": 10,
+        "setor": "financeiro",
+        "foto": "https://i.stack.imgur.com/atUuf.png",
+        "pass": 800
       },
       "1": {
         "nome": "Carlos",
         "user": "adm",
-        "pass": 123,
-        "superUser": false
+        "previlegios": 1,
+        "setor": "expedicao",
+        "foto": "https://i.imgur.com/bt56eux.jpeg",
+        "pass": 123
       }
     }
   },
   "passagem": {
     "0": {
-      "id": 0,
-      "dataHora": "ola",
-      "numeronf": 261898,
-      "exped": "LOGÍSTICA"
+      "dataHora": "4/10/2022 13:53",
+      "numeronf": "777",
+      "exped": "expedicao",
+      "usada": "nao"
+    },
+    "1": {
+      "dataHora": "4/10/2022 14:47",
+      "numeronf": "123",
+      "exped": "expedicao",
+      "usada": "nao"
+    },
+    "2": {
+      "dataHora": "4/10/2022 17:19",
+      "numeronf": "444",
+      "exped": "retorno",
+      "usada": "nao"
+    },
+    "3": {
+      "dataHora": "4/10/2022 17:19",
+      "numeronf": "248555",
+      "exped": "expedicao2",
+      "usada": "nao"
+    },
+    "4": {
+      "dataHora": "5/10/2022 0:57",
+      "numeronf": "248999",
+      "exped": "expedicao",
+      "usada": "sim"
     }
   },
   "financeiro": {
     "0": {
       "id": 0,
-      "dataHora": "2022-09-12 13:18:00.000000",
-      "vendedor": "Marcia",
-      "nropedido": 615854,
-      "cliente": "SICRED",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "R$26.654,09",
-      "formapgto": "BOLETO",
-      "retiraentrega": "ENTREGA",
-      "localdaentrega": "ASSIS BRASIL, 558 PORTO ALEGRE",
-      "localdecobranca": "EMPRESA",
-      "obs": "Entregar pela parte da manhã!",
-      "fretedestacado": "DESTACADO",
-      "valorfrete": "R$150,00",
-      "dataentrega": "2022-09-12",
-      "operadornf": "ROSI",
+      "nropedido": "888",
       "statusnf": "EMITIDA",
-      "obsfinanceiro": "Julia liberou !",
-      "numeronf": 261898,
-      "exped": "LOGÍSTICA",
-      "quemrecebeu": "MANOEL"
+      "vendedor": "GASPAR",
+      "cliente": "CU",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "3.233",
+      "formapgto": "BOLETO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "...",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "APRENDIZ",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "1": {
+      "id": 1,
+      "nropedido": "",
+      "statusnf": "CANCELADA",
+      "vendedor": "ALINE",
+      "cliente": "dwdwd",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "400.00",
+      "formapgto": "BOLETO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "vvvvvvv",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "2": {
+      "id": 2,
+      "nropedido": "42232",
+      "statusnf": "RETORNOU AO VENDEDOR",
+      "vendedor": "ALINE",
+      "cliente": "sssss",
+      "tipodefaturamento": "REMESSA FUTURA",
+      "valordopedido": "3232",
+      "formapgto": "DINHEIRO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "rrrrr",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "3": {
+      "id": 3,
+      "nropedido": "615888",
+      "statusnf": "EMITIDA",
+      "vendedor": "MARCIA",
+      "cliente": "CU",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "BOLETO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "81295cu.deb",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "4": {
+      "id": 4,
+      "nropedido": "625888",
+      "statusnf": "EMITIDA",
+      "vendedor": "ALINE",
+      "cliente": "Paula Carvalho",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "DINHEIRO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "cliente ta esperando",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "APRENDIZ",
+      "obsfinanceiro": "liberado",
+      "quemrecebeu": "DUDU"
     }
   },
   "expedicao": {
     "0": {
       "id": 0,
-      "dataHora": "21/9/2022 19:4",
-      "numeronf": "2422232323",
-      "exped": "EXPED.1",
-      "quemrecebeu": "MAX",
+      "quemrecebeu": "TINGA",
       "statusdep": "PENDENTE"
     },
     "1": {
       "id": 1,
-      "dataHora": "21/9/2022 19:5",
-      "numeronf": "2422232323",
-      "exped": "EXPED.1",
-      "quemrecebeu": "MAX",
-      "statusdep": "PENDENTE"
+      "quemrecebeu": "DUDU",
+      "statusdep": "CLIENTE RETIROU"
     }
   },
   "expedicao2": {
     "0": {
-      "quemrecebeu": "MANOEL",
-      "statusdep": "AGUARDANDO TRANSPORTADORA"
+      "id": 0,
+      "quemrecebeu": "CRISTIANO DUARTE",
+      "statusdep": "PENDENTE"
     }
   },
-  
-  "logistica": {
-    "motorista": "VENDERLEI",
-    "placa": "ITA-0000",
-    "statuslog": "AGUARDANDO ROTA",
-    "codentrega": 555658,
-    "numeronf": 241877,
-    "quemrecebeu": 241877
-    
-  },
-  "saida": {
-  "numeronf": 261898,
-  "codentrega": 555658,
-  "placa": "ITA-0000",
-  "motorista": "VANDERLEI",
-  "hodometro": 6578870,
-  },
+  "logistica": {},
+  "saida": {},
   "retorno": {
-  "numeronf": 261898,
-  "codentrega": 555658,
-  "placa": "ITA-0000",
-  "hodometro": 6585870,
-  
+    "0": {
+      "id": 0,
+      "numeronf": "444",
+      "exped": "retorno",
+      "codentrega": "5555",
+      "placa": "IST6840",
+      "hodometro": "gggg"
+    }
   },
-  "canhoto": {
-  "numeronf": 261898,
-  "motorista": "VANDERLEI",
-  "statuscanhoto": "CONCLUIDO"
-  }
+  "canhoto": {}
 }

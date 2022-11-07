@@ -8,7 +8,6 @@
 
 - [ ] Tabela de passagem de dados
 - [ ] dashboard emprensarial de dados com base em graficos
-- [ ] Criar exportação excel
 
 ### Ultimo
 
@@ -16,6 +15,7 @@
 
 ### Concluido
 
+- [X] Criar exportação excel
 - [X] comparar se numeroNF for Duplicado Existente
 - [X] Fazer Cruzamento de dados
 - [X] Corrigir bug de registro simuntaneo

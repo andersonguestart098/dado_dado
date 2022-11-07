@@ -21,7 +21,9 @@
         <th>OBS|Financeiro</th>
     <% } %>
         <th>Número|NF</th>
+    <% if(pegar == "financeiro") { %>
         <th>Exped/Log</th>
+    <% } %>
       <% if(pegar == "expedicao2" || pegar == "expedicao" || pegar == "financeiro" || pegar == "logistica") { %>
         <th>Responsável|NF</th>
       <% } %>
@@ -59,9 +61,10 @@
       <% } %>
 
       <% if(pegar == "passagem") { %>
-        <th>Cliente</th>
+        <th>Exped/Log</th>
         <th>Status</th>
- 
+        <th>Cliente</th>
+        <th>Vendedor</th>
       <% } %>
         
     </tr>

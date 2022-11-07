@@ -83,7 +83,7 @@
     display: none;
   }
     </style>
-<body onload="load()">
+<body>
     <div class="container">
         <div class="row mt-4">
             <div class="col-lg-12">
@@ -113,6 +113,15 @@
         <div class="modal-body">
           <form id="cad-usuario-form"> <!-- este seletor será usado no java script (o javascript que vai receber estes dados)-->
 
+        <% if(pegar != "financeiro") { %>
+          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+            <br>
+          <div>
+          <input autocomplete="off" name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
+          <span class="tooltiptext">Tooltip text</span>
+          </div>  
+
+        <% } %>
         <% if(pegar == "financeiro") { %>
 
                     <label for="vendedor" class="col-form-label">Vendedor:                 </label> 
@@ -227,9 +236,7 @@
           <input type="hidden"  name="statusnf" class="form-control" id="statusnf" value="PENDENTE">
 
           <input type="hidden"  name="obsfinanceiro" class="form-control" id="obsfinanceiro" value="...">
-         
-          <input type="hidden"  name="numeronf" class="form-control" id="numeronf" value="...">
-            
+                     
 
           <input type="hidden"  name="exped" class="form-control" id="exped" value="...">
           
@@ -259,20 +266,7 @@
             <br>
 
           <div class="mb-3">
-            <br>
-          <label for="numeronf" class="col-form-label">NÚMERO NF: </label> 
-            <br>
-          </div>
-          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
-            <br>
-
-          <label for="exped" class="col-form-label">Setor:</label> 
-            <br>
-          <select name="exped" id="exped">
-            <option value=" "> </option>
-            <option value="LOG">LOG</option>
-          </select>
-            <br>
+  
             
           <label for="motorista" class="col-form-label">Motorista:                 </label>
               <br>
@@ -327,14 +321,7 @@
           <% } %>
 
             <% if(pegar == "saida") { %>
-            
-    <label for="exped" class="col-form-label">Setor:                 </label> 
-            <br>
-          <select name="exped" id="exped">
-            <option value=" "> </option>
-            <option value="LOG">LOG</option>
-          </select>
-            <br>
+
 
              
           <label for="codentrega" class="col-form-label">Cód. Entrega</label>
@@ -342,10 +329,6 @@
           <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
             <br>
 
-          <label for="numeronf" class="col-form-label">NÚMERO NF:</label> 
-            <br>
-          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
-            <br>
 
           <label for="placa" class="col-form-label">Placa:                 </label>
               <br>
@@ -401,13 +384,7 @@
           <br>
           <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
             <br>
- 
-          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
-            <br>
-              
-          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
-            <br>
-          <label for="placa" class="col-form-label">Placa:                 </label>
+          <label for="placa" class="col-form-label">Placa: </label>
               <br>
           <select name="placa" id="placa">
             <option value=" "> </option>
@@ -424,14 +401,6 @@
             <option value="IXH8706">IXH8706</option>
           </select>
               <br>
-          <label for="exped" class="col-form-label">Setor:                 </label> 
-            <br>
-          <select name="exped" id="exped">
-            <option value=" "> </option>
-            <option value="LOG">LOG</option>
-          </select>
-            <br>
-
           <label for="hodometro" class="col-form-label">Hodometro:                 </label> 
             <br>
           <input type="text"  name="hodometro" class="form-control" id="hodometro">
@@ -439,14 +408,7 @@
             <% } %>
 
             <% if(pegar == "canhoto") { %>
- 
-          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
             <br>
-          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
-            <br>
-              
-
-
           <label for="motorista" class="col-form-label">Motorista:                 </label>
               <br>
           <select name="motorista" id="motorista">
@@ -481,15 +443,9 @@
             <option value="LOG">LOGS</option>
           </select>
  
-              <% } %>
+              <% } %>              
 
           <% if(pegar == "expedicao2") { %>
-           <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
-            <br>
-          <div>
-          <input type="text" autocomplete="off" name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
-          <span class="tooltiptext">Tooltip text</span>
-          </div>
             <br>
           <label for="quemrecebeu" class="col-form-label">Responsável NF:</label>
             <br>
@@ -507,23 +463,7 @@
 <input type="hidden"  name="statusdep" class="form-control" id="statusdep" value="PENDENTE">
             
           <% } %>
-
-          <% if(pegar == "expedicao") { %>
-          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
-            <br>
-          <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
-            <br>
-          <% } %>
-            
-          <% if(pegar == "expedicao") { %>
-                    <label for="exped" class="col-form-label">Setor:</label> 
-            <br>
-          <select name="exped" id="exped">
-            <option value=" "> </option>
-            <option value="EXPED.1">EXPED.1</option>
-          </select>
-            <br>
-            <% } %>
+          
 
           <% if(pegar == "expedicao") { %>
 
@@ -573,6 +513,9 @@
       }
   }
 
+let peG = "<%= pegar %>"
+if(peG != "financeiro"){
+      
 setInterval(()=> {
   let numeroNF = document.querySelector("#numeronf")
   let tooltip = document.querySelector(".tooltiptext")
@@ -613,23 +556,46 @@ setInterval(()=> {
         tooltip.style.opacity = 0
       }
 })
+
+}
+let dadosPassagem = <%-JSON.stringify(dados.passagem)%> 
+setInterval(() => {
+  fetch('https://projeto.andersonhenri15.repl.co/database')
+.then(data => {
+return data.json();
+})
+.then(post => {
+    for(let prop in post["passagem"]) {
+      if(post["passagem"][prop].numeronf != dadosPassagem[prop].numeronf ||
+        post["passagem"][prop].exped != dadosPassagem[prop].exped ||
+        post["passagem"][prop].usada != dadosPassagem[prop].usada) {
+        
+          window.location.reload()
+        }
+    }
+  })
+  console.log("PING")
+}, 5000)
     </script>
 </body>
             
 <script>
       let obj = {}
 function clickEnviar(a) {
+    if(peG != "financeiro") {
       if(document.querySelector("#numeronf").style.color == "red") {
         alert("Confira o numero da nota fiscal") 
         return
       }
+    }
       let pegar = "<%= pegar %>"
   
       switch(pegar){
         case "expedicao":
           obj = {
           numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value,
+          exped : pegar,                             
+          quemrecebeu: document.querySelector("#quemrecebeu").value,
           statusdep : document.querySelector("#statusdep").value
           }
           break
@@ -643,8 +609,8 @@ function clickEnviar(a) {
           break
         case "financeiro": 
           obj = {
-          numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,       
+          numeronf: "...",
+          exped : pegar,       
           quemrecebeu: document.querySelector("#quemrecebeu").value,
           vendedor:  document.querySelector("#vendedor").value,
           nropedido:
@@ -668,7 +634,8 @@ document.querySelector("#nropedido").value,
         case "logistica":
           obj = {
           numeronf: document.querySelector("#numeronf").value,
-          exped : document.querySelector("#exped").value,              quemrecebeu: document.querySelector("#quemrecebeu").value,
+          exped : pegar,              
+          quemrecebeu: document.querySelector("#quemrecebeu").value,
           motorista: document.querySelector("#motorista").value,
           placa: document.querySelector("#placa").value,
           statuslog: document.querySelector("#placa").value
@@ -677,7 +644,7 @@ document.querySelector("#nropedido").value,
         case "saida":
           obj = {
           numeronf: document.querySelector("#numeronf").value,
-          exped: document.querySelector("#exped").value,
+          exped: pegar,
           codentrega: document.querySelector("#codentrega").value,
           placa: document.querySelector("#placa").value,
           motorista: document.querySelector("#motorista").value,
@@ -687,7 +654,7 @@ document.querySelector("#nropedido").value,
         case "retorno":
           obj = {
           numeronf: document.querySelector("#numeronf").value,
-          exped: document.querySelector("#exped").value,
+          exped: pegar,
           codentrega: document.querySelector("#codentrega").value,
           placa: document.querySelector("#placa").value,
           hodometro: document.querySelector("#hodometro").value
@@ -697,6 +664,7 @@ document.querySelector("#nropedido").value,
         case "canhoto":
           obj = {
           numeronf: document.querySelector("#numeronf").value,
+          exped: pegar,
           motorista: document.querySelector("#motorista").value,
           statuscanhoto: document.querySelector("#statuscanhoto").value
           }
@@ -709,7 +677,7 @@ document.querySelector("#nropedido").value,
     headers: {"Content-type": "text/plain; charset=UTF-8",
              "Sector": pegar}
   })
-  .then(function(res){ return res.json(); })
+  .then(function(res){ return res.json() })
   .then(function(data){ 
     alert( data.msg ) 
 
