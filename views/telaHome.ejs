@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home <%= pegar.setor %></title>
+    <link rel="icon" sizes="any" type="image/svg+xml" href="/logoce.svg">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
         * {
@@ -207,9 +208,74 @@
         height: 100px;
         width: 100%;
       }
+      .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            border-radius: 10px;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            z-index: 11;
+        }
+        .modal-content p :not(span) { 
+          background: #058FED;
+        }
+        .modal-content p a {
+          color: #fff;
+          text-decoration: none;
+        }
+
+        .close {
+            color: #ff0000;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+  <% if(pegar.setor == "ALL") { %>
+    <div id="myModal" class="modal">
+      <div id="background"></div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+          <p style="margin-top: 50px;"><a href="financeiro">FINANCEIRO</a></p>
+          <p><a href="expedicao">EXPEDIÇÃO</a></p>
+          <p><a href="expedicao2">EXPEDIÇÃO 2</a></p>
+          <p><a href="logistica">LOGISTICA</a></p>
+          <p><a href="saida">SAIDA</a></p>
+          <p><a href="retorno">RETORNO</a></p>
+          <p><a href="canhoto">CANHOTO</a></p>
+        <p><a href="cruzamento">CRUZAMENTO</a></p>
+      </div>
+    </div>
+  <% } %>
+
+
+
+  
   <div class="circle" style="right: 30px; top: 10px; position: absolute; float: right;">
   <img src="<%= pegar.foto %>" width="50px" height="40px">
 </div>
@@ -236,6 +302,20 @@
                     <span id="title">Home</span>
                 </a>
             </li>
+          <% if(pegar.setor == "ALL") { %>
+            <li class="list">
+                <a href="financeiroformulario">
+                    <span id="icon"><ion-icon name="reader-outline"></ion-icon></span>
+                    <span id="title">Formulario</span>
+                </a>
+            </li>
+            <li class="list">
+                <a onclick="openModal()">
+                    <span id="icon"><ion-icon name="easel"></ion-icon></span>
+                    <span id="title">Tabela</span>
+                </a>
+            </li>
+          <% } else { %>
             <li class="list">
                 <a href="<%= pegar.setor %>formulario">
                     <span id="icon"><ion-icon name="reader-outline"></ion-icon></span>
@@ -248,12 +328,15 @@
                     <span id="title">Tabela</span>
                 </a>
             </li>
+          <% } %>
+          <% if(pegar.setor == "ALL") { %>
             <li class="list">
-                <a href="#">
+                <a href="#" onclick="alert('Em Breve')">
                     <span id="icon"><ion-icon name="people-circle-outline"></ion-icon></span>
                     <span id="title">Users</span>
                 </a>
             </li>
+          <% } %> 
           <li class="list">
                   <a href="excel">
                       <span id="icon"><ion-icon name="print"></ion-icon></span>
@@ -261,14 +344,14 @@
                   </a>
               </li>
             <li class="list">
-                <a href="#">
+                <a href="config">
                     <span id="icon"><ion-icon name="cog-outline"></ion-icon></span>
                     <span id="title">Configure</span>
                 </a>
             </li>
             
             <li class="list">
-                <a href="#">
+                <a href="#" onclick="alert('Em Breve')">
                     <span id="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
                     <span id="title">Password</span>
                 </a>
@@ -284,6 +367,18 @@
     <div id="main">
         <div class="grid-container">
             <div class="item1 fist">
+              <% if(pegar.setor == "ALL") { %>
+                <select name="optionsGraph" onchange="switchDBGraph(this)" id="optionsGraph">
+                      <option value="expedicao">EXPEDIÇÃO</option>
+                      <option value="expedicao2">EXPEDIÇÃO 2</option>
+                      <option value="financeiro">FINANCEIRO</option>
+                      <option value="logistica">LOGISTICA</option>
+                      <option value="saida">SAIDA</option>
+                      <option value="retorno">RETORNO</option>
+                      <option value="canhoto">CANHOTO</option>
+                      <option value="cruzamento">CRUZAMENTO</option>
+                </select>
+              <% } %>
                 <select name="optionsGraph" onchange="switchTypeGraph(this)" id="optionsGraph">
                     <option value="line">LINHA</option>
                     <option value="bubble">BOLHAS</option>
@@ -297,15 +392,7 @@
             <div class="item2 fist nonMargin">
                 <h3 id="listTasksTitle">MESSAGENS</h3>
                     <ul id="listTasks">
-                        <li onclick="myMove(this)">Coffee</li>
-                        <li onclick="myMove(this)">Tea</li>
-                        <li onclick="myMove(this)">Milk</li>
-                        <li onclick="myMove(this)">Coffee</li>
-                        <li onclick="myMove(this)">Tea</li>
-                        <li onclick="myMove(this)">Milk</li>
-                        <li onclick="myMove(this)">Coffee</li>
-                        <li onclick="myMove(this)">Tea</li>
-                        <li onclick="myMove(this)">Milk</li>
+                        <li onclick="myMove(this)">Conferir notas</li>
                     </ul>
             </div>
             <div class="item2 nonMargin">6</div>
@@ -329,6 +416,24 @@
         list.forEach((item) => 
         item.addEventListener("click", activeLink))
     </script>
+      <% if(pegar.setor == "ALL") { %>
+        <script>
+          var modal = document.getElementById("myModal");
+          var btn = document.getElementById("myBtn");
+          var span = document.getElementsByClassName("close")[0];
+          function openModal() {
+            modal.style.display = "block";
+          }
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          }
+        </script>
+      <% } %>
 <script>
 
 criarTable("#can1", "bar", 
@@ -345,11 +450,21 @@ function myMove(elem) {
       }, 1000);
 }
 
+<% if(pegar.setor == "ALL") { %>
 let dadosServer = <%-JSON.stringify(dados)%>
 let graphDados = []
-for (let prop in dadosServer["<%= pegar.setor %>"]) {
-  graphDados[prop] = dadosServer["<%= pegar.setor %>"][prop].valordopedido
+for( i= 0; i <= Object.keys(dadosServer["financeiro"]).length-1; i++) {
+    graphDados[i] = parseFloat(dadosServer["financeiro"][i].valordopedido)
 }
+<% } else { %>
+let dadosServer = <%-JSON.stringify(dados)%>
+let graphDados = []
+for( i= 0; i <= Object.keys(dadosServer["<%= pegar.setor %>"]).length-1; i++) {
+  if("<%= pegar.setor %>" == "financeiro"){
+    graphDados[i] = parseFloat(dadosServer["<%= pegar.setor %>"][i].valordopedido)
+  }
+}
+<% } %>
 
 const ctx = document.querySelector("#myChart").getContext('2d');
 let myChart = new Chart(ctx, {
@@ -375,6 +490,13 @@ let myChart = new Chart(ctx, {
             x: {
                 ticks: { color: '#fff', beginAtZero: true }  
             },
+            yAxes: [{
+           ticks: {
+             callback: function(value, index, values) {
+               return value.toLocaleString("pt-BR", {style: 'currency', currency: 'BRL' });
+             }
+           }
+         }]
         },
         plugins: {
             title: {
@@ -400,8 +522,21 @@ let myChart = new Chart(ctx, {
 });
 myChart.options.elements.line.tension = 0.4
 myChart.update();
+  
+function switchDBGraph(a) {
+  graphDados = []
+  for( i= 0; i <= Object.keys(dadosServer[a.value]).length-1; i++) {
+    switch(a.value){
+      case "financeiro":
+        myChart.config._config.data.datasets[0].data[i] = parseFloat(dadosServer[a.value][i].valordopedido)
+        break
+    }
+  }
+  myChart.config._config.options.plugins.title.text = "VISAO GERAL " +a.value.toUpperCase()
+  myChart.update();
+}
 
-
+  
 function switchTypeGraph(a) {
     if(a.value == "pie" || a.value == "doughnut") {
         myChart.config._config.options.plugins.legend.display = true
@@ -424,6 +559,8 @@ function switchTypeGraph(a) {
     myChart.config.type = a.value
     myChart.update();
 }
+
+
 
 function criarTable(elemen, typeGraph, lab, dadosGraph, labHover) {
 Chart.defaults.color = "white";
@@ -462,6 +599,20 @@ const graphCanva = new Chart(ctx, {
 
 </script>
 <script>
+<% if(pegar.setor == "ALL") { %>
+  let dadosGeral = <%-JSON.stringify(dados)%>
+  let graphLabels = []
+  let dataAdm = []
+  let i = 0
+  for (let prop in dadosServer) {
+    if(prop != "id1") {
+      graphLabels[i] = prop
+      dataAdm[i] = Object.keys(dadosServer[graphLabels[i]]).length
+      i++
+    }
+  }
+<% } %>
+  
 var marksCanvas = document.getElementById("can2").getContext('2d');
 
 Chart.defaults.font.family = "Lato";
@@ -469,21 +620,14 @@ Chart.defaults.font.size = 10;
 Chart.defaults.color = "white";
 
 var marksData = {
-  labels: ["English", "Maths", "Physics", "Chemistry", "Biology", "History"],
+  labels: graphLabels,
   datasets: [
     {
-      label: "Martha",
-      backgroundColor: "#FFF17644",
-      borderColor: "#FFF17644",
+      label: "Dados Setores",
+      backgroundColor: "#058FED",
+      borderColor: "#058FED",
       borderWidth: 1,
-      data: [65, 75, 70, 80, 60, 80]
-    },
-    {
-      label: "Steven",
-      backgroundColor: "#8E24AA44",
-      borderColor: "#8E24AA44",
-      borderWidth: 1,
-      data: [54, 65, 60, 70, 90, 75]
+      data: dataAdm
   }
   ]
 };

@@ -14,74 +14,26 @@
 </script>
 <script> 
 function autoreflash(a,b) {
-fetch('https://projeto.andersonhenri15.repl.co/database')
-.then(data => {
-return data.json();
-})
-.then(post => {
-    let obj = post
     let valor = a.value
+    let valorAfter = b.innerText
     let pegar = "<%= pegar %>"
     let swi = a.id.split("X")
     let index = swi[1]
     let target = swi[0]
-    switch(target) {
-      case "quem":
-        obj[pegar][index].quemrecebeu = valor
-        break
-        
-      case "exped":
-        obj["passagem"][index].exped = valor
-        break
-        
-      case "numeronf_text":
-        obj["passagem"][index].numeronf= valor
-        break
-                
-      case "obs2_text":
-        obj[pegar][index].obsfinanceiro= valor
-        break
-        
-      case "coisa":
-        obj[pegar][index].statusnf= valor
-        break
 
-      case "statusDep":
-        obj[pegar][index].statusdep= valor
-        break
-        
-      case "operador":
-        obj[pegar][index].operadornf= valor
-        break 
-
-      case "motorista":
-        obj[pegar][index].motorista= valor
-        break
-        
-      case "placa":
-        obj[pegar][index].placa= valor
-        break
-
-      case "statuslog":
-        obj[pegar][index].statuslog= valor
-        break
-    }
-  console.log(obj[pegar][index].numeronf)
-  fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
+    let result = JSON.stringify({mudar: target, value: valor, pegar: pegar, index: index, valueAfter: valorAfter , numeroNf: document.querySelector("#Pvalor_numeronfX"+index).innerText}, null, 2)
+fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
     method: "POST",
-    body: JSON.stringify(obj, null, 2),
+    body: result,
     headers: {"Content-type": "text/plain; charset=UTF-8"}
   })
   .then(function(res){ return res.json(); })
   .then(function(data){ 
     a.style.display='none'
-    console.log(a.id)
     b.style.display='flex'
-    console.log(b.id)
     alert( data.msg ) 
   })
-})
-  }
+}
 </script>
   <script>
     let pegar = "<%= pegar %>"
@@ -93,14 +45,14 @@ return data.json();
     for(let i=count-1; i > -1; i--) {
     switch(c) {
       case "expedicao2":
-        query = "#PstatusDepX"+i
+        query = "#PstatusdepX"+i
         break
       case "passagem":
       case "financeiro":
         query = "#stNfX"+i
         break
       case "expedicao":
-        query = "#PstatusDepX"+i
+        query = "#PstatusdepX"+i
         break
       case "logistica":
         query = "#PvalorstatuslogX"+i
@@ -119,6 +71,7 @@ return data.json();
         corte.style.color ="rgb(255, 255, 255)"
         break
       case "EM TRANSITO":
+     case "...":
       case "PENDENTE":
          corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(255, 165, 0)"
@@ -142,23 +95,25 @@ return data.json();
   }
 
 function setData(post, pegar, i) {
-  
-    if(pegar != "passagem") {
-             document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][i].dataHora
-        document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
-      
-        document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][i].numeronf
-    }
+  document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][i].dataHora
+  document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
+
+  document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][i].numeronf
   
             //-------------------
             //    FINANCEIRO
             //-------------------
     if(pegar == "expedicao2" || pegar == "expedicao") {
-  document.querySelector("#PstatusDepX"+i).innerText = post[pegar][i].statusdep
-    colorir(pegar)
+      document.querySelector("#PstatusdepX"+i).innerText = post[pegar][i].statusdep
+      document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
+      colorir(pegar)
     }
 
     if(pegar == "passagem") {
+      document.querySelector("#Pvalor_exped"+i).innerText = post["passagem"][i].exped
+      document.querySelector("#valor_vendedorX"+i).innerText = post["financeiro"][i].vendedor
+      document.querySelector("#valor_clienteX"+i).innerText = post["financeiro"][i].cliente
+      document.querySelector("#stNfX"+i).innerText = post["financeiro"][i].statusnf
       colorir(pegar)
     }
   

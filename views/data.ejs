@@ -4,9 +4,17 @@
   <% } else { %>
     <tr style="width:200px" class='cordaLinha<%= dados[pegar][i].id %>'>
   <td colspan='0.5' id='valor_idX<%= dados[pegar][i].id %>'><%= dados[pegar][i].id %></td>
+    
   <% } %>
+
+<% if(pegar == "passagem") { %>
+  
   <td id='valor_datahoraX<%= dados[pegar][i].id %>'>
-    <input type='hidden' id='datahora_textX<%= dados[pegar][i].id %>' value='$datahora'><%= dados["passagem"][i].dataHora %></td>
+    <input type='hidden' id='datahora_textX<%= dados[pegar][i].id %>' value='$datahora'><%= dados["passagem"][dados["financeiro"][i].selecionarDado].dataHora %></td>
+<% } else { %>
+  <td id='valor_datahoraX<%= dados[pegar][i].id %>'>
+    <input type='hidden' id='datahora_textX<%= dados[pegar][i].id %>' value='$datahora'><%= dados["passagem"][dados[pegar][i].selecionarDado].dataHora %></td>
+<% } %>
   
 <% if(pegar == "financeiro") { %>
   <td id='valor_vendedorX<%= dados[pegar][i].id %>'><%= dados[pegar][i].vendedor %></td>
@@ -40,7 +48,7 @@
 -    INPUTS  
 -====================
 -->
-     <% if(pegar == "financeiro") { %>
+  <% if(pegar == "financeiro") { %>
     <td id='valor_operadornfX<%= dados[pegar][i].id %>'>
   <select onchange="autoreflash(this,Pvalor_operadorX<%= dados[pegar][i].id %>)" name='operador' id='operadorX<%= dados[pegar][i].id %>'>
   <option value=''></option>
@@ -65,12 +73,18 @@
       <p onclick='make(this,obs2_textX<%= dados[pegar][i].id %>)' id='Pvalor_obs2X<%= dados[pegar][i].id %>'><%= dados[pegar][i].obsfinanceiro %></p>
     </td>
       <% } %>
-  
+
+<% if(pegar == "passagem") { %>
     <td id='valor_numeronfX<%= dados[pegar][i].id %>'>
       <input onchange="autoreflash(this, Pvalor_numeronfX<%= dados[pegar][i].id %>)" type='text' value="<%= dados[pegar][i].numeronf %>" id='numeronf_textX<%= dados[pegar][i].id %>'>
-      <p onclick='make(this,numeronf_textX<%= dados[pegar][i].id %>)' id='Pvalor_numeronfX<%= dados[pegar][i].id %>'><%= dados["passagem"][i].numeronf %></p>
+      <p onclick='make(this,numeronf_textX<%= dados[pegar][i].id %>)' id='Pvalor_numeronfX<%= dados[pegar][i].id %>'><%= dados["passagem"][dados["financeiro"][i].selecionarDado].numeronf %></p>
     </td>
-
+<% } else { %> 
+  <td id='valor_numeronfX<%= dados[pegar][i].id %>'>
+      <input onchange="autoreflash(this, Pvalor_numeronfX<%= dados[pegar][i].id %>)" type='text' value="<%= dados[pegar][i].numeronf %>" id='numeronf_textX<%= dados[pegar][i].id %>'>
+      <p onclick='make(this,numeronf_textX<%= dados[pegar][i].id %>)' id='Pvalor_numeronfX<%= dados[pegar][i].id %>'><%= dados["passagem"][dados[pegar][i].selecionarDado].numeronf %></p>
+    </td>
+<% } %>
 <% if(pegar == "financeiro" || pegar == "passagem") { %>
         
     <td id='valor_expedX<%= dados[pegar][i].id %>'>
@@ -80,7 +94,7 @@
       <option value='expedicao2'>EXPED.2</option>
       <option value='logistica'>LOGÍSTICA</option> 
     </select>
-      <p onclick='make(this,expedX<%= dados[pegar][i].id %>)' id='Pvalor_exped<%= dados[pegar][i].id %>'><%= dados["passagem"][i].exped %></p>
+      <p onclick='make(this,expedX<%= dados[pegar][i].id %>)' id='Pvalor_exped<%= dados[pegar][i].id %>'><%= dados["passagem"][dados["financeiro"][i].selecionarDado].exped %></p>
     </td>
   <% } %>
      <% if(pegar != "saida" && pegar != "retorno" && pegar != "canhoto" && pegar != "passagem" ) { %> 
@@ -105,10 +119,10 @@
       <% if(pegar == "expedicao2" || pegar == "expedicao") { %>
         
     <td id='StatusdepX<%= dados[pegar][i].id %>'>
-    <select onchange="autoreflash(this,PstatusDepX<%= dados[pegar][i].id %>)" name='quem' id='statusDepX<%= dados[pegar][i].id %>'><option value='PENDENTE'>PENDENTE</option> 
+    <select onchange="autoreflash(this,PstatusdepX<%= dados[pegar][i].id %>)" name='quem' id='statusdepX<%= dados[pegar][i].id %>'><option value='PENDENTE'>PENDENTE</option> 
       <option value='AGUARDANDO CLIENTE'>AGUARDANDO TRANSPORTADORA</option>
       <option value='CLIENTE RETIROU'>CLIENTE RETIROU</option>
-    </select><p onclick='make(this,statusDepX<%= dados[pegar][i].id %>)' id='PstatusDepX<%= dados[pegar][i].id %>' class="orientador"><%= dados[pegar][i].statusdep %></p></td>
+    </select><p onclick='make(this,statusdepX<%= dados[pegar][i].id %>)' id='PstatusdepX<%= dados[pegar][i].id %>' class="orientador"><%= dados[pegar][i].statusdep %></p></td>
         
        <% } %>  
 

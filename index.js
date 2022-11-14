@@ -4,6 +4,7 @@ const fs = require("fs");
 const cors = require('cors');
 const cookieParser = require("cookie-parser")
 const Excel = require('exceljs');
+let path = require("path")
 
 let app = express()
 
@@ -28,6 +29,7 @@ setInterval(() => {
 //-------------
 
 app.set('view engine', 'ejs')
+app.use(express.static(path.join('public')))
 app.set('views', './views')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -46,19 +48,44 @@ app.use(cors({
  */
 
 app.get("/", (req, res) => {
-  res.render("login.ejs")
+  if (req.cookies.activeData == null) {
+    res.render("login.ejs")
+  } else {
+    res.redirect('home');
+  }
+})
+
+app.get("/config", (req, res) => {
+  if (req.cookies.activeData != null) {
+    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+      if (err) {
+        return console.log("Erro ao ler arquivo")
+      }
+
+      let d = JSON.parse(data)
+
+
+      res.render("config.ejs", { dados: d, pegar: d.id1.usuarios[req.cookies.activeData] })
+    })
+  } else {
+    res.render("pageError.ejs")
+  }
 })
 
 app.get("/cruzamento", (req, res) => {
-  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
-    if (err) {
-      return console.log("Erro ao ler arquivo")
-    }
+  if (req.cookies.activeData != null) {
+    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+      if (err) {
+        return console.log("Erro ao ler arquivo")
+      }
 
-    let d = JSON.parse(data)
+      let d = JSON.parse(data)
 
-    res.render("bodyList.ejs", { pegar: "passagem", titulo: "CRUZAMENTO", dados: d, i: 0 })
-  })
+      res.render("bodyList.ejs", { pegar: "passagem", titulo: "CRUZAMENTO", dados: d, i: 0 })
+    })
+  } else {
+    res.render("pageError.ejs")
+  }
 })
 
 app.get("/home", (req, res) => {
@@ -68,6 +95,8 @@ app.get("/home", (req, res) => {
         return console.log("Erro ao ler arquivo")
       }
       let dataBD = JSON.parse(data)
+
+
       res.render("telaHome.ejs", { dados: dataBD, pegar: dataBD.id1.usuarios[req.cookies.activeData] })
     })
   } else {
@@ -92,42 +121,15 @@ app.get("/financeiroformulario", (req, res) => {
         return console.log("Erro ao ler arquivo")
       }
       data = JSON.parse(data)
-      res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: data, superUser: "yes" })
+
+
+      res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: data })
     })
   } else {
     res.render("pageError.ejs")
   }
 })
 
-app.get("/expedicao2formulario", (req, res) => {
-  if (req.cookies.activeData != null) {
-    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-      let d = JSON.parse(data)
-
-      res.render("bodyForm.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2", dados: d })
-    })
-  } else {
-    res.render("pageError.ejs")
-  }
-})
-
-app.get("/expedicaoformulario", (req, res) => {
-  if (req.cookies.activeData != null) {
-    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-      let d = JSON.parse(data)
-
-      res.render("bodyForm.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO", dados: d })
-    })
-  } else {
-    res.render("pageError.ejs")
-  }
-})
 
 app.get("/logisticaformulario", (req, res) => {
   if (req.cookies.activeData != null) {
@@ -136,6 +138,7 @@ app.get("/logisticaformulario", (req, res) => {
         return console.log("Erro ao ler arquivo")
       }
       let d = JSON.parse(data)
+
 
       res.render("bodyForm.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: d })
     })
@@ -152,6 +155,7 @@ app.get("/saidaformulario", (req, res) => {
       }
       let d = JSON.parse(data)
 
+
       res.render("bodyForm.ejs", { pegar: "saida", titulo: "SAIDA", dados: d })
     })
   } else {
@@ -167,6 +171,7 @@ app.get("/retornoformulario", (req, res) => {
       }
       let d = JSON.parse(data)
 
+
       res.render("bodyForm.ejs", { pegar: "retorno", titulo: "RETORNO", dados: d })
     })
   } else {
@@ -181,6 +186,8 @@ app.get("/canhotoformulario", (req, res) => {
         return console.log("Erro ao ler arquivo")
       }
       let d = JSON.parse(data)
+
+
       res.render("bodyForm.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: d })
     })
   } else {
@@ -222,7 +229,7 @@ app.get("/expedicao2", (req, res) => {
 
       let d = JSON.parse(data)
 
-      res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2", dados: d, i: 0, superUser: "yes" })
+      res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2", dados: d, i: 0 })
     })
   } else {
     res.render("pageError.ejs")
@@ -237,6 +244,7 @@ app.get("/expedicao", (req, res) => {
       }
 
       let d = JSON.parse(data)
+
 
       res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO", dados: d, i: 0 })
     })
@@ -253,7 +261,6 @@ app.get("/logistica", (req, res) => {
       }
 
       let d = JSON.parse(data)
-      pass = d
 
       res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: d, i: 0 })
     })
@@ -270,9 +277,8 @@ app.get("/saida", (req, res) => {
       }
 
       let d = JSON.parse(data)
-      pass = d
 
-      res.render("bodyList.ejs", { pegar: "saida", titulo: "SAIDA", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "saida", titulo: "CARREGAMENTO CAMINHÃO", dados: d, i: 0 })
     })
   } else {
     res.render("pageError.ejs")
@@ -287,9 +293,8 @@ app.get("/retorno", (req, res) => {
       }
 
       let d = JSON.parse(data)
-      pass = d
 
-      res.render("bodyList.ejs", { pegar: "retorno", titulo: "RETORNO", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "retorno", titulo: "ENTREGA DO MATERIAL", dados: d, i: 0 })
     })
   } else {
     res.render("pageError.ejs")
@@ -304,7 +309,6 @@ app.get("/canhoto", (req, res) => {
       }
 
       let d = JSON.parse(data)
-      pass = d
 
       res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: d, i: 0 })
     })
@@ -332,8 +336,8 @@ app.get("/logout", (req, res) => {
 app.post('/verificarLogin', (req, res) => {
   let user_name = req.body.user;
   let password = req.body.password;
-  //https://api.ipify.org/?format=json Login
-  console.log(user_name + " " + password)
+
+
   fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
     if (err) {
       return console.log("Erro ao ler arquivo")
@@ -342,62 +346,132 @@ app.post('/verificarLogin', (req, res) => {
     let d = JSON.parse(data)
 
     for (let i = 0; i <= Object.keys(d.id1.usuarios).length - 1; i++) {
-      console.log(d.id1.usuarios[i].pass + "\t" + d.id1.usuarios[i].user)
       if (d.id1.usuarios[i].pass == password && d.id1.usuarios[i].user == user_name) {
         res.cookie("activeData", i, { expires: new Date(Date.now() + 15000000), httpOnly: true })
         res.cookie("priv", d.id1.usuarios[i].previlegios, { expires: new Date(Date.now() + 15000000), httpOnly: true })
-        res.end("yes");
+        res.end("yes")
       }
     }
   })
 })
 
 app.post("/mudancaBancoDados", (req, res) => {
-  fs.writeFileSync('./database/' + corrente + '.json', req.body)
-  res.json({ msg: "Registrado com Sucesso" })
+  let d
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+    if (err) {
+      return console.log("Erro ao ler arquivo")
+    }
+
+    d = JSON.parse(data)
+    let dados = JSON.parse(req.body)
+    console.log(dados)
+    let target = dados.mudar
+    let valor = dados.value
+    let pegar = dados.pegar
+    let index = dados.index
+    let numeroNf = dados.numeroNf
+    let numeroDaSeção = 0
+    numeroDaSeção++
+
+    switch (target) {
+      case "quem":
+        d[pegar][index].quemrecebeu = valor
+        break
+
+      case "exped":
+        let after = dados.valueAfter
+        for (let prop in d["passagem"]) {
+          let objAtual = Object.keys(d[valor]).length + numeroDaSeção - 1
+          if (d["passagem"][prop].numeronf == numeroNf) {
+            seletorDados = prop
+            for(bprop in d[after]) {
+              if(d[after][bprop].selecionarDado == seletorDados) {
+                delete d[after][bprop]
+              }
+            }
+            d[valor][objAtual] = {
+              id: objAtual,
+              selecionarDado: seletorDados,
+              quemrecebeu: "...",
+              statusdep: "..."
+            }
+          }
+        }
+        d["passagem"][index].exped = valor
+        break
+
+      case "numeronf_text":
+        d["passagem"][index].numeronf = valor
+        break
+
+      case "obs2_text":
+        d[pegar][index].obsfinanceiro = valor
+        break
+
+      case "coisa":
+        d[pegar][index].statusnf = valor
+        break
+
+      case "statusdep":
+        d[pegar][index].statusdep = valor
+        break
+
+      case "operador":
+        d[pegar][index].operadornf = valor
+        break
+
+      case "motorista":
+        d[pegar][index].motorista = valor
+        break
+
+      case "placa":
+        d[pegar][index].placa = valor
+        break
+
+      case "statuslog":
+        d[pegar][index].statuslog = valor
+        break
+    }
+
+    fs.writeFileSync('./database/' + corrente + '.json', JSON.stringify(d, null, 2))
+    res.json({ msg: "Registrado com Sucesso" })
+  })
 })
 
 app.post('/registrarBancoDados', (req, res) => {
   let numeroDaSeção = 0
   numeroDaSeção++
-  console.log(req.body)
+
   let dataReq = JSON.parse(req.body)
-  console.log(dataReq)
   let pegar = req.headers.sector
-  //fs.writeFileSync('./database/example.json', )
+
   fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
     let dados = JSON.parse(data)
     let objAtual = Object.keys(dados[pegar]).length + numeroDaSeção - 1
     const d = new Date()
-
+    let seletorDados
     let dateFormated = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`
 
     if (pegar == "financeiro") {
       dados["passagem"][objAtual] = {
         dataHora: dateFormated,
         numeronf: dataReq.numeronf,
-        exped: pegar,
-        usada: "sim"
+        exped: pegar
       }
     } else {
       for (let prop in dados["passagem"]) {
         if (dados["passagem"][prop].numeronf == dataReq.numeronf) {
-          dados["passagem"][prop].usada = "nao"
+          seletorDados = prop
         }
       }
     }
 
     switch (pegar) {
+      case "expedicao":
       case "expedicao2":
         dados[pegar][objAtual] = {
           id: objAtual,
-          quemrecebeu: dataReq.quemrecebeu,
-          statusdep: dataReq.statusdep
-        }
-        break
-      case "expedicao":
-        dados[pegar][objAtual] = {
-          id: objAtual,
+          selecionarDado: seletorDados,
           quemrecebeu: dataReq.quemrecebeu,
           statusdep: dataReq.statusdep
         }
@@ -405,6 +479,7 @@ app.post('/registrarBancoDados', (req, res) => {
       case "financeiro":
         dados[pegar][objAtual] = {
           id: objAtual,
+          selecionarDado: objAtual,
           nropedido: dataReq.nropedido,
           statusnf: dataReq.statusnf,
           vendedor: dataReq.vendedor,
@@ -427,6 +502,7 @@ app.post('/registrarBancoDados', (req, res) => {
       case "logistica":
         dados[pegar][objAtual] = {
           id: objAtual,
+          selecionarDado: seletorDados,
           motorista: dataReq.motorista,
           placa: dataReq.placa,
           statuslog: dataReq.statuslog,
@@ -439,6 +515,7 @@ app.post('/registrarBancoDados', (req, res) => {
       case "saida":
         dados[pegar][objAtual] = {
           id: objAtual,
+          selecionarDado: seletorDados,
           numeronf: dataReq.numeronf,
           exped: dataReq.exped,
           codentrega: dataReq.codentrega,
@@ -451,6 +528,7 @@ app.post('/registrarBancoDados', (req, res) => {
       case "retorno":
         dados[pegar][objAtual] = {
           id: objAtual,
+          selecionarDado: seletorDados,
           numeronf: dataReq.numeronf,
           exped: dataReq.exped,
           codentrega: dataReq.codentrega,
@@ -461,6 +539,7 @@ app.post('/registrarBancoDados', (req, res) => {
       case "canhoto":
         dados[pegar][objAtual] = {
           id: objAtual,
+          selecionarDado: seletorDados,
           numeronf: dataReq.numeronf,
           motorista: dataReq.motorista,
           statuscanhoto: dataReq.statuscanhoto
@@ -493,7 +572,7 @@ app.get("/database", (req, res) => {
 
 app.get("/excel", (req, res) => {
   let objetoBancoDados
-  fs.readFile("./database/users.json", "utf8", function(err, data) {
+  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
     if (err) {
       return console.log("Erro ao ler arquivo")
     }

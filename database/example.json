@@ -15,7 +15,7 @@
         "previlegios": 1,
         "setor": "expedicao",
         "foto": "https://i.imgur.com/bt56eux.jpeg",
-        "pass": 123
+        "pass": 12398
       },
       "2": {
         "nome": "Aline",
@@ -103,7 +103,7 @@
         "previlegios": 1,
         "setor": "financeiro",
         "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmSn5Ni6KHK2UCaazTtP6CV2Hq6h94Nq4X82ik8UAlZ_iyl8SxyY_NY_P4_QaOWOCVq1gWCqWhNIGgiCo0WMuCicUU5mrQ=w1366-h617",
-        "pass": 123457803
+        "pass": 123
       },
       "13": {
         "nome": "Dani",
@@ -175,6 +175,14 @@
         "previlegios": 1,
         "setor": "canhoto",
         "foto": "https://drive.google.com/file/d/1HVrFhrCamIRerKFmipKWgSIqxZpgfONt/view",
+        "pass": 1234578004
+      },
+      "22": {
+        "nome": "Renita",
+        "user": "Renita",
+        "previlegios": 1,
+        "setor": "financeiro",
+        "foto": "",
         "pass": 1234578004
       }
     }
