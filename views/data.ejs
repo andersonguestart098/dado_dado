@@ -116,7 +116,7 @@
     
       <% } %>
            
-      <% if(pegar == "expedicao2" || pegar == "expedicao") { %>
+      <% if(pegar == "expedicao2" || pegar == "expedicao" || pegar == "logistica") { %>
         
     <td id='StatusdepX<%= dados[pegar][i].id %>'>
     <select onchange="autoreflash(this,PstatusdepX<%= dados[pegar][i].id %>)" name='quem' id='statusdepX<%= dados[pegar][i].id %>'><option value='PENDENTE'>PENDENTE</option> 
@@ -126,38 +126,6 @@
         
        <% } %>  
 
-      <% if(pegar == "logistica") { %>
-
-    <td id='motorista<%= dados[pegar][i].id %>'>
-    <select onchange="autoreflash(this,PmotoristaX<%= dados[pegar][i].id %>)" name='motoristaX' id='motoristaX<%= dados[pegar][i].id %>'>
-      <option value=''> </option>
-      <option value='JULIANO'>JULIANO</option>
-      <option value='DOUGLAS'>DOUGLAS</option> 
-    </select><p onclick='make(this,motoristaX<%= dados[pegar][i].id %>)' id='PmotoristaX<%= dados[pegar][i].id %>' class=".orientador"><%= dados[pegar][i].motorista %></p></td>
-        
-
-      <td id='valor_placaX<%= dados[pegar][i].id %>'>
-      <select onchange="autoreflash(this,Pvalor_placaX<%= dados[pegar][i].id %>)" name='placa' id='placaX<%= dados[pegar][i].id %>'>
-      <option value=''> </option>
-      <option value='BEE-4242'>BEE-4242</option>
-      <option value='BEE-4242'>BEE-4242</option>
-    </select>
-
-    <p onclick='make(this,placaX<%= dados[pegar][i].id %>)' id='Pvalor_placaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].placa %></p>
-      
-            <td id='valor_statuslogX<%= dados[pegar][i].id %>'>
-      <select onchange="autoreflash(this,PvalorstatuslogX<%= dados[pegar][i].id %>)" name='statuslog' id='statuslogX<%= dados[pegar][i].id %>'>
-      <option value=''></option>
-      <option value='ENTREGUE'>ENTREGUE</option>
-      <option value='EM TRANSITO'>EM TRANSITO</option>
-      <option value='AGUARDANDO ROTA'>AGUARDANDO ROTA</option>
-    </select>
-
-      <p onclick='make(this,statuslogX<%= dados[pegar][i].id %>)' id='PvalorstatuslogX<%= dados[pegar][i].id %>'class="orientador"
-        ><%= dados[pegar][i].statuslog %></p>
-      <% } %>
-        
-    </td>
 
       <% if(pegar == "saida") { %>
     <td id='expedX<%= dados[pegar][i].id %>'>

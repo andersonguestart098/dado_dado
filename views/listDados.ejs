@@ -44,18 +44,14 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
     let query
     for(let i=count-1; i > -1; i--) {
     switch(c) {
+      case "logistica":
+      case "expedicao":
       case "expedicao2":
         query = "#PstatusdepX"+i
         break
       case "passagem":
       case "financeiro":
         query = "#stNfX"+i
-        break
-      case "expedicao":
-        query = "#PstatusdepX"+i
-        break
-      case "logistica":
-        query = "#PvalorstatuslogX"+i
         break
     }
     let selects = document.querySelector(query)
@@ -98,11 +94,13 @@ function setData(post, pegar, i) {
   document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][i].dataHora
   document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
 
-  document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][i].numeronf
-  
-            //-------------------
-            //    FINANCEIRO
-            //-------------------
+  document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][post[pegar][i].selecionarDado].numeronf
+
+    if(pegar == "logistica") {
+      document.querySelector("#PstatusdepX"+i).innerText = post[pegar][i].statusdep
+      document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
+      colorir(pegar)
+    }
     if(pegar == "expedicao2" || pegar == "expedicao") {
       document.querySelector("#PstatusdepX"+i).innerText = post[pegar][i].statusdep
       document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
@@ -150,17 +148,6 @@ document.querySelector("#valor_valordopedidoX"+i).innerText = post[pegar][i].val
     document.querySelector("#Pvalor_obs2X"+i).innerText = post[pegar][i].obsfinanceiro
   
   }
-
-    if(pegar == "logistica") {
-      document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
-      document.querySelector("#PmotoristaX"+i).innerText = post[pegar][i].motorista
-      document.querySelector("#Pvalor_placaX"+i).innerText = post[pegar][i].placa
-      document.querySelector("#PvalorstatuslogX"+i).innerText = post[pegar][i].statuslog
-      colorir(pegar)
-    }
-
-  
-  
 }
   
 let global_Up
@@ -174,10 +161,14 @@ return data.json();
     if(global_Up == null) {
       global_Up = post
     }
+  
     let aux1 = [Object.keys(global_Up[pegar])[Object.keys(global_Up[pegar]).length - 1]]
     let aux2 = [Object.keys(post[pegar])[Object.keys(post[pegar]).length - 1]]
-  console.log(aux1+"\t"+aux2)
 
+    if(Object.keys(post[pegar]).length == 0) {
+      window.location.reload();
+    }
+  
     for(let i= Object.keys(post[pegar]).length-1; i > -1; i--) {
       if(aux2 > aux1 || aux2 < aux1){
         console.log("CRIADO")

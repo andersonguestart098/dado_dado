@@ -221,26 +221,124 @@
   },
   "passagem": {
     "0": {
-      "dataHora": "8/10/2022 18:50",
-      "numeronf": "444",
-      "exped": "expedicao"
+      "dataHora": "14/10/2022 14:17",
+      "numeronf": "248944",
+      "exped": "logistica"
     },
     "1": {
-      "dataHora": "8/10/2022 18:53",
-      "numeronf": "3333",
+      "dataHora": "14/10/2022 14:18",
+      "numeronf": "247856",
+      "exped": "expedicao2"
+    },
+    "2": {
+      "dataHora": "14/10/2022 14:19",
+      "numeronf": "248777",
+      "exped": "logistica"
+    },
+    "3": {
+      "dataHora": "14/10/2022 14:21",
+      "numeronf": "248999",
       "exped": "expedicao"
+    },
+    "4": {
+      "dataHora": "14/10/2022 14:23",
+      "numeronf": "248444",
+      "exped": "logistica"
+    },
+    "5": {
+      "dataHora": "14/10/2022 14:33",
+      "numeronf": "248555",
+      "exped": "expedicao2"
+    },
+    "6": {
+      "dataHora": "14/10/2022 14:35",
+      "numeronf": "248577",
+      "exped": "logistica"
+    },
+    "7": {
+      "dataHora": "14/10/2022 14:46",
+      "numeronf": "248955",
+      "exped": "expedicao"
+    },
+    "8": {
+      "dataHora": "14/10/2022 14:50",
+      "numeronf": "248668",
+      "exped": "logistica"
     }
   },
   "financeiro": {
     "0": {
       "id": 0,
       "selecionarDado": 0,
-      "nropedido": "615888",
-      "statusnf": "PENDENTE",
-      "vendedor": "ALINE",
-      "cliente": "Felipe",
+      "nropedido": "614755",
+      "statusnf": "CANCELADA",
+      "vendedor": "GELSON",
+      "cliente": "Anderson Henrique Tavares",
       "tipodefaturamento": "NORMAL",
       "valordopedido": "R$2.356,03",
+      "formapgto": "CARTÃO CRÉDITO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "Cobrar em 3x no cartão ",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "TESTE",
+      "quemrecebeu": "..."
+    },
+    "1": {
+      "id": 1,
+      "selecionarDado": 1,
+      "nropedido": "3232323",
+      "statusnf": "CANCELADA",
+      "vendedor": "ALINE",
+      "cliente": "dddd",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "2323.32",
+      "formapgto": "DINHEIRO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "2323323",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "TESTE",
+      "quemrecebeu": "..."
+    },
+    "2": {
+      "id": 2,
+      "selecionarDado": 2,
+      "nropedido": "618999",
+      "statusnf": "CANCELADA",
+      "vendedor": "LUIS",
+      "cliente": "M A A SABINO ",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$2.356,03",
+      "formapgto": "BOLETO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "TESTE",
+      "quemrecebeu": "..."
+    },
+    "3": {
+      "id": 3,
+      "selecionarDado": 3,
+      "nropedido": "614725",
+      "statusnf": "EMITIDA",
+      "vendedor": "WAGNER",
+      "cliente": "Anderson",
+      "tipodefaturamento": "REMESSA FUTURA",
+      "valordopedido": "1.000.000,00",
       "formapgto": "BOLETO",
       "retiraentrega": "RETIRA",
       "localdaentrega": "",
@@ -250,32 +348,124 @@
       "valorfrete": "",
       "dataentrega": "",
       "operadornf": "ROSI",
-      "obsfinanceiro": "...",
+      "obsfinanceiro": "TESTE",
       "quemrecebeu": "..."
     },
-    "1": {
-      "id": 1,
-      "selecionarDado": 1,
-      "nropedido": "614777",
-      "statusnf": "RETORNOU AO VENDEDOR",
-      "vendedor": "MARCIA",
-      "cliente": "Anderson",
+    "4": {
+      "id": 4,
+      "selecionarDado": 4,
+      "nropedido": "616515",
+      "statusnf": "EMITIDA",
+      "vendedor": "WAGNER",
+      "cliente": "HOSPITAL DE RIO GRANDE",
       "tipodefaturamento": "NORMAL",
-      "valordopedido": "1.000.000,00",
-      "formapgto": "CARTÃO DEBITO",
+      "valordopedido": "150000",
+      "formapgto": "DINHEIRO",
       "retiraentrega": "RETIRA",
       "localdaentrega": "",
       "localdecobranca": " ",
-      "obs": "Mandar cópias da nf para giliard",
+      "obs": "Cobrar em 3x no cartão ",
       "fretedestacado": " ",
       "valorfrete": "",
       "dataentrega": "",
-      "operadornf": "APRENDIZ",
-      "obsfinanceiro": "Mandar cópias a nf para giliard",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "5": {
+      "id": 5,
+      "selecionarDado": 5,
+      "nropedido": "615485",
+      "statusnf": "EMITIDA",
+      "vendedor": "FAGUNDES",
+      "cliente": "Felipe",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$2.356,03",
+      "formapgto": "DINHEIRO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "TESTE",
+      "fretedestacado": " ",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "6": {
+      "id": 6,
+      "selecionarDado": 6,
+      "nropedido": "614778",
+      "statusnf": "EMITIDA",
+      "vendedor": "FAVRETTO",
+      "cliente": "teste",
+      "tipodefaturamento": "REMESSA TRANSPORTE",
+      "valordopedido": "1500,36",
+      "formapgto": "DINHEIRO",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "R. riachuelo 203, POA",
+      "localdecobranca": "COBRAR NA ENTREGA",
+      "obs": "cobrar na entrega",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "150",
+      "dataentrega": "2022-11-14T11:35",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "7": {
+      "id": 7,
+      "selecionarDado": 7,
+      "nropedido": "617869",
+      "statusnf": "EMITIDA",
+      "vendedor": "WAGNER",
+      "cliente": "SICRED",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$ 2.000.000,00",
+      "formapgto": "BOLETO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "...",
+      "fretedestacado": " ",
+      "valorfrete": "...",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "8": {
+      "id": 8,
+      "selecionarDado": 8,
+      "nropedido": "618999",
+      "statusnf": "EMITIDA",
+      "vendedor": "GELSON",
+      "cliente": "TORRE DE FERRO EMPREENDIMENTO",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "2667,00",
+      "formapgto": "BOLETO",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": " ",
+      "obs": "...",
+      "fretedestacado": " ",
+      "valorfrete": "...",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
       "quemrecebeu": "..."
     }
   },
   "expedicao": {
+    "0": {
+      "id": 0,
+      "selecionarDado": "7",
+      "quemrecebeu": "...",
+      "statusdep": "..."
+    }
+  },
+  "expedicao2": {
     "0": {
       "id": 0,
       "selecionarDado": "1",
@@ -284,13 +474,25 @@
     },
     "1": {
       "id": 1,
-      "selecionarDado": "0",
+      "selecionarDado": "5",
       "quemrecebeu": "...",
       "statusdep": "..."
     }
   },
-  "expedicao2": {},
-  "logistica": {},
+  "logistica": {
+    "0": {
+      "id": 0,
+      "selecionarDado": "6",
+      "quemrecebeu": "...",
+      "statusdep": "..."
+    },
+    "1": {
+      "id": 1,
+      "selecionarDado": "8",
+      "quemrecebeu": "...",
+      "statusdep": "..."
+    }
+  },
   "saida": {},
   "retorno": {},
   "canhoto": {}

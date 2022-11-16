@@ -386,7 +386,7 @@ app.post("/mudancaBancoDados", (req, res) => {
             seletorDados = prop
             for(bprop in d[after]) {
               if(d[after][bprop].selecionarDado == seletorDados) {
-                delete d[after][bprop]
+                  delete d[after][bprop]
               }
             }
             d[valor][objAtual] = {
@@ -456,7 +456,7 @@ app.post('/registrarBancoDados', (req, res) => {
       dados["passagem"][objAtual] = {
         dataHora: dateFormated,
         numeronf: dataReq.numeronf,
-        exped: pegar
+        exped: "..."
       }
     } else {
       for (let prop in dados["passagem"]) {
@@ -467,15 +467,6 @@ app.post('/registrarBancoDados', (req, res) => {
     }
 
     switch (pegar) {
-      case "expedicao":
-      case "expedicao2":
-        dados[pegar][objAtual] = {
-          id: objAtual,
-          selecionarDado: seletorDados,
-          quemrecebeu: dataReq.quemrecebeu,
-          statusdep: dataReq.statusdep
-        }
-        break
       case "financeiro":
         dados[pegar][objAtual] = {
           id: objAtual,
@@ -497,19 +488,6 @@ app.post('/registrarBancoDados', (req, res) => {
           operadornf: dataReq.operadornf,
           obsfinanceiro: dataReq.obsfinanceiro,
           quemrecebeu: dataReq.quemrecebeu
-        }
-        break
-      case "logistica":
-        dados[pegar][objAtual] = {
-          id: objAtual,
-          selecionarDado: seletorDados,
-          motorista: dataReq.motorista,
-          placa: dataReq.placa,
-          statuslog: dataReq.statuslog,
-          codentrega: dataReq.codentrega,
-          numeronf: dataReq.numeronf,
-          quemrecebeu: dataReq.quemrecebeu
-
         }
         break
       case "saida":
@@ -620,7 +598,7 @@ app.get("/excel", (req, res) => {
       "FF98EE98")
 
     Criar_planilha(workbook, objetoBancoDados, "retorno",
-      ["id", "dataHora", "codentrega", "numeronf", "exped", "hodometro"], ["A", "B", "C", "D", "C", "D", "E", "F"],
+      ["id", "dataHora", "codentrega", "numeronf", "hodometro"], ["A", "B", "C", "D", "C", "D", "E", "F"],
       "FF98EE98")
 
 
@@ -668,10 +646,16 @@ function Criar_planilha(workbook, objetoBancoDados, nome, nomeColuna, letras, co
       bgColor: { argb: corDoFundo }
     }
   }
-
+  let j = 0
   for (i = Object.keys(objetoBancoDados[nome]).length - 1; i > -1; i--) {
-    let obj = objetoBancoDados[nome][i]
-    expedicao.addRow(obj);
+    if(j == 1 || j == 2 || j == 3) {
+      let obj = objetoBancoDados["passagem"][i]
+      expedicao.addRow(obj);
+    }else {
+      let obj = objetoBancoDados[nome][i]
+      expedicao.addRow(obj);
+    }
+    j++
   }
   return expedicao
 }
