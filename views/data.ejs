@@ -14,6 +14,7 @@
 <% } else { %>
   <td id='valor_datahoraX<%= dados[pegar][i].id %>'>
     <input type='hidden' id='datahora_textX<%= dados[pegar][i].id %>' value='$datahora'><%= dados["passagem"][dados[pegar][i].selecionarDado].dataHora %></td>
+  
 <% } %>
   
 <% if(pegar == "financeiro") { %>
@@ -28,6 +29,8 @@
   <td id='valor_valordopedidoX<%= dados[pegar][i].id %>'><%= dados[pegar][i].valordopedido %></td>
 
   <td id='valor_formapgtoX<%= dados[pegar][i].id %>'><%= dados[pegar][i].formapgto %></td>
+  
+    <td id='valor_vendafreteX<%= dados[pegar][i].id %>'><%= dados[pegar][i].valorfrete %></td>
 
   <td id='valor_retiraentregaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].retiraentrega %></td>
 
@@ -97,9 +100,14 @@
       <p onclick='make(this,expedX<%= dados[pegar][i].id %>)' id='Pvalor_exped<%= dados[pegar][i].id %>'><%= dados["passagem"][dados["financeiro"][i].selecionarDado].exped %></p>
     </td>
   <% } %>
-     <% if(pegar != "saida" && pegar != "retorno" && pegar != "canhoto" && pegar != "passagem" ) { %> 
-         
-  
+     <% if(pegar != "saida" && pegar != "retorno" && pegar != "canhoto" && pegar != "passagem" && pegar != "registroentrega" ) { %> 
+
+    <td id='valor_numeronfX<%= dados[pegar][i].id %>'>
+      <input onchange="autoreflash(this, Pvalor_numeronfX<%= dados[pegar][i].id %>)" type='text' value="<%= dados[pegar][i].numeronf %>" id='numeronf_textX<%= dados[pegar][i].id %>'>
+      <p onclick='make(this,numeronf_textX<%= dados[pegar][i].id %>)' id='Pvalor_numeronfX<%= dados[pegar][i].id %>'><%= dados["passagem"][dados["financeiro"][i].selecionarDado].numeronf %></p>
+    </td>
+       
+   
     <td id='valor_quemrecebeuX<%= dados[pegar][i].id %>'>
       <select onchange="autoreflash(this,Pvalor_quemrecebeu<%= dados[pegar][i].id %>)" name='quem' id='quemX<%= dados[pegar][i].id %>'>
       <option value=''></option>
@@ -128,36 +136,40 @@
 
 
       <% if(pegar == "saida") { %>
-    <td id='expedX<%= dados[pegar][i].id %>'>
-      <select onchange="autoreflash(this)" name='exped' id='expedX<%= dados["passagem"][i].id %>'>
-      <option value=''></option>
-      <option value='LOG'>LOG</option>
-    </select>
-
-      <p onclick='make(this,expedX<%= dados[pegar][i].id %>)' id='Pexped<%= dados[pegar][i].id %>'><%= dados[pegar][i].exped %></p>
         
-        <td id='valor_codentregaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].codentrega %> </td>
+          <td id='valor_codentregaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].codentrega %> </td>
+          
+        <td id='valor_nomeconferenteX<%= dados[pegar][i].id %>'><%= dados[pegar][i].nomeconferente %> </td>
         
-            <td id='valor_placaX<%= dados[pegar][i].id %>'>
+      <td id='valor_placaX<%= dados[pegar][i].id %>'>
       <select onchange="autoreflash(this)" name='placa' id='placaX<%= dados[pegar][i].id %>'>
       <option value=''></option>
       <option value='BEE-4242'>BEE-4242</option>
     </select>
 
       <p onclick='make(this,placaX<%= dados[pegar][i].id %>)' id='Pvalor_placa<%= dados[pegar][i].id %>'><%= dados[pegar][i].placa %></p>
-    <td id='motoristaX<%= dados[pegar][i].id %>'>
+      <td id='motoristaX<%= dados[pegar][i].id %>'>
     <select onchange="autoreflash(this,PmotoristaX<%= dados[pegar][i].id %>)" name='motoristaX' id='motorista<%= dados[pegar][i].id %>'>
       <option value=''> </option>
       <option value='JULIANO'>JULIANO</option>
       <option value='DOUGLAS'>DOUGLAS</option> 
     </select><p onclick='make(this,motoristaX<%= dados[pegar][i].id %>)' id='PmotoristaX<%= dados[pegar][i].id %>' class="orientador"><%= dados[pegar][i].motorista %></p></td>
 
+        <td id='valor_destinoX<%= dados[pegar][i].id %>'>
+      <input onchange="autoreflash(this,Pvalor_destinoX<%= dados[pegar][i].id %>)" type='text' id='destino_textX<%= dados[pegar][i].id %>' value='<%= dados[pegar][i].obs %>'>
+      <p onclick='make(this,destino_textX<%= dados[pegar][i].id %>)' id='destinoX<%= dados[pegar][i].id %>'><%= dados[pegar][i].destino %></p>
+        
     <td id='valor_hodometroX<%= dados[pegar][i].id %>'>
       <input onchange="autoreflash(this,Pvalor_hodometroX<%= dados[pegar][i].id %>)" type='text' id='hodometro_textX<%= dados[pegar][i].id %>' value='<%= dados[pegar][i].obs %>'>
       <p onclick='make(this,hodometro_textX<%= dados[pegar][i].id %>)' id='hodometroX<%= dados[pegar][i].id %>'><%= dados[pegar][i].hodometro %></p>
+
+      <td id='valor_datahorasaidaX<%= dados[pegar][i].id %>'>
+      <input onchange="autoreflash(this,Pvalor_datahorasaidaX<%= dados[pegar][i].id %>)" type='text' id='datahorasaida_textX<%= dados[pegar][i].id %>' value='<%= dados[pegar][i].obs %>'>
+      <p onclick='make(this,datahorasaida_textX<%= dados[pegar][i].id %>)' id='datahorasaidaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].datahorasaida %></p>
+
+      <td id='valor_obsX<%= dados[pegar][i].id %>'><%= dados[pegar][i].obs %> </td>
       
     </td>
-        
       <% } %>
 
       <% if(pegar == "retorno") { %>
@@ -174,6 +186,17 @@
     <td id='valor_hodometroX<%= dados[pegar][i].id %>'>
       <input onchange="autoreflash(this,Pvalor_hodometroX<%= dados[pegar][i].id %>)" type='text' id='hodometro_textX<%= dados[pegar][i].id %>' value='<%= dados[pegar][i].obs %>'>
       <p onclick='make(this,hodometro_textX<%= dados[pegar][i].id %>)' id='hodometroX<%= dados[pegar][i].id %>'><%= dados[pegar][i].hodometro %></p>
+    </td>
+
+    <td id='valor_datahoraX<%= dados[pegar][i].id %>'>
+      <input onchange="autoreflash(this,Pvalor_datahoraX<%= dados[pegar][i].id %>)" type='text' id='datahora_textX<%= dados[pegar][i].id %>' value='<%= dados[pegar][i].datahora %>'>
+      <p onclick='make(this,datahora_textX<%= dados[pegar][i].id %>)' id='datahoraX<%= dados[pegar][i].id %>'><%= dados[pegar][i].datahora %></p>
+    </td>
+
+    <td id='valor_obsX<%= dados[pegar][i].id %>'>
+      <input onchange="autoreflash(this,Pvalor_obsX<%= dados[pegar][i].id %>)" type='text' id='obs_textX<%= dados[pegar][i].id %>' value='<%= dados[pegar][i].obs %>'>
+      <p onclick='make(this,obs_textX<%= dados[pegar][i].id %>)' id='obsX<%= dados[pegar][i].id %>'><%= dados[pegar][i].obs %></p>
+    </td>
 
       <% } %>
 
@@ -215,4 +238,24 @@
         <td id='valor_vendedorX<%= dados["financeiro"][i].id %>'><%= dados["financeiro"][i].vendedor %></td>
     <% } %>
 
+    <% if(pegar == "registroentrega") { %>
+
+        <td id='valor_motoristaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].motorista %> </td>
+
+        <td id='valor_codentregaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].codentrega %> </td>
+
+        <td id='valor_cidadeX<%= dados[pegar][i].id %>'><%= dados[pegar][i].cidade %> </td>
+
+        <td id='valor_concluidaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].concluida %> </td>
+
+        <td id='valor_obsX<%= dados[pegar][i].id %>'><%= dados[pegar][i].obs %> </td>
+
+      
+    <% } %>
+
+      <% if(pegar != "registroentrega") { %>
+
+        
+        <% } %>
+      
 </tr>

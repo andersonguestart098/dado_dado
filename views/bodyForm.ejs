@@ -8,82 +8,8 @@
     <title>CEMEAR ENVIAR PEDIDOS></title>
   <link rel="icon" sizes="any" type="image/svg+xml" href="/logoce.svg">
 </head>
-<a href="home">VOLTAR AO HOME</a>
-<style>
-
-.tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  z-index: 100;
-  opacity: 0;
-  transition: opacity .5s;
-}
-
-.tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-
-  
-  table{
-            background-color:#fff5ea;
-            padding:15px;
-            border-radius:15px;
-        }
-  thead{
-    background-color:whitesmoke;
-  }
-  body{
-  font-family: Arial, Helvetica, sans-serif;
-  color: black;
-  size: 18pt;
-  text-emphasis-color: white;
-  text-align:center;
-  background-image:url(https://static.wixstatic.com/media/2fbcb5_d276e2a6abc54c47befd5d1a5137a5ab~mv2.jpg);
-  background-size:1430px
-        }
-  .table-bg{
-   background: rgba(0, 0, 0, 0.8);
-   border-radius: 15px 15px 0 0;
-        }
-  a{
-  color:white;
-  padding:15px;
-        }
-  h1{
-  color:black;
-        }
-  h5{
-  color:#323232;
-        }
-  h4{
-    background-image: linear-gradient(to right, rgb(17, 54, 71), rgb(20, 147, 220));
-    padding:8px;
-    border-radius:8px;
-    font-family:Times New Roman;
-    color:white;
-        }
-  form{
-    background-color: whitesmoke;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #1c5d8e;
-        }
-  #entrega {
-    display: none;
-  }
-    </style>
+<link rel="stylesheet" href="stylesFormulario.css">
+<a href="home">VOLTAR AO HOME</a>  
 <body>
     <div class="container">
         <div class="row mt-4">
@@ -136,8 +62,8 @@
             <option value="LUIS">LUIS</option>
             <option value="FERNANDO">FERNANDO</option>
             <option value="EDUARDO">FERNANDO</option>
-            <option value="FAGUNDES">FERNANDO</option>
-            <option value="FAVRETTO">FERNANDO</option>
+            <option value="FAGUNDES">EDUARDO</option>
+            <option value="FAVRETTO">FAVRETTO</option>
             <option value="FERNANDA">FERNANDA</option>
             <option value="GASPAR">GASPAR</option>
             <option value="GILIARD">GILIARD</option>
@@ -169,8 +95,8 @@
             <option value="REMESSA TRANSPORTE">REMESSA TRANSPORTE</option>
           </select>
 
-            <br>
-    <label for="valordopedido" class="col-formlabel">Valor do pedido:</label> 
+            <br><br>
+    <label for="valordopedido" class="col-formlabel">Valor da venda(incluindo frete):</label> 
             <br>
           <input type="text" data-charset="_X_ X_X" data-mask="0 000 000 000" name="valordopedido" class="form-control" id="valorPedido">
             <br>
@@ -178,12 +104,27 @@
           <br>
           <select name="formapgto" id="formapgto">
             <option value=" " selected disabled hidden> </option>
-            <option value="BOLETO">BOLETO</option>
-            <option value="DINHEIRO">DINHEIRO</option>
-            <option value="DEPOSITO BANCARIO">DEPOSITO BANCARIO</option>
-            <option value="CARTÃO DEBITO">CARTÃO DEBITO</option>
-            <option value="CARTÃO CRÉDITO">CARTÃO CRÉDITO</option>
+            <option value="Á vista">Á vista</option>
+            <option value="Faturado">Faturado</option>
+            <option value="Sem pagamento">Sem pagamento</option>
+            <option value="Depósito Bancario Programado">Depósito Bancario Programado</option>
+            <option value="Cheque programado">Cheque programado</option>
+            <option value="Deposito Bancário">Deposito Bancário</option>
+            <option value="Pix">Pix</option>
+            <option value="Dinheiro">Dinheiro</option>
+            <option value="Pago com Crédito">Pago com Crédito</option>
+            <option value="Cartão Sala de Vendas">Cartão Sala de Vendas</option>
           </select>
+          <br>
+          <br>
+                <label for="vendafrete" class="col-form-label">Venda com frete ?</label>
+          <br>
+          <select name="vendafrete" id="vendafrete">
+            <option value=" " selected="selected"> </option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+          <br>
                       <br>
       <label for="retiraentrega" class="col-form-label">Retira, entrega ou transp. ?</label>
           <br>
@@ -194,13 +135,6 @@
             <option value="TRANSPORTADORA">TRANSPORTADORA</option>
           </select>
           <br>
-
-          <div id="entrega">
-          <label for="localdaentrega" class="col-formlabel">Local da Entrega:</label> 
-            <br>
-          <input type="text"  name="localdaentrega" class="form-control" id="localdaentrega">
-            <br>
-
       <label for="localdecobranca" class="col-form-label">Local de Cobrança:</label>
             <br>
           <select name="localdecobranca" id="localdecobranca">
@@ -209,7 +143,15 @@
             <option value="SALA DE VENDAS">SALA DE VENDAS</option>
             <option value="COBRAR NA ENTREGA">COBRAR NA ENTREGA</option>
           </select>
-          <br>
+          <br><br>
+
+          <div id="entrega">
+          <label for="localdaentrega" class="col-formlabel">Local da Entrega:</label> 
+            <br>
+          <input type="text"  name="localdaentrega" class="form-control" id="localdaentrega">
+            <br>
+
+
           <label for="fretedestacado" class="col-form-label">Tpo de Frete:</label>
             <br>
           <select name="fretedestacado" id="fretedestacado" value="...">
@@ -218,12 +160,12 @@
             <option value="DILUIDO">DILUIDO</option>
           </select>
           <br>
-      <label for="valorfrete" class="col-formlabel">Valor Frete:</label> 
+      <label for="valorfrete" class="col-formlabel">Valor Frete R$:</label> 
             <br>
           <input type="text"  name="valorfrete" class="form-control" id="valorfrete" value="...">
             <br>
             <label for="dataentrega" class="col-formlabel">Data da Entrega:</label> 
-          <input type="datetime-local"  name="obs" class="form-control" id="dataEntrega" value="...">
+          <input type="date"  name="obs" class="form-control" id="dataEntrega" value="...">
             
           </div>
       <label for="obs" class="col-formlabel">Observações:</label> 
@@ -247,87 +189,18 @@
           
         <% } %>
 
-        <% if(pegar == "expedicao2") { %>
-          <input type="hidden"  name="statusdep" class="form-control" id="statusnf" value="PENDENTE">
-          <% } %>
-            
-          <% if(pegar == "logistica") { %>
-            <label for="quemrecebeu" class="col-form-label">Quem Recebeu:</label>
-            <br>
-          <select name="quemrecebeu" id="quemrecebeu" value="quemrecebeu">
-            <option value=" "> </option>
-            <option value="DIEIMES">DIEIMES</option>
-            <option value="CRISTIANO">CRISTIANO</option>
-          </select>
-            <br>
-
-          <label for="codentrega" class="col-form-label">Cód. Entrega:</label>
-          <br>
-          <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
-            <br>
-
-          <div class="mb-3">
-  
-            
-          <label for="motorista" class="col-form-label">Motorista:                 </label>
-              <br>
-          <select name="motorista" id="motorista">
-            <option value=" "> </option>
-            <option value="ALEXANDRE">ALEXANDRE</option>
-            <option value="DIONATHA">DIONATHA</option>
-            <option value="DOUGLAS">DOUGLAS</option>
-            <option value="IGON">IGON</option>
-            <option value="JULIANO">JULIANO</option>
-            <option value="MATHEUS">MATHEUS</option>
-            <option value="PAULO">PAULO</option>
-            <option value="VANDERLEI">VANDERLEI</option>
-            <option value="VILNEI">VILNEI</option>
-            <option value="MAX">MAX</option>
-            <option value="PAULO VITOR">PAULO VITOR</option>
-            <option value="CRISTIANO">CRISTIANO</option>
-            <option value="WILLIAM">WILLIAM</option>
-            <option value="PAULO ALEXANDRE">PAULO ALEXANDRE</option>
-          </select>
-              <br>
-
-          <label for="placa" class="col-form-label">Placa:                 </label>
-              <br>
-          <select name="placa" id="placa">
-            <option value=" "> </option>
-            <option value="IWC5261">IWC5261</option>
-            <option value="IZT1E84">IZT1E84</option>
-            <option value="IWW7921">IWW7921</option>
-            <option value="IVO1603">IVO1603</option>
-            <option value="AZI2E30">AZI2E30</option>
-            <option value="ITA7784">ITA7784</option>
-            <option value="IUT9476">IUT9476</option>
-            <option value="IST6840">IST6840</option>
-            <option value="IVP0G05">IVP0G05</option>
-            <option value="JBD9H36">JBD9H36</option>
-            <option value="IXH8706">IXH8706</option>
-          </select>
-              <br>
-
-          <label for="statuslog" class="col-form-label">Status Log:                 </label>
-              <br>
-              
-          <select name="statuslog" id="statuslog" value="AGUARDANDO ROTA">
-            <option value=" "> </option>
-            <option value="AGUARDANDO VENDEDOR">AGUARDANDO VENDEDOR</option>
-            <option value="EM TRANSITO">EM TRANSITO</option>
-            <option value="ENTREGUE">ENTREGUE</option>
-          </select>
-            <br>        
-          </label>
-          <% } %>
-
             <% if(pegar == "saida") { %>
 
 
              
-          <label for="codentrega" class="col-form-label">Cód. Entrega</label>
+          <label for="codentrega" class="col-form-label">Cód. da Carga: </label>
           <br>
           <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
+            <br>
+
+          <label for="nomeconferente" class="col-form-label">Nome do Conferente:</label>
+          <br>
+          <input type="text"  name="nomeconferente" class="form-control" id="nomeconferente" placeholder="Preencha o nome do conferente...">
             <br>
 
 
@@ -375,6 +248,18 @@
           <input type="text"  name="hodometro" class="form-control" id="hodometro">
             <br>
 
+          <label for="destino" class="col-form-label">Cidadede(s) Destino:                 </label> 
+            <br>
+          <input type="text"  name="destino" class="form-control" id="destino">
+            <br>
+          <label for="obs" class="col-form-label">Observações:</label> 
+            <br>
+          <input type="text"  name="obs" class="form-control" id="obs">
+            <br>
+          <label for="datahorasaida" class="col-form-label">Datahora Saída:</label> 
+            <br>
+          <input type="datetime-local"  name="datahorasaida" class="form-control" id="datahorasaida">
+
             <% } %>
 
             <% if(pegar == "retorno") { %>
@@ -405,6 +290,14 @@
           <label for="hodometro" class="col-form-label">Hodometro:                 </label> 
             <br>
           <input type="text"  name="hodometro" class="form-control" id="hodometro">
+            <br>
+          <label for="datahora" class="col-form-label">Data:                 </label> 
+            <br>
+          <input type="datetime-local"  name="datahora" class="form-control" id="datahora">
+            <br>
+          <label for="obs" class="col-form-label">Observações:                </label> 
+            <br>
+          <input type="text"  name="obs" class="form-control" id="obs">
             <br>
             <% } %>
 
@@ -482,6 +375,60 @@
 
           <% if(pegar == "expedicao") { %>
             <input type="hidden"  name="statusdep" class="form-control" id="statusdep" value="PENDENTE">
+          <% } %>
+
+          <% if(pegar == "registroentrega") { %>
+
+            
+          <label for="motorista" class="col-form-label">Motorista:                 </label>
+              <br>
+          <select name="motorista" id="motorista">
+            <option value=" "> </option>
+            <option value="ALEXANDRE">ALEXANDRE</option>
+            <option value="DIONATHA">DIONATHA</option>
+            <option value="DOUGLAS">DOUGLAS</option>
+            <option value="IGON">IGON</option>
+            <option value="JULIANO">JULIANO</option>
+            <option value="MATHEUS">MATHEUS</option>
+            <option value="PAULO">PAULO</option>
+            <option value="VANDERLEI">VANDERLEI</option>
+            <option value="VILNEI">VILNEI</option>
+            <option value="MAX">MAX</option>
+            <option value="PAULO VITOR">PAULO VITOR</option>
+            <option value="CRISTIANO">CRISTIANO</option>
+            <option value="WILLIAM">WILLIAM</option>
+            <option value="PAULO ALEXANDRE">PAULO ALEXANDRE</option>
+          </select>
+              <br>
+          <label for="codentrega" class="col-form-label">Cód. Entrega:                 </label> 
+              <br>
+            <input type="text"  name="codentrega" class="form-control" id="codentrega">
+            <br>
+
+          <label for="cidade" class="col-form-label">Cidade(s):                 </label> 
+              <br>
+            <input type="text"  name="cidade" class="form-control" id="cidade">
+            <br>
+          <label for="quemrecebeu" class="col-form-label">Qual o nome da pessoa/empresa que recebeu o material?                 </label> 
+            <br>
+            <input type="text"  name="quemrecebeu" class="form-control" id="quemrecebeu">
+            <br>
+
+          <label for="concluida" class="col-form-label">Entrega Concluída?                </label>
+              <br>
+          <select name="concluida" id="concluida">
+            <option value=" "> </option>
+            <option value="Concluída">Concluída</option>
+            <option value="Parcialmente Concluída">Parcialmente Concluída</option>
+            <option value="Recusada">Recusada</option>
+          </select>
+              <br>
+          <label for="obs" class="col-form-label">Observações:               </label> 
+            <br>
+            <input type="text"  name="obs" class="form-control" id="obs">
+            <br>
+            
+
           <% } %>
             
           <BR></BR>
@@ -583,31 +530,10 @@ return data.json();
 <script>
       let obj = {}
 function clickEnviar(a) {
-    if(peG != "financeiro") {
-      if(document.querySelector("#numeronf").style.color == "red") {
-        alert("Confira o numero da nota fiscal") 
-        return
-      }
-    }
+  
       let pegar = "<%= pegar %>"
   
       switch(pegar){
-        case "expedicao":
-          obj = {
-          numeronf: document.querySelector("#numeronf").value,
-          exped : pegar,                             
-          quemrecebeu: document.querySelector("#quemrecebeu").value,
-          statusdep : document.querySelector("#statusdep").value
-          }
-          break
-        case "expedicao2":
-          obj = {
-          numeronf: document.querySelector("#numeronf").value,
-          exped : pegar,  
-          quemrecebeu: document.querySelector("#quemrecebeu").value,
-          statusdep : document.querySelector("#statusdep").value
-          }
-          break
         case "financeiro": 
           obj = {
           numeronf: "...",
@@ -647,9 +573,13 @@ document.querySelector("#nropedido").value,
           numeronf: document.querySelector("#numeronf").value,
           exped: pegar,
           codentrega: document.querySelector("#codentrega").value,
+          nomeconferente: document.querySelector("#nomeconferente").value,
           placa: document.querySelector("#placa").value,
           motorista: document.querySelector("#motorista").value,
-          hodometro: document.querySelector("#hodometro").value
+          hodometro: document.querySelector("#hodometro").value,
+          destino: document.querySelector("#destino").value,
+          obs: document.querySelector("#obs").value,
+          datahorasaida: document.querySelector("#datahorasaida").value
           }
           break
         case "retorno":
@@ -658,16 +588,35 @@ document.querySelector("#nropedido").value,
           exped: pegar,
           codentrega: document.querySelector("#codentrega").value,
           placa: document.querySelector("#placa").value,
-          hodometro: document.querySelector("#hodometro").value
-           
+          hodometro: document.querySelector("#hodometro").value,
+          datahora: document.querySelector("#datahora").value,
+          obs: document.querySelector("#obs").value 
           }
           break
         case "canhoto":
           obj = {
           numeronf: document.querySelector("#numeronf").value,
           exped: pegar,
+          codentrega: document.querySelector("#codentrega").value,
+          cidade: document.querySelector("#cidade").value,
+          quemrecebeu: document.querySelector("#quemrecebeu").value,
+          concluida: document.querySelector("#concluida").value,
+          obs: document.querySelector("#obs").value
+          }
+          
+          break
+
+   case "registroentrega":
+          obj = {
+          numeronf: document.querySelector("#numeronf").value, 
           motorista: document.querySelector("#motorista").value,
-          statuscanhoto: document.querySelector("#statuscanhoto").value
+          exped: pegar,
+          codentrega: document.querySelector("#codentrega").value,
+          cidade: document.querySelector("#cidade").value,
+          quemrecebeu: document.querySelector("#quemrecebeu").value,
+          concluida: document.querySelector("#concluida").value,
+          cidade: document.querySelector("#cidade").value,
+          obs: document.querySelector("#obs").value
           }
           break
 

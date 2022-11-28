@@ -9,6 +9,7 @@
         <th>Tipo|Faturamento</th>
         <th>Valor R$</th>
         <th>Forma|Pagamento</th>
+        <th>Venda|Frete</th>
         <th>Retira|Entrega|Transp.</th>
         <th>Local|Entrega</th>
         <th>Local|Cobrança</th>
@@ -33,10 +34,13 @@
 
       <% if(pegar == "saida") { %>
         <th>Cod. Entrega</th>
-        <th>Cod. Entrega</th>
+        <th>Nome|Conferente</th>
         <th>Placa</th>
         <th>Motorista</th>
+        <th>Cidade(s)|Destino</th>
         <th>Hodometro</th>
+        <th>Data|Hora|Saída</th>
+        <th>Observações</th>
 
       <% } %>
 
@@ -51,7 +55,19 @@
         <th>codentrega</th>
         <th>placa</th>
         <th>hodometro</th>
+        <th>Data</th>
+        <th>Observações</th>
       <% } %>
+
+      <% if(pegar == "registroentrega") { %>
+        
+        <th>Motorista</th>
+        <th>Cód|Entrega</th>
+        <th>Cidade</th>
+        <th>Entrega|Concluída</th>
+        <th>Obs</th>
+
+        <% } %>
 
       <% if(pegar == "passagem") { %>
         <th>Exped/Log</th>

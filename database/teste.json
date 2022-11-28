@@ -4,7 +4,7 @@
       "0": {
         "nome": "Developer",
         "user": "D",
-        "previlegios": 10,
+        "previlegios": 11,
         "setor": "ALL",
         "foto": "https://i.pinimg.com/originals/8c/96/93/8c969356e667e3aa0d145145e082e7ef.jpg",
         "pass": 1
@@ -221,209 +221,75 @@
   },
   "passagem": {
     "0": {
-      "dataHora": "14/10/2022 14:17",
-      "numeronf": "248944",
-      "exped": "logistica"
+      "dataHora": "28/10/2022 13:48",
+      "exped": "..."
     },
     "1": {
-      "dataHora": "14/10/2022 14:18",
-      "numeronf": "247856",
-      "exped": "expedicao2"
+      "dataHora": "28/10/2022 14:21",
+      "exped": "..."
     },
     "2": {
-      "dataHora": "14/10/2022 14:19",
-      "numeronf": "248777",
-      "exped": "logistica"
+      "dataHora": "28/10/2022 18:8",
+      "numeronf": "253668",
+      "exped": "..."
     },
     "3": {
-      "dataHora": "14/10/2022 14:21",
-      "numeronf": "248999",
-      "exped": "expedicao"
+      "dataHora": "28/10/2022 18:9",
+      "numeronf": "253647",
+      "exped": "..."
     },
     "4": {
-      "dataHora": "14/10/2022 14:23",
-      "numeronf": "248444",
-      "exped": "logistica"
+      "dataHora": "28/10/2022 18:22",
+      "numeronf": "255688",
+      "exped": "..."
     },
     "5": {
-      "dataHora": "14/10/2022 14:33",
-      "numeronf": "248555",
-      "exped": "expedicao2"
+      "dataHora": "28/10/2022 18:23",
+      "numeronf": "253778",
+      "exped": "..."
     },
     "6": {
-      "dataHora": "14/10/2022 14:35",
-      "numeronf": "248577",
-      "exped": "logistica"
+      "dataHora": "28/10/2022 18:35",
+      "numeronf": "253755",
+      "exped": "..."
     },
     "7": {
-      "dataHora": "14/10/2022 14:46",
-      "numeronf": "248955",
-      "exped": "expedicao"
+      "dataHora": "28/10/2022 18:38",
+      "numeronf": "253752",
+      "exped": "..."
     },
     "8": {
-      "dataHora": "14/10/2022 14:50",
-      "numeronf": "248668",
-      "exped": "logistica"
+      "dataHora": "28/10/2022 18:39",
+      "numeronf": "253772",
+      "exped": "..."
+    },
+    "9": {
+      "dataHora": "28/10/2022 19:11",
+      "numeronf": "253772",
+      "exped": "..."
+    },
+    "10": {
+      "dataHora": "28/10/2022 19:13",
+      "numeronf": "253778",
+      "exped": "..."
+    },
+    "11": {
+      "dataHora": "28/10/2022 19:23",
+      "numeronf": "253572",
+      "exped": "..."
     }
   },
   "financeiro": {
     "0": {
       "id": 0,
       "selecionarDado": 0,
-      "nropedido": "614755",
-      "statusnf": "CANCELADA",
-      "vendedor": "GELSON",
-      "cliente": "Anderson Henrique Tavares",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "R$2.356,03",
-      "formapgto": "CARTÃO CRÉDITO",
-      "retiraentrega": "RETIRA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "Cobrar em 3x no cartão ",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "TESTE",
-      "quemrecebeu": "..."
-    },
-    "1": {
-      "id": 1,
-      "selecionarDado": 1,
-      "nropedido": "3232323",
-      "statusnf": "CANCELADA",
+      "nropedido": "616515",
+      "statusnf": "PENDENTE",
       "vendedor": "ALINE",
-      "cliente": "dddd",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "2323.32",
-      "formapgto": "DINHEIRO",
-      "retiraentrega": "RETIRA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "2323323",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "TESTE",
-      "quemrecebeu": "..."
-    },
-    "2": {
-      "id": 2,
-      "selecionarDado": 2,
-      "nropedido": "618999",
-      "statusnf": "CANCELADA",
-      "vendedor": "LUIS",
-      "cliente": "M A A SABINO ",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "R$2.356,03",
-      "formapgto": "BOLETO",
-      "retiraentrega": "RETIRA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "TESTE",
-      "quemrecebeu": "..."
-    },
-    "3": {
-      "id": 3,
-      "selecionarDado": 3,
-      "nropedido": "614725",
-      "statusnf": "EMITIDA",
-      "vendedor": "WAGNER",
-      "cliente": "Anderson",
+      "cliente": "SICRED",
       "tipodefaturamento": "REMESSA FUTURA",
       "valordopedido": "1.000.000,00",
-      "formapgto": "BOLETO",
-      "retiraentrega": "RETIRA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "EMBALAR BEM OS MATERIAIS",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "TESTE",
-      "quemrecebeu": "..."
-    },
-    "4": {
-      "id": 4,
-      "selecionarDado": 4,
-      "nropedido": "616515",
-      "statusnf": "EMITIDA",
-      "vendedor": "WAGNER",
-      "cliente": "HOSPITAL DE RIO GRANDE",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "150000",
-      "formapgto": "DINHEIRO",
-      "retiraentrega": "RETIRA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "Cobrar em 3x no cartão ",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "...",
-      "quemrecebeu": "..."
-    },
-    "5": {
-      "id": 5,
-      "selecionarDado": 5,
-      "nropedido": "615485",
-      "statusnf": "EMITIDA",
-      "vendedor": "FAGUNDES",
-      "cliente": "Felipe",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "R$2.356,03",
-      "formapgto": "DINHEIRO",
-      "retiraentrega": "RETIRA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "TESTE",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "...",
-      "quemrecebeu": "..."
-    },
-    "6": {
-      "id": 6,
-      "selecionarDado": 6,
-      "nropedido": "614778",
-      "statusnf": "EMITIDA",
-      "vendedor": "FAVRETTO",
-      "cliente": "teste",
-      "tipodefaturamento": "REMESSA TRANSPORTE",
-      "valordopedido": "1500,36",
-      "formapgto": "DINHEIRO",
-      "retiraentrega": "ENTREGA",
-      "localdaentrega": "R. riachuelo 203, POA",
-      "localdecobranca": "COBRAR NA ENTREGA",
-      "obs": "cobrar na entrega",
-      "fretedestacado": "DESTACADO",
-      "valorfrete": "150",
-      "dataentrega": "2022-11-14T11:35",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "...",
-      "quemrecebeu": "..."
-    },
-    "7": {
-      "id": 7,
-      "selecionarDado": 7,
-      "nropedido": "617869",
-      "statusnf": "EMITIDA",
-      "vendedor": "WAGNER",
-      "cliente": "SICRED",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "R$ 2.000.000,00",
-      "formapgto": "BOLETO",
+      "formapgto": "Á vista",
       "retiraentrega": "RETIRA",
       "localdaentrega": "",
       "localdecobranca": " ",
@@ -435,19 +301,166 @@
       "obsfinanceiro": "...",
       "quemrecebeu": "..."
     },
-    "8": {
-      "id": 8,
-      "selecionarDado": 8,
-      "nropedido": "618999",
+    "1": {
+      "id": 1,
+      "selecionarDado": 1,
+      "nropedido": "616515",
       "statusnf": "EMITIDA",
-      "vendedor": "GELSON",
-      "cliente": "TORRE DE FERRO EMPREENDIMENTO",
+      "vendedor": "ALINE",
+      "cliente": "SICRED",
       "tipodefaturamento": "NORMAL",
-      "valordopedido": "2667,00",
-      "formapgto": "BOLETO",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "Á vista",
       "retiraentrega": "RETIRA",
       "localdaentrega": "",
       "localdecobranca": " ",
+      "obs": "...",
+      "fretedestacado": " ",
+      "valorfrete": "...",
+      "dataentrega": "",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "2": {
+      "id": 2,
+      "selecionarDado": 2,
+      "nropedido": "616515",
+      "statusnf": "EMITIDA",
+      "vendedor": "ALINE",
+      "cliente": "SICRED",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "Á vista",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "av das industrias",
+      "localdecobranca": "EMPRESA",
+      "obs": "...",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "150,00",
+      "dataentrega": "2022-11-24T10:44",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "3": {
+      "id": 3,
+      "selecionarDado": 3,
+      "nropedido": "614885",
+      "statusnf": "EMITIDA",
+      "vendedor": "ALINE",
+      "cliente": "Anderson",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "Á vista",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "av das industrias",
+      "localdecobranca": "EMPRESA",
+      "obs": "...",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "150,00",
+      "dataentrega": "2022-11-24T10:44",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "4": {
+      "id": 4,
+      "selecionarDado": 4,
+      "nropedido": "617888",
+      "statusnf": "EMITIDA",
+      "vendedor": "ALINE",
+      "cliente": "Anderson",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "2.000.000,00",
+      "formapgto": "Faturado",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "av das industrias",
+      "localdecobranca": "EMPRESA",
+      "obs": "...",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "150,00",
+      "dataentrega": "2022-11-24T10:44",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "5": {
+      "id": 5,
+      "selecionarDado": 5,
+      "nropedido": "618777",
+      "statusnf": "EMITIDA",
+      "vendedor": "ALINE",
+      "cliente": "Anderson",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "3.000.000,00",
+      "formapgto": "Faturado",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "av das industrias",
+      "localdecobranca": "EMPRESA",
+      "obs": "...",
+      "fretedestacado": "DESTACADO",
+      "valorfrete": "150,00",
+      "dataentrega": "2022-11-24T10:44",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "..",
+      "quemrecebeu": "..."
+    },
+    "6": {
+      "id": 6,
+      "selecionarDado": 6,
+      "nropedido": "616515",
+      "statusnf": "EMITIDA",
+      "vendedor": "ALINE",
+      "cliente": "SICRED",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$2.356,03",
+      "formapgto": "Á vista",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "av das industrias",
+      "localdecobranca": "COBRAR NA ENTREGA",
+      "obs": "...",
+      "fretedestacado": "DILUIDO",
+      "valorfrete": "200,00",
+      "dataentrega": "2022-11-24",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "7": {
+      "id": 7,
+      "selecionarDado": 7,
+      "nropedido": "616515",
+      "statusnf": "EMITIDA",
+      "vendedor": "ALINE",
+      "cliente": "SICRED",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "R$2.356,03",
+      "formapgto": "Á vista",
+      "retiraentrega": "ENTREGA",
+      "localdaentrega": "av das industrias",
+      "localdecobranca": "COBRAR NA ENTREGA",
+      "obs": "...",
+      "fretedestacado": "DILUIDO",
+      "valorfrete": "200,00",
+      "dataentrega": "2022-11-24",
+      "operadornf": "ROSI",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "8": {
+      "id": 8,
+      "selecionarDado": 8,
+      "nropedido": "616515",
+      "statusnf": "PENDENTE",
+      "vendedor": "MARCIA",
+      "cliente": "M A A SABINO ",
+      "tipodefaturamento": "NORMAL",
+      "valordopedido": "1.000.000,00",
+      "formapgto": "Á vista",
+      "retiraentrega": "RETIRA",
+      "localdaentrega": "",
+      "localdecobranca": "EMPRESA",
       "obs": "...",
       "fretedestacado": " ",
       "valorfrete": "...",
@@ -460,40 +473,254 @@
   "expedicao": {
     "0": {
       "id": 0,
-      "selecionarDado": "7",
-      "quemrecebeu": "...",
-      "statusdep": "..."
-    }
-  },
-  "expedicao2": {
-    "0": {
-      "id": 0,
       "selecionarDado": "1",
-      "quemrecebeu": "...",
-      "statusdep": "..."
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
     },
     "1": {
       "id": 1,
-      "selecionarDado": "5",
-      "quemrecebeu": "...",
-      "statusdep": "..."
+      "selecionarDado": "4",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
+    }
+  },
+  "expedicao2": {
+    "1": {
+      "id": 1,
+      "selecionarDado": "3",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
     }
   },
   "logistica": {
     "0": {
       "id": 0,
-      "selecionarDado": "6",
-      "quemrecebeu": "...",
-      "statusdep": "..."
+      "selecionarDado": "2",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
     },
     "1": {
       "id": 1,
-      "selecionarDado": "8",
-      "quemrecebeu": "...",
-      "statusdep": "..."
+      "selecionarDado": "5",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
+    },
+    "2": {
+      "id": 2,
+      "selecionarDado": "6",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
+    },
+    "3": {
+      "id": 3,
+      "selecionarDado": "7",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
     }
   },
-  "saida": {},
-  "retorno": {},
+  "saida": {
+    "0": {
+      "id": 0,
+      "selecionarDado": "8",
+      "numeronf": "222",
+      "exped": "saida",
+      "codentrega": "231323232322",
+      "nomeconferente": "wwdwdwd",
+      "placa": "JBD9H36",
+      "motorista": "VILNEI",
+      "hodometro": "dwwdwdwd",
+      "cidadedestino": "wdwddwdd",
+      "datahorasaida": "222222-02-22T22:02",
+      "obs": "222222"
+    },
+    "1": {
+      "id": 1,
+      "selecionarDado": 1,
+      "numeronf": "888",
+      "exped": "saida",
+      "codentrega": "231323232322",
+      "nomeconferente": "wwdwdwd",
+      "placa": "IUT9476",
+      "motorista": "ALEXANDRE",
+      "hodometro": "dwwdwdwd",
+      "cidadedestino": "wdwddwdd",
+      "datahorasaida": "222222-02-22T22:22",
+      "obs": "2323323"
+    },
+    "2": {
+      "id": 2,
+      "selecionarDado": 2,
+      "numeronf": "555",
+      "exped": "saida",
+      "codentrega": "615888",
+      "nomeconferente": "Everton",
+      "placa": "IZT1E84",
+      "motorista": "ALEXANDRE",
+      "hodometro": "621588",
+      "datahorasaida": "2022-11-28T10:23",
+      "obs": "EMBALAR BEM OS MATERIAIS"
+    },
+    "3": {
+      "id": 3,
+      "selecionarDado": 3,
+      "numeronf": "978",
+      "exped": "saida",
+      "codentrega": "615888",
+      "nomeconferente": "Everton",
+      "placa": "IWC5261",
+      "motorista": "ALEXANDRE",
+      "hodometro": "621588",
+      "destino": "Ijuí",
+      "datahorasaida": "2022-11-28T10:26",
+      "obs": "Carga parcial"
+    },
+    "4": {
+      "id": 4,
+      "selecionarDado": 4,
+      "numeronf": "6188",
+      "exped": "saida",
+      "codentrega": "615888",
+      "nomeconferente": "Everton",
+      "placa": "IZT1E84",
+      "motorista": "DOUGLAS",
+      "hodometro": "621588",
+      "destino": "Carazinho",
+      "datahorasaida": "2022-11-28T10:34",
+      "obs": "Carregamento parcial"
+    }
+  },
+  "retorno": {
+    "0": {
+      "id": 0,
+      "selecionarDado": "5",
+      "numeronf": "253778",
+      "exped": "retorno",
+      "codentrega": "554545",
+      "placa": "IWW7921",
+      "hodometro": "621588",
+      "datahora": "2022-11-28T15:26",
+      "obs": "..."
+    }
+  },
+  "registroentrega": {
+    "0": {
+      "id": 0,
+      "selecionarDado": 0,
+      "motorista": "ALEXANDRE",
+      "codentrega": "615888",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "ninguém",
+      "concluida": "Concluída",
+      "obs": "EMBALAR BEM OS MATERIAIS"
+    },
+    "1": {
+      "id": 1,
+      "selecionarDado": 1,
+      "motorista": "ALEXANDRE",
+      "codentrega": "615888",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "ninguém",
+      "concluida": "Concluída",
+      "obs": "ENTREGUE"
+    },
+    "2": {
+      "id": 2,
+      "selecionarDado": 2,
+      "motorista": "ALEXANDRE",
+      "codentrega": "615888",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "Matheus",
+      "concluida": "Concluída"
+    },
+    "3": {
+      "id": 3,
+      "selecionarDado": 3,
+      "motorista": "ALEXANDRE",
+      "codentrega": "615888",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "Anderson",
+      "concluida": "Parcialmente Concluída"
+    },
+    "4": {
+      "id": 4,
+      "selecionarDado": 4,
+      "motorista": "ALEXANDRE",
+      "codentrega": "615888",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "ninguém",
+      "concluida": "Concluída",
+      "obs": "ENTREGUE"
+    },
+    "5": {
+      "id": 5,
+      "selecionarDado": 5,
+      "motorista": "JULIANO",
+      "codentrega": "554545",
+      "cidade": "Caxias do Sul",
+      "quemrecebeu": "Antonio ",
+      "concluida": "Recusada",
+      "obs": "material enviado errado."
+    },
+    "6": {
+      "id": 6,
+      "selecionarDado": 6,
+      "motorista": "DOUGLAS",
+      "codentrega": "15477",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "Marcos",
+      "concluida": "Concluída",
+      "obs": "Material entregue corretamente"
+    },
+    "7": {
+      "id": 7,
+      "selecionarDado": 7,
+      "motorista": "DIONATHA",
+      "codentrega": "615888",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "ninguém",
+      "concluida": "Recusada",
+      "obs": "Material em desacordo"
+    },
+    "8": {
+      "id": 8,
+      "selecionarDado": 8,
+      "motorista": "ALEXANDRE",
+      "codentrega": "2515",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "ninguém",
+      "concluida": "Recusada",
+      "obs": "Material em desacordo"
+    },
+    "9": {
+      "id": 9,
+      "selecionarDado": 9,
+      "motorista": "ALEXANDRE",
+      "codentrega": "615888",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "Anderson",
+      "concluida": "Parcialmente Concluída",
+      "obs": "Recusou o piso"
+    },
+    "10": {
+      "id": 10,
+      "selecionarDado": 10,
+      "motorista": "ALEXANDRE",
+      "codentrega": "615888",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "Anderson",
+      "concluida": "Parcialmente Concluída",
+      "obs": "Recusou o piso"
+    },
+    "11": {
+      "id": 11,
+      "selecionarDado": 11,
+      "motorista": "ALEXANDRE",
+      "codentrega": "2154",
+      "cidade": "PORTO ALEGRE",
+      "quemrecebeu": "José",
+      "concluida": "Concluída",
+      "obs": "Entregue para o responsavel da obra Marcos"
+    }
+  },
   "canhoto": {}
 }

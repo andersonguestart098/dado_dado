@@ -12,20 +12,6 @@ let app = express()
 let pegarDados
 let pass
 let corrente = "teste"
-
-fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
-  if (err) {
-    return console.log("Erro ao ler arquivo")
-  }
-
-  let d = JSON.parse(data)
-  pass = d
-
-})
-
-setInterval(() => {
-  getDataDatabase(false)
-}, 5000)
 //-------------
 
 app.set('view engine', 'ejs')
@@ -156,7 +142,7 @@ app.get("/saidaformulario", (req, res) => {
       let d = JSON.parse(data)
 
 
-      res.render("bodyForm.ejs", { pegar: "saida", titulo: "SAIDA", dados: d })
+      res.render("bodyForm.ejs", { pegar: "saida", titulo: "CARREGAMENTO CAMINHÃO", dados: d })
     })
   } else {
     res.render("pageError.ejs")
@@ -178,6 +164,24 @@ app.get("/retornoformulario", (req, res) => {
     res.render("pageError.ejs")
   }
 })
+
+
+app.get("/registroentregaformulario", (req, res) => {
+  if (req.cookies.activeData != null) {
+    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+      if (err) {
+        return console.log("Erro ao ler arquivo")
+      }
+      let d = JSON.parse(data)
+
+
+      res.render("bodyForm.ejs", { pegar: "registroentrega", titulo: "REGISTRO DE ENTREGA", dados: d })
+    })
+  } else {
+    res.render("pageError.ejs")
+  }
+})
+
 
 app.get("/canhotoformulario", (req, res) => {
   if (req.cookies.activeData != null) {
@@ -317,6 +321,262 @@ app.get("/canhoto", (req, res) => {
   }
 })
 
+app.get("/registroentrega", (req, res) => {
+  if (req.cookies.activeData != null) {
+    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+      if (err) {
+        return console.log("Erro ao ler arquivo")
+      }
+
+      let d = JSON.parse(data)
+
+      res.render("bodyList.ejs", { pegar: "registroentrega", titulo: "REGISTRO ENTREGA", dados: d, i: 0 })
+    })
+  } else {
+    res.render("pageError.ejs")
+  }
+})
+
+
+app.get("/dev", (req, res) => {
+  if (req.cookies.priv == 11) {
+    let obj = {
+      id1: {
+        usuarios: {
+          0: {
+            nome: "Developer",
+            user: "D",
+            previlegios: 11,
+            setor: "ALL",
+            foto: "https://i.pinimg.com/originals/8c/96/93/8c969356e667e3aa0d145145e082e7ef.jpg",
+            pass: 1
+          },
+          1: {
+            nome: "Felipe",
+            user: "Felipe",
+            previlegios: 10,
+            setor: "ALL",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTPNAhEtoWk0P5NWMq-mGq3ToNhScUMVzbb9_cvDN9Uf8rfLbv7K_dnVnxWUYQdEN_3PSnjBIkTiJ10mBPEkMvYzL_y3g=w1366-h621",
+            pass: 123
+          },
+          2: {
+            nome: "Aline",
+            user: "Aline",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+            pass: 123
+          },
+          3: {
+            nome: "Marcia",
+            user: "Marcia",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRVuzXFWFGxEyktkbbTRtCtd5S4mbVVkdb8fxMOzrcXqHXRPIcvhBgBRFuLgD-5_-eELyWSFUABiNKMqWX6827PPSyU=w1366-h617",
+            pass: 1234
+          },
+          4: {
+            nome: "Luis",
+            user: "Luis",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmQv4IFCBrlwzVAz05LiVfYJq-ccIQfL5WbV6jJ-PS8TTeucupXoQOoP3S_-w-BMGE3eoXA5FH-KIdJcrAZsU3eAMsDcQw=w1366-h617",
+            pass: 12345
+          },
+          5: {
+            nome: "Gelson",
+            user: "Gelson",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTJLWbz4Vk5axc1ugoTHADmkdP3QPcQo3pQDWY33lFknAmkHxoWn_U8W7v96YfKsv68-pi9rMuRDKATz98s69aXbCIo=w1366-h617",
+            pass: 123456
+          },
+          6: {
+            nome: "Wagner",
+            user: "Wagner",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmSQmwxjwdG6PmAzZpYYegJHm2KPUdongtQkkJwTVAEGG3ym2n5WLnQv64n1wZCAbOGWiOtLOtvLXrICPeNjzjLEG3-fVw=w1366-h617",
+            pass: 123457
+          },
+          7: {
+            nome: "Fernando",
+            user: "Fernando",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://drive.google.com/file/d/1Q7aoubDuxs9C1FLwOysrpFsXPzQwAkfc/view",
+            pass: 1234578
+          },
+          8: {
+            nome: "Julia",
+            user: "Julia",
+            previlegios: 1,
+            setor: "ALL",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmSWYKBYcj3yutznl-27fBHPHF_NZcnj_RW6mKsian6Dyme0Lt0s320BSmnvQ8YvzFuDTSGBCIBz7VHxxC9YF90e_KGaWA=w1920-h969",
+            pass: 456
+          },
+          9: {
+            nome: "Rosi",
+            user: "Rosi",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "",
+            pass: 12345780
+          },
+          10: {
+            nome: "Oscar",
+            user: "Oscar",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTIwoc1Zo9xSaomy0D1sN_cLlBzPCLqOvEvNd4pd19Ojpw8p1UwD2mTGxAgk5NJXbzKbbGfaI6PX-B8-AQs4uIdz40m4g=w1920-h969",
+            pass: 123457801
+          },
+          11: {
+            nome: "Gaspar",
+            user: "Gaspar",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT2DYIYozUss_Nu6fm0RLULYWK0p86wN_JR5lmRqGZW5EC9Oqs7Lb0R-8vcZQWwA0H_r2HR-UqgpjePesRx7NtvZ7eaRg=w1366-h617",
+            pass: 123457802
+          },
+          12: {
+            nome: "Paulo",
+            user: "Paulo",
+            previlegios: 1,
+            setor: "ALL",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AFDK6gPImTU4kzuRYUad1tMAztSgPJNiAKxDPYZYZWhxjIvZIw7LKukg7QVAj_NrrdUYmJOTWfQ_dVKREuFqDPJe49wrxBBWqw=w1920-h969",
+            pass: 1234
+          },
+          13: {
+            nome: "Dani",
+            user: "Dani",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "",
+            pass: 123457804
+          },
+          14: {
+            nome: "Dieimes",
+            user: "Dieimes",
+            previlegios: 1,
+            setor: "logistica",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmQ8LfabIxs37Lh8uX4xq-OQsu6c8kdssTMs8XL8ZKhIgTO-usf7J4CUiGz225Y3NogOZhxwGwJxc667VprP_hh9O423Xw=w1366-h617",
+            pass: 123457805
+          },
+          15: {
+            nome: "user",
+            user: "user",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTPNAhEtoWk0P5NWMq-mGq3ToNhScUMVzbb9_cvDN9Uf8rfLbv7K_dnVnxWUYQdEN_3PSnjBIkTiJ10mBPEkMvYzL_y3g=w1366-h621",
+            pass: 123457806
+          },
+          16: {
+            nome: "Manoel",
+            user: "Manoel",
+            previlegios: 1,
+            setor: "expedicao2",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRrpL8tZfGZs3MnJ2G1VgJw5sWyCvc_T-vPnBRKhhVWfBcrqlRYqJ6WQlkuJay3yRHwW4IiifRkfL2dKIUyAj008eN5IQ=w1920-h969",
+            pass: 123457807
+          },
+          17: {
+            nome: "Cristiano",
+            user: "Cristiano",
+            previlegios: 1,
+            setor: "expedicao2",
+            foto: "",
+            pass: 123457808
+          },
+          18: {
+            nome: "Everton",
+            user: "Everton",
+            previlegios: 1,
+            setor: "expedicao",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmQDtAzYIvRFKpzBqQH7bV_xM5DptDCYfP4WFAP-4faton0A5MmDXwGy9KteC-CAfXLRFuDcwc5MWlxTTpDlFIYHWQKyZQ=w1366-h617",
+            pass: 1234578001
+          },
+          19: {
+            nome: "Max",
+            user: "Max",
+            previlegios: 1,
+            setor: "expedicao",
+            foto: "",
+            pass: 1234578002
+          },
+          20: {
+            nome: "Dudu",
+            user: "Dudu",
+            previlegios: 1,
+            setor: "expedicao",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT4bKrCGmNnobL-HkusktKSVM_psJQCHQ1XTTMzQ1bpSwJZLo8CKx1656q9MGXaCqNteIbS8H9VjJNjuqrHbiw9Mxafyg=w1366-h617",
+            pass: 1234578003
+          },
+          21: {
+            nome: "Marcia.s",
+            user: "Marcia.s",
+            previlegios: 1,
+            setor: "canhoto",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRbrXH-f-VxWIIrTvC2_55DnboIkKJbTCdy6fr8PFtLUWyDJ1J8lc960fvY04xf60crFPPBi9qkCnxQKtUw7MUBWPKSKQ=w1366-h621",
+            pass: 1234578004
+          },
+          22: {
+            nome: "Vitória",
+            user: "Vitória",
+            previlegios: 1,
+            setor: "ALL",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTNKUaod_J1ns0ouMJw9DsMRjqzCOB1VBU5IYrTueJ64s2hYQKNMtsHePQzWPSEywMQazczPqxpFYLEXBjnAzPz78IXNQ=w1920-h969",
+            pass: 12345
+          },
+          23: {
+            nome: "Paulo",
+            user: "Paulo",
+            previlegios: 1,
+            setor: "ALL",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmSn5Ni6KHK2UCaazTtP6CV2Hq6h94Nq4X82ik8UAlZ_iyl8SxyY_NY_P4_QaOWOCVq1gWCqWhNIGgiCo0WMuCicUU5mrQ=w1366-h617",
+            pass: 123
+          },
+          24: {
+            nome: "Machado",
+            user: "Machado",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTk8_ubfNFgNQjaFPu-RDkgW2VoO11MkyWDNqKiCLBmOewcIx3YaUZK_EfzoMMduzy0GFLGDfuzRFhU9y8_2VZR-o8ohA=w1920-h969",
+            pass: 123
+          },
+          25: {
+            nome: "Guilherme",
+            user: "Guilherme",
+            previlegios: 1,
+            setor: "financeiro",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmSv1DLN8xRdbAbSLgNdL4Fj4GJvalZbPo3-k4Zo5wG5_oCZ4uEYicM_lR8_PlJ9LKrstvUm7z5x6HjIqk0dMKEa_22R6Q=w1920-h969",
+            pass: 123
+          },
+          26: {
+            nome: "Beto",
+            user: "Beto",
+            previlegios: 1,
+            setor: "ALL",
+            foto: "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+            pass: 123456
+          }
+        }
+      },
+      passagem: {},
+      financeiro: {},
+      expedicao: {},
+      expedicao2: {},
+      logistica: {},
+      saida: {},
+      retorno: {},
+      registroentrega: {},
+      canhoto: {}
+    }
+    fs.writeFileSync('./database/' + corrente + '.json', JSON.stringify(obj, null, 2))
+    res.end("OK")
+  } else {
+    res.render("pageError.ejs")
+  }
+})
 
 
 /*
@@ -364,7 +624,6 @@ app.post("/mudancaBancoDados", (req, res) => {
 
     d = JSON.parse(data)
     let dados = JSON.parse(req.body)
-    console.log(dados)
     let target = dados.mudar
     let valor = dados.value
     let pegar = dados.pegar
@@ -384,16 +643,16 @@ app.post("/mudancaBancoDados", (req, res) => {
           let objAtual = Object.keys(d[valor]).length + numeroDaSeção - 1
           if (d["passagem"][prop].numeronf == numeroNf) {
             seletorDados = prop
-            for(bprop in d[after]) {
-              if(d[after][bprop].selecionarDado == seletorDados) {
-                  delete d[after][bprop]
+            for (bprop in d[after]) {
+              if (d[after][bprop].selecionarDado == seletorDados) {
+                delete d[after][bprop]
               }
             }
             d[valor][objAtual] = {
               id: objAtual,
               selecionarDado: seletorDados,
-              quemrecebeu: "...",
-              statusdep: "..."
+              quemrecebeu: "Nota Fiscal sendo encaminhada para o setor",
+              statusdep: "Nota Fiscal sendo encaminhada para o setor"
             }
           }
         }
@@ -452,7 +711,7 @@ app.post('/registrarBancoDados', (req, res) => {
     let seletorDados
     let dateFormated = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`
 
-    if (pegar == "financeiro") {
+    if (pegar == "financeiro" || pegar == "saida" || pegar == "registroentrega") {
       dados["passagem"][objAtual] = {
         dataHora: dateFormated,
         numeronf: dataReq.numeronf,
@@ -478,6 +737,7 @@ app.post('/registrarBancoDados', (req, res) => {
           tipodefaturamento: dataReq.tipodefaturamento,
           valordopedido: dataReq.valordopedido,
           formapgto: dataReq.formapgto,
+          vendafrete: dataReq.vendafrete,
           retiraentrega: dataReq.retiraentrega,
           localdaentrega: dataReq.localdaentrega,
           localdecobranca: dataReq.localdecobranca,
@@ -493,25 +753,32 @@ app.post('/registrarBancoDados', (req, res) => {
       case "saida":
         dados[pegar][objAtual] = {
           id: objAtual,
-          selecionarDado: seletorDados,
+          selecionarDado: objAtual,
           numeronf: dataReq.numeronf,
           exped: dataReq.exped,
           codentrega: dataReq.codentrega,
+          nomeconferente: dataReq.nomeconferente,
           placa: dataReq.placa,
           motorista: dataReq.motorista,
-          hodometro: dataReq.hodometro
+          hodometro: dataReq.hodometro,
+          destino: dataReq.destino,
+          datahorasaida: dataReq.datahorasaida,
+          obs: dataReq.obs
+
 
         }
         break
       case "retorno":
         dados[pegar][objAtual] = {
           id: objAtual,
-          selecionarDado: seletorDados,
+          selecionarDado: objAtual,
           numeronf: dataReq.numeronf,
           exped: dataReq.exped,
           codentrega: dataReq.codentrega,
           placa: dataReq.placa,
-          hodometro: dataReq.hodometro
+          hodometro: dataReq.hodometro,
+          datahora: dataReq.datahora,
+          obs: dataReq.obs
         }
         break
       case "canhoto":
@@ -521,6 +788,20 @@ app.post('/registrarBancoDados', (req, res) => {
           numeronf: dataReq.numeronf,
           motorista: dataReq.motorista,
           statuscanhoto: dataReq.statuscanhoto
+        }
+        break
+
+      case "registroentrega":
+        dados[pegar][objAtual] = {
+          id: objAtual,
+          selecionarDado: objAtual,
+          motorista: dataReq.motorista,
+          codentrega: dataReq.codentrega,
+          cidade: dataReq.cidade,
+          quemrecebeu: dataReq.quemrecebeu,
+          concluida: dataReq.concluida,
+          obs: dataReq.obs
+
         }
         break
     }
@@ -648,10 +929,10 @@ function Criar_planilha(workbook, objetoBancoDados, nome, nomeColuna, letras, co
   }
   let j = 0
   for (i = Object.keys(objetoBancoDados[nome]).length - 1; i > -1; i--) {
-    if(j == 1 || j == 2 || j == 3) {
+    if (j == 1 || j == 2 || j == 3) {
       let obj = objetoBancoDados["passagem"][i]
       expedicao.addRow(obj);
-    }else {
+    } else {
       let obj = objetoBancoDados[nome][i]
       expedicao.addRow(obj);
     }
@@ -669,6 +950,10 @@ function getDataDatabase(escrever) {
     pegarDados = JSON.parse(data)
   })
 }
+
+app.get('*', function(req, res) {
+  res.status(404).render('pageqzq.ejs');
+})
 
 app.listen()
 console.log("SERVIDOR INICIOU")

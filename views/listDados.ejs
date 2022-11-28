@@ -6,6 +6,8 @@
    display: none;
   }
 </style>
+
+
 <script>
   function make(a,b){
     a.style.display='none'
@@ -35,7 +37,8 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
   })
 }
 </script>
-  <script>
+
+<script>
     let pegar = "<%= pegar %>"
     colorir(pegar)
     function colorir(c) {
@@ -67,7 +70,8 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
         corte.style.color ="rgb(255, 255, 255)"
         break
       case "EM TRANSITO":
-     case "...":
+      case "...":
+      case "Nota Fiscal sendo encaminhada para o setor":
       case "PENDENTE":
          corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(255, 165, 0)"
@@ -91,31 +95,41 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
   }
 
 function setData(post, pegar, i) {
-  document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][i].dataHora
+  document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][post[pegar][i].selecionarDado].dataHora
   document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
 
   document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][post[pegar][i].selecionarDado].numeronf
 
-    if(pegar == "logistica") {
-      document.querySelector("#PstatusdepX"+i).innerText = post[pegar][i].statusdep
-      document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
-      colorir(pegar)
-    }
-    if(pegar == "expedicao2" || pegar == "expedicao") {
-      document.querySelector("#PstatusdepX"+i).innerText = post[pegar][i].statusdep
-      document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
-      colorir(pegar)
-    }
+    
+  <% if(pegar == "expedicao2" || pegar == "expedicao" || pegar == "logistica") { %>
+        document.querySelector("#PstatusdepX"+i).innerText = post[pegar][i].statusdep
+        document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
+        colorir(pegar)
+  <% } %>
 
-    if(pegar == "passagem") {
+   <% if(pegar == "passagem") { %>
       document.querySelector("#Pvalor_exped"+i).innerText = post["passagem"][i].exped
       document.querySelector("#valor_vendedorX"+i).innerText = post["financeiro"][i].vendedor
       document.querySelector("#valor_clienteX"+i).innerText = post["financeiro"][i].cliente
       document.querySelector("#stNfX"+i).innerText = post["financeiro"][i].statusnf
       colorir(pegar)
-    }
-  
-    if(pegar == "financeiro") {  
+  <% } %>
+
+   <% if(pegar == "saida") { %>
+      document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][i].numeronf
+      document.querySelector("#Pvalor_exped"+i).innerText = post["passagem"][i].exped
+      document.querySelector("#valor_codentregaX"+i).innerText = post["saida"][i].vendedor
+      document.querySelector("#valor_nomeconferenteX"+i).innerText = post["saida"][i].nomeconferente
+      document.querySelector("#valor_placaX"+i).innerText = post["saida"][i].placa
+      document.querySelector("#motoristaX"+i).innerText = post["saida"][i].motorista
+      document.querySelector("#destinoX"+i).innerText = post["saida"][i].destino
+      document.querySelector("#valor_datahorasaidaX"+i).innerText = post["saida"][i].datahorasaida
+      document.querySelector("#valor_obsX"+i).innerText = post["saida"][i].obs
+      document.querySelector("#valor_placaX"+i).innerText = post["saida"][i].placa
+      colorir(pegar)
+  <% } %>
+
+  <% if(pegar == "financeiro") { %>
 
       document.querySelector("#Pvalor_exped"+i).innerText = post["passagem"][i].exped
       
@@ -132,6 +146,7 @@ function setData(post, pegar, i) {
 document.querySelector("#valor_valordopedidoX"+i).innerText = post[pegar][i].valordopedido
 
     document.querySelector("#valor_formapgtoX"+i).innerText = post[pegar][i].formapgto
+          document.querySelector("#valor_vendafreteX"+i).innerText = post[pegar][i].valorfrete
    document.querySelector("#valor_retiraentregaX"+i).innerText = post[pegar][i].retiraentrega
     document.querySelector("#valor_localdaentregaX"+i).innerText = post[pegar][i].localdaentrega
     document.querySelector("#valor_localdecobrancaX"+i).innerText = post[pegar][i].localdecobranca
@@ -146,8 +161,8 @@ document.querySelector("#valor_valordopedidoX"+i).innerText = post[pegar][i].val
     document.querySelector("#Pvalor_operadorX"+i).innerText = post[pegar][i].operadornf
     
     document.querySelector("#Pvalor_obs2X"+i).innerText = post[pegar][i].obsfinanceiro
-  
-  }
+   
+  <% } %>
 }
   
 let global_Up
