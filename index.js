@@ -116,6 +116,22 @@ app.get("/financeiroformulario", (req, res) => {
   }
 })
 
+app.get("/financeiroformulario2", (req, res) => {
+  if (req.cookies.activeData != null) {
+    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+      if (err) {
+        return console.log("Erro ao ler arquivo")
+      }
+      data = JSON.parse(data)
+
+
+      res.render("FormsNovo.ejs", { pegar: "financeiro", titulo: "FINANCEIRO teste", dados: data })
+    })
+  } else {
+    res.render("pageError.ejs")
+  }
+})
+
 
 app.get("/logisticaformulario", (req, res) => {
   if (req.cookies.activeData != null) {
@@ -784,10 +800,11 @@ app.post('/registrarBancoDados', (req, res) => {
       case "canhoto":
         dados[pegar][objAtual] = {
           id: objAtual,
-          selecionarDado: seletorDados,
+          dataHora: dateFormated,
           numeronf: dataReq.numeronf,
           motorista: dataReq.motorista,
-          statuscanhoto: dataReq.statuscanhoto
+          statuscanhoto: dataReq.concluida,
+          quemrecebeu: dataReq.quemrecebeu
         }
         break
 
@@ -795,6 +812,7 @@ app.post('/registrarBancoDados', (req, res) => {
         dados[pegar][objAtual] = {
           id: objAtual,
           selecionarDado: objAtual,
+          numeronf: dataReq.numeronf,
           motorista: dataReq.motorista,
           codentrega: dataReq.codentrega,
           cidade: dataReq.cidade,
@@ -875,7 +893,7 @@ app.get("/excel", (req, res) => {
       "FF98EE98")
 
     Criar_planilha(workbook, objetoBancoDados, "saida",
-      ["id", "dataHora", "codentrega", "numeronf", "placa", "motorista", "hodometro"], ["A", "B", "C", "D", "C", "D", "E", "F", "G", "H", "I"],
+      ["id", "dataHora", "codentrega", "nomeconferente", "numeronf", "placa", "motorista", "destino", "hodometro", "datahorasaida", "obs"], ["A", "B", "C", "D", "C", "D", "E", "F", "G", "H", "I", "J", "K"],
       "FF98EE98")
 
     Criar_planilha(workbook, objetoBancoDados, "retorno",
@@ -927,16 +945,117 @@ function Criar_planilha(workbook, objetoBancoDados, nome, nomeColuna, letras, co
       bgColor: { argb: corDoFundo }
     }
   }
-  let j = 0
   for (i = Object.keys(objetoBancoDados[nome]).length - 1; i > -1; i--) {
-    if (j == 1 || j == 2 || j == 3) {
-      let obj = objetoBancoDados["passagem"][i]
-      expedicao.addRow(obj);
-    } else {
-      let obj = objetoBancoDados[nome][i]
-      expedicao.addRow(obj);
+
+    switch (nome) {
+      case 'passagem':
+        break
+      case 'financeiro':
+        expedicao.addrow({
+          id: objetoBancoDados[nome][i].id,
+          dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
+          vendedor: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].vendedor,
+          nropedido: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].nropedido,
+          cliente: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].cliente,
+          tipodefaturamento: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].tipodefaturamento,
+          valordopedido: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].valordopedido,
+          formapgto: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].formapgto,
+          retiraentrega: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].retiraentrega,
+          localdaentrega: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].localdaentrega,
+          localdeentrega: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].localdeentrega,
+          obs: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].obs,
+          fretedestacado: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].fretedestacado,
+          valorfrete: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].valorfrete,
+          dataentrega: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].dataentrega,
+          operadornf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].operadornf,
+          statusnf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statusnf,
+          obsfinanceiro: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].obsfinanceiro,
+          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu
+
+        })
+        break
+      case 'expedicao':
+        expedicao.addrow({
+          id: objetoBancoDados[nome][i].id,
+          dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
+          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu,
+          statusdep: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statusdep
+        })
+
+        break
+      case 'expedicao2':
+        expedicao.addrow({
+          id: objetoBancoDados[nome][i].id,
+          dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
+          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu,
+          statusdep: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statusdep
+        })
+        break
+      case 'retorno':
+        expedicao.addrow({
+          id: objetoBancoDados[nome][i].id,
+          dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
+          codentrega: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].codentrega,
+          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          hodometro: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].hodometro
+        })
+        break
+      case 'registroentrega':
+        expedicao.addrow({
+          id: objetoBancoDados[nome][i].id,
+          dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
+          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          motorista: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].motorista,
+          codentrega: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].codentrega,
+          cidade: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].cidade,
+          concluida: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].concluida,
+          obs: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].obs
+        })
+        break
+      case 'saida':
+        expedicao.addRow({
+          id: objetoBancoDados[nome][i].id,
+          dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
+          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          codentrega: objetoBancoDados[nome][i].codentrega,
+          nomeconferente: objetoBancoDados[nome][i].nomeconferente,
+          placa: objetoBancoDados[nome][i].placa,
+          motorista: objetoBancoDados[nome][i].motorista,
+          destino: objetoBancoDados[nome][i].destino,
+          hodometro: objetoBancoDados[nome][i].hodometro,
+          datahorasaida: objetoBancoDados[nome][i].datahorasaida,
+          obs: objetoBancoDados[nome][i].obs
+
+        })
+        break
+      case 'canhoto':
+        expedicao.addrow({
+          id: objetoBancoDados[nome][i].id,
+          dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
+          quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu,
+          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          motorista: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].motorista,
+          statuscanhoto: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statuscanhoto
+        })
+        break
+      case 'logistica':
+        expedicao.addrow({
+          id: objetoBancoDados[nome][i].id,
+          dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
+          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu,
+          statusdep: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statusdep
+        })
+        break
     }
-    j++
   }
   return expedicao
 }

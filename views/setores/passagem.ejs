@@ -1,0 +1,24 @@
+<tr style="width:200px" class='cordaLinha<%= dados["financeiro"][i].id %>'>
+  <td colspan='0.5' id='valor_idX<%= dados["financeiro"][i].id %>'><%= dados["financeiro"][i].id %></td>
+      
+  <td id='valor_datahoraX<%= dados[pegar][i].id %>'>
+    <input type='hidden' id='datahora_textX<%= dados[pegar][i].id %>' value='$datahora'><%= dados["passagem"][dados["financeiro"][i].selecionarDado].dataHora %></td>
+
+<td id='valor_numeronfX<%= dados[pegar][i].id %>'>
+      <input onchange="autoreflash(this, Pvalor_numeronfX<%= dados[pegar][i].id %>)" type='text' value="<%= dados[pegar][i].numeronf %>" id='numeronf_textX<%= dados[pegar][i].id %>'>
+      <p onclick='make(this,numeronf_textX<%= dados[pegar][i].id %>)' id='Pvalor_numeronfX<%= dados[pegar][i].id %>'><%= dados["passagem"][dados["financeiro"][i].selecionarDado].numeronf %></p>
+    </td>
+
+<td class="orientador" id='valor_statusnfX<%= dados["financeiro"][i].id %>'>
+          <select onchange="autoreflash(this,stNfX<%= dados["financeiro"][i].id %>)" name='coisa' id='coisaX<%= dados["financeiro"][i].id %>'>
+          <option value=''></option>
+          <option value='PENDENTE'>PENDENTE</option>
+          <option value='EMITIDA'>EMITIDA</option>
+          <option value='RETORNOU AO VENDEDOR'>RETORNOU AO VENDEDOR</option>
+          <option value='CANCELADA'>CANCELADA</option>
+        </select>
+          <p id="stNfX<%= dados['financeiro'][i].id %>" onclick='make(this,coisaX<%= dados["financeiro"][i].id %>)' id='Pvalor_coisaX<%= dados["financeiro"][i].id %>'><%= dados["financeiro"][i].statusnf %></p>
+        </td>
+
+        <td id='valor_clienteX<%= dados["financeiro"][i].id %>'><%= dados["financeiro"][i].cliente %></td>
+        <td id='valor_vendedorX<%= dados["financeiro"][i].id %>'><%= dados["financeiro"][i].vendedor %></td>

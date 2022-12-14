@@ -1,5 +1,7 @@
 # PROJETO SENDO FEITO A 40 DIAS NODE.JS 23/11/2022
 
+![Image of Einstein](https://upload.wikimedia.org/wikipedia/commons/6/6f/Einstein-formal_portrait-35.jpg)
+
 # Para depois
 - [ ] No formulário saida/retorno criar um cod. entrega referente a entrega de multiplas nf's comparação == número nf,cód.entrega.
       
@@ -10,18 +12,39 @@
 
 # Fazendo
 
-- [ ] Testar Envio dos formulários.
 
 - [ ] Colocar condicionantes no formúlario do financeiro nas formas de pagamento, igual ao jotform.
       
-- [ ] Criar input(random) em cód.entrega para gerar um número aleatório.
       
-- [ ] Tirar condicionantes de verificação de setor dos formulários(por enquanto).
-      
+- [ ] Fazer teste geral e partir pro abraço.
+
+* exportar excel
+  * passagem
+    * N/D
+  * financeiro
+    * ["id", "dataHora", "vendedor", "nropedido", "cliente", "tipodefaturamento", "valordopedido", "formapgto", "retiraentrega", "localdaentrega", "localdecobranca", "obs", "fretedestacado", "valorfrete", "dataentrega", "operadornf", "statusnf", "obsfinanceiro", "numeronf", "exped", "quemrecebeu"]
+  * expedicao
+    * ["id", "dataHora", "numeronf", "exped", "quemrecebeu", "statusdep"]
+  * expedicao2
+    * ["id", "dataHora", "numeronf", "exped", "quemrecebeu", "statusdep"]
+  * retorno
+    * ["id", "dataHora", "codentrega", "numeronf", "hodometro"]
+  * registroentrega
+    * N/D
+  * logistica
+    * ["id", "dataHora", "numeronf", "exped", "quemrecebeu", "statusdep"]
+  * canhoto
+    * ["id", "dataHora", "quemrecebeu", "numeronf", "exped", "motorista", "statuscanhoto"]
     
   
 
 # Concluido
+
+- [X] Criar input(random) em cód.entrega para gerar um número aleatório.
+
+- [X] Tirar condicionantes de verificação de setor dos formulários(por enquanto).
+
+- [x] Testar Envio dos formulários.
 
 - [x] Corrigir erros (undefined).
 

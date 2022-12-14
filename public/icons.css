@@ -1,0 +1,223 @@
+* {
+  --wid: 24px;
+  --hei: 18px;
+}
+
+.gg-credit-card {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ width: var(--wid);
+ height: var(--hei);
+ border: 2px solid;
+ border-radius: 4px
+}
+
+.gg-credit-card::after,
+.gg-credit-card::before {
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute;
+ border-radius: 3px;
+ width: var(--wid);
+ left: -2px;
+ height: 2px;
+ background: currentColor;
+ top: 9px
+}
+
+.gg-credit-card::before {
+ width: 6px;
+ left: 2px;
+ top: 3px
+} 
+
+ .gg-file {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ transform: scale(var(--ggs,1));
+ width: 14px;
+ height: 16px;
+ border: 2px solid transparent;
+ border-right: 0;
+ border-top: 0;
+ box-shadow: 0 0 0 2px;
+ border-radius: 1px;
+ border-top-right-radius: 4px;
+ overflow: hidden
+}
+
+.gg-file::after {
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute;
+ width: 6px;
+ height: 6px;
+ border-left: 2px solid;
+ border-bottom: 2px solid;
+ right: -1px;
+ top: -1px
+} 
+
+ .gg-dollar {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ transform: scale(var(--ggs,1));
+ width: 2px;
+ height: 20px;
+ background: currentColor
+}
+
+.gg-dollar::after,
+.gg-dollar::before {
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute;
+ width: 10px;
+ height: 8px;
+ border: 2px solid
+}
+
+.gg-dollar::before {
+ border-right: 0;
+ border-top-left-radius: 100px;
+ border-bottom-left-radius: 100px;
+ top: 3px;
+ left: -6px;
+ box-shadow: 4px -2px 0 -2px
+}
+
+.gg-dollar::after {
+ border-left: 0;
+ border-top-right-radius: 100px;
+ border-bottom-right-radius: 100px;
+ bottom: 3px;
+ right: -6px;
+ box-shadow: -4px 2px 0 -2px
+} 
+
+ .gg-block {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ transform: scale(var(--ggs,1));
+ width: 16px;
+ height: 16px;
+ border: 2px solid;
+ border-radius: 100%
+}
+
+.gg-block::before {
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute;
+ width: 10px;
+ height: 2px;
+ background: currentColor;
+ border-radius: 5px;
+ transform: rotate(-45deg);
+ top: 5px;
+ left: 1px
+} 
+
+ .gg-sand-clock {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ transform: scale(var(--ggs,1));
+ width: 12px;
+ height: 20px;
+ border-top: 2px solid;
+ border-bottom: 2px solid
+}
+
+.gg-sand-clock::after,
+.gg-sand-clock::before {
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute
+}
+
+.gg-sand-clock::before {
+ border-top-left-radius: 14px;
+ border-top-right-radius: 14px;
+ bottom: -2px;
+ width: 10px;
+ height: 10px;
+ border: 2px solid;
+ left: 1px
+}
+
+.gg-sand-clock::after {
+ width: 6px;
+ height: 6px;
+ border: 2px solid transparent;
+ border-bottom-left-radius: 14px;
+ border-bottom-right-radius: 14px;
+ top: 0;
+ left: 3px;
+ box-shadow:
+ 0 0 0 2px,
+ inset 2px 0 0
+} 
+
+ .gg-inpicture {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ transform: scale(var(--ggs,1));
+ width: 22px;
+ height: 16px;
+ border: 2px solid;
+ border-radius: 2px
+}
+
+.gg-inpicture::after {
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute;
+ width: 6px;
+ height: 5px;
+ background: currentColor;
+ right: 2px;
+ bottom: 2px
+} 
+
+ .gg-credit-card {
+ box-sizing: border-box;
+ position: relative;
+ display: block;
+ transform: scale(var(--ggs,1));
+ width: 24px;
+ height: 18px;
+ border: 2px solid;
+ border-radius: 4px
+}
+
+.gg-credit-card::after,
+.gg-credit-card::before {
+ content: "";
+ display: block;
+ box-sizing: border-box;
+ position: absolute;
+ border-radius: 3px;
+ width: 24px;
+ left: -2px;
+ height: 2px;
+ background: currentColor;
+ top: 9px
+}
+
+.gg-credit-card::before {
+ width: 6px;
+ left: 2px;
+ top: 3px
+} 

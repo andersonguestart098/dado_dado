@@ -1,0 +1,117 @@
+
+                    <div id="item1" style="width: 265px; border-radius: 5px;">
+                      <label for="nome" >Vendedor</label><br>
+                        
+                        <select name="nome" id="vendedor">
+                            <option value="" selected disabled hidden>Vendedor</option>
+                                <option value=" " selected="selected"> </option>
+                                <option value="BETO">BETO</option>
+                                <option value="FELIPE">FELIPE</option>
+                                <option value="ALINE">ALINE</option>
+                                <option value="CRISTIAN">CRISTIAN</option>
+                                <option value="FAGUNDES">FAGUNDES</option>
+                                <option value="MARCIA">MARCIA</option>
+                                <option value="WAGNER">WAGNER</option>
+                                <option value="GELSON">GELSON</option>
+                                <option value="LUIS">LUIS</option>
+                                <option value="FERNANDO">FERNANDO</option>
+                                <option value="EDUARDO">EDUARDO</option>
+                                <option value="PV SANANDUVA">PV SANANDUVA</option>
+                                <option value="FAGUNDES">EDUARDO</option>
+                                <option value="FAVRETTO">FAVRETTO</option>
+                                <option value="FERNANDA">FERNANDA</option>
+                                <option value="GASPAR">GASPAR</option>
+                                <option value="GILIARD">GILIARD</option>
+                                <option value="GILMAR">GILMAR</option>
+                                <option value="JONATHAS">JONATHAS</option>
+                                <option value="KOZAK">KOZAK</option>
+                                <option value="LEONARDO">LEONARDO</option>
+                                <option value="SABINO">SABINO</option>
+                                <option value="ANDRE BARBOSA">ANDRE BARBOSA</option>
+                        </select><br><br>
+                    </div>
+                  
+                    <label for="cliente">Cliente</label><br>
+                    <input name="cliente" id="cliente" placeholder="Digite o nome do Cliente..."><br><br>
+
+
+                  
+                  <div id="tipofaturamento">
+                    <label>Tipo de Faturamento </label><br>
+                    <input type="radio"  onclick="check(this, ['#localcobranca', '#entregaretira', '#valorFrete', '#entregaEndereco', '#dataAgendada', '#pgtoavista', '#bandeiracartao', '#localcobranca', '#vendafrete', '#tipofrete', '#entregaAgendada'])" id="html" name="tipoFaturamento" value="normal">
+                    <label id="option">Normal</label><br>
+                    <input type="radio" onclick="check(this, ['#localcobranca', '#entregaretira'])" id="css" name="tipoFaturamento" value="entrega_futura">
+                    <label id="option">Para Entrega Futura</label><br>
+                    <input type="radio" onclick="check(this, ['#localcobranca', '#formapgto'])" id="javascript" name="tipoFaturamento" value="remessa_materiais">
+                    <label id="option">Remessa de Materiais</label>
+                    <br><br>
+                  </div>
+
+                  
+
+                  <div id="pgtoavista" style="display: none; z-index: -999">
+                    <label>Forma de pagamento (Á vista)</label><br>
+                    <input type="radio" id="html" name="formaPagamento" value="Depósito">
+                    <label id="option">Depósito</label><br>
+                    <input type="radio" id="html" name="formaPagamento" value="PIX">
+                    <label id="option">PIX</label><br>
+                    <input type="radio" id="html" name="formaPagamento" value="Dinheiro">
+                    <label id="option">Dinheiro</label><br>
+                    <input type="radio" id="html" name="formaPagamento" value="Pago com crédito">
+                    <label id="option">Pago com crédito</label>
+                  </div>
+
+                  <div id="bandeiracartao" style="display: none; z-index: -999">
+            
+                    <label >Bandeira</label><br>
+                    <input type="radio" name="bandeira" value="Visa">
+                    <label style="font-size: 15px;" for="bandeira">Visa</label><br>
+                    <input type="radio" name="bandeira" value="Master">
+                    <label style="font-size: 15px;" for="bandeira">Master</label><br>
+                    <input type="radio" name="bandeira" value="Banricompras">
+                    <label style="font-size: 15px;" for="bandeira">Banricompras</label><br>
+                    <input type="radio" name="bandeira" value="Elo">
+                    <label style="font-size: 15px;" for="bandeira">Elo</label><br>
+                    <input type="radio" name="bandeira" value="Amex">
+                    <label style="font-size: 15px;" for="bandeira">Amex</label><br>
+                    <input type="radio" name="bandeira" value="BNDS">
+                    <label style="font-size: 15px;" for="bandeira">BNDS</label><br>
+                      
+                  </div>
+                  
+
+                  <div id="localcobranca">
+                    <label>Local de Cobrança </label><br>
+                    <input type="radio" id="html" name="localcobranca" value="Cobrar no Local">
+                    <label id="option">Cobrar no Local (Endereço de Entrega)</label><br>
+                    <input type="radio" id="html" name="localcobranca" value="Cobrar na empresa">
+                    <label id="option">Cobrar na Empresa (Cemear)</label><br>
+                    <input type="radio" id="html" name="localcobranca" value="Pago na sala de vendas">
+                    <label id="option">Pago na sala de vendas (Showroom)</label><br>
+                    <input type="radio" id="html" name="localcobranca">
+                    <label id="option">Nenhum</label><br><br>
+                  </div>  
+
+                 
+
+<div id="vendafrete" style="display: none; z-index: -999">
+  <br><label>Venda com Frete ?</label><br>
+  <input type="radio" value="vendafreteNo" onclick="check(this, ['#valorFrete', '#tipofrete'])" name="vendaFrete">
+  <label id="option">Não</label><br>
+  
+  <input type="radio" onclick="check(this, ['#valorFrete', '#tipofrete'])" value="vendafreteYES" id="html" name="vendaFrete">
+  <label id="option">Sim</label>
+</div>
+
+<div id="tipofrete" style="display: none; z-index: -999">
+  <br><label>Tipo de frete</label><br>
+  <input type="radio" name="tipofrete" value="Destacado">
+  <label id="option">Destacado</label><br>
+  <input type="radio" id="html" name="tipofrete" value="Diluído">
+  <label id="option">Diluído</label><br>
+</div>
+
+<div id="entregaAgendada" style="display: none; z-index: -999">
+  <label>Agendamento para</label><br>
+  <input type="date" id="entregaAgendadaInput" >
+</div>

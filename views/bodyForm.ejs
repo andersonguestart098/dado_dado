@@ -40,8 +40,8 @@
         <div class="modal-body">
           <form id="cad-usuario-form"> <!-- este seletor será usado no java script (o javascript que vai receber estes dados)-->
 
-        <% if(pegar != "financeiro") { %>
-          <label for="numeronf" class="col-form-label">NÚMERO NF:                 </label> 
+        <% if(pegar != "financeiro" && pegar != "registroentrega" && pegar != "saida" && pegar != "retorno" && pegar != "canhoto") { %>
+          <label for="numeronf" class="col-form-label">NÚMERO NF: </label>
             <br>
           <div>
           <input type="number" autocomplete="off" name="numeronf" class="form-control" id="numeronf" placeholder="Preencha o número da nota...">
@@ -49,9 +49,10 @@
           </div>  
 
         <% } %>
+          
         <% if(pegar == "financeiro") { %>
 
-                    <label for="vendedor" class="col-form-label">Vendedor:                 </label> 
+          <label for="vendedor" class="col-form-label">Vendedor: </label> 
             <br>
           <select name="vendedor" id="vendedor">
             <option value=" " selected="selected"> </option>
@@ -190,12 +191,9 @@
         <% } %>
 
             <% if(pegar == "saida") { %>
-
-
-             
-          <label for="codentrega" class="col-form-label">Cód. da Carga: </label>
-          <br>
-          <input type="text"  name="codentrega" class="form-control" id="codentrega" placeholder="Preencha o código da entrega...">
+          
+          <label for="numeronf" class="col-form-label">Número da Nota Fiscal: </label>
+            <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Digite o número da Nota...">
             <br>
 
           <label for="nomeconferente" class="col-form-label">Nome do Conferente:</label>
@@ -263,7 +261,8 @@
             <% } %>
 
             <% if(pegar == "retorno") { %>
-           </label>
+            <label for="numeronf" class="col-form-label">Número da Nota Fiscal: </label>
+            <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Digite o número da Nota...">
             <br>
   
             <label for="codentrega" class="col-form-label">Cód. Entrega:  </label>
@@ -302,6 +301,20 @@
             <% } %>
 
             <% if(pegar == "canhoto") { %>
+          <label for="quemrecebeu" class="col-form-label">Quem recebeu o canhoto: </label>
+              <br>
+          <select name="quemrecebeu" id="quemrecebeu">
+            <option value=" "> </option>
+            <option value="MARCIA">MARCIA</option>
+            <option value="JULIA">JULIA</option>
+            <option value="RENITA">RENITA</option>
+            <option value="NADIA">NADIA</option>
+          </select>
+              <br><br>
+
+              
+            <label for="numeronf" class="col-form-label">Número da Nota Fiscal: </label>
+            <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Digite o número da Nota...">
             <br>
           <label for="motorista" class="col-form-label">Motorista:                 </label>
               <br>
@@ -324,17 +337,12 @@
           </select>
               <br>
 
-          <label for="statuscanhoto" class="col-form-label">Status NF:</label>
+          <label for="concluida" class="col-form-label">Status NF:</label>
               <br>
     
-            <select name="statuscanhoto" id="statuscanhoto" value="AGUARDANDO CLIENTE">
+            <select name="concluida" id="concluida">
             <option value=" "> </option>
             <option value="CONCLUIDO">CONCLUIDO</option>
-          </select>
-              <br>
-            <select name="exped" id="exped">
-            <option value=" "> </option>
-            <option value="LOG">LOGS</option>
           </select>
  
               <% } %>              
@@ -379,6 +387,8 @@
 
           <% if(pegar == "registroentrega") { %>
 
+            <label for="numeronf" class="col-form-label">Número da Nota Fiscal: </label>
+            <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Digite o número da Nota...">
             
           <label for="motorista" class="col-form-label">Motorista:                 </label>
               <br>
@@ -462,50 +472,7 @@
   }
 
 let peG = "<%= pegar %>"
-if(peG != "financeiro"){
-      
-setInterval(()=> {
-  let numeroNF = document.querySelector("#numeronf")
-  let tooltip = document.querySelector(".tooltiptext")
-    if(numeroNF.value != ""){
-      let dadosPassagem = <%-JSON.stringify(dados.passagem)%> 
-      let pegar = "<%= pegar %>"
-      for (let prop = 0; prop <= Object.keys(dadosPassagem).length-1; prop++) {
-    if(numeroNF.value == dadosPassagem[prop].numeronf) {
-      if(dadosPassagem[prop].exped != pegar) {
-        numeroNF.style.color = "red"
-        tooltip.style.visibility = "visible"
-        tooltip.style.opacity = 1
-        tooltip.style.background = "#f59b5f"
-        tooltip.style.color = "#6d6e69"
-        tooltip.innerText = "codigo nota Fiscal não pertence a este setor!"
-      }else if(dadosPassagem[prop].usada != "nao"){
-        numeroNF.style.color = "green"
-        tooltip.style.opacity = 0
-      }else if(dadosPassagem[prop].usada == "nao") {
-        numeroNF.style.color = "red"
-        tooltip.style.visibility = "visible"
-        tooltip.style.opacity = 1
-        tooltip.style.background = "#f76157"
-        tooltip.style.color = "#fff"
-        tooltip.innerText = "codigo nota Fiscal sendo usada!"
-        
-      }
-        return
-      }
-        numeroNF.style.color = "red"
-        tooltip.style.visibility = "visible"
-        tooltip.style.opacity = 1
-        tooltip.style.background = "#f76157"
-        tooltip.style.color = "#fff"
-        tooltip.innerText = "codigo nota Fiscal não existente!"
-      }
-      }else {
-        tooltip.style.opacity = 0
-      }
-})
 
-}
 let dadosPassagem = <%-JSON.stringify(dados.passagem)%> 
 setInterval(() => {
   fetch('https://projeto.andersonhenri15.repl.co/database')
@@ -572,7 +539,7 @@ document.querySelector("#nropedido").value,
           obj = {
           numeronf: document.querySelector("#numeronf").value,
           exped: pegar,
-          codentrega: document.querySelector("#codentrega").value,
+          codentrega: Math.floor(Math.random() * (9999 - 1000)) + 1000,
           nomeconferente: document.querySelector("#nomeconferente").value,
           placa: document.querySelector("#placa").value,
           motorista: document.querySelector("#motorista").value,
@@ -597,11 +564,9 @@ document.querySelector("#nropedido").value,
           obj = {
           numeronf: document.querySelector("#numeronf").value,
           exped: pegar,
-          codentrega: document.querySelector("#codentrega").value,
-          cidade: document.querySelector("#cidade").value,
           quemrecebeu: document.querySelector("#quemrecebeu").value,
           concluida: document.querySelector("#concluida").value,
-          obs: document.querySelector("#obs").value
+          motorista: document.querySelector("#motorista").value
           }
           
           break

@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>Formulario <%- pegar.toUpperCase() %></title>
+    <link rel="icon" sizes="any" type="image/svg+xml" href="/logoce.svg">
     <style>
+        input[type='radio'] {
+            -webkit-appearance:none;
+            width:20px;
+            height:20px;
+            border:1px solid darkgray;
+            border-radius:50%;
+            outline:none;
+            box-shadow:0 0 5px 0px gray inset;
+        }
+        input[type='radio']:hover {
+            box-shadow:0 0 5px 0px orange inset;
+        }
+        input[type='radio']:before {
+            content:'';
+            display:block;
+            width:100%;
+            height:100%;
+            border-radius:50%;    
+        }
+        input[type='radio']:checked:before {
+            background:#058FED;
+        }
+      
         body {
             background-color: #053c5e;
         }
@@ -17,22 +41,25 @@
             background-color: whitesmoke;
             border-radius: 10px;
         }
-        #item-grid{  
+        #item-grid{ 
             margin-left: 10%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-rows: 1.7fr 1fr;
             gap: 0px 0px;
             grid-auto-flow: row;
             grid-template-areas:
+                ". .",
                 ". ."
-                ". ."
-                ". .";
+                "a a";
+            }
+
+        .a { 
+            grid-area: a; 
         }
 
         input:not([type=radio]) {
             padding: 5px;
-            font-size: large;
             border-radius: 5px;
             border-color: #053c5e9d;
             border-width: 2px;
@@ -70,9 +97,7 @@
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             border-bottom: 2px solid #032941;
         }
-        #collun1, #collun2 {
-            margin: auto;
-        }
+
         #logo svg {
             width: 50px;
             height: 50px;
@@ -88,9 +113,16 @@
         #option {
             font-size: small;
         }
+        p {
+            margin-top: 90px;
+        }
+        #obsinput {
+          padding: 5px 100% 90px 5px;
+        }
       @media only screen and (max-width: 700px) {
             body {
                 background-color: lightblue;
+                margin: 0;
             }
             #item-grid {
                 display: block;
@@ -103,8 +135,12 @@
             p {
                 margin-top: 100px;
             }
+            #obsinput {
+              padding: 5px 50px 90px 5px;
+            }
         }
     </style>
+  <link href='icons.css' rel='stylesheet'>
 </head>
 <body>
     <div id="logo">
@@ -122,39 +158,182 @@
 </svg>
     </div>
     <div id="center">
-        <h1>Formulario</h1>
+        <h1>Formulario <%- pegar.charAt(0).toUpperCase() + pegar.slice(1); %></h1>
         <div id="item-grid">
             <div id="item1">
                 <div id="collun1">
-                    <div id="item1" style="width: 265px; border-radius: 5px;">
-                        <label for="nome">Vendedor</label><br>
-                    
-                        <select name="nome">
-                            <option value="" selected disabled hidden>Vendedor</option>
-                            <option>OLA</option>
-                            <option>OLA</option>
-                        </select><br><br>
-                    </div>
-                    <label for="cliente">Cliente</label><br>
-                    <input name="cliente"><br>
-                    <br>
-                    <label>Tipo de Faturamento </label><br>
-                    <input type="radio" id="html" name="fav_language" value="HTML">
-                    <label id="option">Normal</label><br>
-                    <input type="radio" id="css" name="fav_language" value="CSS">
-                    <label id="option">Para Entrega Futura</label><br>
-                    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                    <label id="option">Remessa de Materiais</label><br>
-                </div>
+                  <%- include('./formularioFinanceiroSetores/setor2.ejs') %>
+                </div>    
             </div>
+
+<!--
+---------------------------------------------------------------------
+█████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████
+█████████████████████████████████████████████████████████████████████          
+---------------------------------------------------------------------
+-->
+          
             <div id="item1">
-                <div id="collun2">
-                    <label for="input">Valor da Venda (incluindo frete)</label><br>
-                    <input>
+              <div id="collun2">
+                   <%- include('./formularioFinanceiroSetores/setor1.ejs') %>
                 </div>  
             </div>
+
+          
+          <div id="obs">
+            <div class="a">
+                <label id="obs">Observação</label><br>
+                <input name="obs" id="obsinput">
+              
+                <p style="text-align: center;"><a onclick="enviar()" style="text-decoration: none; color:#145b88; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; margin-left: 70%; padding: 15px; background: #058FED; border-radius: 5px;">ENVIAR</a></p>
+            </div>
+          </div>
         </div>
-        <p style="text-align: center;"><a onclick="enviar()" style="text-decoration: none; color:#145b88; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; padding: 15px; background: #058FED; border-radius: 5px;">ENVIAR</a></p>
-    </div>
-</body>
+      </div> 
+    <script>
+        function check(input, ocult) {
+          for(let i = 0; i <= ocult.length -1; i++) {
+          switch(input.value) {
+            case "entrega_futura":
+              document.querySelector("#formapgto").style.display = "block"
+              document.querySelector("#formapgto").style.zIndex = "1"
+              document.querySelector(ocult[i]).style.display = "none"
+              document.querySelector(ocult[i]).style.zIndex = "-999"
+              break
+              
+            case "remessa_materiais":
+              document.querySelector("#entregaretira").style.display = "block"
+              document.querySelector("#entregaretira").style.zIndex = "1"
+              document.querySelector(ocult[i]).style.display = "none"
+              document.querySelector(ocult[i]).style.zIndex = "-999"
+              break
+              
+            case "normal":
+              document.querySelector(ocult[i]).style.display = "none"
+              document.querySelector(ocult[i]).style.zIndex = "-999"
+              document.querySelector("#formapgto").style.display = "block"
+              document.querySelector("#formapgto").style.zIndex = "1"
+              
+              document.querySelector("#localcobranca").style.display = "block"
+              document.querySelector("#localcobranca").style.zIndex = "1"
+
+              document.querySelector("#entregaretira").style.display = "block"
+              document.querySelector("#entregaretira").style.zIndex = "1"
+              break
+              
+            case "avista": 
+              document.querySelector("#pgtoavista").style.display = "block"
+              document.querySelector("#pgtoavista").style.zIndex = "1"
+              document.querySelector(ocult[i]).style.display = "none"
+              document.querySelector(ocult[i]).style.zIndex = "-999"
+              break
+              
+            case "cartao": 
+              document.querySelector("#bandeiracartao").style.display = "block"
+              document.querySelector("#bandeiracartao").style.zIndex = "1"
+              document.querySelector(ocult[i]).style.display = "none"
+              document.querySelector(ocult[i]).style.zIndex = "-999"
+              break
+              
+            case "defaultFPgo":
+              document.querySelector("#pgtoavista").style.display = "none"
+              document.querySelector("#pgtoavista").style.zIndex = "-999"
+              break
+
+            case "transportadora":
+            case "depositoprogramado":
+            case "chequeprogramado":
+            case "cartaovendas":
+            case "retirada":
+            case "":
+            case "semPgo":
+              console.log("OK")
+              document.querySelector(ocult[i]).style.display = "none"
+              document.querySelector(ocult[i]).style.zIndex = "-999"
+              break
+              
+            case "entregaImediata":
+              document.querySelector(ocult[i]).style.display = "block"
+              document.querySelector(ocult[i]).style.zIndex = "1"
+              break
+
+            case "entregaAgendada":
+              document.querySelector(ocult[i]).style.display = "block"
+              document.querySelector(ocult[i]).style.zIndex = "1"
+              break
+              
+            case "vendafreteYES": 
+              document.querySelector(ocult[i]).style.display = "block"
+              document.querySelector(ocult[i]).style.zIndex = "1"
+              break
+              
+            case "defaultREntrega":
+              document.querySelector(ocult[i]).style.display = "none"
+              document.querySelector(ocult[i]).style.zIndex = "-999"
+              break
+          }
+        }
+      }
+    </script>
+
+    <script>
+      let textInfo = "..."
+      let obj={}
+      function enviar() {
+        let pegar = "<%= pegar %>"
+        obj = {
+          numeronf: "...",
+          exped : pegar,       
+          quemrecebeu: "...",
+          vendedor:  document.querySelector("#vendedor").value,
+          nropedido:
+document.querySelector("#orcamento").value,
+          cliente:  document.querySelector("#cliente").value,
+          valordopedido:  document.querySelector('#valordoPedido').value,
+          tipodefaturamento:  document.querySelector('input[name="tipoFaturamento"]:checked').value,
+          formapgto:  document.querySelector('input[name="formaPgo"]:checked') == null ? textInfo : formaPagamentoVerificação(),
+          vendafrete: document.querySelector('input[name="vendaFrete"]:checked') == null ? textInfo : document.querySelector('input[name="vendaFrete"]:checked').value,
+          retiraentrega: document.querySelector('input[name="entregaretira"]:checked') == null ? textInfo : document.querySelector('input[name="entregaretira"]:checked').value,
+          
+          localdaentrega: document.querySelector('input[name="entregaEndereco"]:checked') == null ? textInfo : document.querySelector('input[name="entregaEndereco"]:checked').value,
+          
+          localdecobranca: document.querySelector('input[name="localcobranca"]:checked') == null ? textInfo : document.querySelector('input[name="localcobranca"]:checked').value,
+          
+          obs: document.querySelector("#obsinput").value == '' ? "nenhuma observação" : document.querySelector("#obsinput").value,
+          fretedestacado: document.querySelector('input[name="tipofrete"]:checked') == null ? textInfo : document.querySelector('input[name="tipofrete"]:checked').value,
+          valorfrete: document.querySelector('#valorFreteInput') == null ? textInfo : document.querySelector('#valorFreteInput').value,
+          
+          dataentrega: document.querySelector("#entregaAgendadaInput").value == null ? textInfo : document.querySelector("#entregaAgendadaInput").value,
+          operadornf: "...",
+          statusnf: "PENDENTE",
+          obsfinanceiro: "..."
+          }
+        fetch('https://projeto.andersonhenri15.repl.co/registrarBancoDados', {
+    method: "POST",
+    body: JSON.stringify(obj, null, 2),
+    headers: {"Content-type": "text/plain; charset=UTF-8",
+             "Sector": pegar}
+  })
+  .then(function(res){ return res.json() })
+  .then(function(data){ 
+    alert( data.msg ) 
+
+  })
+      }
+      function formaPagamentoVerificação() {
+  switch(document.querySelector('input[name="formaPgo"]:checked').value) {
+        case "avista":
+      return document.querySelector('input[name="formaPagamento"]:checked').value
+        break
+        case "cartao":
+          return document.querySelector('input[name="bandeira"]:checked').value
+        break
+        default:
+          return document.querySelector('input[name="formaPgo"]:checked').value
+        }
+      }
+    </script>
+  </body>
 </html>
