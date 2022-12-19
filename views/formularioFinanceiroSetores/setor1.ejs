@@ -1,20 +1,21 @@
 <label for="input">Orçamento</label><br>
-  <input placeholder="Digite o número do orçamento..." id="orcamento">
+  <input type="number" placeholder="Digite o número do orçamento..." id="orcamento">
     <br><br>
 
   <label for="input">Valor da Venda (incluindo frete)</label><br>
-  <input placeholder="Digite o valor da venda" id="valordoPedido">
+  <input class="orcamento" placeholder="Digite o valor da venda" id="valordoPedido">
+  
   <br><br>
 
 <div id="formapgto">
   <label>Forma de Pagamento/Cobrança</label><br>
 
   
-  <input type="radio"  onclick="check(this, ['#bandeiracartao', '#localcobranca'])" value="avista" id="html" name="formaPgo">
+  <input type="radio"  onclick="check(this, ['#bandeiracartao'])" value="avista" id="html" name="formaPgo">
   <label id="option"><i class="gg-dollar" style="display: inline-block; margin-right: 8px; margin-left: 3px;"></i>Á vista</label><br>
 
   
-  <input type="radio" onclick="check(this, ['-'])" value="faturado" name="formaPgo">
+  <input type="radio" onclick="check(this, [ '#valorFrete', '#entregaEndereco', '#dataAgendada', '#pgtoavista', '#bandeiracartao',  '#vendafrete', '#tipofrete', '#entregaAgendada'])" value="faturado" name="formaPgo">
   <label id="option"><i class="gg-file" style="display: inline-block; margin-right: 5px;" ></i>Faturado</label><br>
 
   
@@ -26,7 +27,7 @@
   <label id="option"><i class="gg-block" style="display: inline-block; margin-right: 5px;"></i>Sem Pagamento</label><br>
 
   
-  <input type="radio" onclick="check(this,  [ '#valorFrete', '#entregaEndereco', '#dataAgendada', '#pgtoavista', '#bandeiracartao', '#vendafrete', '#tipofrete', '#entregaAgendada'])" value="depositoprogramado" id="javascript" name="formaPgo">
+  <input type="radio" onclick="check(this,  [ '#valorFrete', '#entregaEndereco', '#dataAgendada', '#pgtoavista', '#bandeiracartao', '#vendafrete', '#tipofrete', '#entregaAgendada'])" value="Deposito Programado" id="javascript" name="formaPgo">
   <label id="option"><i class="gg-sand-clock" style="display: inline-block; margin-right: 5px;"></i>Depósito Programado</label><br>
   
   <input type="radio" onclick="check(this,  ['#valorFrete', '#entregaEndereco', '#dataAgendada', '#pgtoavista', '#bandeiracartao', '#vendafrete', '#tipofrete', '#entregaAgendada'])" value="chequeprogramado" id="javascript" name="formaPgo">
@@ -44,7 +45,7 @@
   <input type="radio" onclick="check(this, ['#valorFrete', '#entregaEndereco', '#dataAgendada', '#pgtoavista', '#bandeiracartao', '#vendafrete', '#tipofrete', '#entregaAgendada'])" value="retirada" name="entregaretira">
   <label id="option">Retirada</label><br>
   
-  <input type="radio" onclick="check(this, ['#vendafrete', '#dataAgendada', '#entregaEndereco'])" value="entregaAgendada" name="entregaretira">
+  <input type="radio" onclick="check(this, ['#vendafrete', '#dataAgendada', '#entregaEndereco'])" value="Entrega Agendada" name="entregaretira">
   <label id="option">Entrega Agendada</label><br>
   
   <input type="radio" onclick="check(this, ['#vendafrete', '#entregaEndereco', '#dataAgendada'])" value="transportadora" name="entregaretira">

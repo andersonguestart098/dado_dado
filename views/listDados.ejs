@@ -109,22 +109,24 @@ function setData(post, pegar, i) {
 
    <% if(pegar == "passagem") { %>
 
-          document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][post[pegar][i].selecionarDado].dataHora
-  document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
+  document.querySelector("#valor_idX"+i).innerText = post["financeiro"][i].id
+  document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][post["financeiro"][i].selecionarDado].dataHora
 
-  document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][post[pegar][i].selecionarDado].numeronf
+  document.querySelector("#valor_numeronfX"+i).innerText = post[pegar][i].numeronf
           
-      document.querySelector("#Pvalor_exped"+i).innerText = post["passagem"][i].exped
+      document.querySelector("#Pvalor_exped"+i).innerText = post[pegar][i].exped
       document.querySelector("#valor_vendedorX"+i).innerText = post["financeiro"][i].vendedor
       document.querySelector("#valor_clienteX"+i).innerText = post["financeiro"][i].cliente
       document.querySelector("#stNfX"+i).innerText = post["financeiro"][i].statusnf
       colorir(pegar)
   <% } %>
 
+        
       <% if(pegar == "canhoto") { %>
 
-        document.querySelector("#valor_datahoraX"+i).innerText = post[pegar][i].dataHora
-  document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
+      document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
+                                 
+      document.querySelector("#valor_datahoraX"+i).innerText = post[pegar][i].dataHora
 
   document.querySelector("#Pvalor_numeronfX"+i).innerText = post[pegar][i].numeronf
         

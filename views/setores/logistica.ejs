@@ -14,12 +14,9 @@
     <td id='valor_quemrecebeuX<%= dados[pegar][i].id %>'>
       <select onchange="autoreflash(this,Pvalor_quemrecebeu<%= dados[pegar][i].id %>)" name='quem' id='quemX<%= dados[pegar][i].id %>'>
       <option value=''></option>
-      <option value='MAX'>MAX</option>
-      <option value='DUDU'>DUDU</option>
-      <option value='TINGA'>TINGA</option> 
-      <option value='MANOEL'>MANOEL</option> 
-      <option value='DIEIMES'>DIEIMES</option> 
-      <option value='CRISTIANO DUARTE'>CRISTIANO DUARTE</option> 
+      <option value='DIEIMES'>DIEIMES</option>
+      <option value='CRISTIANO S.'>CRISTIANO S.</option>
+      <option value='MAX'>MAX</option> 
     </select>
 
       <p onclick='make(this,quemX<%= dados[pegar][i].id %>)' id='Pvalor_quemrecebeu<%= dados[pegar][i].id %>'><%= dados[pegar][i].quemrecebeu %></p>
@@ -30,6 +27,8 @@
   
       <td id='StatusdepX<%= dados[pegar][i].id %>'>
     <select onchange="autoreflash(this,PstatusdepX<%= dados[pegar][i].id %>)" name='quem' id='statusdepX<%= dados[pegar][i].id %>'><option value='PENDENTE'>PENDENTE</option> 
-      <option value='AGUARDANDO CLIENTE'>AGUARDANDO TRANSPORTADORA</option>
-      <option value='CLIENTE RETIROU'>CLIENTE RETIROU</option>
+      <option value='AGUARDANDO ROTA'>AGUARDANDO ROTA</option>
+      <option value='AGUARDANDO VENDEDOR'>AGUARDANDO VENDEDOR</option>
+      <option value='EM SEPARACAO'>EM SEPARACAO</option>
+      <option value='ENTREGUE'>ENTREGUE</option>
     </select><p onclick='make(this,statusdepX<%= dados[pegar][i].id %>)' id='PstatusdepX<%= dados[pegar][i].id %>' class="orientador"><%= dados[pegar][i].statusdep %></p></td>

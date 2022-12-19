@@ -65,22 +65,11 @@
             
                     <label >Bandeira</label><br>
                     <input type="radio" name="bandeira" value="Visa">
-                    <label style="font-size: 15px;" for="bandeira">Visa</label><br>
-                    <input type="radio" name="bandeira" value="Master">
-                    <label style="font-size: 15px;" for="bandeira">Master</label><br>
-                    <input type="radio" name="bandeira" value="Banricompras">
-                    <label style="font-size: 15px;" for="bandeira">Banricompras</label><br>
-                    <input type="radio" name="bandeira" value="Elo">
-                    <label style="font-size: 15px;" for="bandeira">Elo</label><br>
-                    <input type="radio" name="bandeira" value="Amex">
-                    <label style="font-size: 15px;" for="bandeira">Amex</label><br>
-                    <input type="radio" name="bandeira" value="BNDS">
-                    <label style="font-size: 15px;" for="bandeira">BNDS</label><br>
-                      
+                    <%- include('./icons_bandeira.ejs') %>
                   </div>
                   
 
-                  <div id="localcobranca">
+                  <br><div id="localcobranca">
                     <label>Local de Cobrança </label><br>
                     <input type="radio" id="html" name="localcobranca" value="Cobrar no Local">
                     <label id="option">Cobrar no Local (Endereço de Entrega)</label><br>
@@ -96,10 +85,10 @@
 
 <div id="vendafrete" style="display: none; z-index: -999">
   <br><label>Venda com Frete ?</label><br>
-  <input type="radio" value="vendafreteNo" onclick="check(this, ['#valorFrete', '#tipofrete'])" name="vendaFrete">
+  <input type="radio" value="Nao" onclick="check(this, ['#valorFrete', '#tipofrete'])" name="vendaFrete">
   <label id="option">Não</label><br>
   
-  <input type="radio" onclick="check(this, ['#valorFrete', '#tipofrete'])" value="vendafreteYES" id="html" name="vendaFrete">
+  <input type="radio" onclick="check(this, ['#valorFrete', '#tipofrete'])" value="Sim" id="html" name="vendaFrete">
   <label id="option">Sim</label>
 </div>
 

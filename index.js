@@ -67,7 +67,7 @@ app.get("/cruzamento", (req, res) => {
 
       let d = JSON.parse(data)
 
-      res.render("bodyList.ejs", { pegar: "passagem", titulo: "CRUZAMENTO", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "passagem", titulo: "ACOMPANHAMENTO  NOTA  FISCAL", dados: d, i: 0 })
     })
   } else {
     res.render("pageError.ejs")

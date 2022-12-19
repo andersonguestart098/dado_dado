@@ -304,7 +304,7 @@
             </li>
           <% if(pegar.setor == "ALL") { %>
             <li class="list">
-                <a href="financeiroformulario">
+                <a href="financeiroformulario2">
                     <span id="icon"><ion-icon name="reader-outline"></ion-icon></span>
                     <span id="title">Formulario</span>
                 </a>
@@ -404,7 +404,7 @@
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </script>
     <script>
         const list = document.querySelectorAll(".list")
@@ -453,20 +453,25 @@ function myMove(elem) {
 <% if(pegar.setor == "ALL") { %>
 let dadosServer = <%-JSON.stringify(dados)%>
 let graphDados = []
-for( i= 0; i <= Object.keys(dadosServer["financeiro"]).length-1; i++) {
-    graphDados[i] = parseFloat(dadosServer["financeiro"][i].valordopedido)
+for(let i= 0; i <= Object.keys(dadosServer["financeiro"]).length-1; i++) {
+    graphDados[i] = parseInt(dadosServer["financeiro"][i].valordopedido.replaceAll(",",""))
+    console.log(dadosServer["financeiro"][i].valordopedido.replaceAll(",",""))
 }
 <% } else { %>
 let dadosServer = <%-JSON.stringify(dados)%>
 let graphDados = []
 for( i= 0; i <= Object.keys(dadosServer["<%= pegar.setor %>"]).length-1; i++) {
   if("<%= pegar.setor %>" == "financeiro"){
-    graphDados[i] = parseFloat(dadosServer["<%= pegar.setor %>"][i].valordopedido)
+    graphDados[i] = parseInt(dadosServer["<%= pegar.setor %>"][i].valordopedido.replaceAll(",",""))
   }
 }
 <% } %>
-
 const ctx = document.querySelector("#myChart").getContext('2d');
+const formatter = new Intl.NumberFormat('en-US', {
+	style: 'currency',
+	currency: 'USD',
+});
+  
 let myChart = new Chart(ctx, {
     type: "line",
     data: {
@@ -489,14 +494,7 @@ let myChart = new Chart(ctx, {
             },
             x: {
                 ticks: { color: '#fff', beginAtZero: true }  
-            },
-            yAxes: [{
-           ticks: {
-             callback: function(value, index, values) {
-               return value.toLocaleString("pt-BR", {style: 'currency', currency: 'BRL' });
-             }
-           }
-         }]
+            }
         },
         plugins: {
             title: {
@@ -509,13 +507,37 @@ let myChart = new Chart(ctx, {
                 bottom: 30
             },
             font: {
-                size: 30, //font-family: 'Poppins', sans-serif;
+                size: 50, //font-family: 'Poppins', sans-serif;
                 style: 'italic',
                 family: 'Poppins, sans-serif'
             }
             },
             legend: {
                 display: false,
+            },
+            tooltip: {
+                titleFont: {
+                  size: 20
+                },
+                bodyFont: {
+                  size: 20
+                },
+                footerFont: {
+                  size: 20 // there is no footer by default
+                },
+                callbacks: {
+                  label: function(context) {
+                    let label = context.dataset.label || '';
+
+                    if (label) {
+                        label += ': ';
+                    }
+                    if (context.parsed.y !== null) {
+                        label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'BRL' }).format(context.parsed.y);
+                    }
+                    return label;
+                }
+              }
             }
         }
     }
@@ -528,7 +550,7 @@ function switchDBGraph(a) {
   for( i= 0; i <= Object.keys(dadosServer[a.value]).length-1; i++) {
     switch(a.value){
       case "financeiro":
-        myChart.config._config.data.datasets[0].data[i] = parseFloat(dadosServer[a.value][i].valordopedido)
+        myChart.config._config.data.datasets[0].data[i] = dadosServer[a.value][i].valordopedido.replaceAll(",","").replaceAll(".","")
         break
     }
   }

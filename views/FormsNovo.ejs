@@ -140,7 +140,11 @@
             }
         }
     </style>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
   <link href='icons.css' rel='stylesheet'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
 </head>
 <body>
     <div id="logo">
@@ -199,6 +203,7 @@
             case "entrega_futura":
               document.querySelector("#formapgto").style.display = "block"
               document.querySelector("#formapgto").style.zIndex = "1"
+              document.querySelector(ocult[i]).value = null
               document.querySelector(ocult[i]).style.display = "none"
               document.querySelector(ocult[i]).style.zIndex = "-999"
               break
@@ -206,11 +211,13 @@
             case "remessa_materiais":
               document.querySelector("#entregaretira").style.display = "block"
               document.querySelector("#entregaretira").style.zIndex = "1"
+              document.querySelector(ocult[i]).value = null
               document.querySelector(ocult[i]).style.display = "none"
               document.querySelector(ocult[i]).style.zIndex = "-999"
               break
               
             case "normal":
+              document.querySelector(ocult[i]).value = null
               document.querySelector(ocult[i]).style.display = "none"
               document.querySelector(ocult[i]).style.zIndex = "-999"
               document.querySelector("#formapgto").style.display = "block"
@@ -226,6 +233,7 @@
             case "avista": 
               document.querySelector("#pgtoavista").style.display = "block"
               document.querySelector("#pgtoavista").style.zIndex = "1"
+              document.querySelector(ocult[i]).value = null
               document.querySelector(ocult[i]).style.display = "none"
               document.querySelector(ocult[i]).style.zIndex = "-999"
               break
@@ -233,23 +241,27 @@
             case "cartao": 
               document.querySelector("#bandeiracartao").style.display = "block"
               document.querySelector("#bandeiracartao").style.zIndex = "1"
+              document.querySelector(ocult[i]).value = null
               document.querySelector(ocult[i]).style.display = "none"
               document.querySelector(ocult[i]).style.zIndex = "-999"
               break
               
             case "defaultFPgo":
+              document.querySelector(ocult[i]).value = null
               document.querySelector("#pgtoavista").style.display = "none"
               document.querySelector("#pgtoavista").style.zIndex = "-999"
               break
-
+              
+            case "Deposito Programado":
+            case "faturado":
+            case "Nao":
             case "transportadora":
             case "depositoprogramado":
             case "chequeprogramado":
             case "cartaovendas":
             case "retirada":
-            case "":
             case "semPgo":
-              console.log("OK")
+              document.querySelector(ocult[i]).value = null
               document.querySelector(ocult[i]).style.display = "none"
               document.querySelector(ocult[i]).style.zIndex = "-999"
               break
@@ -258,26 +270,37 @@
               document.querySelector(ocult[i]).style.display = "block"
               document.querySelector(ocult[i]).style.zIndex = "1"
               break
+              
+            case "Entrega Agendada":
+              document.querySelector(ocult[i]).style.display = "block"
+              document.querySelector(ocult[i]).style.zIndex = "1"
+              break
 
-            case "entregaAgendada":
+              case "entregaAgendada":
               document.querySelector(ocult[i]).style.display = "block"
               document.querySelector(ocult[i]).style.zIndex = "1"
               break
               
-            case "vendafreteYES": 
+            case "Sim": 
               document.querySelector(ocult[i]).style.display = "block"
               document.querySelector(ocult[i]).style.zIndex = "1"
               break
               
             case "defaultREntrega":
+              document.querySelector(ocult[i]).value = null
               document.querySelector(ocult[i]).style.display = "none"
               document.querySelector(ocult[i]).style.zIndex = "-999"
               break
+              
           }
         }
       }
     </script>
-
+    <script>
+        $(function() {
+            $('.orcamento').maskMoney();
+        })
+    </script>
     <script>
       let textInfo = "..."
       let obj={}
@@ -319,6 +342,7 @@ document.querySelector("#orcamento").value,
   .then(function(res){ return res.json() })
   .then(function(data){ 
     alert( data.msg ) 
+    window.location.reload();
 
   })
       }

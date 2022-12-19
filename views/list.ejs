@@ -21,6 +21,11 @@
         <th>Status|NF</th>
         <th>OBS|Financeiro</th>
     <% } %>
+      
+      <% if(pegar == "saida") { %>
+        <th>Cod. Entrega</th>
+      <% } %>
+        
         <th>Número|NF</th>
     <% if(pegar == "financeiro") { %>
         <th>Exped/Log</th>
@@ -33,7 +38,6 @@
       <% } %>
 
       <% if(pegar == "saida") { %>
-        <th>Cod. Entrega</th>
         <th>Nome|Conferente</th>
         <th>Placa</th>
         <th>Motorista</th>
