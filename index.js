@@ -99,24 +99,7 @@ app.get("/home", (req, res) => {
  *-------------------------------
  */
 
-
 app.get("/financeiroformulario", (req, res) => {
-  if (req.cookies.activeData != null) {
-    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
-      if (err) {
-        return console.log("Erro ao ler arquivo")
-      }
-      data = JSON.parse(data)
-
-
-      res.render("bodyForm.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: data })
-    })
-  } else {
-    res.render("pageError.ejs")
-  }
-})
-
-app.get("/financeiroformulario2", (req, res) => {
   if (req.cookies.activeData != null) {
     fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
       if (err) {
@@ -723,9 +706,10 @@ app.post('/registrarBancoDados', (req, res) => {
   fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
     let dados = JSON.parse(data)
     let objAtual = Object.keys(dados[pegar]).length + numeroDaSeção - 1
-    const d = new Date()
+    let ts = Date.now()
+    let d = new Date(ts);
     let seletorDados
-    let dateFormated = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}`
+    let dateFormated = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours() - 3}:${d.getMinutes()}`
 
     if (pegar == "financeiro" || pegar == "saida" || pegar == "registroentrega") {
       dados["passagem"][objAtual] = {
@@ -948,14 +932,12 @@ function Criar_planilha(workbook, objetoBancoDados, nome, nomeColuna, letras, co
   for (i = Object.keys(objetoBancoDados[nome]).length - 1; i > -1; i--) {
 
     switch (nome) {
-      case 'passagem':
-        break
       case 'financeiro':
-        expedicao.addrow({
+        expedicao.addRow({
           id: objetoBancoDados[nome][i].id,
           dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
           vendedor: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].vendedor,
-          nropedido: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].nropedido,
+          nropedido: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].nropedido,
           cliente: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].cliente,
           tipodefaturamento: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].tipodefaturamento,
           valordopedido: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].valordopedido,
@@ -977,28 +959,28 @@ function Criar_planilha(workbook, objetoBancoDados, nome, nomeColuna, letras, co
         })
         break
       case 'expedicao':
-        expedicao.addrow({
+        expedicao.addRow({
           id: objetoBancoDados[nome][i].id,
           dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
-          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
-          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          numeronf: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados["financeiro"][objetoBancoDados[nome][i].selecionarDado].exped,
           quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu,
           statusdep: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statusdep
         })
 
         break
       case 'expedicao2':
-        expedicao.addrow({
+        expedicao.addRow({
           id: objetoBancoDados[nome][i].id,
           dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
-          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
-          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          numeronf: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados["financeiro"][objetoBancoDados[nome][i].selecionarDado].exped,
           quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu,
           statusdep: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statusdep
         })
         break
       case 'retorno':
-        expedicao.addrow({
+        expedicao.addRow({
           id: objetoBancoDados[nome][i].id,
           dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
           codentrega: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].codentrega,
@@ -1007,10 +989,10 @@ function Criar_planilha(workbook, objetoBancoDados, nome, nomeColuna, letras, co
         })
         break
       case 'registroentrega':
-        expedicao.addrow({
+        expedicao.addRow({
           id: objetoBancoDados[nome][i].id,
           dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
-          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          numeronf: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].numeronf,
           motorista: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].motorista,
           codentrega: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].codentrega,
           cidade: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].cidade,
@@ -1022,7 +1004,7 @@ function Criar_planilha(workbook, objetoBancoDados, nome, nomeColuna, letras, co
         expedicao.addRow({
           id: objetoBancoDados[nome][i].id,
           dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
-          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          numeronf: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].numeronf,
           codentrega: objetoBancoDados[nome][i].codentrega,
           nomeconferente: objetoBancoDados[nome][i].nomeconferente,
           placa: objetoBancoDados[nome][i].placa,
@@ -1035,22 +1017,22 @@ function Criar_planilha(workbook, objetoBancoDados, nome, nomeColuna, letras, co
         })
         break
       case 'canhoto':
-        expedicao.addrow({
+        expedicao.addRow({
           id: objetoBancoDados[nome][i].id,
           dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
           quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu,
-          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
-          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          numeronf: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados["financeiro"][objetoBancoDados[nome][i].selecionarDado].exped,
           motorista: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].motorista,
           statuscanhoto: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statuscanhoto
         })
         break
       case 'logistica':
-        expedicao.addrow({
+        expedicao.addRow({
           id: objetoBancoDados[nome][i].id,
           dataHora: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].dataHora,
-          numeronf: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].numeronf,
-          exped: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].exped,
+          numeronf: objetoBancoDados["passagem"][objetoBancoDados[nome][i].selecionarDado].numeronf,
+          exped: objetoBancoDados["financeiro"][objetoBancoDados[nome][i].selecionarDado].exped,
           quemrecebeu: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].quemrecebeu,
           statusdep: objetoBancoDados[nome][objetoBancoDados[nome][i].selecionarDado].statusdep
         })

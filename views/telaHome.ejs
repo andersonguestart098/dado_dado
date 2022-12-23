@@ -268,9 +268,22 @@
           <p><a href="saida">SAIDA</a></p>
           <p><a href="retorno">RETORNO</a></p>
           <p><a href="canhoto">CANHOTO</a></p>
-        <p><a href="cruzamento">CRUZAMENTO</a></p>
+        <p><a href="cruzamento">ACOMPANHAMENTO NF</a></p>
       </div>
     </div>
+  <% } %>
+
+      <% if(pegar.setor == "financeiro") { %>
+        
+    <div id="finModal" class="modal">
+      <div id="background"></div>
+      <div class="modal-content">
+        <span class="close">&times;</span>
+          <p style="margin-top: 50px;"><a href="financeiro">FINANCEIRO</a></p>
+        <p><a href="cruzamento">ACOMPANHAMENTO NF</a></p>
+      </div>
+    </div>
+        
   <% } %>
 
 
@@ -304,7 +317,7 @@
             </li>
           <% if(pegar.setor == "ALL") { %>
             <li class="list">
-                <a href="financeiroformulario2">
+                <a href="financeiroformulario">
                     <span id="icon"><ion-icon name="reader-outline"></ion-icon></span>
                     <span id="title">Formulario</span>
                 </a>
@@ -315,7 +328,14 @@
                     <span id="title">Tabela</span>
                 </a>
             </li>
-          <% } else { %>
+            <% } else if(pegar.setor == "financeiro") { %>
+            <li class="list">
+                <a onclick="finModal()">
+                    <span id="icon"><ion-icon name="easel"></ion-icon></span>
+                    <span id="title">Tabela</span>
+                </a>
+            </li>
+          <% } else{ %>
             <li class="list">
                 <a href="<%= pegar.setor %>formulario">
                     <span id="icon"><ion-icon name="reader-outline"></ion-icon></span>
@@ -336,7 +356,8 @@
                     <span id="title">Users</span>
                 </a>
             </li>
-          <% } %> 
+          <% } %>
+                          
           <li class="list">
                   <a href="excel">
                       <span id="icon"><ion-icon name="print"></ion-icon></span>
@@ -431,6 +452,26 @@
             if (event.target == modal) {
               modal.style.display = "none";
             }
+          }
+        </script>
+      <% } else if (pegar.setor == "financeiro") { %>
+        <script>
+          var modal = document.getElementById("finModal");
+          var btn = document.getElementById("myBtn");
+          var span = document.getElementsByClassName("close")[0];
+          function finModal() {
+            
+            modal.style.display = "block";
+            
+            }
+          span.onclick = function() {
+              modal.style.display = "none";
+            }
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            console.log("OK")
           }
         </script>
       <% } %>

@@ -221,36 +221,46 @@
   },
   "passagem": {
     "0": {
-      "dataHora": "16/11/2022 11:11",
-      "numeronf": "244121",
-      "exped": "expedicao"
+      "dataHora": "21/11/2022 12:55",
+      "numeronf": "...",
+      "exped": "..."
     },
     "1": {
-      "dataHora": "16/11/2022 11:11",
-      "numeronf": "244122",
-      "exped": "expedicao2"
+      "dataHora": "21/11/2022 10:4",
+      "numeronf": "...",
+      "exped": "..."
     },
     "2": {
-      "dataHora": "16/11/2022 11:12",
-      "numeronf": "244123",
-      "exped": "logistica"
+      "dataHora": "21/11/2022 10:6",
+      "numeronf": "...",
+      "exped": "..."
     },
     "3": {
-      "dataHora": "16/11/2022 11:13",
-      "numeronf": "244124",
-      "exped": "logistica"
+      "dataHora": "21/11/2022 10:7",
+      "numeronf": "...",
+      "exped": "..."
+    },
+    "4": {
+      "dataHora": "21/11/2022 10:8",
+      "numeronf": "...",
+      "exped": "..."
+    },
+    "5": {
+      "dataHora": "21/11/2022 10:11",
+      "numeronf": "244121",
+      "exped": "expedicao2"
     }
   },
   "financeiro": {
     "0": {
       "id": 0,
       "selecionarDado": 0,
-      "nropedido": "615887",
-      "statusnf": "EMITIDA",
+      "nropedido": "612555",
+      "statusnf": "PENDENTE",
       "vendedor": "FELIPE",
-      "cliente": "TESTE",
+      "cliente": "Anderson",
       "tipodefaturamento": "remessa_materiais",
-      "valordopedido": "500.00",
+      "valordopedido": "25,000.00",
       "formapgto": "...",
       "vendafrete": "...",
       "retiraentrega": "retirada",
@@ -260,73 +270,117 @@
       "fretedestacado": "...",
       "valorfrete": "",
       "dataentrega": "",
-      "operadornf": "ROSI",
+      "operadornf": "...",
       "obsfinanceiro": "...",
       "quemrecebeu": "..."
     },
     "1": {
       "id": 1,
       "selecionarDado": 1,
-      "nropedido": "615447",
-      "statusnf": "EMITIDA",
-      "vendedor": "FELIPE",
-      "cliente": "TESTE",
+      "nropedido": "232323",
+      "statusnf": "PENDENTE",
+      "vendedor": "ALINE",
+      "cliente": "wewewe",
       "tipodefaturamento": "remessa_materiais",
-      "valordopedido": "600.00",
+      "valordopedido": "323.23",
       "formapgto": "...",
       "vendafrete": "...",
-      "retiraentrega": "retirada",
+      "retiraentrega": "transportadora",
       "localdaentrega": "...",
       "localdecobranca": "...",
       "obs": "nenhuma observação",
       "fretedestacado": "...",
       "valorfrete": "",
       "dataentrega": "",
-      "operadornf": "APRENDIZ",
+      "operadornf": "...",
       "obsfinanceiro": "...",
       "quemrecebeu": "..."
     },
     "2": {
       "id": 2,
       "selecionarDado": 2,
-      "nropedido": "615447",
-      "statusnf": "EMITIDA",
+      "nropedido": "615888",
+      "statusnf": "PENDENTE",
       "vendedor": "FELIPE",
       "cliente": "TESTE",
       "tipodefaturamento": "normal",
-      "valordopedido": "1,500.00",
-      "formapgto": "Banricompras",
+      "valordopedido": "500.00",
+      "formapgto": "Master",
       "vendafrete": "Sim",
       "retiraentrega": "Entrega Agendada",
       "localdaentrega": "Sim",
       "localdecobranca": "Cobrar na empresa",
       "obs": "nenhuma observação",
-      "fretedestacado": "Destacado",
+      "fretedestacado": "Diluído",
       "valorfrete": "100.00",
-      "dataentrega": "2022-12-17",
-      "operadornf": "ROSI",
+      "dataentrega": "2022-12-21",
+      "operadornf": "...",
       "obsfinanceiro": "...",
       "quemrecebeu": "..."
     },
     "3": {
       "id": 3,
       "selecionarDado": 3,
-      "nropedido": "615887",
-      "statusnf": "EMITIDA",
-      "vendedor": "FELIPE",
+      "nropedido": "615888",
+      "statusnf": "PENDENTE",
+      "vendedor": "BETO",
       "cliente": "SICRED",
+      "tipodefaturamento": "normal",
+      "valordopedido": "100.00",
+      "formapgto": "Depósito",
+      "vendafrete": "Nao",
+      "retiraentrega": "entregaImediata",
+      "localdaentrega": "Não",
+      "localdecobranca": "Cobrar no Local",
+      "obs": "nenhuma observação",
+      "fretedestacado": "...",
+      "valorfrete": "",
+      "dataentrega": "",
+      "operadornf": "...",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "4": {
+      "id": 4,
+      "selecionarDado": 4,
+      "nropedido": "615444",
+      "statusnf": "PENDENTE",
+      "vendedor": "CRISTIAN",
+      "cliente": "M A A SABINO ",
       "tipodefaturamento": "normal",
       "valordopedido": "200.00",
       "formapgto": "Depósito",
       "vendafrete": "Sim",
       "retiraentrega": "entregaImediata",
-      "localdaentrega": "Não",
-      "localdecobranca": "Cobrar na empresa",
+      "localdaentrega": "Sim",
+      "localdecobranca": "on",
       "obs": "nenhuma observação",
-      "fretedestacado": "Destacado",  
-      "valorfrete": "100.00",
+      "fretedestacado": "Diluído",
+      "valorfrete": "120.00",
       "dataentrega": "",
-      "operadornf": "ROSI",
+      "operadornf": "...",
+      "obsfinanceiro": "...",
+      "quemrecebeu": "..."
+    },
+    "5": {
+      "id": 5,
+      "selecionarDado": 5,
+      "nropedido": "614777",
+      "statusnf": "EMITIDA",
+      "vendedor": "FAGUNDES",
+      "cliente": "SICRED",
+      "tipodefaturamento": "normal",
+      "valordopedido": "200.00",
+      "formapgto": "faturado",
+      "vendafrete": "Sim",
+      "retiraentrega": "Entrega Agendada",
+      "localdaentrega": "Sim",
+      "localdecobranca": "Pago na sala de vendas",
+      "obs": "nenhuma observação",
+      "fretedestacado": "Destacado",
+      "valorfrete": "100.00",
+      "dataentrega": "2022-12-21",
+      "operadornf": "...",
       "obsfinanceiro": "...",
       "quemrecebeu": "..."
     }
@@ -337,30 +391,41 @@
       "selecionarDado": "0",
       "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
       "statusdep": "Nota Fiscal sendo encaminhada para o setor"
+    },
+    "1": {
+      "id": 1,
+      "selecionarDado": "1",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
+    },
+    "2": {
+      "id": 2,
+      "selecionarDado": "2",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
+    },
+    "3": {
+      "id": 3,
+      "selecionarDado": "3",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
+    },
+    "4": {
+      "id": 4,
+      "selecionarDado": "4",
+      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
+      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
     }
   },
   "expedicao2": {
     "0": {
       "id": 0,
-      "selecionarDado": "1",
+      "selecionarDado": "5",
       "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
       "statusdep": "Nota Fiscal sendo encaminhada para o setor"
     }
   },
-  "logistica": {
-    "0": {
-      "id": 0,
-      "selecionarDado": "2",
-      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
-      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
-    },
-    "1": {
-      "id": 1,
-      "selecionarDado": "3",
-      "quemrecebeu": "Nota Fiscal sendo encaminhada para o setor",
-      "statusdep": "Nota Fiscal sendo encaminhada para o setor"
-    }
-  },
+  "logistica": {},
   "saida": {},
   "retorno": {},
   "registroentrega": {},

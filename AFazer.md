@@ -8,6 +8,15 @@
 - [ ] Criar condição no formulário saida/retorno para verificar número nf, placa, status sendo assim aceito submitar o formulário.
       
 # A Fazer
+- [ ] Local de cobraça corrigir campo (ON).
+      
+- [ ] Corrigir data de registro, (data e hora estão errados).
+      
+- [ ] Colocar autorefresh em todos formulários.
+      
+- [ ] Campo Venda/frete (undefined).
+      
+- [ ] Ajustar os links dos formulários para cada setor quando logar no home.
       
 
 # Fazendo
