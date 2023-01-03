@@ -7,34 +7,50 @@
         <th>Orçamento</th>
         <th>Cliente</th>
         <th>Tipo|Faturamento</th>
-        <th>Valor R$</th>
+        <th>Valor|R$</th>
         <th>Forma|Pagamento</th>
+        <th>Parcelas</th>
         <th>Venda|Frete</th>
         <th>Retira|Entrega|Transp.</th>
+        <th>Frete|por|conta</th>
         <th>Entrega|cadastro</th>
         <th>Local|Cobrança</th>
         <th>Observações(1)</th>
         <th>Tipo|Frete</th>
         <th>Valor|Frete</th>
         <th>Data|Entrega</th>
-        <th>Operador|NF</th>
-        <th>Status|NF</th>
-        <th>OBS|Financeiro</th>
+        <th
+          style="background: #a6f9ff"
+          >Operador|NF</th>
+        <th
+          style="background: #a6f9ff"
+          >Status|NF</th>
+        <th
+          style="background: #a6f9ff"
+          >OBS|Financeiro</th>
     <% } %>
       
       <% if(pegar == "saida") { %>
-        <th>Cod. Entrega</th>
+        <th>Cod. Carga</th>
       <% } %>
         
-        <th>Número|NF</th>
+        <th
+          style="background: #a6f9ff"
+          >Número|NF</th>
     <% if(pegar == "financeiro") { %>
-        <th>Exped/Log</th>
+        <th
+          style="background: #a6f9ff"
+          >Exped/Log</th>
     <% } %>
       <% if(pegar == "expedicao2" || pegar == "expedicao" || pegar == "financeiro" || pegar == "logistica") { %>
-        <th>Responsável|NF</th>
+        <th
+          style="background: #a6f9ff"
+          >Responsável|NF</th>
       <% } %>
       <% if(pegar == "expedicao2" || pegar == "expedicao" || pegar == "logistica") { %>
-        <th>StatusDep</th>
+        <th
+          style="background: #a6f9ff"
+          >Status</th>
       <% } %>
 
       <% if(pegar == "saida") { %>

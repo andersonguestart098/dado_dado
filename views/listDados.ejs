@@ -24,7 +24,7 @@ function autoreflash(a,b) {
     let index = swi[1]
     let target = swi[0]
 
-    let result = JSON.stringify({mudar: target, value: valor, pegar: pegar, index: index, valueAfter: valorAfter , numeroNf: document.querySelector("#Pvalor_numeronfX"+index).innerText}, null, 2)
+    let result = JSON.stringify({mudar: target, value: valor, pegar: pegar, index: index, valueAfter: valorAfter , numeroNf: document.querySelector("#valor_numeronfX"+index).innerText}, null, 2)
 fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
     method: "POST",
     body: result,
@@ -100,7 +100,7 @@ function setData(post, pegar, i) {
     document.querySelector("#valor_datahoraX"+i).innerText = post["passagem"][post[pegar][i].selecionarDado].dataHora
   document.querySelector("#valor_idX"+i).innerText = post[pegar][i].id
 
-  document.querySelector("#Pvalor_numeronfX"+i).innerText = post["passagem"][post[pegar][i].selecionarDado].numeronf
+  document.querySelector("#valor_numeronfX"+i).innerText = post["passagem"][post[pegar][i].selecionarDado].numeronf
                                                                                 
         document.querySelector("#PstatusdepX"+i).innerText = post[pegar][i].statusdep
         document.querySelector("#Pvalor_quemrecebeu"+i).innerText = post[pegar][i].quemrecebeu
@@ -176,13 +176,14 @@ function setData(post, pegar, i) {
 document.querySelector("#valor_valordopedidoX"+i).innerText = post[pegar][i].valordopedido
 
     document.querySelector("#valor_formapgtoX"+i).innerText = post[pegar][i].formapgto
-          document.querySelector("#valor_vendafreteX"+i).innerText = post[pegar][i].vendafrete
-   document.querySelector("#valor_retiraentregaX"+i).innerText = post[pegar][i].retiraentrega
+    document.querySelector("#valor_parcelasX"+i).innerText = post[pegar][i].parcelas
+    document.querySelector("#valor_vendafreteX"+i).innerText = post[pegar][i].vendafrete
+    document.querySelector("#valor_retiraentregaX"+i).innerText = post[pegar][i].retiraentrega
     document.querySelector("#valor_localdaentregaX"+i).innerText = post[pegar][i].localdaentrega
     document.querySelector("#valor_localdecobrancaX"+i).innerText = post[pegar][i].localdecobranca
       
     document.querySelector("#valor_obs1X"+i).innerText = post[pegar][i].obs
-     document.querySelector("#valor_fretedestacadoX"+i).innerText = post[pegar][i].fretedestacado
+    document.querySelector("#valor_fretedestacadoX"+i).innerText = post[pegar][i].fretedestacado
    
     document.querySelector("#valor_valorfreteX"+i).innerText = post[pegar][i].valorfrete
    

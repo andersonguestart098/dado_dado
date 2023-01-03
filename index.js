@@ -80,10 +80,18 @@ app.get("/home", (req, res) => {
       if (err) {
         return console.log("Erro ao ler arquivo")
       }
-      let dataBD = JSON.parse(data)
+      fs.readFile("./database/usuarios.json", "utf8", function(err, user) {
+        if (err) {
+          return console.log("Erro ao ler arquivo")
+        }
+        let dataBD = {
+          ...JSON.parse(user),
+          ...JSON.parse(data)
+        }
 
 
-      res.render("telaHome.ejs", { dados: dataBD, pegar: dataBD.id1.usuarios[req.cookies.activeData] })
+        res.render("telaHome.ejs", { dados: dataBD, pegar: dataBD.id1.usuarios[req.cookies.activeData] })
+      })
     })
   } else {
     res.render("pageError.ejs")
@@ -115,6 +123,9 @@ app.get("/financeiroformulario", (req, res) => {
   }
 })
 
+app.get("/ass", (req, res) => {
+  res.render("assinatura.ejs")
+})
 
 app.get("/logisticaformulario", (req, res) => {
   if (req.cookies.activeData != null) {
@@ -174,7 +185,7 @@ app.get("/registroentregaformulario", (req, res) => {
       let d = JSON.parse(data)
 
 
-      res.render("bodyForm.ejs", { pegar: "registroentrega", titulo: "REGISTRO DE ENTREGA", dados: d })
+      res.render("bodyForm.ejs", { pegar: "registroentrega", titulo: "CONFIRMAÇÃO DE ENTREGA", dados: d })
     })
   } else {
     res.render("pageError.ejs")
@@ -191,7 +202,7 @@ app.get("/canhotoformulario", (req, res) => {
       let d = JSON.parse(data)
 
 
-      res.render("bodyForm.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: d })
+      res.render("bodyForm.ejs", { pegar: "canhoto", titulo: "REGISTRAR CANHOTO", dados: d })
     })
   } else {
     res.render("pageError.ejs")
@@ -249,7 +260,7 @@ app.get("/expedicao", (req, res) => {
       let d = JSON.parse(data)
 
 
-      res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO 1", dados: d, i: 0 })
     })
   } else {
     res.render("pageError.ejs")
@@ -329,7 +340,7 @@ app.get("/registroentrega", (req, res) => {
 
       let d = JSON.parse(data)
 
-      res.render("bodyList.ejs", { pegar: "registroentrega", titulo: "REGISTRO ENTREGA", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "registroentrega", titulo: "CONFIRMAÇÃO DE ENTREGA", dados: d, i: 0 })
     })
   } else {
     res.render("pageError.ejs")
@@ -562,9 +573,9 @@ app.get("/dev", (req, res) => {
       },
       passagem: {},
       financeiro: {},
-      expedicao: {},
-      expedicao2: {},
-      logistica: {},
+      expedicao: [],
+      expedicao2: [],
+      logistica: [],
       saida: {},
       retorno: {},
       registroentrega: {},
@@ -597,7 +608,7 @@ app.post('/verificarLogin', (req, res) => {
   let password = req.body.password;
 
 
-  fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+  fs.readFile("./database/usuarios.json", "utf8", function(err, data) {
     if (err) {
       return console.log("Erro ao ler arquivo")
     }
@@ -612,6 +623,26 @@ app.post('/verificarLogin', (req, res) => {
       }
     }
   })
+})
+app.post("/assinatura", (req, res) => {
+  if (req.cookies.activeData != null) {
+    fs.readFile("./database/" + corrente + ".json", "utf8", function(err, data) {
+      if (err) {
+        return console.log("Erro ao ler arquivo")
+      }
+      let dataBD = JSON.parse(data)
+      let { src } = JSON.parse(req.body)
+
+      console.log(dataBD.id1.usuarios[req.cookies.activeData])
+      if (!dataBD.id1.usuarios[req.cookies.activeData].assinatura) {
+        dataBD.id1.usuarios[req.cookies.activeData].assinatura = src
+        fs.writeFileSync("./database/usuarios.json", JSON.stringify(dataBD, null, 2))
+      }
+    })
+  } else {
+    res.render("pageError.ejs")
+  }
+  //console.log(src)
 })
 
 app.post("/mudancaBancoDados", (req, res) => {
@@ -644,7 +675,7 @@ app.post("/mudancaBancoDados", (req, res) => {
             seletorDados = prop
             for (bprop in d[after]) {
               if (d[after][bprop].selecionarDado == seletorDados) {
-                delete d[after][bprop]
+                d[after].splice(bprop, 1)
               }
             }
             d[valor][objAtual] = {
@@ -709,12 +740,12 @@ app.post('/registrarBancoDados', (req, res) => {
     let ts = Date.now()
     let d = new Date(ts);
     let seletorDados
-    let dateFormated = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours() - 3}:${d.getMinutes()}`
+    let dateFormated = `${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()} ${d.getHours() - 3}:${d.getMinutes()}`
 
     if (pegar == "financeiro" || pegar == "saida" || pegar == "registroentrega") {
       dados["passagem"][objAtual] = {
         dataHora: dateFormated,
-        numeronf: dataReq.numeronf,
+        numeronf: dataReq.numeronf ?? "000000" + objAtual,
         exped: "..."
       }
     } else {
@@ -724,7 +755,6 @@ app.post('/registrarBancoDados', (req, res) => {
         }
       }
     }
-
     switch (pegar) {
       case "financeiro":
         dados[pegar][objAtual] = {
@@ -737,8 +767,10 @@ app.post('/registrarBancoDados', (req, res) => {
           tipodefaturamento: dataReq.tipodefaturamento,
           valordopedido: dataReq.valordopedido,
           formapgto: dataReq.formapgto,
+          parcelas: dataReq.parcelas,
           vendafrete: dataReq.vendafrete,
           retiraentrega: dataReq.retiraentrega,
+          freteconta: dataReq.freteconta,
           localdaentrega: dataReq.localdaentrega,
           localdecobranca: dataReq.localdecobranca,
           obs: dataReq.obs,
@@ -822,6 +854,8 @@ app.get("/database", (req, res) => {
     res.json(pegarDados)
   })
 })
+
+
 
 /*
 * -------------------------------

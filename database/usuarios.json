@@ -1,0 +1,33 @@
+{
+"id1": {
+  "usuarios": {
+    "0": {
+      "nome": "Developer",
+      "user": "D",
+      "previlegios": 11,
+      "setor": "ALL",
+      "foto": "https://i.pinimg.com/originals/8c/96/93/8c969356e667e3aa0d145145e082e7ef.jpg",
+      "pass": 1,
+      "assinatura": false
+    },
+    "1": {
+      "nome": "Felipe",
+      "user": "Felipe",
+      "previlegios": 10,
+      "setor": "ALL",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmTPNAhEtoWk0P5NWMq-mGq3ToNhScUMVzbb9_cvDN9Uf8rfLbv7K_dnVnxWUYQdEN_3PSnjBIkTiJ10mBPEkMvYzL_y3g=w1366-h621",
+      "pass": 123,
+      "assinatura": false
+    },
+    "2": {
+      "nome": "Aline",
+      "user": "Aline",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    }
+  }
+}
+}

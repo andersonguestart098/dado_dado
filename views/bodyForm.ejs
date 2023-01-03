@@ -19,7 +19,7 @@
                 </div>
             </div>
             <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#cadUsuarioModal"> <!-- o nome cadModal é para não confundir com a aula do professor, mas no meu caso seria 'pedidoModal' pois trata-se de lançamento de pedidos e não de usuarios. -->
-                        Enviar pedido
+                        REGISTRAR
                     </button>
                 </div>
             </div>
@@ -196,10 +196,17 @@
             <input type="text"  name="numeronf" class="form-control" id="numeronf" placeholder="Se for mais de uma nota separe por virgula...">
             <br>
 
-          <label for="nomeconferente" class="col-form-label">Nome do Conferente:</label>
+          <label for="nomeconferente" class="col-form-label">Conferente:</label>
           <br>
-          <input type="text"  name="nomeconferente" class="form-control" id="nomeconferente" placeholder="Preencha o nome do conferente...">
-            <br>
+          <select onchange="aparecer(this, entrega)" name="nomeconferente" id="nomeconferente">
+            <option value=" " selected="selected"> </option>
+            <option value="EVERTON">EVERTON</option>
+            <option value="DUDU">DUDU</option>
+            <option value="MAX">MAX</option>
+            <option value="CRISTIANO D.">CRISTIANO D.</option>
+            <option value="MANOEL">MANOEL</option>
+          </select>
+              <br>
 
 
           <label for="placa" class="col-form-label">Placa:                 </label>
@@ -334,13 +341,8 @@
           </select>
               <br>
 
-          <label for="concluida" class="col-form-label">Status NF:</label>
-              <br>
-    
-            <select name="concluida" id="concluida">
-            <option value=" "> </option>
-            <option value="CONCLUIDO">CONCLUIDO</option>
-          </select>
+          <input type="hidden"  name="concluida" class="form-control" id="concluida" value="CONCLUIDO">
+            <br>
  
               <% } %>              
 
@@ -579,7 +581,6 @@ document.querySelector("#nropedido").value,
           obs: document.querySelector("#obs").value
           }
           break
-
       }
     fetch('https://projeto.andersonhenri15.repl.co/registrarBancoDados', {
     method: "POST",
@@ -590,7 +591,7 @@ document.querySelector("#nropedido").value,
   .then(function(res){ return res.json() })
   .then(function(data){ 
     alert( data.msg ) 
-
+    window.location.reload();
   })
   }
 </script>

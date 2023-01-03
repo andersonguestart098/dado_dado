@@ -17,10 +17,14 @@
   <td id='valor_valordopedidoX<%= dados[pegar][i].id %>'><%= dados[pegar][i].valordopedido %></td>
 
   <td id='valor_formapgtoX<%= dados[pegar][i].id %>'><%= dados[pegar][i].formapgto %></td>
+
+  <td id='valor_parcelasX<%= dados[pegar][i].id %>'><%= dados[pegar][i].parcelas %></td>
   
-    <td id='valor_vendafreteX<%= dados[pegar][i].id %>'><%= dados[pegar][i].vendafrete %></td>
+  <td id='valor_vendafreteX<%= dados[pegar][i].id %>'><%= dados[pegar][i].vendafrete %></td>
 
   <td id='valor_retiraentregaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].retiraentrega %></td>
+
+    <td id='valor_fretecontaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].freteconta %></td>
 
   <td id='valor_localdaentregaX<%= dados[pegar][i].id %>'><%= dados[pegar][i].localdaentrega %></td>
 
@@ -48,10 +52,10 @@
 -====================
 -->
 
-<td 
+<td
   id='valor_operadornfX<%= dados[pegar][i].id %>'>
   
-    <select 
+    <select
       onchange="autoreflash(this,Pvalor_operadorX<%= dados[pegar][i].id %>)" 
       name='operador' 
       id='operadorX<%= dados[pegar][i].id %>'>
@@ -111,7 +115,7 @@
         </p>
 </td>
 
-      <td 
+      <td
         id='valor_numeronfX<%= dados[pegar][i].id %>'>
         
       <input 
@@ -144,7 +148,7 @@
       <option value='ENTREGUE AO CLIENTE'>ENTREGUE AO CLIENTE</option>
       <option value='MAX'>MAX</option>
       <option value='DUDU'>DUDU</option>
-      <option value='TINGA'>TINGA</option> 
+      <option value='TINGA'>TINGA</option>S
       <option value='MANOEL'>MANOEL</option> 
       <option value='DIEIMES'>DIEIMES</option> 
       <option value='CRISTIANO DUARTE'>CRISTIANO DUARTE</option> 

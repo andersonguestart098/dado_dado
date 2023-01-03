@@ -1,35 +1,31 @@
-<tr style="width:200px" class='cordaLinha<%= dados[pegar][i].id %>'>
-  <td colspan='0.5' id='valor_idX<%= dados[pegar][i].id %>'><%= dados[pegar][i].id %></td>
+<tr style="width:200px" class='cordaLinha<%= i %>'>
+  <td colspan='0.5' id='valor_idX<%= i %>'><%= i %></td>
   
-<td id='valor_datahoraX<%= dados[pegar][i].id %>'>
-    <input type='hidden' id='datahora_textX<%= dados[pegar][i].id %>' value='$datahora'><%= dados["passagem"][dados[pegar][i].selecionarDado].dataHora %></td>
+<td id='valor_datahoraX<%= i %>'>
+    <input type='hidden' id='datahora_textX<%= i %>' value='$datahora'><%= dados["passagem"][dados[pegar][i].selecionarDado].dataHora %></td>
 
 
-      <td id='valor_numeronfX<%= dados[pegar][i].id %>'>
-      <input onchange="autoreflash(this, Pvalor_numeronfX<%= dados[pegar][i].id %>)" type='text' value="<%= dados[pegar][i].numeronf %>" id='numeronf_textX<%= dados[pegar][i].id %>'>
-      <p onclick='make(this,numeronf_textX<%= dados[pegar][i].id %>)' id='Pvalor_numeronfX<%= dados[pegar][i].id %>'><%= dados["passagem"][dados["financeiro"][i].selecionarDado].numeronf %></p>
+      <td id='valor_numeronfX<%= i %>'>
+     <%= dados["passagem"][dados[pegar][i].selecionarDado].numeronf %>
     </td>
        
    
-    <td id='valor_quemrecebeuX<%= dados[pegar][i].id %>'>
-      <select onchange="autoreflash(this,Pvalor_quemrecebeu<%= dados[pegar][i].id %>)" name='quem' id='quemX<%= dados[pegar][i].id %>'>
+    <td id='valor_quemrecebeuX<%= i %>'>
+      <select onchange="autoreflash(this,Pvalor_quemrecebeu<%= i %>)" name='quem' id='quemX<%= i %>'>
       <option value=''></option>
-      <option value='MAX'>MAX</option>
-      <option value='DUDU'>DUDU</option>
-      <option value='TINGA'>TINGA</option> 
       <option value='MANOEL'>MANOEL</option> 
-      <option value='DIEIMES'>DIEIMES</option> 
       <option value='CRISTIANO DUARTE'>CRISTIANO DUARTE</option> 
     </select>
 
-      <p onclick='make(this,quemX<%= dados[pegar][i].id %>)' id='Pvalor_quemrecebeu<%= dados[pegar][i].id %>'><%= dados[pegar][i].quemrecebeu %></p>
+      <p onclick='make(this,quemX<%= i %>)' id='Pvalor_quemrecebeu<%= i %>'><%= dados[pegar][i].quemrecebeu %></p>
     </td>
 
 
  
   
-      <td id='StatusdepX<%= dados[pegar][i].id %>'>
-    <select onchange="autoreflash(this,PstatusdepX<%= dados[pegar][i].id %>)" name='quem' id='statusdepX<%= dados[pegar][i].id %>'><option value='PENDENTE'>PENDENTE</option> 
-      <option value='AGUARDANDO CLIENTE'>AGUARDANDO TRANSPORTADORA</option>
+      <td id='StatusdepX<%= i %>'>
+    <select onchange="autoreflash(this,PstatusdepX<%= i %>)" name='quem' id='statusdepX<%= i %>'><option value='PENDENTE'>PENDENTE</option> 
+      <option value='AGUARDANDO CLIENTE'>AGUARDANDO CLIENTE</option>
       <option value='CLIENTE RETIROU'>CLIENTE RETIROU</option>
-    </select><p onclick='make(this,statusdepX<%= dados[pegar][i].id %>)' id='PstatusdepX<%= dados[pegar][i].id %>' class="orientador"><%= dados[pegar][i].statusdep %></p></td>
+      <option value='AGUARDANDO TRANSPORTADORA'>AGUARDANDO TRANSPORTADORA</option>
+    </select><p onclick='make(this,statusdepX<%= i %>)' id='PstatusdepX<%= i %>' class="orientador"><%= dados[pegar][i].statusdep %></p></td>

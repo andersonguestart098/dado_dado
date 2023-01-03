@@ -1,13 +1,10 @@
-{
-  "id1": {
-    "usuarios": {
-      "0": {
-        "nome": "Matheus",
-        "user": "Matheus",
-        "previlegios": 10,
-        "setor": "financeiro",
-        "foto": "https://i.stack.imgur.com/atUuf.png",
-        "pass": 800
+"0": {
+        "nome": "Developer",
+        "user": "D",
+        "previlegios": 11,
+        "setor": "ALL",
+        "foto": "https://i.pinimg.com/originals/8c/96/93/8c969356e667e3aa0d145145e082e7ef.jpg",
+        "pass": 1
       },
       "1": {
         "nome": "Felipe",
@@ -216,88 +213,84 @@
         "setor": "ALL",
         "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
         "pass": 123456
+      },
+      "27": {
+        "nome": "Alexandre",
+        "user": "Alexandre",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "28": {
+        "nome": "Dionatha",
+        "user": "Dionatha",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "29": {
+        "nome": "Douglas",
+        "user": "Douglas",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "30": {
+        "nome": "Igon",
+        "user": "Igon",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "31": {
+        "nome": "Juliano",
+        "user": "Juliano",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "32": {
+        "nome": "Matheus",
+        "user": "Matheus",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "33": {
+        "nome": "Vanderlei",
+        "user": "Vanderlei",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "34": {
+        "nome": "Vilnei",
+        "user": "Vilnei",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "35": {
+        "nome": "William",
+        "user": "William",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
+      },
+      "36": {
+        "nome": "Paulo Alexandre",
+        "user": "Paulo Alexandre",
+        "previlegios": 1,
+        "setor": "ALL",
+        "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmT8o4pW_p7UT4UqsXZH7HwbXhHvioftI5LOtGR3uYAjBh2fHE1EzCsO-iy4_tjsA7elSJCpM6Hmr6dFIebyHXKagA9xAw=w1920-h969",
+        "pass": 1217
       }
-    }
-  },
-  "passagem": {
-    "0": {
-      "dataHora": "8/10/2022 18:50",
-      "numeronf": "248555",
-      "exped": "expedicao2",
-      "usada": "nao"
-    },
-    "1": {
-      "dataHora": "8/10/2022 18:53",
-      "numeronf": "248556",
-      "exped": "logistica",
-      "usada": "nao"
-    }
-  },
-  "financeiro": {
-    "0": {
-      "id": 0,
-      "selecionarDado": 0,
-      "nropedido": "615888",
-      "statusnf": "PENDENTE",
-      "vendedor": "ALINE",
-      "cliente": "Felipe",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "R$2.356,03",
-      "formapgto": "BOLETO",
-      "retiraentrega": "RETIRA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "EMBALAR BEM OS MATERIAIS",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "...",
-      "quemrecebeu": "..."
-    },
-    "1": {
-      "id": 1,
-      "selecionarDado": 1,
-      "nropedido": "614777",
-      "statusnf": "EMITIDA",
-      "vendedor": "MARCIA",
-      "cliente": "Anderson",
-      "tipodefaturamento": "NORMAL",
-      "valordopedido": "1.000.000,00",
-      "formapgto": "CARTÃO DEBITO",
-      "retiraentrega": "RETIRA",
-      "localdaentrega": "",
-      "localdecobranca": " ",
-      "obs": "Mandar cópias da nf para giliard",
-      "fretedestacado": " ",
-      "valorfrete": "",
-      "dataentrega": "",
-      "operadornf": "ROSI",
-      "obsfinanceiro": "...",
-      "quemrecebeu": "..."
-    }
-  },
-  "expedicao": {},
-  "expedicao2": {
-    "0": {
-      "id": 0,
-      "selecionarDado": "0",
-      "quemrecebeu": "MANOEL",
-      "statusdep": "AGUARDANDO CLIENTE"
-    }
-  },
-  "logistica": {
-    "0": {
-      "id": 0,
-      "selecionarDado": "1",
-      "motorista": "ALEXANDRE",
-      "placa": "IZT1E84",
-      "statuslog": "IZT1E84",
-      "numeronf": "248556",
-      "quemrecebeu": "DIEIMES"
-    }
-  },
-  "saida": {},
-  "retorno": {},
-  "canhoto": {}
-}
