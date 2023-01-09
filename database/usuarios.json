@@ -27,6 +27,321 @@
       "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
       "pass": 123,
       "assinatura": false
+    },
+    "3": {
+      "nome": "Marcia",
+      "user": "Marcia",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "4": {
+      "nome": "Luis",
+      "user": "Luis",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "5": {
+      "nome": "Gelson",
+      "user": "Gelson",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "6": {
+      "nome": "Wagner",
+      "user": "Wagner",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "7": {
+      "nome": "Fernando",
+      "user": "Fernando",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "8": {
+      "nome": "Dieimes",
+      "user": "Dieimes",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "9": {
+      "nome": "Manoel",
+      "user": "Manoel",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "10": {
+      "nome": "Max",
+      "user": "Max",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "11": {
+      "nome": "Cristiano",
+      "user": "Cristiano",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "12": {
+      "nome": "Machado",
+      "user": "Machado",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "13": {
+      "nome": "Guilherme",
+      "user": "Guilherme",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "14": {
+      "nome": "Rosi",
+      "user": "Rosi",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "15": {
+      "nome": "Renita",
+      "user": "Renita",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "16": {
+      "nome": "Nadia",
+      "user": "Nadia",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "17": {
+      "nome": "Julia",
+      "user": "Julia",
+      "previlegios": 10,
+      "setor": "ALL",
+      "foto": "https://replit.com/@AndersonHenri15/projeto#public/11629b7c-234d-4f57-9003-9d4ef5949e33%20(1).jfif",
+      "pass": 123,
+      "assinatura": false
+    },
+    "18": {
+      "nome": "Oscar",
+      "user": "Oscar",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "19": {
+      "nome": "Gaspar",
+      "user": "Gaspar",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "20": {
+      "nome": "Paulo",
+      "user": "Paulo",
+      "previlegios": 10,
+      "setor": "ALL",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "21": {
+      "nome": "Dani",
+      "user": "Dani",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "22": {
+      "nome": "Everton",
+      "user": "Everton",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "23": {
+      "nome": "Max",
+      "user": "Max",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "24": {
+      "nome": "Dudu",
+      "user": "Dudu",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "25": {
+      "nome": "Marcia.s",
+      "user": "Marcia.s",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "26": {
+      "nome": "Beto",
+      "user": "Beto",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "27": {
+      "nome": "Dieimes",
+      "user": "Dieimes",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "28": {
+      "nome": "Alexandre",
+      "user": "Alexandre",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "29": {
+      "nome": "Dionatha",
+      "user": "Dionatha",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "30": {
+      "nome": "Douglas",
+      "user": "Douglas",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "31": {
+      "nome": "Igon",
+      "user": "Igon",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "32": {
+      "nome": "Juliano",
+      "user": "Juliano",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "33": {
+      "nome": "Matheus",
+      "user": "Matheus",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "34": {
+      "nome": "Vanderlei",
+      "user": "Vanderlei",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "35": {
+      "nome": "Vilnei",
+      "user": "Vilnei",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "36": {
+      "nome": "William",
+      "user": "William",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
+    },
+    "37": {
+      "nome": "Paulo Alexandre",
+      "user": "Paulo Alexandre",
+      "previlegios": 1,
+      "setor": "financeiro",
+      "foto": "https://lh3.googleusercontent.com/drive-viewer/AJc5JmRRDey8FkwUOY1CBfXZwAsvLO-V6UPEBnozlKBh62Pe9IZfnR1XFGq5Fckcv1-Qgv_qGk-pW9yFKgAxuw3VraXjiuv1Qw=w1366-h617",
+      "pass": 123,
+      "assinatura": false
     }
   }
 }

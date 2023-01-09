@@ -65,11 +65,24 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
     switch(selects.innerText) {
       case "ENTREGUE":
       case "CLIENTE RETIROU":
+      case "ALEXANDRE":
+      case "DIONATHA":
+      case "DOUGLAS":
+      case "IGON":
+      case "JULIANO":
+      case "MATHEUS":
+      case "VANDERLEI":
+      case "VILNEI":
+      case "WILLIAM":
+      case "PAULO ALEXANDRE":
+      case "CRISTIANO":
       case "EMITIDA":
         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(102, 178, 102)"
         corte.style.color ="rgb(255, 255, 255)"
         break
+
+
       case "EM TRANSITO":
       case "...":
       case "Nota Fiscal sendo encaminhada para o setor":
@@ -78,16 +91,27 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
         corte.style.background ="rgb(255, 165, 0)"
         corte.style.color ="rgb(255, 255, 255)"
         break
+        
       case "AGUARDANDO ROTA":
       case "AGUARDANDO CLIENTE":
+      case "AGUARDANDO VENDEDOR":
       case "RETORNOU AO VENDEDOR":
         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(76, 76, 255)"
         corte.style.color ="rgb(255, 255, 255)"
         break
+        
       case "CANCELADA":
          corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(255, 76, 76)"
+        corte.style.color ="rgb(255, 255, 255)"
+        break
+
+      case "AGUARDANDO TRANSPORTADORA":
+      case "EM SEPARAÇÃO":
+      case "AGUARDANDO CLIENTE.":
+         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
+        corte.style.background ="rgb(198, 52, 235)"
         corte.style.color ="rgb(255, 255, 255)"
         break
     }

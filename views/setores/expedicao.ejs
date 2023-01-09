@@ -24,4 +24,5 @@
     <select onchange="autoreflash(this,PstatusdepX<%= i %>)" name='quem' id='statusdepX<%= i %>'><option value='PENDENTE'>PENDENTE</option>
       <option value='AGUARDANDO CLIENTE'>AGUARDANDO CLIENTE</option>
       <option value='CLIENTE RETIROU'>CLIENTE RETIROU</option>
+      <option value='CANCELADA'>CANCELADA</option>
     </select><p onclick='make(this,statusdepX<%= i %>)' id='PstatusdepX<%= i %>' class="orientador"><%= dados[pegar][i].statusdep %></p></td>

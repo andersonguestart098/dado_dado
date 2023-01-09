@@ -4,9 +4,23 @@
 
 # A Fazer
 
-- [ ] Colocar caixa de seleção qtd de parcelas até 6x.
+- [ ] ajeitar logins com seus respectivos setores, no setor logistica aparecer lista de formularios (confirmação de entrega e retorno da entrega).
+
+- [ ] colocar tabela de saída do caminhão editavel.
+
+- [ ] colocar quebra de linha na observações do formulario do financeiro, ele vai indo apra o lado.
+
+- [ ] colocar linha verde nos motoristas.(Dieimes pediu).
+      
+- [ ] Não aparecer nas tabelas dos setores as linhas que não forem preenchidas, geralmente são as que RETORNOU AO VENDEDOR, as expedições por exemplo: nf: ... exped: ... aparece nas tabelas ..., verificar registro para entender melhor.
+- [ ] Quando der um tempo, fazer tabela dos registros pendentes.
+- [ ] 
+- [ ] Verificar mudança de setores (dá binoculos mas volta a funcionar em seguida).
+
 
 # Para Alfa.
+
+- [ ] idéia Douglas (verificar código da entrega e números de nota para auto completar formulario de registro de entrega, para não precisar digitar todas informações. )
             
 - [jotform é a mesma coisa, ficará pra alfa pois tera que revisar toda estrutura do formulário] Verificar condicionantes da entrega agendada, quando trocar para retira ou outra opção, ocultar agenda e etc.
 
