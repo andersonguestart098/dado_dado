@@ -1,4 +1,4 @@
-<% for( i= Object.keys(dados[pegar]).length-1; i > -1; i--) { %>
+<% for( i= max-1; i > min; i--) { %>
         <%- include('data'); %>
 <% } %>
 
@@ -43,10 +43,9 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
     let pegar = "<%= pegar %>"
     colorir(pegar)
     function colorir(c) {
-    let count = document.querySelectorAll(".orientador").length
-    console.log(count)
+    let count = <%= max %>
     let query
-    for(let i=count-1; i > -1; i--) {
+    for(let i= <%= max %>-1 ; i > <%= min %>; i--) {
     switch(c) {
       case "logistica":
       case "expedicao":
@@ -59,7 +58,6 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
         break
     }
     let selects = document.querySelector(query)
-    console.log(selects.innerText)
     
     let corte
     switch(selects.innerText) {
@@ -91,7 +89,8 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
         corte.style.background ="rgb(255, 165, 0)"
         corte.style.color ="rgb(255, 255, 255)"
         break
-        
+
+      
       case "AGUARDANDO ROTA":
       case "AGUARDANDO CLIENTE":
       case "AGUARDANDO VENDEDOR":
@@ -104,6 +103,18 @@ fetch('https://projeto.andersonhenri15.repl.co/mudancaBancoDados', {
       case "CANCELADA":
          corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
         corte.style.background ="rgb(255, 76, 76)"
+        corte.style.color ="rgb(255, 255, 255)"
+        break
+
+        case "EM OBSERVAÇÃO T.I":
+         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
+        corte.style.background ="rgb(71, 245, 152)"
+        corte.style.color ="rgb(255, 255, 255)"
+        break
+
+        case "TITULO EM ABERTO":
+         corte = document.querySelector(".cordaLinha"+selects.id.split("X")[1])
+        corte.style.background ="rgb(255, 134, 59)"
         corte.style.color ="rgb(255, 255, 255)"
         break
 

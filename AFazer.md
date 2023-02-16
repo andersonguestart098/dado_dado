@@ -3,6 +3,21 @@
 ![Image of Einstein](https://upload.wikimedia.org/wikipedia/commons/6/6f/Einstein-formal_portrait-35.jpg)
 
 # A Fazer
+- [ ] Fazer opção na tabela finananceiro para expedição NULA.
+  
+- [ ] Verificar se dados foram preenchidos na tabela do financeiro, se não for preenchido, limitar envio.
+
+- [ ] Verificar paginação.
+
+- [ ] Tirar caixa de menssagem "editado com sucesso!".
+      
+- [ ] Verificar autorefresh automatico nos formularios de confirmação de entrega (as vezes não dá tempo de preencher pq atualiza sozinho).
+      
+- [ ] Verificar se tabela de registro de entrega não está influenciando nos dados aleatórios que aparece na tabela onde colocamos "EM OBSERVAÇÃO T.I".
+
+
+
+
 
 - [ ] ajeitar logins com seus respectivos setores, no setor logistica aparecer lista de formularios (confirmação de entrega e retorno da entrega).
 

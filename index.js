@@ -1,3 +1,4 @@
++
 let express = require('express');
 const bodyParser = require("body-parser");
 const fs = require("fs");
@@ -223,10 +224,11 @@ app.get("/financeiro", (req, res, next) => {
       if (err) {
         return console.log("Erro ao ler arquivo")
       }
-
+  
       let d = JSON.parse(data)
-
-      res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: d, i: 0 })
+      let corredor = req.param("corredor") ? req.param("corredor") : 0
+      let limitador = corredor*2
+      res.render("bodyList.ejs", { pegar: "financeiro", titulo: "FINANCEIRO", dados: d, i: 0, max: Object.keys(d["financeiro"]).length-limitador, min: Object.keys(d["financeiro"]).length-15-limitador })
     })
   } else {
     res.render("pageError.ejs")
@@ -242,8 +244,9 @@ app.get("/expedicao2", (req, res) => {
       }
 
       let d = JSON.parse(data)
-
-      res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2", dados: d, i: 0 })
+      let corredor = req.param("corredor") ? req.param("corredor") : 0
+      let limitador = corredor*2
+      res.render("bodyList.ejs", { pegar: "expedicao2", titulo: "EXPEDIÇÃO 2", dados: d, i: 0, max: Object.keys(d["expedicao2"]).length-limitador, min: Object.keys(d["expedicao2"]).length-15-limitador })
     })
   } else {
     res.render("pageError.ejs")
@@ -258,9 +261,10 @@ app.get("/expedicao", (req, res) => {
       }
 
       let d = JSON.parse(data)
+      let corredor = req.param("corredor") ? req.param("corredor") : 0
+      let limitador = corredor*2
 
-
-      res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO 1", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "expedicao", titulo: "EXPEDIÇÃO 1", dados: d, i: 0, max: Object.keys(d["expedicao"]).length-limitador, min: Object.keys(d["expedicao"]).length-15-limitador })
     })
   } else {
     res.render("pageError.ejs")
@@ -275,8 +279,10 @@ app.get("/logistica", (req, res) => {
       }
 
       let d = JSON.parse(data)
+      let corredor = req.param("corredor") ? req.param("corredor") : 0
+      let limitador = corredor*2
 
-      res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "logistica", titulo: "LOGISTICA", dados: d, i: 0, max: Object.keys(d["logistica"]).length-limitador, min: Object.keys(d["logistica"]).length-15-limitador })
     })
   } else {
     res.render("pageError.ejs")
@@ -291,8 +297,10 @@ app.get("/saida", (req, res) => {
       }
 
       let d = JSON.parse(data)
+      let corredor = req.param("corredor") ? req.param("corredor") : 0
+      let limitador = corredor*2
 
-      res.render("bodyList.ejs", { pegar: "saida", titulo: "CARREGAMENTO CAMINHÃO", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "saida", titulo: "CARREGAMENTO CAMINHÃO", dados: d, i: 0, max: Object.keys(d["saida"]).length-limitador, min: Object.keys(d["saida"]).length-15-limitador })
     })
   } else {
     res.render("pageError.ejs")
@@ -307,8 +315,10 @@ app.get("/retorno", (req, res) => {
       }
 
       let d = JSON.parse(data)
+      let corredor = req.param("corredor") ? req.param("corredor") : 0
+      let limitador = corredor*2
 
-      res.render("bodyList.ejs", { pegar: "retorno", titulo: "ENTREGA DO MATERIAL", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "retorno", titulo: "ENTREGA DO MATERIAL", dados: d, i: 0, max: Object.keys(d["retorno"]).length-limitador, min: Object.keys(d["retorno"]).length-5-limitador })
     })
   } else {
     res.render("pageError.ejs")
@@ -323,8 +333,10 @@ app.get("/canhoto", (req, res) => {
       }
 
       let d = JSON.parse(data)
+      let corredor = req.param("corredor") ? req.param("corredor") : 0
+      let limitador = corredor*2
 
-      res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "canhoto", titulo: "CANHOTO", dados: d, i: 0, max: Object.keys(d["canhoto"]).length-limitador, min: Object.keys(d["canhoto"]).length-15-limitador })
     })
   } else {
     res.render("pageError.ejs")
@@ -339,8 +351,10 @@ app.get("/registroentrega", (req, res) => {
       }
 
       let d = JSON.parse(data)
+      let corredor = req.param("corredor") ? req.param("corredor") : 0
+      let limitador = corredor*2
 
-      res.render("bodyList.ejs", { pegar: "registroentrega", titulo: "CONFIRMAÇÃO DE ENTREGA", dados: d, i: 0 })
+      res.render("bodyList.ejs", { pegar: "registroentrega", titulo: "CONFIRMAÇÃO DE ENTREGA", dados: d, i: 0, max: Object.keys(d["registroentrega"]).length-limitador, min: Object.keys(d["registroentrega"]).length-15-limitador })
     })
   } else {
     res.render("pageError.ejs")

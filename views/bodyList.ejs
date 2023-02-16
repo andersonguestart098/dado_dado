@@ -30,59 +30,21 @@
         <hr>
         <div>
             <div>
-              
-            <span class="listar-usuarios"></span> 
-              
+              <span class="listar-usuarios"></span> 
               <%- include('list') %>
-              <!-- span é usado para setar os dados do list(ele que trás os dados para a tabela) -->
-
             </div>
         </div>
     </div>
-    <div class="modal fade" id="cadUsuarioModal" tabindex="-1" aria-labelledby="cadUsuarioModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="cadUsuarioModalLabel">ENVIAR PEDIDO PARA FINANCEIRO</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form id="cad-usuario-form"> <!-- este seletor será usado no java script (o javascript que vai receber estes dados)-->
-      <div class="mb-3"> 
-            <label for="datahora" class="col-form-label">REGISTRO</label>
-            <input type="datetime-local" name="datahora" class="form-control" id="datahora" autocomplete="on">
-          </div>
-          <br>
-          <div class="mb-3"> 
-            <input type="text" name="numeronf" class="form-control" id="numeronf" value="...">
-          </div>
-          <br>
-          <div class="mb-3"> 
-            <input type="text" name="exped" class="form-control" id="exped" value="...">
-          </div>
-          <br>
-          <div class="mb-3"> 
-            <input type="text" name="quemrecebeu" class="form-control" id="quemrecebeu" value="...">
-          </div>
-          <br>
-        <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Fechar</button> <!-- isso era um type button virou um input -->     <!-- cuidar muito bem o posicionamento das DIV'S no FORM pois dá erro no javascript! foi motivo de alguma raiva passada hoje 31/08 kkkkk -->
-        <input type="submit" class="btn btn-outline-success"
-         id="cad-usuario-btn" value="Enviar" /> 
-          </div>
-        </form>
-        </div>
-        <hr>
-
-        <!-- SELETOR "msgAlerta" responsavel em receber a mensagem de sucesso ou erro -->
-        <span id="msgAlerta"></span>
-
-        <div class="row">
-            <div class="col-lg-12">
-                <!-- SELETOR "listar-usuarios" responsavel em receber os registros do banco de dados -->
-                <span class="listar-usuarios"></span>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
+  
+  <script>
+    let urlBase = window.location.href.split('?corredor=');
+    let next
+    if(urlBase[1] == undefined) {
+      next = 1
+    }else {
+      next = parseInt(urlBase[1])
+      next++
+    }
+    $('table').before('<a id="btnNext" href="'+ urlBase[0] +'?corredor=' + next + ' ">'+ "pagina: " +  next +"</a>")
+  </script>
 </html>

@@ -1,3 +1,53 @@
+<div class="ca" id="ca"></div>
+<script>
+if("<%= dados["passagem"][dados[pegar][i].selecionarDado].numeronf %>"===""){
+  ca.innerHTML=`
+  <tr style="width:200px" class='cordaLinha<%= i %>'>
+  <td colspan='0.5' id='valor_idX<%= i %>'><%= i %></td>
+  
+<td id='valor_datahoraX<%= i %>'>
+    <input type='hidden' id='datahora_textX<%= i %>' value='$datahora'><%= dados["passagem"][dados[pegar][i].selecionarDado].dataHora %></td>
+
+ 
+      <td id='valor_numeronfX<%= i %>'>
+     <%= dados["passagem"][dados[pegar][i].selecionarDado].numeronf %>
+    </td>
+       
+   
+    <td id='valor_quemrecebeuX<%= i %>'>
+      <select onchange="autoreflash(this,Pvalor_quemrecebeu<%= i %>)" name='quem' id='quemX<%= i %>'>
+      <option value=''></option>
+      <option value='MANOEL'>MANOEL</option> 
+      <option value='CRISTIANO DUARTE'>CRISTIANO DUARTE</option> 
+    </select>
+
+      <p onclick='make(this,quemX<%= i %>)' id='Pvalor_quemrecebeu<%= i %>'><%= dados[pegar][i].quemrecebeu %></p>
+    </td>
+
+
+ 
+  
+      <td id='StatusdepX<%= i %>'>
+    <select onchange="autoreflash(this,PstatusdepX<%= i %>)" name='quem' id='statusdepX<%= i %>'><option value='PENDENTE'>PENDENTE</option> 
+      <option value='AGUARDANDO CLIENTE'>AGUARDANDO CLIENTE</option>
+      <option value='CLIENTE RETIROU'>CLIENTE RETIROU</option>
+      <option value='AGUARDANDO TRANSPORTADORA'>AGUARDANDO TRANSPORTADORA</option>
+      <option value='CANCELADA'>CANCELADA</option>
+      <option value='EM OBSERVAÇÃO T.I'>EM OBSERVAÇÃO T.I</option>
+    </select><p onclick='make(this,statusdepX<%= i %>)' id='PstatusdepX<%= i %>' class="orientador"><%= dados[pegar][i].statusdep %></p></td>`
+}else{
+document.body.innerHTML=`
+<td id='valor_datahoraX<%= i %>'>
+    <input type='hidden' id='datahora_textX<%= i %>' value='$datahora'><%= dados["passagem"][dados[pegar][i].selecionarDado].dataHora %></td>
+
+
+      <td id='valor_numeronfX<%= i %>'>
+     <%= dados["passagem"][dados[pegar][i].selecionarDado].numeronf %>
+    </td>`
+}
+
+
+</script>
 <tr style="width:200px" class='cordaLinha<%= i %>'>
   <td colspan='0.5' id='valor_idX<%= i %>'><%= i %></td>
   
@@ -29,4 +79,5 @@
       <option value='CLIENTE RETIROU'>CLIENTE RETIROU</option>
       <option value='AGUARDANDO TRANSPORTADORA'>AGUARDANDO TRANSPORTADORA</option>
       <option value='CANCELADA'>CANCELADA</option>
+      <option value='EM OBSERVAÇÃO T.I'>EM OBSERVAÇÃO T.I</option>
     </select><p onclick='make(this,statusdepX<%= i %>)' id='PstatusdepX<%= i %>' class="orientador"><%= dados[pegar][i].statusdep %></p></td>

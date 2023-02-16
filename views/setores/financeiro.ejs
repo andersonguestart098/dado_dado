@@ -86,6 +86,8 @@
   <option 
     value='EMITIDA'>EMITIDA</option>
     <option 
+    value='TITULO EM ABERTO'>TITULO EM ABERTO</option>
+    <option 
     value='AGUARDANDO CLIENTE.'>AGUARDANDO CLIENTE.</option>
   <option 
     value='RETORNOU AO VENDEDOR'>RETORNOU AO VENDEDOR</option>
@@ -123,7 +125,7 @@
         onchange="autoreflash(this, Pvalor_numeronfX<%= dados[pegar][i].id %>)" 
         type='text' 
         value="<%= dados[pegar][i].numeronf %>" 
-        id='numeronf_textX<%= dados[pegar][i].id %>'>
+        id='numeronf_textX<%= dados[pegar][i].id %>' required>
 
       <p 
         onclick='make(this,numeronf_textX<%= dados[pegar][i].id %>)' id='Pvalor_numeronfX<%= dados[pegar][i].id %>'>
@@ -149,10 +151,10 @@
       <option value='ENTREGUE AO CLIENTE'>ENTREGUE AO CLIENTE</option>
       <option value='MAX'>MAX</option>
       <option value='DUDU'>DUDU</option>
-      <option value='TINGA'>TINGA</option>S
+      <option value='TINGA'>TINGA</option>
       <option value='MANOEL'>MANOEL</option> 
-      <option value='DIEIMES'>DIEIMES</option> 
-      <option value='CRISTIANO DUARTE'>CRISTIANO DUARTE</option> 
+      <option value='DIEIMES'>DIEIMES</option>
+      <option value='CRISTIANO DUARTE'>CRISTIANO DUARTE</option>
     </select>
 
       <p onclick='make(this,quemX<%= dados[pegar][i].id %>)' id='Pvalor_quemrecebeu<%= dados[pegar][i].id %>'><%= dados[pegar][i].quemrecebeu %></p>
